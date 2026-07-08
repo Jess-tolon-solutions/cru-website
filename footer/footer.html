@@ -8,7 +8,9 @@
 
 <style>
 .cru-footer { background:#0e1417; color:#aeb9bd; font-family:'Open Sans',Arial,sans-serif; font-size:0.9rem; line-height:1.7;
-  border-top:3px solid transparent; border-image:linear-gradient(90deg,#116782 0%,#1a8fa8 45%,#5eff00 100%) 1; }
+  border-top:3px solid transparent; border-image:linear-gradient(90deg,#116782 0%,#1a8fa8 45%,#5eff00 100%) 1;
+  /* full-bleed: break out of Flatsome's centered footer container to reach the screen edges */
+  margin-left:calc(-50vw + 50%); margin-right:calc(-50vw + 50%); }
 
 /* --- top: 4 link columns + logo pinned far right --- */
 .cru-footer-main { max-width:1300px; margin:0 auto; padding:52px 30px 34px; display:flex; align-items:center; justify-content:space-between; gap:40px; }
