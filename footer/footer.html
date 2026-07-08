@@ -1,101 +1,111 @@
 <!--
-  CEILINGS R US — Site Footer (Local-SEO) — v3 (link columns + horizontal contact bar)
+  CEILINGS R US — Site Footer (Local-SEO) — v4
   Flatsome footer: Appearance → Widgets → "Footer 1" → Custom HTML widget.
+  NOTE: set Customize → Footer → Footer Row 1 = 1 full-width column so this
+  spans edge-to-edge (the dark bg is full-width; content is centered to 1300px).
   TODO: confirm hours (Mon–Fri 8:00 AM–6:00 PM).
 -->
 
 <style>
-.cru-footer { background:#0e1417; color:#aeb9bd; font-family:'Open Sans',Arial,sans-serif; font-size:0.9rem; line-height:1.7; border-top:3px solid #1a8fa8; }
+.cru-footer { background:#0e1417; color:#aeb9bd; font-family:'Open Sans',Arial,sans-serif; font-size:0.9rem; line-height:1.7;
+  border-top:3px solid transparent; border-image:linear-gradient(90deg,#116782 0%,#1a8fa8 45%,#5eff00 100%) 1; }
 
-/* --- top: 4 even link columns --- */
-.cru-footer-cols { max-width:1180px; margin:0 auto; padding:52px 28px 34px; display:grid; grid-template-columns:repeat(4,1fr); gap:32px; }
-@media (max-width:820px){ .cru-footer-cols{ grid-template-columns:repeat(2,1fr); gap:30px; } }
-@media (max-width:480px){ .cru-footer-cols{ grid-template-columns:1fr; } }
+/* --- top: 4 link columns + logo pinned far right --- */
+.cru-footer-main { max-width:1300px; margin:0 auto; padding:52px 30px 34px; display:flex; align-items:center; justify-content:space-between; gap:40px; }
+.cru-footer-links { display:grid; grid-template-columns:repeat(4,1fr); gap:34px; flex:1; }
+.cru-footer-logo { flex-shrink:0; }
+.cru-footer-logo img { width:150px; height:auto; display:block; }
+@media (max-width:960px){
+  .cru-footer-main{ flex-direction:column; align-items:flex-start; gap:34px; }
+  .cru-footer-links{ width:100%; grid-template-columns:repeat(2,1fr); gap:30px; }
+  .cru-footer-logo{ align-self:center; }
+}
+@media (max-width:480px){ .cru-footer-links{ grid-template-columns:1fr; } }
+
 .cru-footer h4 { color:#fff; font-size:0.92rem; font-weight:700; margin:0 0 16px; padding-bottom:9px; position:relative; letter-spacing:0.3px; }
-.cru-footer h4::after { content:''; position:absolute; left:0; bottom:0; width:32px; height:2px; background:#1a8fa8; }
+.cru-footer h4::after { content:''; position:absolute; left:0; bottom:0; width:34px; height:2px; background:linear-gradient(90deg,#1a8fa8,#5eff00); }
 .cru-footer ul { list-style:none; margin:0; padding:0; }
 .cru-footer li { margin-bottom:10px; }
-.cru-footer a { color:#aeb9bd; text-decoration:none; transition:color 0.15s; }
-.cru-footer a:hover { color:#5eff00; }
+.cru-footer-links a { color:#aeb9bd; text-decoration:none; transition:color 0.15s; }
+.cru-footer-links a:hover { color:#5eff00; }
 
-/* --- middle: horizontal contact bar --- */
-.cru-contact { border-top:1px solid #1f2a2e; }
-.cru-contact-inner { max-width:1180px; margin:0 auto; padding:24px 28px; display:flex; align-items:center; justify-content:space-between; gap:22px 30px; flex-wrap:wrap; }
-.cru-contact-brand { display:flex; align-items:center; gap:16px; }
-.cru-contact-brand img { width:60px; height:auto; flex-shrink:0; }
-.cru-contact-brand .tag { color:#8b989d; font-size:0.82rem; max-width:230px; line-height:1.5; }
-.cru-contact-nap { display:flex; flex-wrap:wrap; gap:8px 22px; font-style:normal; }
-.cru-contact-nap span { display:inline-flex; align-items:center; gap:8px; color:#aeb9bd; font-size:0.85rem; }
-.cru-contact-nap .ic { color:#1a8fa8; display:inline-flex; flex-shrink:0; }
+/* --- contact bar (distinct dark-teal band) --- */
+.cru-contact { background:#0c1f28; border-top:1px solid #12333f; }
+.cru-contact-inner { max-width:1300px; margin:0 auto; padding:20px 30px; display:flex; align-items:center; justify-content:space-between; gap:16px 30px; flex-wrap:wrap; }
+.cru-contact-nap { display:flex; flex-wrap:wrap; gap:8px 26px; font-style:normal; }
+.cru-contact-nap span { display:inline-flex; align-items:center; gap:8px; color:#c2ccd0; font-size:0.85rem; }
+.cru-contact-nap .ic { color:#3bb6cf; display:inline-flex; flex-shrink:0; }
 .cru-contact-nap .ic svg { width:15px; height:15px; }
-.cru-contact-nap a { color:#aeb9bd; text-decoration:none; }
+.cru-contact-nap a { color:#c2ccd0; text-decoration:none; }
 .cru-contact-nap a:hover { color:#5eff00; }
 .cru-contact-social { display:flex; gap:11px; flex-shrink:0; }
-.cru-contact-social a { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid #2a3439; border-radius:8px; color:#aeb9bd; transition:all 0.15s; }
-.cru-contact-social a:hover { border-color:#1a8fa8; color:#5eff00; }
+.cru-contact-social a { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid #1c4250; border-radius:8px; color:#c2ccd0; transition:all 0.15s; }
+.cru-contact-social a:hover { border-color:#3bb6cf; color:#5eff00; }
 .cru-contact-social svg { width:17px; height:17px; }
 
 /* --- bottom bar --- */
-.cru-footer-bottom { border-top:1px solid #1f2a2e; }
-.cru-footer-bottom-inner { max-width:1180px; margin:0 auto; padding:18px 28px 26px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px 20px; font-size:0.8rem; color:#7a878c; }
+.cru-footer-bottom { background:#0e1417; }
+.cru-footer-bottom-inner { max-width:1300px; margin:0 auto; padding:18px 30px 26px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px 20px; font-size:0.8rem; color:#7a878c; }
 .cru-footer-bottom-inner a { color:#9aa6aa; text-decoration:none; }
 .cru-footer-bottom-inner a:hover { color:#5eff00; }
-.cru-footer-badge { color:#1a8fa8; font-weight:700; }
+.cru-footer-badge { color:#3bb6cf; font-weight:700; }
 .cru-footer-legal a { margin-left:18px; }
 @media (max-width:560px){ .cru-footer-legal a{ margin:0 18px 0 0; } }
 </style>
 
 <footer class="cru-footer" itemscope itemtype="https://schema.org/LocalBusiness">
+  <meta itemprop="name" content="Ceilings R Us">
 
-  <!-- Link columns -->
-  <div class="cru-footer-cols">
-    <div>
-      <h4>Service Areas</h4>
-      <ul>
-        <li><a href="https://ceilingsrus.net/fort-lauderdale/">Fort Lauderdale</a></li>
-        <li><a href="https://ceilingsrus.net/miami/">Miami</a></li>
-        <li><a href="https://ceilingsrus.net/miami-dade/">Miami-Dade County</a></li>
-        <li><a href="https://ceilingsrus.net/broward-county/">Broward County</a></li>
-        <li><a href="https://ceilingsrus.net/boca-raton/">Boca Raton</a></li>
-        <li><a href="https://ceilingsrus.net/west-palm-beach/">West Palm Beach</a></li>
-      </ul>
+  <!-- Link columns + logo -->
+  <div class="cru-footer-main">
+    <div class="cru-footer-links">
+      <div>
+        <h4>Service Areas</h4>
+        <ul>
+          <li><a href="https://ceilingsrus.net/fort-lauderdale/">Fort Lauderdale</a></li>
+          <li><a href="https://ceilingsrus.net/miami/">Miami</a></li>
+          <li><a href="https://ceilingsrus.net/miami-dade/">Miami-Dade County</a></li>
+          <li><a href="https://ceilingsrus.net/broward-county/">Broward County</a></li>
+          <li><a href="https://ceilingsrus.net/boca-raton/">Boca Raton</a></li>
+          <li><a href="https://ceilingsrus.net/west-palm-beach/">West Palm Beach</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="https://ceilingsrus.net/services/">Commercial Ceiling Cleaning</a></li>
+          <li><a href="https://ceilingsrus.net/services/">Restaurant &amp; Kitchen Ceilings</a></li>
+          <li><a href="https://ceilingsrus.net/services/">Ceiling Tile Restoration</a></li>
+          <li><a href="https://ceilingsrus.net/services/">Vent, Hood &amp; Exhaust Cleaning</a></li>
+          <li><a href="https://ceilingsrus.net/services/">Drop Ceiling Installation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://ceilingsrus.net/">Home</a></li>
+          <li><a href="https://ceilingsrus.net/about/">About</a></li>
+          <li><a href="https://ceilingsrus.net/services/">Services</a></li>
+          <li><a href="https://ceilingsrus.net/contact/">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Free Tools</h4>
+        <ul>
+          <li><a href="https://ceilingsrus.net/facility-assessment/">Facility Assessment</a></li>
+          <li><a href="https://ceilingsrus.net/violation-map/">Violation Map</a></li>
+          <li><a href="https://ceilingsrus.net/real-violations/">What an Inspector Sees</a></li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h4>Our Services</h4>
-      <ul>
-        <li><a href="https://ceilingsrus.net/services/">Commercial Ceiling Cleaning</a></li>
-        <li><a href="https://ceilingsrus.net/services/">Restaurant &amp; Kitchen Ceilings</a></li>
-        <li><a href="https://ceilingsrus.net/services/">Ceiling Tile Restoration</a></li>
-        <li><a href="https://ceilingsrus.net/services/">Vent, Hood &amp; Exhaust Cleaning</a></li>
-        <li><a href="https://ceilingsrus.net/services/">Drop Ceiling Installation</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <ul>
-        <li><a href="https://ceilingsrus.net/">Home</a></li>
-        <li><a href="https://ceilingsrus.net/about/">About</a></li>
-        <li><a href="https://ceilingsrus.net/services/">Services</a></li>
-        <li><a href="https://ceilingsrus.net/contact/">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Free Tools</h4>
-      <ul>
-        <li><a href="https://ceilingsrus.net/facility-assessment/">Facility Assessment</a></li>
-        <li><a href="https://ceilingsrus.net/violation-map/">Violation Map</a></li>
-        <li><a href="https://ceilingsrus.net/real-violations/">What an Inspector Sees</a></li>
-      </ul>
+    <div class="cru-footer-logo">
+      <img src="https://ceilingsrus.net/wp-content/uploads/2025/03/cropped-Ceilings_R_Us-10-removebg-preview-270x270.png" alt="Ceilings R Us — Complete Commercial Cleaning" itemprop="logo">
     </div>
   </div>
 
   <!-- Contact bar -->
   <div class="cru-contact">
     <div class="cru-contact-inner">
-      <div class="cru-contact-brand">
-        <img src="https://ceilingsrus.net/wp-content/uploads/2025/03/cropped-Ceilings_R_Us-10-removebg-preview-270x270.png" alt="Ceilings R Us — Complete Commercial Cleaning" itemprop="logo">
-        <span class="tag"><span itemprop="name">Ceilings R Us</span> — South Florida's commercial ceiling cleaning &amp; restoration experts.</span>
-      </div>
       <address class="cru-contact-nap">
         <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span> <span itemprop="streetAddress">2880 SW 23rd Terrace, Ste 104</span>, <span itemprop="addressLocality">Fort Lauderdale</span>, <span itemprop="addressRegion">FL</span> <span itemprop="postalCode">33312</span></span>
         <span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.5-1.1a2 2 0 012.1-.5c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z"/></svg></span> <a href="tel:+19544520004" itemprop="telephone">(954) 452-0004</a></span>
