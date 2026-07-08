@@ -1,48 +1,45 @@
 <!--
-  CEILINGS R US — Site Footer (Local-SEO focused)
-  Place in the Flatsome footer: Appearance → Widgets → "Footer 1" → add a
-  Custom HTML widget → paste this. (Set Footer to 1 full-width row, and turn
-  off the default "Back to top" text row if you want it minimal.)
+  CEILINGS R US — Site Footer (Local-SEO focused) — v2 balanced
+  Place in Flatsome footer: Appearance → Widgets → "Footer 1" → Custom HTML widget.
+  (Customize → Footer → Footer Row 1 = enabled, 1 full-width column.)
 
-  >>> CONFIRM / FILL THESE BEFORE PUBLISHING (marked TODO below):
-      - Hours of operation
-      - Social profile URLs (Facebook / Instagram / LinkedIn)
-      - Google Business Profile URL
-      - Terms page slug (currently /terms-and-conditions/ — publish that page)
+  >>> TODO before final: confirm hours (currently Mon–Fri 8:00 AM–6:00 PM).
 -->
 
 <style>
 .cru-footer { background:#0e1417; color:#aeb9bd; font-family:'Open Sans',Arial,sans-serif; font-size:0.9rem; line-height:1.7; border-top:3px solid #1a8fa8; }
-.cru-footer-inner { max-width:1200px; margin:0 auto; padding:56px 24px 30px; display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:40px; }
-@media (max-width:900px){ .cru-footer-inner{ grid-template-columns:1fr 1fr; gap:32px; } }
-@media (max-width:560px){ .cru-footer-inner{ grid-template-columns:1fr; } }
+.cru-footer-inner { max-width:1240px; margin:0 auto; padding:54px 28px 30px; display:grid; grid-template-columns:1.7fr 1fr 1.2fr 0.9fr 1.05fr; gap:36px; }
+@media (max-width:1000px){ .cru-footer-inner{ grid-template-columns:repeat(2,1fr); gap:34px 40px; } }
+@media (max-width:560px){ .cru-footer-inner{ grid-template-columns:1fr; gap:30px; text-align:left; } }
 
-.cru-footer-logo { width:110px; height:auto; margin-bottom:16px; }
-.cru-footer-tag { color:#8b989d; font-size:0.85rem; margin:0 0 18px; max-width:300px; }
+.cru-footer-logo { width:104px; height:auto; margin-bottom:16px; }
+.cru-footer-tag { color:#8b989d; font-size:0.85rem; margin:0 0 18px; max-width:290px; }
 .cru-footer-nap { font-style:normal; margin:0; }
-.cru-footer-nap div { margin-bottom:7px; display:flex; align-items:flex-start; gap:9px; }
-.cru-footer-nap .ic { color:#1a8fa8; flex-shrink:0; margin-top:3px; }
+.cru-footer-nap div { margin-bottom:9px; display:flex; align-items:flex-start; gap:10px; }
+.cru-footer-nap .ic { color:#1a8fa8; flex-shrink:0; margin-top:2px; display:inline-flex; }
+.cru-footer-nap .ic svg { width:15px; height:15px; }
 .cru-footer-nap a { color:#aeb9bd; text-decoration:none; }
 .cru-footer-nap a:hover { color:#5eff00; }
 
-.cru-footer h4 { color:#fff; font-size:0.95rem; font-weight:700; margin:0 0 16px; padding-bottom:9px; position:relative; letter-spacing:0.3px; }
-.cru-footer h4::after { content:''; position:absolute; left:0; bottom:0; width:34px; height:2px; background:#1a8fa8; }
+.cru-footer h4 { color:#fff; font-size:0.92rem; font-weight:700; margin:0 0 16px; padding-bottom:9px; position:relative; letter-spacing:0.3px; }
+.cru-footer h4::after { content:''; position:absolute; left:0; bottom:0; width:32px; height:2px; background:#1a8fa8; }
 .cru-footer ul { list-style:none; margin:0; padding:0; }
-.cru-footer li { margin-bottom:9px; }
+.cru-footer li { margin-bottom:10px; }
 .cru-footer a { color:#aeb9bd; text-decoration:none; transition:color 0.15s; }
 .cru-footer a:hover { color:#5eff00; }
 
-.cru-footer-social { display:flex; gap:12px; margin-top:18px; }
+.cru-footer-social { display:flex; gap:11px; margin-top:20px; }
 .cru-footer-social a { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid #2a3439; border-radius:8px; color:#aeb9bd; transition:all 0.15s; }
 .cru-footer-social a:hover { border-color:#1a8fa8; color:#5eff00; }
 .cru-footer-social svg { width:17px; height:17px; }
 
 .cru-footer-bottom { border-top:1px solid #1f2a2e; }
-.cru-footer-bottom-inner { max-width:1200px; margin:0 auto; padding:18px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; font-size:0.8rem; color:#7a878c; }
+.cru-footer-bottom-inner { max-width:1240px; margin:0 auto; padding:18px 28px 26px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px 20px; font-size:0.8rem; color:#7a878c; }
 .cru-footer-bottom-inner a { color:#9aa6aa; text-decoration:none; }
 .cru-footer-bottom-inner a:hover { color:#5eff00; }
 .cru-footer-badge { color:#1a8fa8; font-weight:700; }
-.cru-footer-legal a { margin-left:16px; }
+.cru-footer-legal a { margin-left:18px; }
+@media (max-width:560px){ .cru-footer-legal a{ margin:0 18px 0 0; } }
 </style>
 
 <footer class="cru-footer">
@@ -54,13 +51,12 @@
       <p class="cru-footer-tag"><span itemprop="name">Ceilings R Us</span> — South Florida's commercial ceiling cleaning &amp; restoration experts.</p>
       <address class="cru-footer-nap">
         <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-          <span class="ic">&#9679;</span>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
           <span><span itemprop="streetAddress">2880 SW 23rd Terrace, Ste 104</span><br><span itemprop="addressLocality">Fort Lauderdale</span>, <span itemprop="addressRegion">FL</span> <span itemprop="postalCode">33312</span></span>
         </div>
-        <div><span class="ic">&#9742;</span> <a href="tel:+19544520004" itemprop="telephone">(954) 452-0004</a></div>
-        <div><span class="ic">&#9993;</span> <a href="mailto:info@ceilingsrus.net" itemprop="email">info@ceilingsrus.net</a></div>
-        <!-- TODO confirm hours -->
-        <div><span class="ic">&#128337;</span> <span>Mon&ndash;Fri: 8:00 AM &ndash; 6:00 PM</span></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.5-1.1a2 2 0 012.1-.5c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z"/></svg></span> <a href="tel:+19544520004" itemprop="telephone">(954) 452-0004</a></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span> <a href="mailto:info@ceilingsrus.net" itemprop="email">info@ceilingsrus.net</a></div>
+        <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span> <span>Mon&ndash;Fri: 8:00 AM &ndash; 6:00 PM</span></div>
       </address>
       <div class="cru-footer-social">
         <a href="https://www.linkedin.com/company/ceilings-r-us" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0zM3.5 8.5h3v12h-3v-12zm5 0h2.9v1.6h.04c.4-.76 1.4-1.6 2.9-1.6 3.1 0 3.66 2 3.66 4.7v7.3h-3v-6.5c0-1.55-.03-3.55-2.16-3.55-2.16 0-2.5 1.7-2.5 3.44v6.6h-3v-12z"/></svg></a>
@@ -94,7 +90,7 @@
       </ul>
     </div>
 
-    <!-- Column 4: Company + Free Tools -->
+    <!-- Column 4: Company -->
     <div>
       <h4>Company</h4>
       <ul>
@@ -103,7 +99,11 @@
         <li><a href="https://ceilingsrus.net/services/">Services</a></li>
         <li><a href="https://ceilingsrus.net/contact/">Contact</a></li>
       </ul>
-      <h4 style="margin-top:24px;">Free Tools</h4>
+    </div>
+
+    <!-- Column 5: Free Tools -->
+    <div>
+      <h4>Free Tools</h4>
       <ul>
         <li><a href="https://ceilingsrus.net/facility-assessment/">Facility Assessment</a></li>
         <li><a href="https://ceilingsrus.net/violation-map/">Violation Map</a></li>
