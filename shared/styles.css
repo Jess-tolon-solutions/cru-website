@@ -1,0 +1,37 @@
+/* ============================================================
+   CEILINGS R US — Shared brand palette & type
+   Reference values used across every custom section. Keep new
+   blocks consistent with these so the site reads as one design.
+   (WP-pasted blocks inline their own <style>; this file is the
+   single source of truth for the values.)
+   ============================================================ */
+
+:root {
+  /* Brand teals */
+  --cru-teal:        #116782;  /* primary — headings, buttons, eyebrows */
+  --cru-teal-dark:   #0f2d36;  /* darkest — big headings, dark bands */
+  --cru-teal-mid:    #108483;  /* WP header bar / violation-map header */
+  --cru-teal-deep:   #0d6e85;  /* real-violations card accent */
+
+  /* Accent */
+  --cru-green:       #5eff00;  /* CTA / check marks */
+  --cru-green-hover: #4acc00;
+
+  /* Support */
+  --cru-ink:         #374151;  /* body text */
+  --cru-muted:       #5a7580;  /* secondary text */
+  --cru-bg-light:    #f4f8f9;  /* light section background */
+  --cru-danger:      #dc2626;  /* violation red */
+  --cru-warning:     #d97706;  /* escalation amber */
+
+  /* Type */
+  --cru-font: 'Open Sans', Arial, sans-serif;   /* site body */
+  --cru-font-cards: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; /* violation cards */
+}
+
+/* Canonical facts (not CSS — kept here so they live with the code):
+   Phone:  (954) 452-0004   tel:+19544520004
+   Email:  info@ceilingsrus.net
+   Live pages: /  /violation-map  /facility-assessment/  /real-violations/
+   Theme: Flatsome (UX Builder). Home = page-id-21, Violation Map = page-id-1561.
+*/

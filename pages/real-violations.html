@@ -1,0 +1,341 @@
+<style>
+.rv-wrap *{margin:0;padding:0;box-sizing:border-box}
+.rv-wrap{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#f4f5f7;color:#1a1a2e;line-height:1.5;-webkit-font-smoothing:antialiased;margin-bottom:0!important;padding-bottom:0!important}
+.rv-wrap{--primary:#0d6e85;--primary-light:#1a8fa8;--primary-dark:#084c5e;--accent:#00d4aa;--danger:#dc2626;--danger-light:#fef2f2;--warning:#d97706;--warning-light:#fffbeb;--white:#fff;--gray-50:#f9fafb;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-500:#6b7280;--gray-700:#374151;--gray-900:#111827;--shadow-lg:0 20px 40px -12px rgba(0,0,0,0.15);--shadow-xl:0 25px 50px -12px rgba(0,0,0,0.2)}
+.rv-hero{background:transparent;color:var(--gray-900);text-align:center;padding:50px 40px 30px;position:relative;overflow:hidden}
+.rv-hero::before{display:none}
+.rv-hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto;background:var(--white);border-radius:16px;padding:40px 50px;box-shadow:0 4px 20px rgba(0,0,0,0.08);border:1px solid var(--gray-200)}
+.rv-badge{display:inline-flex;align-items:center;gap:8px;background:var(--primary);padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;color:white;margin-bottom:20px}
+.rv-hero h1{font-size:42px;font-weight:800;margin-bottom:16px;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.15;letter-spacing:-0.03em;color:var(--gray-900)}
+.rv-hero p{font-size:17px;color:var(--gray-500);max-width:550px;margin:0 auto}
+.rv-container{max-width:1320px;margin:0 auto;padding:40px 40px 70px}
+.rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(max-width:1100px){.rv-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.rv-grid{grid-template-columns:1fr}.rv-hero h1{font-size:28px}.rv-hero p{font-size:15px}.rv-hero-content{padding:30px 24px}.rv-container{padding:40px 20px 50px}}
+.rv-card{perspective:1200px;height:480px;cursor:pointer}
+.rv-card-inner{position:relative;width:100%;height:100%;transition:transform 0.65s cubic-bezier(0.4,0.2,0.2,1);transform-style:preserve-3d}
+.rv-card.flipped .rv-card-inner{transform:rotateY(180deg)}
+.rv-card-front,.rv-card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden;background:var(--white);box-shadow:var(--shadow-lg);border:1px solid var(--gray-200)}
+.rv-card:hover .rv-card-front{box-shadow:var(--shadow-xl)}
+.rv-card-back{transform:rotateY(180deg)}
+.rv-card-image{width:100%;height:260px;overflow:hidden;position:relative}
+.rv-card-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease}
+.rv-card:hover .rv-card-image img{transform:scale(1.06)}
+.rv-tag{position:absolute;top:14px;left:14px;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;display:flex;align-items:center;gap:5px}
+.rv-tag::before{content:'';width:6px;height:6px;border-radius:50%;animation:rvpulse 2s infinite}
+@keyframes rvpulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.rv-tag.critical{background:var(--danger);color:white}
+.rv-tag.critical::before{background:white}
+.rv-tag.high{background:var(--warning);color:white}
+.rv-tag.high::before{background:white}
+.rv-card-content{padding:24px 28px 28px;text-align:center}
+.rv-card-title{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:8px;line-height:1.3}
+.rv-card-desc{font-size:14px;color:var(--gray-500);margin-bottom:18px;line-height:1.5}
+.rv-card-cta{display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-weight:600;font-size:14px;transition:gap 0.2s}
+.rv-card:hover .rv-card-cta{gap:10px}
+.rv-back-content{padding:24px;height:100%;display:flex;flex-direction:column;background:linear-gradient(180deg,var(--gray-50) 0%,var(--white) 100%)}
+.rv-back-header{text-align:center;padding-bottom:16px;border-bottom:1px solid var(--gray-200);margin-bottom:16px}
+.rv-back-badge{display:inline-flex;padding:5px 12px;border-radius:50px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px}
+.rv-back-badge.critical{background:var(--danger-light);color:var(--danger)}
+.rv-back-badge.high{background:var(--warning-light);color:var(--warning)}
+.rv-back-badge.basic{background:#e6f3f6;color:var(--primary)}
+.rv-back-title{font-size:16px;font-weight:700;color:var(--gray-900)}
+.rv-scores{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.rv-score{background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:14px 12px;text-align:center}
+.rv-score.critical{border-color:rgba(220,38,38,0.3);background:var(--danger-light)}
+.rv-score.high{border-color:rgba(217,119,6,0.3);background:var(--warning-light)}
+.rv-score.basic{border-color:rgba(13,110,133,0.3);background:#e6f3f6}
+.rv-score-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--gray-500);margin-bottom:4px}
+.rv-score-value{font-size:15px;font-weight:700;color:var(--gray-900)}
+.rv-score.critical .rv-score-value{color:var(--danger)}
+.rv-score.high .rv-score-value{color:var(--warning)}
+.rv-score.basic .rv-score-value{color:var(--primary)}
+.rv-notes{flex:1;background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.rv-notes h4{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--primary);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.rv-notes h4::before{content:'';width:3px;height:12px;background:var(--primary);border-radius:2px}
+.rv-notes ul{list-style:none}
+.rv-notes li{font-size:12px;color:var(--gray-700);padding:4px 0 4px 14px;position:relative;line-height:1.4}
+.rv-notes li::before{content:"";position:absolute;left:0;top:10px;width:4px;height:4px;background:var(--gray-300);border-radius:50%}
+.rv-back-cta{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:var(--white)!important;text-align:center;padding:12px;border-radius:8px;text-decoration:none;font-weight:600;font-size:13px;transition:all 0.2s;box-shadow:0 2px 8px rgba(13,110,133,0.3)}
+.rv-back-cta:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(13,110,133,0.4);color:var(--white)!important}
+.rv-flip-hint{text-align:center;margin-top:8px;font-size:11px;color:var(--gray-500)}
+.rv-cta-section{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 50%,var(--primary-dark) 100%);padding:70px 40px 80px;text-align:center;color:white;position:relative;overflow:hidden;border-radius:0;margin:0;margin-bottom:-80px!important;width:100vw;margin-left:calc(-50vw + 50%)}
+.rv-cta-section::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(0,212,170,0.1) 0%,transparent 60%);pointer-events:none}
+.rv-cta-content{position:relative;z-index:1}
+.rv-cta-section h2{font-size:36px;font-weight:800;margin-bottom:14px;letter-spacing:-0.02em;color:white}
+.rv-cta-section p{font-size:17px;opacity:0.9;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto}
+.rv-cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.rv-cta-btn{padding:14px 32px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;transition:all 0.2s}
+.rv-cta-btn.primary{background:#5EFF00!important;color:#1a1a2e!important;box-shadow:0 4px 14px rgba(94,255,0,0.4)!important;border:none!important;font-weight:700!important}
+.rv-cta-btn.secondary{background:rgba(255,255,255,0.1);color:white!important;border:1px solid rgba(255,255,255,0.3)}
+.rv-cta-btn:hover{transform:translateY(-2px)}
+@media(max-width:680px){.rv-cta-section{padding:50px 24px}.rv-cta-section h2{font-size:28px}}
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<div class="rv-wrap">
+
+<section class="rv-hero">
+<div class="rv-hero-content">
+<div class="rv-badge">
+<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+Based on Real DBPR Inspection Data
+</div>
+<h1>Real Violations</h1>
+<p>Click any ceiling condition to see how health inspectors score it under Code 36 — and what it can escalate into.</p>
+</div>
+</section>
+
+<div class="rv-container">
+<div class="rv-grid">
+
+<!-- CARD 1: Water Stains & Damage -->
+<div class="rv-card" onclick="this.classList.toggle('flipped')">
+<div class="rv-card-inner">
+<div class="rv-card-front">
+<div class="rv-card-image">
+<span class="rv-tag high">Mold Risk</span>
+<img src="https://ceilingsrus.net/wp-content/uploads/2026/05/EE86FE32-7122-49E1-A7E8-F48048E49494_1_105_c.jpeg" alt="Water-stained, peeling ceiling tiles">
+</div>
+<div class="rv-card-content">
+<h3 class="rv-card-title">Water Stains & Damage</h3>
+<p class="rv-card-desc">Brown rings, stains, and peeling tiles from leaks above the kitchen</p>
+<span class="rv-card-cta">See Inspector Score →</span>
+</div>
+</div>
+<div class="rv-card-back">
+<div class="rv-back-content">
+<div class="rv-back-header">
+<span class="rv-back-badge basic">Basic Violation · Code 36</span>
+<div class="rv-back-title">Water Stains & Damage</div>
+</div>
+<div class="rv-scores">
+<div class="rv-score basic"><div class="rv-score-label">Violation</div><div class="rv-score-value">Code 36</div></div>
+<div class="rv-score high"><div class="rv-score-label">Escalates To</div><div class="rv-score-value">Mold</div></div>
+</div>
+<div class="rv-notes">
+<h4>Inspector Notes</h4>
+<ul>
+<li>Stains signal an active or past roof/plumbing leak</li>
+<li>Moisture behind tiles breeds mold — a high-priority issue</li>
+<li>Surface deterioration over food prep gets flagged first</li>
+</ul>
+</div>
+<a href="tel:+19544520004" class="rv-back-cta">Get This Fixed</a>
+<div class="rv-flip-hint">Click to flip back</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CARD 2: Mold & Mildew -->
+<div class="rv-card" onclick="this.classList.toggle('flipped')">
+<div class="rv-card-inner">
+<div class="rv-card-front">
+<div class="rv-card-image">
+<span class="rv-tag critical">High-Priority Risk</span>
+<img src="https://ceilingsrus.net/wp-content/uploads/2026/06/IMG_3717-scaled.jpeg" alt="Mold and mildew on ceiling tiles">
+</div>
+<div class="rv-card-content">
+<h3 class="rv-card-title">Mold &amp; Mildew</h3>
+<p class="rv-card-desc">Black or green growth on tiles, grid, or around vents</p>
+<span class="rv-card-cta">See Inspector Score →</span>
+</div>
+</div>
+<div class="rv-card-back">
+<div class="rv-back-content">
+<div class="rv-back-header">
+<span class="rv-back-badge critical">Escalates to High Priority</span>
+<div class="rv-back-title">Mold &amp; Mildew</div>
+</div>
+<div class="rv-scores">
+<div class="rv-score basic"><div class="rv-score-label">Starts As</div><div class="rv-score-value">Code 36</div></div>
+<div class="rv-score critical"><div class="rv-score-label">Escalates To</div><div class="rv-score-value">Contamination</div></div>
+</div>
+<div class="rv-notes">
+<h4>Inspector Notes</h4>
+<ul>
+<li>Visible mold is treated as a contamination hazard</li>
+<li>Can jump from Basic to High Priority on the spot</li>
+<li>Signals chronic moisture that must be fixed at the source</li>
+</ul>
+</div>
+<a href="tel:+19544520004" class="rv-back-cta">Get This Fixed</a>
+<div class="rv-flip-hint">Click to flip back</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CARD 3: Grease & Soot Buildup -->
+<div class="rv-card" onclick="this.classList.toggle('flipped')">
+<div class="rv-card-inner">
+<div class="rv-card-front">
+<div class="rv-card-image">
+<span class="rv-tag critical">Fire Hazard</span>
+<img src="https://ceilingsrus.net/wp-content/uploads/2025/06/IMG_5043.jpeg" alt="Grease and soot buildup around kitchen ventilation">
+</div>
+<div class="rv-card-content">
+<h3 class="rv-card-title">Grease &amp; Soot Buildup</h3>
+<p class="rv-card-desc">Heavy grease and soot around hoods, vents, and equipment</p>
+<span class="rv-card-cta">See Inspector Score →</span>
+</div>
+</div>
+<div class="rv-card-back">
+<div class="rv-back-content">
+<div class="rv-back-header">
+<span class="rv-back-badge basic">Basic Violation · Code 36</span>
+<div class="rv-back-title">Grease &amp; Soot Buildup</div>
+</div>
+<div class="rv-scores">
+<div class="rv-score basic"><div class="rv-score-label">Violation</div><div class="rv-score-value">Code 36</div></div>
+<div class="rv-score critical"><div class="rv-score-label">Escalates To</div><div class="rv-score-value">Fire / Hood</div></div>
+</div>
+<div class="rv-notes">
+<h4>Inspector Notes</h4>
+<ul>
+<li>Grease accumulation is a fire hazard near cook lines</li>
+<li>Can trigger a fire-marshal referral</li>
+<li>Drips contaminate prep surfaces below</li>
+</ul>
+</div>
+<a href="tel:+19544520004" class="rv-back-cta">Get This Fixed</a>
+<div class="rv-flip-hint">Click to flip back</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CARD 4: Cracked & Damaged Tiles -->
+<div class="rv-card" onclick="this.classList.toggle('flipped')">
+<div class="rv-card-inner">
+<div class="rv-card-front">
+<div class="rv-card-image">
+<span class="rv-tag high">Escalation Risk</span>
+<img src="https://ceilingsrus.net/wp-content/uploads/2026/05/3CBF828B-A559-4B55-B5B0-E23310DAC364_1_105_c.jpeg" alt="Cracked and damaged ceiling tiles">
+</div>
+<div class="rv-card-content">
+<h3 class="rv-card-title">Cracked &amp; Damaged Tiles</h3>
+<p class="rv-card-desc">Broken, sagging, or crumbling tiles shedding particles</p>
+<span class="rv-card-cta">See Inspector Score →</span>
+</div>
+</div>
+<div class="rv-card-back">
+<div class="rv-back-content">
+<div class="rv-back-header">
+<span class="rv-back-badge basic">Basic Violation · Code 36</span>
+<div class="rv-back-title">Cracked &amp; Damaged Tiles</div>
+</div>
+<div class="rv-scores">
+<div class="rv-score basic"><div class="rv-score-label">Violation</div><div class="rv-score-value">Code 36</div></div>
+<div class="rv-score high"><div class="rv-score-label">Escalates To</div><div class="rv-score-value">Debris / Pests</div></div>
+</div>
+<div class="rv-notes">
+<h4>Inspector Notes</h4>
+<ul>
+<li>Crumbling tiles drop particles into food and prep areas</li>
+<li>Damaged surfaces can't be properly cleaned</li>
+<li>Sagging often hides a moisture problem above</li>
+</ul>
+</div>
+<a href="tel:+19544520004" class="rv-back-cta">Get This Fixed</a>
+<div class="rv-flip-hint">Click to flip back</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CARD 5: Missing Tiles & Gaps -->
+<div class="rv-card" onclick="this.classList.toggle('flipped')">
+<div class="rv-card-inner">
+<div class="rv-card-front">
+<div class="rv-card-image">
+<span class="rv-tag critical">Pest Entry</span>
+<img src="https://ceilingsrus.net/wp-content/uploads/2026/06/IMG_0547.jpeg" alt="Missing ceiling tiles leaving open gaps">
+</div>
+<div class="rv-card-content">
+<h3 class="rv-card-title">Missing Tiles &amp; Gaps</h3>
+<p class="rv-card-desc">Open ceiling gaps exposing the cavity above the kitchen</p>
+<span class="rv-card-cta">See Inspector Score →</span>
+</div>
+</div>
+<div class="rv-card-back">
+<div class="rv-back-content">
+<div class="rv-back-header">
+<span class="rv-back-badge critical">Escalates to High Priority</span>
+<div class="rv-back-title">Missing Tiles &amp; Gaps</div>
+</div>
+<div class="rv-scores">
+<div class="rv-score basic"><div class="rv-score-label">Starts As</div><div class="rv-score-value">Code 36</div></div>
+<div class="rv-score critical"><div class="rv-score-label">Escalates To</div><div class="rv-score-value">Pests</div></div>
+</div>
+<div class="rv-notes">
+<h4>Inspector Notes</h4>
+<ul>
+<li>Gaps are entry points for rodents and insects (high priority)</li>
+<li>Exposes uncleanable cavity and wiring over food</li>
+<li>Must be sealed with cleanable, non-absorbent tile</li>
+</ul>
+</div>
+<a href="tel:+19544520004" class="rv-back-cta">Get This Fixed</a>
+<div class="rv-flip-hint">Click to flip back</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CARD 6: Dust, Debris & Dirty Vents -->
+<div class="rv-card" onclick="this.classList.toggle('flipped')">
+<div class="rv-card-inner">
+<div class="rv-card-front">
+<div class="rv-card-image">
+<span class="rv-tag high">Escalation Risk</span>
+<img src="https://ceilingsrus.net/wp-content/uploads/2026/05/66CDC4A7-761E-4273-8ABE-80958596B18F_1_105_c.jpeg" alt="Dust, debris, and dirty vents on exposed ceiling">
+</div>
+<div class="rv-card-content">
+<h3 class="rv-card-title">Dust, Debris &amp; Dirty Vents</h3>
+<p class="rv-card-desc">Caked vents and dust on exposed ceiling infrastructure</p>
+<span class="rv-card-cta">See Inspector Score →</span>
+</div>
+</div>
+<div class="rv-card-back">
+<div class="rv-back-content">
+<div class="rv-back-header">
+<span class="rv-back-badge basic">Basic Violation · Code 36</span>
+<div class="rv-back-title">Dust, Debris &amp; Dirty Vents</div>
+</div>
+<div class="rv-scores">
+<div class="rv-score basic"><div class="rv-score-label">Violation</div><div class="rv-score-value">Code 36</div></div>
+<div class="rv-score high"><div class="rv-score-label">Escalates To</div><div class="rv-score-value">Contamination</div></div>
+</div>
+<div class="rv-notes">
+<h4>Inspector Notes</h4>
+<ul>
+<li>Dust and debris can fall into exposed food</li>
+<li>Soiled vent covers signal poor air handling</li>
+<li>Exposed infrastructure is hard to keep clean</li>
+</ul>
+</div>
+<a href="tel:+19544520004" class="rv-back-cta">Get This Fixed</a>
+<div class="rv-flip-hint">Click to flip back</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<section class="rv-cta-section">
+<div class="rv-cta-content">
+<h2>Don't Wait for Your Next Inspection</h2>
+<p>Get a free ceiling assessment and find out exactly what needs to be fixed — before inspectors find it first.</p>
+<div class="rv-cta-buttons">
+<a href="tel:+19544520004" class="rv-cta-btn primary">Call (954) 452-0004</a>
+<a href="/contact" class="rv-cta-btn secondary">Request Quote Online</a>
+</div>
+</div>
+</section>
+
+</div>
