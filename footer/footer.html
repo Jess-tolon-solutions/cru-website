@@ -1,0 +1,126 @@
+<!--
+  CEILINGS R US — Site Footer (Local-SEO focused)
+  Place in the Flatsome footer: Appearance → Widgets → "Footer 1" → add a
+  Custom HTML widget → paste this. (Set Footer to 1 full-width row, and turn
+  off the default "Back to top" text row if you want it minimal.)
+
+  >>> CONFIRM / FILL THESE BEFORE PUBLISHING (marked TODO below):
+      - Hours of operation
+      - Social profile URLs (Facebook / Instagram / LinkedIn)
+      - Google Business Profile URL
+      - Terms page slug (currently /terms-and-conditions/ — publish that page)
+-->
+
+<style>
+.cru-footer { background:#0e1417; color:#aeb9bd; font-family:'Open Sans',Arial,sans-serif; font-size:0.9rem; line-height:1.7; border-top:3px solid #1a8fa8; }
+.cru-footer-inner { max-width:1200px; margin:0 auto; padding:56px 24px 30px; display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:40px; }
+@media (max-width:900px){ .cru-footer-inner{ grid-template-columns:1fr 1fr; gap:32px; } }
+@media (max-width:560px){ .cru-footer-inner{ grid-template-columns:1fr; } }
+
+.cru-footer-logo { width:110px; height:auto; margin-bottom:16px; }
+.cru-footer-tag { color:#8b989d; font-size:0.85rem; margin:0 0 18px; max-width:300px; }
+.cru-footer-nap { font-style:normal; margin:0; }
+.cru-footer-nap div { margin-bottom:7px; display:flex; align-items:flex-start; gap:9px; }
+.cru-footer-nap .ic { color:#1a8fa8; flex-shrink:0; margin-top:3px; }
+.cru-footer-nap a { color:#aeb9bd; text-decoration:none; }
+.cru-footer-nap a:hover { color:#5eff00; }
+
+.cru-footer h4 { color:#fff; font-size:0.95rem; font-weight:700; margin:0 0 16px; padding-bottom:9px; position:relative; letter-spacing:0.3px; }
+.cru-footer h4::after { content:''; position:absolute; left:0; bottom:0; width:34px; height:2px; background:#1a8fa8; }
+.cru-footer ul { list-style:none; margin:0; padding:0; }
+.cru-footer li { margin-bottom:9px; }
+.cru-footer a { color:#aeb9bd; text-decoration:none; transition:color 0.15s; }
+.cru-footer a:hover { color:#5eff00; }
+
+.cru-footer-social { display:flex; gap:12px; margin-top:18px; }
+.cru-footer-social a { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid #2a3439; border-radius:8px; color:#aeb9bd; transition:all 0.15s; }
+.cru-footer-social a:hover { border-color:#1a8fa8; color:#5eff00; }
+.cru-footer-social svg { width:17px; height:17px; }
+
+.cru-footer-bottom { border-top:1px solid #1f2a2e; }
+.cru-footer-bottom-inner { max-width:1200px; margin:0 auto; padding:18px 24px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; font-size:0.8rem; color:#7a878c; }
+.cru-footer-bottom-inner a { color:#9aa6aa; text-decoration:none; }
+.cru-footer-bottom-inner a:hover { color:#5eff00; }
+.cru-footer-badge { color:#1a8fa8; font-weight:700; }
+.cru-footer-legal a { margin-left:16px; }
+</style>
+
+<footer class="cru-footer">
+  <div class="cru-footer-inner">
+
+    <!-- Column 1: Brand + NAP -->
+    <div itemscope itemtype="https://schema.org/LocalBusiness">
+      <img class="cru-footer-logo" src="https://ceilingsrus.net/wp-content/uploads/2025/03/cropped-Ceilings_R_Us-10-removebg-preview-270x270.png" alt="Ceilings R Us — Complete Commercial Cleaning" itemprop="logo">
+      <p class="cru-footer-tag"><span itemprop="name">Ceilings R Us</span> — South Florida's commercial ceiling cleaning &amp; restoration experts.</p>
+      <address class="cru-footer-nap">
+        <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <span class="ic">&#9679;</span>
+          <span><span itemprop="streetAddress">2880 SW 23rd Terrace, Ste 104</span><br><span itemprop="addressLocality">Fort Lauderdale</span>, <span itemprop="addressRegion">FL</span> <span itemprop="postalCode">33312</span></span>
+        </div>
+        <div><span class="ic">&#9742;</span> <a href="tel:+19544520004" itemprop="telephone">(954) 452-0004</a></div>
+        <div><span class="ic">&#9993;</span> <a href="mailto:info@ceilingsrus.net" itemprop="email">info@ceilingsrus.net</a></div>
+        <!-- TODO confirm hours -->
+        <div><span class="ic">&#128337;</span> <span>Mon&ndash;Fri: 8:00 AM &ndash; 6:00 PM</span></div>
+      </address>
+      <div class="cru-footer-social">
+        <!-- TODO add real profile URLs -->
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 10h3l.5-3H13V5.5c0-.9.3-1.5 1.6-1.5H16V1.4C15.7 1.3 14.7 1.2 13.6 1.2c-2.3 0-3.9 1.4-3.9 4V7H7v3h2.7v8H13v-8z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" aria-label="Google Business Profile"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 11v2.8h4c-.2 1.2-1.4 3.4-4 3.4-2.4 0-4.4-2-4.4-4.5S9.6 8.2 12 8.2c1.4 0 2.3.6 2.8 1.1l1.9-1.8C15.5 6.4 13.9 5.7 12 5.7 8.1 5.7 5 8.8 5 12.7s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H12z"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Column 2: Service Areas (local SEO) -->
+    <div>
+      <h4>Service Areas</h4>
+      <ul>
+        <li><a href="https://ceilingsrus.net/fort-lauderdale/">Fort Lauderdale</a></li>
+        <li><a href="https://ceilingsrus.net/miami/">Miami</a></li>
+        <li><a href="https://ceilingsrus.net/miami-dade/">Miami-Dade County</a></li>
+        <li><a href="https://ceilingsrus.net/broward-county/">Broward County</a></li>
+        <li><a href="https://ceilingsrus.net/boca-raton/">Boca Raton</a></li>
+        <li><a href="https://ceilingsrus.net/west-palm-beach/">West Palm Beach</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Services -->
+    <div>
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="https://ceilingsrus.net/services/">Commercial Ceiling Cleaning</a></li>
+        <li><a href="https://ceilingsrus.net/services/">Restaurant &amp; Kitchen Ceilings</a></li>
+        <li><a href="https://ceilingsrus.net/services/">Ceiling Tile Restoration</a></li>
+        <li><a href="https://ceilingsrus.net/services/">Vent, Hood &amp; Exhaust Cleaning</a></li>
+        <li><a href="https://ceilingsrus.net/services/">Drop Ceiling Installation</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Company + Free Tools -->
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://ceilingsrus.net/">Home</a></li>
+        <li><a href="https://ceilingsrus.net/about/">About</a></li>
+        <li><a href="https://ceilingsrus.net/services/">Services</a></li>
+        <li><a href="https://ceilingsrus.net/contact/">Contact</a></li>
+      </ul>
+      <h4 style="margin-top:24px;">Free Tools</h4>
+      <ul>
+        <li><a href="https://ceilingsrus.net/facility-assessment/">Facility Assessment</a></li>
+        <li><a href="https://ceilingsrus.net/violation-map/">Violation Map</a></li>
+        <li><a href="https://ceilingsrus.net/real-violations/">What an Inspector Sees</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="cru-footer-bottom">
+    <div class="cru-footer-bottom-inner">
+      <div>&copy; 2026 Ceilings R Us &nbsp;&middot;&nbsp; <span class="cru-footer-badge">Licensed, Bonded &amp; Insured</span></div>
+      <div class="cru-footer-legal">
+        <a href="https://ceilingsrus.net/privacy-policy/">Privacy Policy</a>
+        <a href="https://ceilingsrus.net/terms-and-conditions/">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
