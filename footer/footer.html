@@ -17,6 +17,8 @@
 .cru-footer-logo { align-self:center; }
 .cru-footer-logo img { width:150px; height:auto; display:block; }
 @media (max-width:960px){
+  /* drop the full-bleed on mobile so it can't overflow and get clipped (footer vanishing) */
+  .cru-footer{ margin-left:0 !important; margin-right:0 !important; }
   .cru-footer-main{ justify-content:flex-start; gap:32px 56px; }
   .cru-footer-logo{ width:100%; display:flex; justify-content:center; }
 }
