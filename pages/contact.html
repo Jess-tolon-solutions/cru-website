@@ -34,7 +34,8 @@
   background-image:url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');
   background-size:cover; background-position:center; box-shadow:0 8px 30px rgba(0,0,0,0.18); transition:transform .28s, box-shadow .28s; }
 .crucp-card:hover { transform:translateY(-6px); box-shadow:0 16px 46px rgba(0,0,0,0.3); }
-.crucp-card::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.82) 100%); }
+.crucp-card::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.82) 100%); z-index:1; }
+.crucp-card::after { content:''; position:absolute; inset:0; border-radius:inherit; padding:2px; background:linear-gradient(130deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; z-index:4; }
 .crucp-cc { position:relative; z-index:1; padding:38px 28px; text-align:center; display:flex; flex-direction:column; width:100%; }
 .crucp-cc-icon { width:58px; height:58px; margin:0 auto 18px; border-radius:14px; background:rgba(53,209,232,0.15); border:1px solid rgba(53,209,232,0.5); display:flex; align-items:center; justify-content:center; }
 .crucp-cc-icon svg { width:27px; height:27px; color:#35d1e8; }
@@ -43,11 +44,11 @@
 .crucp-cc-contact { margin:0 0 18px; }
 .crucp-cc-contact a { display:block; color:#35d1e8; font-weight:700; text-decoration:none; font-size:1rem; margin-bottom:4px; }
 .crucp-cc-contact a:hover { color:#5eff00; }
-.crucp-btn { display:block; text-align:center; padding:13px 20px; border-radius:8px; font-size:0.9rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; text-decoration:none; cursor:pointer; border:none; transition:all .2s; font-family:inherit; }
-.crucp-btn.green { background:#5eff00; color:#0f2d36; }
-.crucp-btn.green:hover { background:#4acc00; }
-.crucp-btn.outline { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.6); }
-.crucp-btn.outline:hover { background:#fff; color:#0f2d36; }
+/* Consistent gradient-outline buttons — transparent w/ blue->green border, fill white on hover */
+.crucp-btn { position:relative; display:block; text-align:center; padding:14px 22px; border-radius:8px; font-size:0.9rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; text-decoration:none; cursor:pointer; border:none; background:transparent; color:#fff; transition:background .2s, color .2s, transform .2s, box-shadow .2s; font-family:inherit; }
+.crucp-btn::after { content:''; position:absolute; inset:0; border-radius:inherit; padding:2px; background:linear-gradient(130deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; }
+.crucp-btn.green, .crucp-btn.outline { background:transparent !important; color:#fff !important; border:none !important; }
+.crucp-btn:hover, .crucp-btn.green:hover, .crucp-btn.outline:hover { background:#fff !important; color:#0f2d36 !important; transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,0.28); }
 
 /* ---------- popup modal ---------- */
 .crucp-modal { display:none; position:fixed; inset:0; z-index:99999; background:rgba(8,18,23,0.82); padding:20px; }
