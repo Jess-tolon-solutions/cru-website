@@ -13,21 +13,22 @@
   margin-left:calc(-50vw + 50%); margin-right:calc(-50vw + 50%); }
 
 /* --- top: 4 EQUAL link columns + logo, evenly spaced --- */
-.cru-footer-main { max-width:1300px; margin:0 auto; padding:52px 30px 34px; display:grid; grid-template-columns:repeat(4,1fr) auto; gap:36px; align-items:start; }
+.cru-footer-main { max-width:1300px; margin:0 auto; padding:52px 30px 34px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:30px 36px; }
 .cru-footer-logo { align-self:center; }
 .cru-footer-logo img { width:150px; height:auto; display:block; }
 @media (max-width:960px){
-  .cru-footer-main{ grid-template-columns:repeat(2,1fr); gap:32px 36px; }
-  .cru-footer-logo{ grid-column:1 / -1; justify-self:center; }
+  .cru-footer-main{ justify-content:flex-start; gap:32px 56px; }
+  .cru-footer-logo{ width:100%; display:flex; justify-content:center; }
 }
-@media (max-width:480px){ .cru-footer-main{ grid-template-columns:1fr; } }
 
 .cru-footer h4 { color:#fff; font-size:0.92rem; font-weight:700; margin:0 0 16px; padding-bottom:9px; position:relative; letter-spacing:0.3px; }
 .cru-footer h4::after { content:''; position:absolute; left:0; bottom:0; width:34px; height:2px; background:linear-gradient(90deg,#1a8fa8,#5eff00); }
 .cru-footer ul { list-style:none; margin:0; padding:0; }
 .cru-footer li { margin-bottom:10px; }
-.cru-footer-links a { color:#aeb9bd; text-decoration:none; transition:color 0.15s; }
-.cru-footer-links a:hover { color:#5eff00; }
+.cru-footer-main a { color:#aeb9bd; text-decoration:none; transition:color 0.15s; }
+.cru-footer-main a:hover,
+.cru-footer-main a:focus,
+.cru-footer-main a:active { color:#5eff00; background:transparent; }
 
 /* --- contact bar (distinct dark-teal band) --- */
 .cru-contact { background:#0c1f28; border-top:1px solid #12333f; }
