@@ -57,7 +57,7 @@
 .crucp-modal-head h3 { font-size:1.15rem; font-weight:800; color:#0f2d36 !important; margin:0; }
 .crucp-modal-close { background:none; border:none; font-size:28px; line-height:1; color:#5a7580; cursor:pointer; padding:0 4px; }
 .crucp-modal-close:hover { color:#0f2d36; }
-.crucp-modal iframe { display:block; width:100%; height:1400px; border:none; }
+.crucp-modal-body { padding:18px 22px 26px; }
 </style>
 
 <section class="crucp-hero">
@@ -116,13 +116,18 @@
   </div>
 </section>
 
-<!-- Popup quote form (monday.com) -->
+<!-- Popup quote form (Jobber Work Request embed) -->
 <div class="crucp-modal" id="crucp-modal" onclick="if(event.target===this)this.classList.remove('crucp-open');">
   <div class="crucp-modal-box">
     <div class="crucp-modal-head">
       <h3>Request Your Free Quote</h3>
       <button type="button" class="crucp-modal-close" aria-label="Close" onclick="document.getElementById('crucp-modal').classList.remove('crucp-open');">&times;</button>
     </div>
-    <iframe src="https://forms.monday.com/forms/embed/e6671bcd2cd52a75d72a9c77a59745c9?r=use1" title="Request a Free Quote" loading="lazy"></iframe>
+    <div class="crucp-modal-body">
+      <!-- Jobber Work Request form embed -->
+      <div id="a022635a-e1bc-43e3-bbac-6e97a2584f23-4837330"></div>
+      <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
+      <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js" clienthub_id="a022635a-e1bc-43e3-bbac-6e97a2584f23-4837330" form_url="https://clienthub.getjobber.com/client_hubs/a022635a-e1bc-43e3-bbac-6e97a2584f23/public/work_request/embedded_work_request_form?form_id=4837330"></script>
+    </div>
   </div>
 </div>
