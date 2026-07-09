@@ -12,17 +12,14 @@
   /* full-bleed: break out of Flatsome's centered footer container to reach the screen edges */
   margin-left:calc(-50vw + 50%); margin-right:calc(-50vw + 50%); }
 
-/* --- top: 4 link columns + logo pinned far right --- */
-.cru-footer-main { max-width:1300px; margin:0 auto; padding:52px 30px 34px; display:flex; align-items:center; justify-content:space-between; gap:40px; }
-.cru-footer-links { display:grid; grid-template-columns:repeat(4,1fr); gap:34px; flex:1; }
-.cru-footer-logo { flex-shrink:0; }
+/* --- top: 4 EQUAL link columns + logo, evenly spaced --- */
+.cru-footer-main { max-width:1300px; margin:0 auto; padding:52px 30px 34px; display:grid; grid-template-columns:repeat(4,1fr) auto; gap:36px; align-items:center; }
 .cru-footer-logo img { width:150px; height:auto; display:block; }
 @media (max-width:960px){
-  .cru-footer-main{ flex-direction:column; align-items:flex-start; gap:34px; }
-  .cru-footer-links{ width:100%; grid-template-columns:repeat(2,1fr); gap:30px; }
-  .cru-footer-logo{ align-self:center; }
+  .cru-footer-main{ grid-template-columns:repeat(2,1fr); gap:32px 36px; }
+  .cru-footer-logo{ grid-column:1 / -1; justify-self:center; }
 }
-@media (max-width:480px){ .cru-footer-links{ grid-template-columns:1fr; } }
+@media (max-width:480px){ .cru-footer-main{ grid-template-columns:1fr; } }
 
 .cru-footer h4 { color:#fff; font-size:0.92rem; font-weight:700; margin:0 0 16px; padding-bottom:9px; position:relative; letter-spacing:0.3px; }
 .cru-footer h4::after { content:''; position:absolute; left:0; bottom:0; width:34px; height:2px; background:linear-gradient(90deg,#1a8fa8,#5eff00); }
@@ -60,7 +57,6 @@
 
   <!-- Link columns + logo -->
   <div class="cru-footer-main">
-    <div class="cru-footer-links">
       <div>
         <h4>Service Areas</h4>
         <ul>
@@ -99,7 +95,6 @@
           <li><a href="https://ceilingsrus.net/real-violations/">What an Inspector Sees</a></li>
         </ul>
       </div>
-    </div>
     <div class="cru-footer-logo">
       <img src="https://ceilingsrus.net/wp-content/uploads/2025/03/cropped-Ceilings_R_Us-10-removebg-preview-270x270.png" alt="Ceilings R Us — Complete Commercial Cleaning" itemprop="logo">
     </div>
