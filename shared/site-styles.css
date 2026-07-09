@@ -54,3 +54,21 @@
 }
 .cru-imgcard-body { position: relative; z-index: 2; }
 .cru-imgcard .cru-imgcard-title { color: #35d1e8 !important; }   /* popping teal */
+
+/* ---- 4. Gradient outline applied to the card sections site-wide ----
+   Targets the actual card classes so no block needs re-pasting.        */
+.crucp-card, .cru-ba-card, .cru-tool-card { position: relative; }
+.crucp-card::after, .cru-ba-card::after, .cru-tool-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 4;
+}
