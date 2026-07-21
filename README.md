@@ -30,6 +30,7 @@ Typical flow: copy a file's contents → in UX Builder click the target HTML ele
 | `pages/privacy.html` | Privacy page | approved content, Last Updated 2026-06-19 |
 | `pages/terms.html` | Terms page | approved content, FL governing law |
 | `footer/` | site footer | (in progress — Local-SEO focused) |
+| `seo/title-description-map.md` | Yoast (per-page) | title + meta description recommendations for all 29 pages (audited 2026-07-21); `.html` = interactive worksheet |
 | `shared/styles.css` | — | brand palette + canonical facts (phone, email, page IDs) |
 
 ## Brand quick-reference

@@ -1,0 +1,579 @@
+<title>Ceilings R Us — SEO Title & Description Map</title>
+<style>
+  :root {
+    --bg: #eef4f5;
+    --surface: #ffffff;
+    --surface-2: #f4f8f9;
+    --ink: #0f2d36;
+    --ink-2: #3d5964;
+    --muted: #7c94a0;
+    --line: #d9e5e8;
+    --line-2: #e8f0f2;
+    --teal: #116782;
+    --teal-soft: #e3f0f3;
+    --good: #1a8a5a;
+    --good-bg: #e2f4ec;
+    --warn: #a9761b;
+    --warn-bg: #faf0da;
+    --bad: #b23b3b;
+    --bad-bg: #fbe6e6;
+    --shadow: 0 1px 2px rgba(15,45,54,.06), 0 6px 20px rgba(15,45,54,.05);
+    --mono: ui-monospace, "SF Mono", "Menlo", "Cascadia Code", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b1a20;
+      --surface: #10262e;
+      --surface-2: #0e2027;
+      --ink: #eaf3f5;
+      --ink-2: #a9c2cb;
+      --muted: #6f8b95;
+      --line: #1d3a44;
+      --line-2: #16303a;
+      --teal: #4bb8d4;
+      --teal-soft: #12333d;
+      --good: #4cc78d;
+      --good-bg: #103028;
+      --warn: #d6a642;
+      --warn-bg: #2e2513;
+      --bad: #e57373;
+      --bad-bg: #331a1a;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #eef4f5; --surface: #ffffff; --surface-2: #f4f8f9; --ink: #0f2d36; --ink-2: #3d5964;
+    --muted: #7c94a0; --line: #d9e5e8; --line-2: #e8f0f2; --teal: #116782; --teal-soft: #e3f0f3;
+    --good: #1a8a5a; --good-bg: #e2f4ec; --warn: #a9761b; --warn-bg: #faf0da; --bad: #b23b3b; --bad-bg: #fbe6e6;
+    --shadow: 0 1px 2px rgba(15,45,54,.06), 0 6px 20px rgba(15,45,54,.05);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1a20; --surface: #10262e; --surface-2: #0e2027; --ink: #eaf3f5; --ink-2: #a9c2cb;
+    --muted: #6f8b95; --line: #1d3a44; --line-2: #16303a; --teal: #4bb8d4; --teal-soft: #12333d;
+    --good: #4cc78d; --good-bg: #103028; --warn: #d6a642; --warn-bg: #2e2513; --bad: #e57373; --bad-bg: #331a1a;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 0 20px 120px; }
+
+  /* Header */
+  header.masthead {
+    padding: 40px 0 26px; border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--teal); font-weight: 700; margin: 0 0 10px;
+  }
+  h1 {
+    font-size: clamp(26px, 4vw, 36px); line-height: 1.1; margin: 0 0 10px;
+    letter-spacing: -.02em; text-wrap: balance; font-weight: 800;
+  }
+  .lede { color: var(--ink-2); max-width: 62ch; margin: 0; font-size: 15.5px; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0 4px; }
+  .stat {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 16px; box-shadow: var(--shadow);
+  }
+  .stat .n { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+  .stat .l { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-top: 2px; }
+  .stat.crit .n { color: var(--bad); }
+  .stat.warnc .n { color: var(--warn); }
+
+  /* Progress */
+  .progress-bar {
+    position: sticky; top: 0; z-index: 20; background: var(--bg);
+    padding: 12px 0 10px; margin-top: 22px;
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .track { flex: 1; height: 8px; background: var(--line-2); border-radius: 99px; overflow: hidden; }
+  .fill { height: 100%; width: 0; background: var(--teal); border-radius: 99px; transition: width .3s ease; }
+  .ptext { font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 600; }
+  .reset {
+    font: inherit; font-size: 12px; color: var(--muted); background: none; border: 1px solid var(--line);
+    border-radius: 7px; padding: 5px 10px; cursor: pointer;
+  }
+  .reset:hover { color: var(--ink); border-color: var(--muted); }
+
+  /* Legend */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 18px 0 6px; font-size: 12.5px; color: var(--ink-2);
+  }
+  .legend b { color: var(--ink); }
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px; font-weight: 600;
+    padding: 2px 8px; border-radius: 6px; font-size: 11.5px;
+  }
+  .chip.keep { background: var(--good-bg); color: var(--good); }
+  .chip.change { background: var(--teal-soft); color: var(--teal); }
+  .chip.crit { background: var(--bad-bg); color: var(--bad); }
+  .chip.redir { background: var(--warn-bg); color: var(--warn); }
+
+  /* Section */
+  .section-head {
+    display: flex; align-items: baseline; gap: 12px; margin: 40px 0 4px;
+  }
+  .section-head h2 { font-size: 19px; margin: 0; letter-spacing: -.01em; }
+  .section-head .count { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .section-sub { color: var(--ink-2); font-size: 13.5px; margin: 4px 0 14px; }
+
+  /* Card */
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: var(--shadow); margin-bottom: 14px; overflow: hidden;
+    transition: opacity .2s ease;
+  }
+  .card.done { opacity: .5; }
+  .card-top {
+    display: flex; align-items: center; gap: 12px; padding: 13px 16px;
+    border-bottom: 1px solid var(--line-2); background: var(--surface-2);
+  }
+  .chkwrap { display: flex; align-items: center; }
+  .chkwrap input { width: 18px; height: 18px; accent-color: var(--teal); cursor: pointer; }
+  .slug {
+    font-family: var(--mono); font-size: 13.5px; font-weight: 600; color: var(--ink);
+    text-decoration: none;
+  }
+  .slug:hover { color: var(--teal); text-decoration: underline; }
+  .pid { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+  .top-badges { margin-left: auto; display: flex; gap: 6px; }
+
+  .field { padding: 13px 16px; }
+  .field + .field { border-top: 1px solid var(--line-2); }
+  .field-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted);
+    font-weight: 700; margin-bottom: 7px; display: flex; align-items: center; gap: 8px;
+  }
+  .current {
+    font-size: 13px; color: var(--muted); margin: 0 0 9px; padding-left: 11px;
+    border-left: 2px solid var(--line); line-height: 1.45;
+  }
+  .current .was { font-weight: 700; letter-spacing: .04em; font-size: 10.5px; text-transform: uppercase; color: var(--muted); }
+  .rec-row { display: flex; align-items: flex-start; gap: 10px; }
+  .rec {
+    flex: 1; font-size: 14.5px; color: var(--ink); line-height: 1.45; font-weight: 500;
+  }
+  .rec.desc { font-weight: 400; }
+  .meta-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+  .counter {
+    font-family: var(--mono); font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 6px;
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
+  .counter.good { background: var(--good-bg); color: var(--good); }
+  .counter.warn { background: var(--warn-bg); color: var(--warn); }
+  .counter.bad { background: var(--bad-bg); color: var(--bad); }
+  .copy {
+    font: inherit; font-size: 12px; font-weight: 600; color: var(--teal);
+    background: var(--teal-soft); border: 1px solid transparent; border-radius: 8px;
+    padding: 6px 12px; cursor: pointer; white-space: nowrap; align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 6px; transition: background .15s;
+  }
+  .copy:hover { background: var(--teal); color: #fff; }
+  .copy.copied { background: var(--good); color: #fff; }
+  .copy:focus-visible, .slug:focus-visible, .reset:focus-visible, input:focus-visible {
+    outline: 2px solid var(--teal); outline-offset: 2px;
+  }
+  .note {
+    font-size: 12.5px; color: var(--warn); background: var(--warn-bg); border-radius: 8px;
+    padding: 8px 11px; margin: 11px 16px 14px; line-height: 1.45;
+    display: flex; gap: 8px;
+  }
+  .note.info { color: var(--teal); background: var(--teal-soft); }
+  .note.crit { color: var(--bad); background: var(--bad-bg); }
+  .note b { font-weight: 700; }
+
+  .footnote {
+    margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
+    font-size: 13px; color: var(--ink-2);
+  }
+  .footnote h3 { font-size: 14px; margin: 0 0 8px; color: var(--ink); }
+  .footnote ul { margin: 0 0 14px; padding-left: 18px; }
+  .footnote li { margin-bottom: 5px; }
+
+  @media (max-width: 620px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .rec-row { flex-direction: column; }
+    .top-badges { width: 100%; margin-left: 0; }
+    .card-top { flex-wrap: wrap; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <p class="eyebrow">Ceilings R Us · On-Page SEO</p>
+    <h1>Title &amp; Meta Description Map</h1>
+    <p class="lede">Every live page, audited against Google's display limits. Paste each recommended title and description into the page's <b>Yoast SEO</b> box, then check it off. Progress saves in this browser.</p>
+
+    <div class="stats" id="stats">
+      <div class="stat"><div class="n">29</div><div class="l">Pages</div></div>
+      <div class="stat crit"><div class="n" id="s-desc">13</div><div class="l">Missing description</div></div>
+      <div class="stat warnc"><div class="n" id="s-long">7</div><div class="l">Over-length / weak</div></div>
+      <div class="stat"><div class="n" id="s-keep">11</div><div class="l">Already good</div></div>
+    </div>
+
+    <div class="legend">
+      <span><span class="chip change">CHANGE</span> update this field</span>
+      <span><span class="chip keep">KEEP</span> already solid, leave it</span>
+      <span><span class="chip crit">FIX</span> broken / missing</span>
+      <span><span class="chip redir">301</span> redirect, no metadata</span>
+      <span style="color:var(--muted)">Title target <b style="color:var(--ink)">50–60</b> · Description <b style="color:var(--ink)">140–158</b> chars</span>
+    </div>
+  </header>
+
+  <div class="progress-bar">
+    <span class="ptext" id="ptext">0 / 29 done</span>
+    <div class="track"><div class="fill" id="fill"></div></div>
+    <button class="reset" id="reset">Reset</button>
+  </div>
+
+  <main id="app"></main>
+
+  <div class="footnote">
+    <h3>Beyond metadata — flagged for a separate on-page pass</h3>
+    <ul>
+      <li><b>Duplicate pages:</b> <code>/ventilation-and-duct-cleaning/</code> and <code>/ventilation-and-air-duct-cleaning/</code> compete for the same term. Recommendation: keep the first (it has the content), 301-redirect the second to it.</li>
+      <li><b>Missing H1s</b> on 15 pages (all 6 locations, most of the About cluster, several tools). H1 lives in the Flatsome content, not Yoast — needs an in-builder pass.</li>
+      <li><b>Double H1</b> on <code>/ventilation-and-duct-cleaning/</code> — should be one.</li>
+    </ul>
+    <p style="color:var(--muted); font-size:12px; margin:0;">Audited live from ceilingsrus.net · character counts computed on the exact strings below.</p>
+  </div>
+</div>
+
+<script>
+const PAGES = [
+  { cluster:"Home", slug:"/", id:"21",
+    curT:"Ceiling Cleaning & Restoration South Florida | Ceilings R Us",
+    curD:"25+ years of expert ceiling cleaning, restoration & mold removal for restaurants and businesses across South Florida. Free assessment — (954) 452-0004.",
+    newT:"Ceiling Cleaning & Restoration South Florida | Ceilings R Us", tKeep:true,
+    newD:"25+ years of expert ceiling cleaning, restoration & mold removal for restaurants and businesses across South Florida. Free assessment — (954) 452-0004.", dKeep:true,
+    note:{type:"info", html:"<b>Already optimized last session.</b> No change needed — listed for completeness."} },
+
+  { cluster:"Services & segments", slug:"/services/", id:"1256",
+    curT:"Services | Ceilings R Us",
+    curD:"Ceiling restoration, duct & vent cleaning,post-construction, and specialized commercial cleaning across Miami-Dade, Broward & Palm Beach.",
+    newT:"Commercial Ceiling Cleaning Services | Ceilings R Us",
+    newD:"Ceiling restoration, duct & vent cleaning, post-construction and specialized commercial cleaning across Miami-Dade, Broward & Palm Beach.",
+    note:{type:"", html:"Description just needs the missing space after “cleaning,” fixed."} },
+
+  { cluster:"Services & segments", slug:"/commercial-ceiling-cleaning/", id:"1395",
+    curT:"Commercial Ceiling Cleaning | Ceilings R Us",
+    curD:"",
+    newT:"Commercial Ceiling Cleaning in South Florida | Ceilings R Us",
+    newD:"South Florida's commercial ceiling cleaning experts — restaurants, warehouses, retail & offices. Inspection-ready results, 25+ years. Free quote: (954) 452-0004.",
+    note:{type:"crit", html:"<b>Your #1 money keyword</b> (208 impressions/mo) and it had <b>no description</b>. High priority."} },
+
+  { cluster:"Services & segments", slug:"/ceiling-restoration/", id:"1273",
+    curT:"Ceiling Restoration | Ceilings R Us",
+    curD:"Restore your business's ceilings to like-new condition with Ceilings R Us—South Florida's trusted ceiling restoration experts. Eliminate stains, odors, and dust with professional cleaning that improves air quality, meets inspection standards, and enhances your commercial space.",
+    newT:"Ceiling Restoration in South Florida | Ceilings R Us",
+    newD:"Restore stained, dusty commercial ceilings to like-new. South Florida's trusted restoration experts — better air quality and inspection-ready results.",
+    note:{type:"", html:"Old description was <b>278 chars</b> — Google cut it off mid-sentence. Trimmed to fit."} },
+
+  { cluster:"Services & segments", slug:"/general-cleaning/", id:"1298",
+    curT:"General Cleaning | Ceilings R Us",
+    curD:"Keep your commercial space spotless and hygienic with Ceilings R Us general cleaning services—expert cleaning for walls, windows, stainless steel surfaces, and more in South Florida. Reliable, detailed cleaning for offices, retail, and business environments.",
+    newT:"General Commercial Cleaning in South Florida | Ceilings R Us",
+    newD:"Detailed general cleaning for South Florida commercial spaces — walls, windows, stainless steel and more. Reliable results for offices, retail & restaurants.",
+    note:{type:"", html:"Old description was <b>258 chars</b>. Trimmed."} },
+
+  { cluster:"Services & segments", slug:"/specialized-cleaning-solutions/", id:"1301",
+    curT:"Specialized Cleaning Solutions | Ceilings R Us",
+    curD:"Ceilings R Us offers specialized cleaning solutions for commercial spaces in South Florida, using advanced techniques tailored to your unique needs. From stain removal to odor elimination, we ensure a safe, spotless, and compliant environment.",
+    newT:"Specialized Cleaning Solutions | Ceilings R Us", tKeep:true,
+    newD:"Specialized commercial cleaning across South Florida — stain removal, odor elimination and advanced techniques for a safe, spotless, compliant space.",
+    note:{type:"", html:"Title is fine as-is. Description trimmed from <b>243 chars</b>."} },
+
+  { cluster:"Services & segments", slug:"/post-construction-cleaning/", id:"1295",
+    curT:"Post Construction Cleaning | Ceilings R Us",
+    curD:"Ceilings R Us delivers expert post construction cleaning for commercial spaces in South Florida. We remove dust, debris, and residue so your property is spotless, safe, and ready for occupancy—perfect for offices, retail, and new builds.",
+    newT:"Post-Construction Cleaning in South Florida | Ceilings R Us",
+    newD:"Post-construction cleaning for South Florida commercial builds — dust, debris and residue removed so your space is spotless and ready to occupy.",
+    note:{type:"", html:"Old description was <b>237 chars</b>. Trimmed."} },
+
+  { cluster:"Services & segments", slug:"/inspection-preparation/", id:"1304",
+    curT:"Inspection Preparation | Ceilings R Us",
+    curD:"Prepare for DBPR inspections with confidence —expert ceiling & vent cleaning that clears common violations before the inspector arrives.",
+    newT:"DBPR Inspection Prep for Restaurants | Ceilings R Us",
+    newD:"Prepare for DBPR inspections with confidence — expert ceiling and vent cleaning that clears common violations before the inspector arrives.",
+    note:{type:"info", html:"Title now targets the <b>DBPR / restaurant</b> niche. Description just fixes the missing space after the dash."} },
+
+  { cluster:"Services & segments", slug:"/ventilation-and-duct-cleaning/", id:"1292",
+    curT:"Ventilation and Duct Cleaning | Ceilings R Us",
+    curD:"Improve indoor air quality and HVAC efficiency with Ceilings R Us ventilation and duct cleaning services in South Florida. Our specialized team removes dust, allergens, and contaminants—ensuring a healthier, safer environment for your business.",
+    newT:"Air Duct & Vent Cleaning — South Florida | Ceilings R Us",
+    newD:"Improve air quality and HVAC efficiency with South Florida air-duct and vent cleaning. We remove dust, allergens and contaminants for a healthier space.",
+    note:{type:"crit", html:"<b>Keep this page</b> (has content). Title now captures the higher-volume “air duct cleaning” term. Also has a <b>double H1</b> to fix in Flatsome. 301 the near-duplicate below into this one."} },
+
+  { cluster:"Industry pages", slug:"/grocery-ceiling-cleaning/", id:"1650",
+    curT:"Grocery ceiling cleaning | Ceilings R Us",
+    curD:"",
+    newT:"Grocery Store Ceiling Cleaning | Ceilings R Us",
+    newD:"South Florida grocery store ceiling cleaning — remove dust, grease & mold to protect food safety and pass health inspections. Call (954) 452-0004.",
+    note:{type:"crit", html:"Title had a <b>lowercase “cleaning”</b> and there was <b>no description</b>. Ranks for “grocery store ceiling cleaning” (208 impr/mo)."} },
+
+  { cluster:"Industry pages", slug:"/hotel-ceiling-cleaning/", id:"1619",
+    curT:"Why Hotel Ceilings Matter More Than You Think | Ceilings R Us",
+    curD:"Stained and dirty hotel ceilings hurt guest reviews and air quality. Professional hotel ceiling cleaning restores appearance and protects your property's reputation.",
+    newT:"Hotel Ceiling Cleaning in South Florida | Ceilings R Us",
+    newD:"Stained hotel ceilings hurt guest reviews and air quality. Expert hotel ceiling cleaning in South Florida restores appearance and protects your reputation.",
+    note:{type:"", html:"Old title was a blog headline that didn't contain the keyword. Description shortened slightly to fit."} },
+
+  { cluster:"Location pages", slug:"/miami/", id:"1435",
+    curT:"Miami | Ceilings R Us",
+    curD:"Professional commercial ceiling cleaning & mold removal in Miami. Restaurant & facility compliance specialists serving all of Miami-Dade.",
+    newT:"Ceiling Cleaning in Miami, FL | Ceilings R Us",
+    newD:"Professional commercial ceiling cleaning & mold removal in Miami. Restaurant & facility compliance specialists serving all of Miami-Dade.", dKeep:true,
+    note:{type:"info", html:"Description is good. Title now leads with the searched phrase instead of just “Miami.” Needs an H1 in Flatsome."} },
+
+  { cluster:"Location pages", slug:"/miami-dade/", id:"1386",
+    curT:"Miami-Dade | Ceilings R Us",
+    curD:"",
+    newT:"Ceiling Cleaning in Miami-Dade County | Ceilings R Us",
+    newD:"Commercial ceiling cleaning & restoration across Miami-Dade County — restaurants, hotels & facilities. Inspection-ready results. Call (954) 452-0004.",
+    note:{type:"crit", html:"No description. Generic title. Needs an H1 in Flatsome."} },
+
+  { cluster:"Location pages", slug:"/fort-lauderdale/", id:"1329",
+    curT:"Fort Lauderdale | Ceilings R Us",
+    curD:"Commercial ceiling restoration & duct cleaning inFort Lauderdale and Broward County. Inspection-ready, mold- and fire-risk reduction.",
+    newT:"Ceiling Cleaning in Fort Lauderdale | Ceilings R Us",
+    newD:"Commercial ceiling restoration and duct cleaning in Fort Lauderdale and Broward County. Inspection-ready, mold- and fire-risk reduction.",
+    note:{type:"", html:"Description fixes the “inFort” typo. Needs an H1 in Flatsome."} },
+
+  { cluster:"Location pages", slug:"/broward-county/", id:"1349",
+    curT:"Broward County | Ceilings R Us",
+    curD:"Trusted ceiling cleaning services in Broward County, Florida. Serving Hollywood, Pembroke Pines, Miramar, Coral Springs, Weston, and all surrounding cities. Fast, reliable, and satisfaction guaranteed for residential, commercial, and healthcare clients.",
+    newT:"Ceiling Cleaning in Broward County, FL | Ceilings R Us",
+    newD:"Trusted commercial ceiling cleaning across Broward County — Hollywood, Pembroke Pines, Miramar, Coral Springs, Weston and beyond. Fast, guaranteed results.",
+    note:{type:"", html:"Old description was <b>253 chars</b>. Trimmed. Needs an H1 in Flatsome."} },
+
+  { cluster:"Location pages", slug:"/west-palm-beach/", id:"1438",
+    curT:"West Palm Beach | Ceilings R Us",
+    curD:"",
+    newT:"Ceiling Cleaning in West Palm Beach | Ceilings R Us",
+    newD:"Commercial ceiling cleaning & restoration in West Palm Beach and Palm Beach County. Inspection-ready results for restaurants and commercial facilities.",
+    note:{type:"crit", html:"No description. Generic title. Needs an H1 in Flatsome."} },
+
+  { cluster:"Location pages", slug:"/boca-raton/", id:"1416",
+    curT:"Boca Raton | Ceilings R Us",
+    curD:"",
+    newT:"Ceiling Cleaning in Boca Raton, FL | Ceilings R Us",
+    newD:"Professional commercial ceiling cleaning & restoration in Boca Raton, serving Palm Beach County. Restaurant & facility compliance specialists.",
+    note:{type:"crit", html:"No description. Generic title. Needs an H1 in Flatsome."} },
+
+  { cluster:"About cluster", slug:"/about/", id:"86",
+    curT:"About | Ceilings R Us",
+    curD:"",
+    newT:"About Ceilings R Us | South Florida Ceiling Experts",
+    newD:"Meet Ceilings R Us — 25+ years cleaning and restoring commercial ceilings across South Florida. Restaurant and facility compliance is our specialty.",
+    note:{type:"crit", html:"No description. Brand-first title is intentional here (no redundant suffix). Needs an H1 in Flatsome."} },
+
+  { cluster:"About cluster", slug:"/why/", id:"642",
+    curT:"Why Choose Us | Ceilings R Us",
+    curD:"We remove mold, dust, grease & air contaminants from ceilings, vents, and ducts — improving air quality and reducing fire risk.",
+    newT:"Why Choose Ceilings R Us | Ceiling Cleaning Experts",
+    newD:"We remove mold, dust, grease & air contaminants from ceilings, vents, and ducts — improving air quality and reducing fire risk.", dKeep:true,
+    note:{type:"info", html:"Description is good. Title made more specific. Needs an H1 in Flatsome."} },
+
+  { cluster:"About cluster", slug:"/our-story/", id:"638",
+    curT:"Our Story | Ceilings R Us",
+    curD:"",
+    newT:"Our Story | 25+ Years of Ceiling Care | Ceilings R Us",
+    newD:"How Ceilings R Us became South Florida's trusted commercial ceiling cleaning and restoration team — 25+ years of honest, detailed work.",
+    note:{type:"crit", html:"No description."} },
+
+  { cluster:"About cluster", slug:"/mission-values/", id:"640",
+    curT:"Mission & Values | Ceilings R Us",
+    curD:"",
+    newT:"Mission & Values | Ceilings R Us", tKeep:true,
+    newD:"The mission and values behind Ceilings R Us — quality, safety and honest service on every commercial ceiling cleaning job in South Florida.",
+    note:{type:"crit", html:"Title is fine. No description — added one. Needs an H1 in Flatsome."} },
+
+  { cluster:"Free tools", slug:"/violation-map/", id:"1561",
+    curT:"Violation Map | Ceilings R Us Florida Restaurant Health Violation Map | Ceilings R Us",
+    curD:"See real DBPR ceiling & vent violations at restaurants near you, sourced from Florida public inspection records. Free interactive tool.",
+    newT:"Florida Restaurant Health Violation Map | Ceilings R Us",
+    newD:"See real DBPR ceiling & vent violations at restaurants near you, sourced from Florida public inspection records. Free interactive tool.", dKeep:true,
+    note:{type:"crit", html:"<b>Broken double-stacked title (85 chars).</b> Clear the whole Yoast title field and paste the clean one. Description is good."} },
+
+  { cluster:"Free tools", slug:"/facility-assessment/", id:"1556",
+    curT:"Assessment | Ceilings R Us",
+    curD:"Rate your facility's inspection readiness in minutes. Free self-assessment for restaurant and commercial ceiling compliance in Florida.",
+    newT:"Free Facility Compliance Assessment | Ceilings R Us",
+    newD:"Rate your facility's inspection readiness in minutes. Free self-assessment for restaurant and commercial ceiling compliance in Florida.", dKeep:true,
+    note:{type:"info", html:"Description is good. Title made descriptive instead of just “Assessment.”"} },
+
+  { cluster:"Free tools", slug:"/real-violations/", id:"1633",
+    curT:"Real Violations | Ceilings R Us",
+    curD:"See the exact ceiling and vent violations DBPR inspectors flag — with photos and the code behind each one. Free educational guide.",
+    newT:"Real Ceiling Violations Inspectors Flag | Ceilings R Us",
+    newD:"See the exact ceiling and vent violations DBPR inspectors flag — with photos and the code behind each one. Free educational guide.", dKeep:true,
+    note:{type:"info", html:"Description is good. Title now carries the keyword “ceiling violations.”"} },
+
+  { cluster:"Utility pages", slug:"/contact/", id:"22",
+    curT:"Contact | Ceilings R Us",
+    curD:"Get a free quote for ceiling restoration, duct cleaning, or general commercial cleaning. Call (954) 452-0004 or request a walk-through.",
+    newT:"Contact Ceilings R Us | Free Ceiling Cleaning Quote",
+    newD:"Get a free quote for ceiling restoration, duct cleaning, or general commercial cleaning. Call (954) 452-0004 or request a walk-through.", dKeep:true,
+    note:{type:"info", html:"Description is good. Title now includes “free quote.”"} },
+
+  { cluster:"Utility pages", slug:"/blogs/", id:"1478",
+    curT:"Blogs | Ceilings R Us",
+    curD:"",
+    newT:"Ceiling Cleaning Tips & Insights | Ceilings R Us",
+    newD:"Expert tips on commercial ceiling cleaning, DBPR inspection prep and indoor air quality from the Ceilings R Us team in South Florida.",
+    note:{type:"crit", html:"No description."} },
+
+  { cluster:"Utility pages", slug:"/terms-and-conditions/", id:"—",
+    curT:"Terms and Conditions | Ceilings R Us",
+    curD:"",
+    newT:"Terms and Conditions | Ceilings R Us", tKeep:true,
+    newD:"Terms and conditions for using the Ceilings R Us website and requesting our commercial ceiling cleaning services in Florida.",
+    note:{type:"", html:"Title fine. Short description added (utility page — length is not critical here)."} },
+
+  { cluster:"Utility pages", slug:"/privacy-policy/", id:"—",
+    curT:"Privacy Policy | Ceilings R Us",
+    curD:"",
+    newT:"Privacy Policy | Ceilings R Us", tKeep:true,
+    newD:"How Ceilings R Us collects, uses and protects your personal information when you use our website or request a service quote.",
+    note:{type:"", html:"Title fine. Short description added."} },
+
+  { cluster:"Redirect", slug:"/ventilation-and-air-duct-cleaning/", id:"1405",
+    curT:"Ventilation and Air Duct Cleaning | Ceilings R Us",
+    curD:"",
+    redirect:true,
+    note:{type:"redir", html:"<b>Near-duplicate</b> of <code>/ventilation-and-duct-cleaning/</code>. Don't write metadata — <b>301-redirect this URL</b> to the kept page so they stop competing. (A redirect plugin or Yoast Premium's redirect manager handles this.)"} },
+];
+
+// ---- length rules ----
+function titleClass(n){ if(n>=45&&n<=60) return "good"; if((n>=35&&n<45)||(n>60&&n<=65)) return "warn"; return "bad"; }
+function descClass(n){ if(n===0) return "bad"; if(n>=140&&n<=158) return "good"; if((n>=120&&n<140)||(n>158&&n<=165)) return "warn"; return "bad"; }
+
+const app = document.getElementById("app");
+const STORE = "cru-seo-map-v1";
+let done = {};
+try { done = JSON.parse(localStorage.getItem(STORE) || "{}"); } catch(e){ done = {}; }
+
+function badge(cls, txt){ return `<span class="chip ${cls}">${txt}</span>`; }
+
+let html = "";
+let lastCluster = null;
+const clusterCounts = {};
+PAGES.forEach(p => { clusterCounts[p.cluster] = (clusterCounts[p.cluster]||0)+1; });
+const clusterSubs = {
+  "Services & segments":"Your revenue pages. Titles now lead with the service + geo; over-long descriptions trimmed to display cleanly.",
+  "Location pages":"Local SEO. Every title now leads with “Ceiling Cleaning in [city]” — these also all need an H1 added in Flatsome.",
+  "About cluster":"Trust pages. Light-touch — most just needed a description written.",
+  "Free tools":"Your AEO assets — the pages AI engines are most likely to cite. Descriptions were already strong; titles sharpened.",
+  "Utility pages":"Contact + legal. Descriptions added where missing.",
+  "Industry pages":"Segment pages that already rank — worth optimizing to climb.",
+  "Redirect":"A structural cleanup, not a metadata task."
+};
+
+PAGES.forEach((p, i) => {
+  if (p.cluster !== lastCluster) {
+    lastCluster = p.cluster;
+    html += `<div class="section-head"><h2>${p.cluster}</h2><span class="count">${clusterCounts[p.cluster]} page${clusterCounts[p.cluster]>1?"s":""}</span></div>`;
+    if (clusterSubs[p.cluster]) html += `<p class="section-sub">${clusterSubs[p.cluster]}</p>`;
+  }
+
+  const key = p.slug;
+  const isDone = !!done[key];
+
+  if (p.redirect) {
+    html += `
+    <div class="card ${isDone?"done":""}" data-key="${key}">
+      <div class="card-top">
+        <label class="chkwrap"><input type="checkbox" data-check="${key}" ${isDone?"checked":""}></label>
+        <a class="slug" href="https://ceilingsrus.net${p.slug}" target="_blank" rel="noopener">${p.slug}</a>
+        <span class="pid">id ${p.id}</span>
+        <span class="top-badges">${badge("redir","301 REDIRECT")}</span>
+      </div>
+      <div class="note redir">→ ${p.note.html}</div>
+    </div>`;
+    return;
+  }
+
+  const tCls = titleClass(p.newT.length);
+  const dCls = descClass(p.newD.length);
+  const tBadge = p.tKeep ? badge("keep","TITLE · KEEP") : badge("change","TITLE · CHANGE");
+  const dBadge = p.dKeep ? badge("keep","DESC · KEEP") : (p.curD ? badge("change","DESC · CHANGE") : badge("crit","DESC · MISSING"));
+
+  html += `
+  <div class="card ${isDone?"done":""}" data-key="${key}">
+    <div class="card-top">
+      <label class="chkwrap"><input type="checkbox" data-check="${key}" ${isDone?"checked":""}></label>
+      <a class="slug" href="https://ceilingsrus.net${p.slug}" target="_blank" rel="noopener">${p.slug}</a>
+      <span class="pid">id ${p.id}</span>
+      <span class="top-badges">${tBadge} ${dBadge}</span>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Meta title</div>
+      ${p.tKeep ? "" : `<p class="current"><span class="was">was</span> ${escapeHtml(p.curT)}</p>`}
+      <div class="rec-row">
+        <div class="rec">${escapeHtml(p.newT)}</div>
+        <button class="copy" data-copy="${encodeURIComponent(p.newT)}">Copy</button>
+      </div>
+      <div class="meta-row"><span class="counter ${tCls}">${p.newT.length} chars</span></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label">Meta description</div>
+      ${p.dKeep ? "" : (p.curD ? `<p class="current"><span class="was">was</span> ${escapeHtml(p.curD)}</p>` : `<p class="current"><span class="was">was</span> <em>(empty)</em></p>`)}
+      <div class="rec-row">
+        <div class="rec desc">${escapeHtml(p.newD)}</div>
+        <button class="copy" data-copy="${encodeURIComponent(p.newD)}">Copy</button>
+      </div>
+      <div class="meta-row"><span class="counter ${dCls}">${p.newD.length} chars</span></div>
+    </div>
+
+    ${p.note ? `<div class="note ${p.note.type}">${p.note.type==="crit"?"⚠":p.note.type==="info"?"◆":"✎"} ${p.note.html}</div>` : ""}
+  </div>`;
+});
+
+app.innerHTML = html;
+
+function escapeHtml(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+// checkboxes
+const total = PAGES.length;
+function updateProgress(){
+  const n = Object.values(done).filter(Boolean).length;
+  document.getElementById("fill").style.width = (n/total*100)+"%";
+  document.getElementById("ptext").textContent = n+" / "+total+" done";
+}
+app.addEventListener("change", e => {
+  const k = e.target.getAttribute("data-check");
+  if (!k) return;
+  done[k] = e.target.checked;
+  localStorage.setItem(STORE, JSON.stringify(done));
+  e.target.closest(".card").classList.toggle("done", e.target.checked);
+  updateProgress();
+});
+app.addEventListener("click", e => {
+  const btn = e.target.closest("[data-copy]");
+  if (!btn) return;
+  const txt = decodeURIComponent(btn.getAttribute("data-copy"));
+  navigator.clipboard.writeText(txt).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = "Copied ✓"; btn.classList.add("copied");
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove("copied"); }, 1400);
+  });
+});
+document.getElementById("reset").addEventListener("click", () => {
+  done = {}; localStorage.removeItem(STORE);
+  document.querySelectorAll("[data-check]").forEach(c => c.checked = false);
+  document.querySelectorAll(".card").forEach(c => c.classList.remove("done"));
+  updateProgress();
+});
+updateProgress();
+</script>
