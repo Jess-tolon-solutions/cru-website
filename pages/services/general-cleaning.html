@@ -31,12 +31,13 @@
 .cru-svc-services-header h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 8px; position: relative; display: inline-block; }
 .cru-svc-services-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
 .cru-svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.cru-svc-card { background: #fff; border-radius: 12px; padding: 32px 28px; box-shadow: 0 4px 20px rgba(17,103,130,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative; text-align: center; }
+.cru-svc-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(17,103,130,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative; text-align: center; }
 .cru-svc-card::after { content: ''; position: absolute; inset: 0; border-radius: 12px; padding: 2px; background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
 .cru-svc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(17,103,130,0.14); }
-.cru-svc-card-icon { font-size: 2.4rem; margin-bottom: 16px; }
-.cru-svc-card h3 { font-size: 1.15rem; font-weight: 800; color: #0f2d36; margin: 0 0 10px; }
-.cru-svc-card p { font-size: 0.9rem; color: #5a7580; line-height: 1.6; margin: 0; }
+.cru-svc-card-img { height: 120px; background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); background-size: cover; background-position: center; }
+.cru-svc-card-body { padding: 24px 22px 28px; }
+.cru-svc-card h3 { font-size: 1.1rem; font-weight: 800; color: #0f2d36; margin: 0 0 8px; }
+.cru-svc-card p { font-size: 0.85rem; color: #5a7580; line-height: 1.6; margin: 0; }
 .cru-svc-cta { background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); padding: 72px 20px; text-align: center; }
 .cru-svc-cta-inner { max-width: 700px; margin: 0 auto; }
 .cru-svc-cta h2 { font-size: 2rem; font-weight: 800; color: #fff; margin: 0 0 24px; position: relative; display: inline-block; }
@@ -75,34 +76,46 @@
     </div>
     <div class="cru-svc-grid">
       <div class="cru-svc-card">
-        <div class="cru-svc-card-icon">🪟</div>
-        <h3>Window Cleaning</h3>
-        <p>Interior and exterior window cleaning for crystal-clear views.</p>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-body">
+          <h3>Window Cleaning</h3>
+          <p>Interior and exterior window cleaning for crystal-clear views.</p>
+        </div>
       </div>
       <div class="cru-svc-card">
-        <div class="cru-svc-card-icon">🧱</div>
-        <h3>Wall Cleaning</h3>
-        <p>Remove scuffs, stains, and buildup from painted and tiled walls.</p>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-body">
+          <h3>Wall Cleaning</h3>
+          <p>Remove scuffs, stains, and buildup from painted and tiled walls.</p>
+        </div>
       </div>
       <div class="cru-svc-card">
-        <div class="cru-svc-card-icon">🥄</div>
-        <h3>Stainless Steel</h3>
-        <p>Polish and restore stainless steel surfaces to a streak-free shine.</p>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-body">
+          <h3>Stainless Steel</h3>
+          <p>Polish and restore stainless steel surfaces to a streak-free shine.</p>
+        </div>
       </div>
       <div class="cru-svc-card">
-        <div class="cru-svc-card-icon">💡</div>
-        <h3>Light Fixtures</h3>
-        <p>Clean and dust light fixtures, lenses, and diffusers throughout your facility.</p>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-body">
+          <h3>Light Fixtures</h3>
+          <p>Clean and dust light fixtures, lenses, and diffusers throughout your facility.</p>
+        </div>
       </div>
       <div class="cru-svc-card">
-        <div class="cru-svc-card-icon">🚪</div>
-        <h3>Doors & Frames</h3>
-        <p>Clean doors, frames, and hardware to remove fingerprints and buildup.</p>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-body">
+          <h3>Doors & Frames</h3>
+          <p>Clean doors, frames, and hardware to remove fingerprints and buildup.</p>
+        </div>
       </div>
       <div class="cru-svc-card">
-        <div class="cru-svc-card-icon">🧽</div>
-        <h3>Deep Sanitization</h3>
-        <p>Thorough cleaning and sanitization of high-touch surfaces.</p>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-body">
+          <h3>Deep Sanitization</h3>
+          <p>Thorough cleaning and sanitization of high-touch surfaces.</p>
+        </div>
       </div>
     </div>
   </div>

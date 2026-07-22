@@ -31,12 +31,13 @@
 .cru-svc-benefits-header h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 8px; position: relative; display: inline-block; }
 .cru-svc-benefits-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
 .cru-svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
-.cru-svc-card { background: #fff; border-radius: 12px; padding: 36px 32px; box-shadow: 0 4px 20px rgba(17,103,130,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative; }
+.cru-svc-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(17,103,130,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative; }
 .cru-svc-card::after { content: ''; position: absolute; inset: 0; border-radius: 12px; padding: 2px; background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
 .cru-svc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(17,103,130,0.14); }
-.cru-svc-card-icon { width: 56px; height: 56px; background: linear-gradient(135deg, #116782 0%, #1a8fa8 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px; }
-.cru-svc-card h3 { font-size: 1.25rem; font-weight: 800; color: #0f2d36; margin: 0 0 12px; }
-.cru-svc-card p { font-size: 0.95rem; color: #5a7580; line-height: 1.65; margin: 0; }
+.cru-svc-card-img { height: 140px; background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); background-size: cover; background-position: center; }
+.cru-svc-card-body { padding: 24px 28px 28px; }
+.cru-svc-card h3 { font-size: 1.15rem; font-weight: 800; color: #0f2d36; margin: 0 0 10px; }
+.cru-svc-card p { font-size: 0.9rem; color: #5a7580; line-height: 1.65; margin: 0; }
 .cru-svc-violations { background: #fff; padding: 72px 20px; }
 .cru-svc-violations-inner { max-width: 900px; margin: 0 auto; }
 .cru-svc-violations-header { text-align: center; margin-bottom: 48px; }
@@ -86,24 +87,32 @@
     </div>
     <div class="cru-svc-grid">
       <div class="cru-svc-card">
-        <div class="cru-svc-card-icon">📋</div>
-        <h3>We Know What Inspectors Look For</h3>
-        <p>25+ years of experience means we understand DBPR requirements inside and out. We target the exact areas inspectors check.</p>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-body">
+          <h3>We Know What Inspectors Look For</h3>
+          <p>25+ years of experience means we understand DBPR requirements inside and out. We target the exact areas inspectors check.</p>
+        </div>
       </div>
       <div class="cru-svc-card">
-        <div class="cru-svc-card-icon">⏰</div>
-        <h3>Fast Turnaround</h3>
-        <p>Inspection coming soon? We can often schedule service within days to get you ready before the inspector arrives.</p>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-body">
+          <h3>Fast Turnaround</h3>
+          <p>Inspection coming soon? We can often schedule service within days to get you ready before the inspector arrives.</p>
+        </div>
       </div>
       <div class="cru-svc-card">
-        <div class="cru-svc-card-icon">✓</div>
-        <h3>Guaranteed Results</h3>
-        <p>We stand behind our work. If a ceiling or vent violation occurs after our service, we'll make it right.</p>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-body">
+          <h3>Guaranteed Results</h3>
+          <p>We stand behind our work. If a ceiling or vent violation occurs after our service, we'll make it right.</p>
+        </div>
       </div>
       <div class="cru-svc-card">
-        <div class="cru-svc-card-icon">📸</div>
-        <h3>Before & After Documentation</h3>
-        <p>We provide photo documentation of our work — useful for your records and demonstrating compliance efforts.</p>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-body">
+          <h3>Before & After Documentation</h3>
+          <p>We provide photo documentation of our work — useful for your records and demonstrating compliance efforts.</p>
+        </div>
       </div>
     </div>
   </div>
