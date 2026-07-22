@@ -1,0 +1,691 @@
+<!--
+  SERVICES HUB PAGE — v2
+  URL: /services/
+  Page ID: 1256
+
+  Features:
+  - Dark hero with popup CTA
+  - Featured service card + grid layout
+  - Polished FAQ accordion
+  - All CTAs trigger popup form
+-->
+
+<style>
+/* ===== BASE ===== */
+.cru-svch { font-family: 'Open Sans', Arial, sans-serif; }
+
+/* ===== HERO (Dark Overlay) ===== */
+.cru-svch-hero {
+  position: relative;
+  min-height: 420px;
+  background: linear-gradient(180deg, rgba(6,17,22,0.75) 0%, rgba(6,17,22,0.88) 100%),
+              url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+}
+.cru-svch-hero-inner { max-width: 800px; }
+.cru-svch-eyebrow {
+  display: inline-block;
+  background: rgba(53,209,232,0.15);
+  border: 1px solid rgba(53,209,232,0.4);
+  color: #35d1e8;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.cru-svch-hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 24px;
+  line-height: 1.1;
+  position: relative;
+  padding-bottom: 16px;
+}
+.cru-svch-hero h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%);
+  border-radius: 2px;
+}
+.cru-svch-hero p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.6;
+  margin: 0 0 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cru-svch-hero-btn {
+  display: inline-block;
+  background: #5eff00;
+  color: #0f2d36;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 16px 38px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+.cru-svch-hero-btn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+
+/* ===== SERVICES SECTION ===== */
+.cru-svch-services { background: #f4f8f9; padding: 80px 20px; }
+.cru-svch-services-inner { max-width: 1200px; margin: 0 auto; }
+.cru-svch-services-header { text-align: center; margin-bottom: 56px; }
+.cru-svch-services-header h2 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0 0 20px;
+  position: relative;
+  display: inline-block;
+}
+.cru-svch-services-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+  border-radius: 2px;
+}
+.cru-svch-services-header p {
+  font-size: 1.05rem;
+  color: #5a7580;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* Featured Card */
+.cru-svch-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(17,103,130,0.12);
+  margin-bottom: 36px;
+  position: relative;
+}
+.cru-svch-featured::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.cru-svch-featured-img {
+  background: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg') center/cover no-repeat;
+  min-height: 320px;
+}
+.cru-svch-featured-content {
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cru-svch-featured-badge {
+  display: inline-block;
+  background: #5eff00;
+  color: #0f2d36;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+.cru-svch-featured-content h3 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0 0 14px;
+  line-height: 1.2;
+}
+.cru-svch-featured-content p {
+  font-size: 1rem;
+  color: #5a7580;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+.cru-svch-featured-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #116782;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.cru-svch-featured-link:hover { color: #5eff00; }
+
+/* Service Grid */
+.cru-svch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.cru-svch-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(17,103,130,0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  text-decoration: none;
+  display: block;
+}
+.cru-svch-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  padding: 2px;
+  background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.cru-svch-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(17,103,130,0.16); }
+.cru-svch-card:hover::after { opacity: 1; }
+.cru-svch-card-img {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.cru-svch-card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(6,17,22,0.5) 100%);
+}
+.cru-svch-card-body { padding: 26px 24px; }
+.cru-svch-card h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0 0 10px;
+}
+.cru-svch-card p {
+  font-size: 0.9rem;
+  color: #5a7580;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+.cru-svch-card-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #116782;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.cru-svch-card:hover .cru-svch-card-link { color: #5eff00; }
+
+/* ===== FAQ SECTION ===== */
+.cru-svch-faq { background: #fff; padding: 80px 20px; }
+.cru-svch-faq-inner { max-width: 800px; margin: 0 auto; }
+.cru-svch-faq-header { text-align: center; margin-bottom: 48px; }
+.cru-svch-faq-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0 0 20px;
+  position: relative;
+  display: inline-block;
+}
+.cru-svch-faq-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+  border-radius: 2px;
+}
+.cru-svch-faq-header p {
+  font-size: 1rem;
+  color: #5a7580;
+}
+
+.cru-svch-accordion { display: flex; flex-direction: column; gap: 12px; }
+.cru-svch-acc-item {
+  background: #f4f8f9;
+  border-radius: 10px;
+  overflow: hidden;
+  border-left: 4px solid #116782;
+  transition: border-color 0.2s;
+}
+.cru-svch-acc-item.active { border-left-color: #5eff00; }
+.cru-svch-acc-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+.cru-svch-acc-btn h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f2d36;
+  margin: 0;
+  padding-right: 16px;
+}
+.cru-svch-acc-icon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background: #116782;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: transform 0.3s, background 0.2s;
+}
+.cru-svch-acc-item.active .cru-svch-acc-icon {
+  background: #5eff00;
+  color: #0f2d36;
+  transform: rotate(45deg);
+}
+.cru-svch-acc-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+.cru-svch-acc-item.active .cru-svch-acc-content {
+  max-height: 300px;
+  padding: 0 24px 20px;
+}
+.cru-svch-acc-content p {
+  font-size: 0.95rem;
+  color: #5a7580;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ===== CTA SECTION (Dark) ===== */
+.cru-svch-cta {
+  background: linear-gradient(135deg, #0f2d36 0%, #116782 100%);
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cru-svch-cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(94,255,0,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cru-svch-cta-inner { max-width: 650px; margin: 0 auto; position: relative; z-index: 1; }
+.cru-svch-cta h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 24px;
+  position: relative;
+  display: inline-block;
+}
+.cru-svch-cta h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%);
+  border-radius: 2px;
+}
+.cru-svch-cta p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.88);
+  margin: 0 0 36px;
+  line-height: 1.6;
+}
+.cru-svch-cta-btn {
+  display: inline-block;
+  background: #5eff00;
+  color: #0f2d36;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 18px 44px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+.cru-svch-cta-btn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+}
+
+/* ===== POPUP MODAL ===== */
+.cru-svch-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(8,18,23,0.85);
+  padding: 20px;
+}
+.cru-svch-modal.cru-svch-open {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.cru-svch-modal-box {
+  background: #fff;
+  border-radius: 14px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  margin: 24px auto;
+  position: relative;
+}
+.cru-svch-modal-head {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 2;
+}
+.cru-svch-modal-head h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0;
+}
+.cru-svch-modal-close {
+  background: none;
+  border: none;
+  font-size: 30px;
+  line-height: 1;
+  color: #5a7580;
+  cursor: pointer;
+  padding: 0 4px;
+}
+.cru-svch-modal-close:hover { color: #0f2d36; }
+.cru-svch-modal-body { padding: 20px 24px 28px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1000px) {
+  .cru-svch-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 820px) {
+  .cru-svch-featured { grid-template-columns: 1fr; }
+  .cru-svch-featured-img { min-height: 220px; }
+  .cru-svch-featured-content { padding: 32px 28px; }
+}
+@media (max-width: 600px) {
+  .cru-svch-hero { min-height: 360px; padding: 60px 20px; }
+  .cru-svch-hero h1 { font-size: 2rem; }
+  .cru-svch-grid { grid-template-columns: 1fr; }
+  .cru-svch-services, .cru-svch-faq, .cru-svch-cta { padding: 60px 20px; }
+}
+</style>
+
+<!-- ===== HERO ===== -->
+<section class="cru-svch cru-svch-hero">
+  <div class="cru-svch-hero-inner">
+    <span class="cru-svch-eyebrow">What We Do</span>
+    <h1>Commercial Ceiling Cleaning Services</h1>
+    <p>Ceiling restoration, duct cleaning, and specialized commercial cleaning across Miami-Dade, Broward, and Palm Beach counties.</p>
+    <button type="button" class="cru-svch-hero-btn" onclick="document.getElementById('cru-svch-modal').classList.add('cru-svch-open');">Get a Free Quote</button>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="cru-svch cru-svch-services">
+  <div class="cru-svch-services-inner">
+    <div class="cru-svch-services-header">
+      <h2>Our Services</h2>
+      <p>Professional cleaning solutions for restaurants, hotels, and commercial facilities</p>
+    </div>
+
+    <!-- Featured Service -->
+    <div class="cru-svch-featured">
+      <div class="cru-svch-featured-img"></div>
+      <div class="cru-svch-featured-content">
+        <span class="cru-svch-featured-badge">Most Requested</span>
+        <h3>Commercial Ceiling Cleaning</h3>
+        <p>Deep cleaning for acoustic tiles, open ceilings, and exposed structures. We remove years of dust, grease, and grime — delivering inspection-ready results that protect your business.</p>
+        <a href="/commercial-ceiling-cleaning/" class="cru-svch-featured-link">Learn More <span>→</span></a>
+      </div>
+    </div>
+
+    <!-- Service Grid -->
+    <div class="cru-svch-grid">
+      <a href="/ceiling-restoration/" class="cru-svch-card">
+        <div class="cru-svch-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svch-card-body">
+          <h4>Ceiling Restoration</h4>
+          <p>Restore stained, discolored ceilings to like-new condition without costly replacement.</p>
+          <span class="cru-svch-card-link">Learn More <span>→</span></span>
+        </div>
+      </a>
+
+      <a href="/ventilation-and-duct-cleaning/" class="cru-svch-card">
+        <div class="cru-svch-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svch-card-body">
+          <h4>Duct & Vent Cleaning</h4>
+          <p>Improve air quality and HVAC efficiency by removing dust and contaminants from ventilation systems.</p>
+          <span class="cru-svch-card-link">Learn More <span>→</span></span>
+        </div>
+      </a>
+
+      <a href="/post-construction-cleaning/" class="cru-svch-card">
+        <div class="cru-svch-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svch-card-body">
+          <h4>Post-Construction Cleaning</h4>
+          <p>Remove construction dust and debris so your new space is spotless and ready to occupy.</p>
+          <span class="cru-svch-card-link">Learn More <span>→</span></span>
+        </div>
+      </a>
+
+      <a href="/general-cleaning/" class="cru-svch-card">
+        <div class="cru-svch-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svch-card-body">
+          <h4>General Cleaning</h4>
+          <p>Detailed cleaning for walls, windows, stainless steel, and more — reliable results for any space.</p>
+          <span class="cru-svch-card-link">Learn More <span>→</span></span>
+        </div>
+      </a>
+
+      <a href="/specialized-cleaning-solutions/" class="cru-svch-card">
+        <div class="cru-svch-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svch-card-body">
+          <h4>Specialized Cleaning</h4>
+          <p>Stain removal, odor elimination, and advanced techniques for challenging environments.</p>
+          <span class="cru-svch-card-link">Learn More <span>→</span></span>
+        </div>
+      </a>
+
+      <a href="/inspection-preparation/" class="cru-svch-card">
+        <div class="cru-svch-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svch-card-body">
+          <h4>Inspection Preparation</h4>
+          <p>Expert cleaning that clears common DBPR violations before the inspector arrives.</p>
+          <span class="cru-svch-card-link">Learn More <span>→</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="cru-svch cru-svch-faq">
+  <div class="cru-svch-faq-inner">
+    <div class="cru-svch-faq-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Quick answers to common questions about our services</p>
+    </div>
+
+    <div class="cru-svch-accordion">
+      <div class="cru-svch-acc-item">
+        <button class="cru-svch-acc-btn" onclick="this.parentElement.classList.toggle('active')">
+          <h3>How much does ceiling cleaning cost?</h3>
+          <span class="cru-svch-acc-icon">+</span>
+        </button>
+        <div class="cru-svch-acc-content">
+          <p>Pricing depends on ceiling type, square footage, and condition. Most commercial jobs range from a few hundred to several thousand dollars. We provide free on-site assessments with transparent quotes — no hidden fees.</p>
+        </div>
+      </div>
+
+      <div class="cru-svch-acc-item">
+        <button class="cru-svch-acc-btn" onclick="this.parentElement.classList.toggle('active')">
+          <h3>Is cleaning cheaper than replacing ceiling tiles?</h3>
+          <span class="cru-svch-acc-icon">+</span>
+        </button>
+        <div class="cru-svch-acc-content">
+          <p>Yes — typically 60-70% less expensive. Professional cleaning and restoration extends ceiling life significantly, avoiding the material and labor costs of full replacement.</p>
+        </div>
+      </div>
+
+      <div class="cru-svch-acc-item">
+        <button class="cru-svch-acc-btn" onclick="this.parentElement.classList.toggle('active')">
+          <h3>How long does the cleaning process take?</h3>
+          <span class="cru-svch-acc-icon">+</span>
+        </button>
+        <div class="cru-svch-acc-content">
+          <p>Most jobs are completed in one day. Larger facilities may take 2-3 days. We work around your schedule and can perform work during off-hours to minimize disruption.</p>
+        </div>
+      </div>
+
+      <div class="cru-svch-acc-item">
+        <button class="cru-svch-acc-btn" onclick="this.parentElement.classList.toggle('active')">
+          <h3>Are your cleaning products food-safe?</h3>
+          <span class="cru-svch-acc-icon">+</span>
+        </button>
+        <div class="cru-svch-acc-content">
+          <p>Absolutely. We use non-toxic, food-safe products approved for use in restaurants and food preparation areas. Your facility remains safe for immediate use after cleaning.</p>
+        </div>
+      </div>
+
+      <div class="cru-svch-acc-item">
+        <button class="cru-svch-acc-btn" onclick="this.parentElement.classList.toggle('active')">
+          <h3>Do you work after hours?</h3>
+          <span class="cru-svch-acc-icon">+</span>
+        </button>
+        <div class="cru-svch-acc-content">
+          <p>Yes. We regularly schedule work during evenings, overnight, and weekends to avoid disrupting your business operations. Let us know your preferred timing.</p>
+        </div>
+      </div>
+
+      <div class="cru-svch-acc-item">
+        <button class="cru-svch-acc-btn" onclick="this.parentElement.classList.toggle('active')">
+          <h3>What areas do you serve?</h3>
+          <span class="cru-svch-acc-icon">+</span>
+        </button>
+        <div class="cru-svch-acc-content">
+          <p>We serve all of South Florida including Miami-Dade, Broward, and Palm Beach counties. From Miami to West Palm Beach, we're your local ceiling cleaning experts.</p>
+        </div>
+      </div>
+
+      <div class="cru-svch-acc-item">
+        <button class="cru-svch-acc-btn" onclick="this.parentElement.classList.toggle('active')">
+          <h3>Can you handle damaged or missing tiles?</h3>
+          <span class="cru-svch-acc-icon">+</span>
+        </button>
+        <div class="cru-svch-acc-content">
+          <p>Yes. We can replace damaged tiles, match existing patterns, and restore your ceiling to a uniform appearance. We'll identify any issues during our assessment.</p>
+        </div>
+      </div>
+
+      <div class="cru-svch-acc-item">
+        <button class="cru-svch-acc-btn" onclick="this.parentElement.classList.toggle('active')">
+          <h3>Are you licensed and insured?</h3>
+          <span class="cru-svch-acc-icon">+</span>
+        </button>
+        <div class="cru-svch-acc-content">
+          <p>Yes. We are fully licensed, bonded, and insured. We carry comprehensive liability coverage for your protection and peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cru-svch cru-svch-cta">
+  <div class="cru-svch-cta-inner">
+    <h2>Ready to Get Started?</h2>
+    <p>Request a free assessment and quote. We'll evaluate your facility and provide a clear plan to get you inspection-ready.</p>
+    <button type="button" class="cru-svch-cta-btn" onclick="document.getElementById('cru-svch-modal').classList.add('cru-svch-open');">Get Your Free Quote</button>
+  </div>
+</section>
+
+<!-- ===== POPUP MODAL ===== -->
+<div class="cru-svch-modal" id="cru-svch-modal" onclick="if(event.target===this)this.classList.remove('cru-svch-open');">
+  <div class="cru-svch-modal-box">
+    <div class="cru-svch-modal-head">
+      <h3>Request Your Free Quote</h3>
+      <button type="button" class="cru-svch-modal-close" aria-label="Close" onclick="document.getElementById('cru-svch-modal').classList.remove('cru-svch-open');">&times;</button>
+    </div>
+    <div class="cru-svch-modal-body">
+      <!-- Jobber Work Request form embed -->
+      <div id="a022635a-e1bc-43e3-bbac-6e97a2584f23-4837330"></div>
+      <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
+      <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js" clienthub_id="a022635a-e1bc-43e3-bbac-6e97a2584f23-4837330" form_url="https://clienthub.getjobber.com/client_hubs/a022635a-e1bc-43e3-bbac-6e97a2584f23/public/work_request/embedded_work_request_form?form_id=4837330"></script>
+    </div>
+  </div>
+</div>

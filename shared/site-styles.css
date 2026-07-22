@@ -72,3 +72,207 @@
   pointer-events: none;
   z-index: 4;
 }
+
+/* ---- 5. Page Hero Pattern ----
+   Standard hero section for service/location/about pages.
+   Full-bleed with dark gradient overlay on background image. */
+.cru-page-hero {
+  position: relative;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+.cru-page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%);
+  z-index: 1;
+}
+.cru-page-hero > * { position: relative; z-index: 2; }
+.cru-page-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 16px;
+  line-height: 1.15;
+}
+.cru-page-hero p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .cru-page-hero { min-height: 320px; padding: 60px 20px; }
+  .cru-page-hero h1 { font-size: 2rem; }
+}
+
+/* ---- 6. Service Card Pattern ----
+   Cards for service pages with gradient border. */
+.cru-service-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 20px rgba(17,103,130,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.cru-service-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+.cru-service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(17,103,130,0.14);
+}
+
+/* ---- 7. Location Card Pattern ----
+   Cards for location pages with gradient border. */
+.cru-location-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 20px rgba(17,103,130,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.cru-location-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+.cru-location-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(17,103,130,0.14);
+}
+
+/* ---- 8. Eyebrow Badge Pattern ----
+   Small pill badge for section headers. */
+.cru-eyebrow {
+  display: inline-block;
+  background: #116782;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 50px;
+  margin-bottom: 14px;
+}
+
+/* ---- 9. Trust Strip Pattern ----
+   Dark band with checkmark items. */
+.cru-trust-strip {
+  background: #0f2d36;
+  padding: 28px 20px;
+}
+.cru-trust-strip-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 32px;
+}
+.cru-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.cru-trust-check {
+  width: 22px;
+  height: 22px;
+  background: #5eff00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #0f2d36;
+  font-weight: 800;
+}
+@media (max-width: 600px) {
+  .cru-trust-strip-inner { flex-direction: column; align-items: center; gap: 12px; }
+}
+
+/* ---- 10. CTA Section Pattern ----
+   Gradient background CTA with buttons. */
+.cru-cta-section {
+  background: linear-gradient(135deg, #116782 0%, #0f2d36 100%);
+  padding: 72px 20px;
+  text-align: center;
+}
+.cru-cta-section h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 16px;
+}
+.cru-cta-section p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.9);
+  margin: 0 0 32px;
+  line-height: 1.6;
+}
+.cru-cta-btn-primary {
+  display: inline-block;
+  background: #5eff00;
+  color: #0f2d36;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.cru-cta-btn-primary:hover {
+  background: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+}
+.cru-cta-btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 34px;
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.cru-cta-btn-secondary:hover {
+  background: #fff !important;
+  color: #0f2d36 !important;
+  border-color: #fff !important;
+  transform: translateY(-2px);
+}

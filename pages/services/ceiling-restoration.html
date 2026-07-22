@@ -1,0 +1,158 @@
+<!--
+  CEILING RESTORATION SERVICE PAGE
+  URL: /ceiling-restoration/
+  Page ID: 1273
+-->
+
+<style>
+.cru-svc-section { font-family: 'Open Sans', Arial, sans-serif; }
+.cru-svc-hero {
+  position: relative;
+  min-height: 400px;
+  background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%),
+              url('https://ceilingsrus.net/wp-content/uploads/2024/ceiling-restoration.jpg') center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px;
+}
+.cru-svc-hero-inner { max-width: 800px; }
+.cru-svc-eyebrow { display: inline-block; background: #116782; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 18px; }
+.cru-svc-hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; margin: 0 0 24px; line-height: 1.15; position: relative; padding-bottom: 16px; }
+.cru-svc-hero h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-svc-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0 0 28px; }
+.cru-svc-hero-btn { display: inline-block; background: #5eff00; color: #0f2d36; font-size: 0.95rem; font-weight: 700; padding: 14px 32px; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+.cru-svc-hero-btn:hover { background: #fff; color: #0f2d36; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.18); }
+.cru-svc-desc { background: #fff; padding: 72px 20px; }
+.cru-svc-desc-inner { max-width: 900px; margin: 0 auto; }
+.cru-svc-desc h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 28px; text-align: center; position: relative; display: inline-block; }
+.cru-svc-desc h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-svc-desc p { font-size: 1.05rem; color: #374151; line-height: 1.8; margin: 0 0 20px; }
+.cru-svc-benefits { background: #f4f8f9; padding: 72px 20px; }
+.cru-svc-benefits-inner { max-width: 1120px; margin: 0 auto; }
+.cru-svc-benefits-header { text-align: center; margin-bottom: 48px; }
+.cru-svc-benefits-header h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 8px; position: relative; display: inline-block; }
+.cru-svc-benefits-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.cru-svc-card { background: #fff; border-radius: 12px; padding: 36px 32px; box-shadow: 0 4px 20px rgba(17,103,130,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative; }
+.cru-svc-card::after { content: ''; position: absolute; inset: 0; border-radius: 12px; padding: 2px; background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.cru-svc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(17,103,130,0.14); }
+.cru-svc-card-icon { width: 56px; height: 56px; background: linear-gradient(135deg, #116782 0%, #1a8fa8 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 20px; }
+.cru-svc-card h3 { font-size: 1.25rem; font-weight: 800; color: #0f2d36; margin: 0 0 12px; }
+.cru-svc-card p { font-size: 0.95rem; color: #5a7580; line-height: 1.65; margin: 0; }
+.cru-svc-process { background: #fff; padding: 72px 20px; }
+.cru-svc-process-inner { max-width: 900px; margin: 0 auto; }
+.cru-svc-process-header { text-align: center; margin-bottom: 48px; }
+.cru-svc-process-header h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 8px; position: relative; display: inline-block; }
+.cru-svc-process-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-svc-steps { display: flex; flex-direction: column; gap: 24px; }
+.cru-svc-step { display: flex; gap: 24px; align-items: flex-start; }
+.cru-svc-step-num { width: 48px; height: 48px; min-width: 48px; background: #116782; color: #fff; font-size: 1.2rem; font-weight: 800; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.cru-svc-step-content h3 { font-size: 1.15rem; font-weight: 700; color: #0f2d36; margin: 0 0 8px; }
+.cru-svc-step-content p { font-size: 0.95rem; color: #5a7580; line-height: 1.6; margin: 0; }
+.cru-svc-cta { background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); padding: 72px 20px; text-align: center; }
+.cru-svc-cta-inner { max-width: 700px; margin: 0 auto; }
+.cru-svc-cta h2 { font-size: 2rem; font-weight: 800; color: #fff; margin: 0 0 24px; position: relative; display: inline-block; }
+.cru-svc-cta h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-svc-cta p { font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0 0 32px; line-height: 1.6; }
+.cru-svc-cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.cru-svc-cta-btn-primary { display: inline-block; background: #5eff00; color: #0f2d36; font-size: 1rem; font-weight: 700; padding: 16px 36px; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+.cru-svc-cta-btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+.cru-svc-cta-btn-secondary { display: inline-block; background: transparent; color: #fff; font-size: 1rem; font-weight: 700; padding: 14px 34px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.5); text-decoration: none; transition: all 0.2s ease; }
+.cru-svc-cta-btn-secondary:hover { background: #fff; color: #0f2d36; border-color: #fff; transform: translateY(-2px); }
+@media (max-width: 800px) { .cru-svc-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .cru-svc-hero { min-height: 340px; padding: 60px 20px; } .cru-svc-hero h1 { font-size: 2rem; } .cru-svc-step { flex-direction: column; gap: 12px; } .cru-svc-cta-btns { flex-direction: column; align-items: center; } }
+</style>
+
+<section class="cru-svc-section cru-svc-hero">
+  <div class="cru-svc-hero-inner">
+    <span class="cru-svc-eyebrow">Our Services</span>
+    <h1>Ceiling Restoration</h1>
+    <p>Restore stained, discolored, and damaged ceilings to like-new condition without the cost of replacement.</p>
+    <a href="tel:+19544520004" class="cru-svc-hero-btn">Get a Free Quote</a>
+  </div>
+</section>
+
+<section class="cru-svc-section cru-svc-desc">
+  <div class="cru-svc-desc-inner">
+    <h2>Expert Ceiling Restoration in South Florida</h2>
+    <p>Water stains, smoke damage, discoloration, and years of accumulated grime can make ceilings look worn and unprofessional. Our ceiling restoration service brings stained, dusty commercial ceilings back to like-new appearance without the expense and disruption of full replacement.</p>
+    <p>We specialize in restoring acoustic tile ceilings, drywall ceilings, and exposed structural ceilings for restaurants, offices, retail spaces, and commercial facilities throughout Miami-Dade, Broward, and Palm Beach counties. Better air quality and inspection-ready results, guaranteed.</p>
+  </div>
+</section>
+
+<section class="cru-svc-section cru-svc-benefits">
+  <div class="cru-svc-benefits-inner">
+    <div class="cru-svc-benefits-header">
+      <h2>Why Choose Our Ceiling Restoration</h2>
+    </div>
+    <div class="cru-svc-grid">
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-icon">💰</div>
+        <h3>Significant Cost Savings</h3>
+        <p>Restoration costs a fraction of replacement. Save thousands while achieving the same clean, professional appearance.</p>
+      </div>
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-icon">⏱️</div>
+        <h3>Minimal Disruption</h3>
+        <p>Unlike replacement, restoration work can often be completed during off-hours with no need to close your business.</p>
+      </div>
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-icon">🎨</div>
+        <h3>Like-New Appearance</h3>
+        <p>Remove water stains, smoke damage, yellowing, and discoloration. Your ceilings will look fresh and professional.</p>
+      </div>
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-icon">🌱</div>
+        <h3>Environmentally Friendly</h3>
+        <p>Restoration extends ceiling life and keeps materials out of landfills. A sustainable choice for your business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-svc-section cru-svc-process">
+  <div class="cru-svc-process-inner">
+    <div class="cru-svc-process-header">
+      <h2>Our Restoration Process</h2>
+    </div>
+    <div class="cru-svc-steps">
+      <div class="cru-svc-step">
+        <div class="cru-svc-step-num">1</div>
+        <div class="cru-svc-step-content">
+          <h3>Damage Assessment</h3>
+          <p>We evaluate the type and extent of damage, identify the cause, and determine the best restoration approach.</p>
+        </div>
+      </div>
+      <div class="cru-svc-step">
+        <div class="cru-svc-step-num">2</div>
+        <div class="cru-svc-step-content">
+          <h3>Deep Cleaning</h3>
+          <p>Before restoration, we thoroughly clean all surfaces to remove dust, grease, and contaminants.</p>
+        </div>
+      </div>
+      <div class="cru-svc-step">
+        <div class="cru-svc-step-num">3</div>
+        <div class="cru-svc-step-content">
+          <h3>Stain Treatment & Restoration</h3>
+          <p>We treat stains, apply restoration coatings, and bring your ceiling back to its original appearance.</p>
+        </div>
+      </div>
+      <div class="cru-svc-step">
+        <div class="cru-svc-step-num">4</div>
+        <div class="cru-svc-step-content">
+          <h3>Quality Inspection</h3>
+          <p>We walk through the completed work with you to ensure every area meets our quality standards.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-svc-section cru-svc-cta">
+  <div class="cru-svc-cta-inner">
+    <h2>Ready to Restore Your Ceilings?</h2>
+    <p>Contact us today for a free assessment. We'll show you how restoration can save money while delivering like-new results.</p>
+    <div class="cru-svc-cta-btns">
+      <a href="tel:+19544520004" class="cru-svc-cta-btn-primary">Call (954) 452-0004</a>
+      <a href="/contact/" class="cru-svc-cta-btn-secondary">Request a Quote</a>
+    </div>
+  </div>
+</section>

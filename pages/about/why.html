@@ -1,0 +1,147 @@
+<!--
+  WHY CHOOSE US PAGE
+  URL: /why/
+  Page ID: 642
+-->
+
+<style>
+.cru-why-section { font-family: 'Open Sans', Arial, sans-serif; }
+.cru-why-hero {
+  position: relative;
+  min-height: 380px;
+  background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%),
+              url('https://ceilingsrus.net/wp-content/uploads/2024/why-hero.jpg') center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px;
+}
+.cru-why-hero-inner { max-width: 800px; }
+.cru-why-eyebrow { display: inline-block; background: #116782; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 18px; }
+.cru-why-hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; margin: 0 0 24px; line-height: 1.15; position: relative; padding-bottom: 16px; }
+.cru-why-hero h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-why-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0; }
+
+.cru-why-reasons { background: #fff; padding: 72px 20px; }
+.cru-why-reasons-inner { max-width: 1120px; margin: 0 auto; }
+.cru-why-reasons-header { text-align: center; margin-bottom: 48px; }
+.cru-why-reasons-header h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 8px; position: relative; display: inline-block; }
+.cru-why-reasons-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.cru-why-card { background: #f4f8f9; border-radius: 12px; overflow: hidden; position: relative; }
+.cru-why-card::after { content: ''; position: absolute; inset: 0; border-radius: 12px; padding: 2px; background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.cru-why-card-img { height: 140px; background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
+.cru-why-card-img::before { content: 'PHOTO'; font-size: 0.85rem; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 3px; }
+.cru-why-card-img.has-image::before { display: none; }
+.cru-why-card-body { padding: 28px 28px 32px; }
+.cru-why-card h3 { font-size: 1.2rem; font-weight: 800; color: #0f2d36; margin: 0 0 10px; }
+.cru-why-card p { font-size: 0.9rem; color: #5a7580; line-height: 1.65; margin: 0; }
+
+.cru-why-benefits { background: #f4f8f9; padding: 72px 20px; }
+.cru-why-benefits-inner { max-width: 900px; margin: 0 auto; }
+.cru-why-benefits-header { text-align: center; margin-bottom: 48px; }
+.cru-why-benefits-header h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 20px; position: relative; display: inline-block; }
+.cru-why-benefits-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-why-benefits-header p { font-size: 1rem; color: #5a7580; }
+.cru-why-list { display: flex; flex-direction: column; gap: 20px; }
+.cru-why-list-item { display: flex; align-items: flex-start; gap: 20px; background: #fff; padding: 24px 28px; border-radius: 10px; box-shadow: 0 2px 12px rgba(17,103,130,0.06); }
+.cru-why-list-check { width: 32px; height: 32px; min-width: 32px; background: #5eff00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #0f2d36; font-weight: 800; }
+.cru-why-list-text { font-size: 1rem; color: #374151; line-height: 1.6; }
+.cru-why-list-text strong { color: #0f2d36; }
+
+.cru-why-cta { background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); padding: 72px 20px; text-align: center; }
+.cru-why-cta-inner { max-width: 700px; margin: 0 auto; }
+.cru-why-cta h2 { font-size: 2rem; font-weight: 800; color: #fff; margin: 0 0 24px; position: relative; display: inline-block; }
+.cru-why-cta h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-why-cta p { font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0 0 32px; line-height: 1.6; }
+.cru-why-cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.cru-why-cta-btn-primary { display: inline-block; background: #5eff00; color: #0f2d36; font-size: 1rem; font-weight: 700; padding: 16px 36px; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+.cru-why-cta-btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+
+@media (max-width: 800px) { .cru-why-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .cru-why-hero { min-height: 320px; padding: 60px 20px; } .cru-why-hero h1 { font-size: 2rem; } }
+</style>
+
+<section class="cru-why-section cru-why-hero">
+  <div class="cru-why-hero-inner">
+    <span class="cru-why-eyebrow">About Us</span>
+    <h1>Why Choose Ceilings R Us</h1>
+    <p>We remove mold, dust, grease, and air contaminants from ceilings, vents, and ducts — improving air quality and reducing fire risk.</p>
+  </div>
+</section>
+
+<section class="cru-why-section cru-why-reasons">
+  <div class="cru-why-reasons-inner">
+    <div class="cru-why-reasons-header">
+      <h2>What Sets Us Apart</h2>
+    </div>
+    <div class="cru-why-grid">
+      <div class="cru-why-card">
+        <div class="cru-why-card-img"></div>
+        <div class="cru-why-card-body">
+          <h3>We Know What Inspectors Look For</h3>
+          <p>25+ years of experience means we understand DBPR requirements inside and out. We target the exact areas that trigger violations.</p>
+        </div>
+      </div>
+      <div class="cru-why-card">
+        <div class="cru-why-card-img"></div>
+        <div class="cru-why-card-body">
+          <h3>Specialists, Not Generalists</h3>
+          <p>We focus exclusively on ceilings, vents, and ducts. This specialization means better results than jack-of-all-trades cleaning companies.</p>
+        </div>
+      </div>
+      <div class="cru-why-card">
+        <div class="cru-why-card-img"></div>
+        <div class="cru-why-card-body">
+          <h3>Proven Track Record</h3>
+          <p>Thousands of facilities cleaned across South Florida. We've helped restaurants, hotels, and businesses maintain compliance for decades.</p>
+        </div>
+      </div>
+      <div class="cru-why-card">
+        <div class="cru-why-card-img"></div>
+        <div class="cru-why-card-body">
+          <h3>Local & Responsive</h3>
+          <p>Based in Fort Lauderdale, we're your neighbors. Fast response times, reliable service, and accountability you can count on.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-why-section cru-why-benefits">
+  <div class="cru-why-benefits-inner">
+    <div class="cru-why-benefits-header">
+      <h2>Benefits of Working With Us</h2>
+      <p>What you can expect when you choose Ceilings R Us</p>
+    </div>
+    <div class="cru-why-list">
+      <div class="cru-why-list-item">
+        <span class="cru-why-list-check">✓</span>
+        <span class="cru-why-list-text"><strong>Improved air quality</strong> — Remove dust, allergens, mold spores, and contaminants that affect employee and customer health</span>
+      </div>
+      <div class="cru-why-list-item">
+        <span class="cru-why-list-check">✓</span>
+        <span class="cru-why-list-text"><strong>Reduced fire risk</strong> — Grease buildup on ceilings and vents creates hazards. Our cleaning reduces risk and improves safety</span>
+      </div>
+      <div class="cru-why-list-item">
+        <span class="cru-why-list-check">✓</span>
+        <span class="cru-why-list-text"><strong>Pass inspections with confidence</strong> — We address common violation points before the inspector arrives</span>
+      </div>
+      <div class="cru-why-list-item">
+        <span class="cru-why-list-check">✓</span>
+        <span class="cru-why-list-text"><strong>Better appearance</strong> — Clean ceilings create a professional environment that customers and guests notice</span>
+      </div>
+      <div class="cru-why-list-item">
+        <span class="cru-why-list-check">✓</span>
+        <span class="cru-why-list-text"><strong>Cost savings</strong> — Restoration costs less than replacement, and preventive maintenance extends ceiling life</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-why-section cru-why-cta">
+  <div class="cru-why-cta-inner">
+    <h2>See the Difference for Yourself</h2>
+    <p>Contact us today for a free assessment. We'll show you what we can do for your facility.</p>
+    <div class="cru-why-cta-btns">
+      <a href="tel:+19544520004" class="cru-why-cta-btn-primary">Call (954) 452-0004</a>
+    </div>
+  </div>
+</section>

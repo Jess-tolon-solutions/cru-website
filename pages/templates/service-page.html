@@ -1,0 +1,420 @@
+<!--
+  SERVICE PAGE TEMPLATE
+  =====================
+
+  Replace placeholders:
+  - {{SERVICE_NAME}} - Service name (e.g., "Commercial Ceiling Cleaning")
+  - {{SERVICE_SLUG}} - URL-friendly name (e.g., "commercial-ceiling-cleaning")
+  - {{HERO_IMAGE}} - WordPress media URL for hero background
+  - {{SERVICE_DESCRIPTION}} - Brief service description
+  - {{BENEFIT_1_TITLE}}, {{BENEFIT_1_DESC}} - First benefit
+  - {{BENEFIT_2_TITLE}}, {{BENEFIT_2_DESC}} - Second benefit
+  - {{BENEFIT_3_TITLE}}, {{BENEFIT_3_DESC}} - Third benefit
+  - {{BENEFIT_4_TITLE}}, {{BENEFIT_4_DESC}} - Fourth benefit
+
+  Paste into Flatsome UX Builder as single HTML element.
+-->
+
+<style>
+/* ===== SERVICE PAGE STYLES ===== */
+.cru-svc-section {
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+/* Hero Section */
+.cru-svc-hero {
+  position: relative;
+  min-height: 400px;
+  background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%),
+              url('{{HERO_IMAGE}}') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+}
+.cru-svc-hero-inner {
+  max-width: 800px;
+}
+.cru-svc-eyebrow {
+  display: inline-block;
+  background: #116782;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 50px;
+  margin-bottom: 18px;
+}
+.cru-svc-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 16px;
+  line-height: 1.15;
+}
+.cru-svc-hero p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+.cru-svc-hero-btn {
+  display: inline-block;
+  background: #5eff00;
+  color: #0f2d36;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.cru-svc-hero-btn:hover {
+  background: #fff;
+  color: #0f2d36;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+
+/* Description Section */
+.cru-svc-desc {
+  background: #fff;
+  padding: 72px 20px;
+}
+.cru-svc-desc-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cru-svc-desc h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0 0 24px;
+  text-align: center;
+}
+.cru-svc-desc p {
+  font-size: 1.05rem;
+  color: #374151;
+  line-height: 1.8;
+  margin: 0 0 20px;
+}
+
+/* Benefits Grid */
+.cru-svc-benefits {
+  background: #f4f8f9;
+  padding: 72px 20px;
+}
+.cru-svc-benefits-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.cru-svc-benefits-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.cru-svc-benefits-header h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0;
+}
+.cru-svc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.cru-svc-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 20px rgba(17,103,130,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.cru-svc-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.cru-svc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(17,103,130,0.14);
+}
+.cru-svc-card-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #116782 0%, #1a8fa8 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+.cru-svc-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0 0 12px;
+}
+.cru-svc-card p {
+  font-size: 0.95rem;
+  color: #5a7580;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Process Section */
+.cru-svc-process {
+  background: #fff;
+  padding: 72px 20px;
+}
+.cru-svc-process-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.cru-svc-process-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.cru-svc-process-header h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0;
+}
+.cru-svc-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.cru-svc-step {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.cru-svc-step-num {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: #116782;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 800;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cru-svc-step-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f2d36;
+  margin: 0 0 8px;
+}
+.cru-svc-step-content p {
+  font-size: 0.95rem;
+  color: #5a7580;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* CTA Section */
+.cru-svc-cta {
+  background: linear-gradient(135deg, #116782 0%, #0f2d36 100%);
+  padding: 72px 20px;
+  text-align: center;
+}
+.cru-svc-cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.cru-svc-cta h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 16px;
+}
+.cru-svc-cta p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.9);
+  margin: 0 0 32px;
+  line-height: 1.6;
+}
+.cru-svc-cta-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cru-svc-cta-btn-primary {
+  display: inline-block;
+  background: #5eff00;
+  color: #0f2d36;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.cru-svc-cta-btn-primary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+}
+.cru-svc-cta-btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 34px;
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.cru-svc-cta-btn-secondary:hover {
+  background: #fff;
+  color: #0f2d36;
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .cru-svc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .cru-svc-hero {
+    min-height: 340px;
+    padding: 60px 20px;
+  }
+  .cru-svc-hero h1 {
+    font-size: 2rem;
+  }
+  .cru-svc-step {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cru-svc-cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+
+<!-- Hero Section -->
+<section class="cru-svc-section cru-svc-hero">
+  <div class="cru-svc-hero-inner">
+    <span class="cru-svc-eyebrow">Our Services</span>
+    <h1>{{SERVICE_NAME}}</h1>
+    <p>{{SERVICE_DESCRIPTION}}</p>
+    <a href="tel:+19544520004" class="cru-svc-hero-btn">Get a Free Quote</a>
+  </div>
+</section>
+
+<!-- Description Section -->
+<section class="cru-svc-section cru-svc-desc">
+  <div class="cru-svc-desc-inner">
+    <h2>Expert {{SERVICE_NAME}} in South Florida</h2>
+    <p>{{DETAILED_DESCRIPTION_P1}}</p>
+    <p>{{DETAILED_DESCRIPTION_P2}}</p>
+  </div>
+</section>
+
+<!-- Benefits Grid -->
+<section class="cru-svc-section cru-svc-benefits">
+  <div class="cru-svc-benefits-inner">
+    <div class="cru-svc-benefits-header">
+      <h2>Why Choose Our {{SERVICE_NAME}}</h2>
+    </div>
+    <div class="cru-svc-grid">
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-icon">{{BENEFIT_1_ICON}}</div>
+        <h3>{{BENEFIT_1_TITLE}}</h3>
+        <p>{{BENEFIT_1_DESC}}</p>
+      </div>
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-icon">{{BENEFIT_2_ICON}}</div>
+        <h3>{{BENEFIT_2_TITLE}}</h3>
+        <p>{{BENEFIT_2_DESC}}</p>
+      </div>
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-icon">{{BENEFIT_3_ICON}}</div>
+        <h3>{{BENEFIT_3_TITLE}}</h3>
+        <p>{{BENEFIT_3_DESC}}</p>
+      </div>
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-icon">{{BENEFIT_4_ICON}}</div>
+        <h3>{{BENEFIT_4_TITLE}}</h3>
+        <p>{{BENEFIT_4_DESC}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section class="cru-svc-section cru-svc-process">
+  <div class="cru-svc-process-inner">
+    <div class="cru-svc-process-header">
+      <h2>Our Process</h2>
+    </div>
+    <div class="cru-svc-steps">
+      <div class="cru-svc-step">
+        <div class="cru-svc-step-num">1</div>
+        <div class="cru-svc-step-content">
+          <h3>Free Assessment</h3>
+          <p>We evaluate your facility, identify problem areas, and provide a clear scope of work with no obligation.</p>
+        </div>
+      </div>
+      <div class="cru-svc-step">
+        <div class="cru-svc-step-num">2</div>
+        <div class="cru-svc-step-content">
+          <h3>Detailed Quote</h3>
+          <p>You receive a transparent quote with no hidden fees. We explain exactly what's included and answer any questions.</p>
+        </div>
+      </div>
+      <div class="cru-svc-step">
+        <div class="cru-svc-step-num">3</div>
+        <div class="cru-svc-step-content">
+          <h3>Professional Service</h3>
+          <p>Our experienced team completes the work efficiently, minimizing disruption to your operations.</p>
+        </div>
+      </div>
+      <div class="cru-svc-step">
+        <div class="cru-svc-step-num">4</div>
+        <div class="cru-svc-step-content">
+          <h3>Final Walkthrough</h3>
+          <p>We walk through the completed work with you to ensure everything meets our high standards and your expectations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cru-svc-section cru-svc-cta">
+  <div class="cru-svc-cta-inner">
+    <h2>Ready to Get Started?</h2>
+    <p>Contact us today for a free assessment and quote. We serve businesses throughout Miami-Dade, Broward, and Palm Beach counties.</p>
+    <div class="cru-svc-cta-btns">
+      <a href="tel:+19544520004" class="cru-svc-cta-btn-primary">Call (954) 452-0004</a>
+      <a href="/contact/" class="cru-svc-cta-btn-secondary">Request a Quote</a>
+    </div>
+  </div>
+</section>

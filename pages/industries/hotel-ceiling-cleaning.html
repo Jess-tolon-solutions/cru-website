@@ -1,0 +1,173 @@
+<!--
+  HOTEL CEILING CLEANING PAGE
+  URL: /hotel-ceiling-cleaning/
+  Page ID: 1619
+-->
+
+<style>
+.cru-ind-section { font-family: 'Open Sans', Arial, sans-serif; }
+.cru-ind-hero {
+  position: relative;
+  min-height: 420px;
+  background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%),
+              url('https://ceilingsrus.net/wp-content/uploads/2024/hotel-ceiling.jpg') center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px;
+}
+.cru-ind-hero-inner { max-width: 800px; }
+.cru-ind-eyebrow { display: inline-block; background: #116782; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 18px; }
+.cru-ind-hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; margin: 0 0 24px; line-height: 1.15; position: relative; padding-bottom: 16px; }
+.cru-ind-hero h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-ind-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0 0 28px; }
+.cru-ind-hero-btn { display: inline-block; background: #5eff00; color: #0f2d36; font-size: 0.95rem; font-weight: 700; padding: 14px 32px; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+.cru-ind-hero-btn:hover { background: #fff; color: #0f2d36; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.18); }
+
+.cru-ind-intro { background: #fff; padding: 72px 20px; }
+.cru-ind-intro-inner { max-width: 900px; margin: 0 auto; }
+.cru-ind-intro h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 28px; text-align: center; position: relative; display: inline-block; }
+.cru-ind-intro h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-ind-intro p { font-size: 1.05rem; color: #374151; line-height: 1.8; margin: 0 0 20px; }
+
+.cru-ind-areas { background: #f4f8f9; padding: 72px 20px; }
+.cru-ind-areas-inner { max-width: 1120px; margin: 0 auto; }
+.cru-ind-areas-header { text-align: center; margin-bottom: 48px; }
+.cru-ind-areas-header h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 20px; position: relative; display: inline-block; }
+.cru-ind-areas-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-ind-areas-header p { font-size: 1rem; color: #5a7580; }
+.cru-ind-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cru-ind-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(17,103,130,0.08); position: relative; text-align: center; }
+.cru-ind-card::after { content: ''; position: absolute; inset: 0; border-radius: 12px; padding: 2px; background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.cru-ind-card-img { height: 120px; background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
+.cru-ind-card-img::before { content: 'PHOTO'; font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 3px; }
+.cru-ind-card-img.has-image::before { display: none; }
+.cru-ind-card-body { padding: 24px 22px 28px; }
+.cru-ind-card h3 { font-size: 1.1rem; font-weight: 800; color: #0f2d36; margin: 0 0 8px; }
+.cru-ind-card p { font-size: 0.85rem; color: #5a7580; line-height: 1.6; margin: 0; }
+
+.cru-ind-benefits { background: #fff; padding: 72px 20px; }
+.cru-ind-benefits-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.cru-ind-benefits h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 36px; position: relative; display: inline-block; }
+.cru-ind-benefits h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-ind-benefit-list { display: flex; flex-direction: column; gap: 16px; text-align: left; max-width: 700px; margin: 0 auto; }
+.cru-ind-benefit-item { display: flex; align-items: flex-start; gap: 16px; }
+.cru-ind-benefit-check { width: 28px; height: 28px; min-width: 28px; background: #5eff00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #0f2d36; font-weight: 800; }
+.cru-ind-benefit-text { font-size: 1rem; color: #374151; line-height: 1.6; }
+
+.cru-ind-cta { background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); padding: 72px 20px; text-align: center; }
+.cru-ind-cta-inner { max-width: 700px; margin: 0 auto; }
+.cru-ind-cta h2 { font-size: 2rem; font-weight: 800; color: #fff; margin: 0 0 24px; position: relative; display: inline-block; }
+.cru-ind-cta h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-ind-cta p { font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0 0 32px; line-height: 1.6; }
+.cru-ind-cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.cru-ind-cta-btn-primary { display: inline-block; background: #5eff00; color: #0f2d36; font-size: 1rem; font-weight: 700; padding: 16px 36px; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+.cru-ind-cta-btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+.cru-ind-cta-btn-secondary { display: inline-block; background: transparent; color: #fff; font-size: 1rem; font-weight: 700; padding: 14px 34px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.5); text-decoration: none; transition: all 0.2s ease; }
+.cru-ind-cta-btn-secondary:hover { background: #fff; color: #0f2d36; border-color: #fff; transform: translateY(-2px); }
+
+@media (max-width: 900px) { .cru-ind-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .cru-ind-hero { min-height: 360px; padding: 60px 20px; } .cru-ind-hero h1 { font-size: 2rem; } .cru-ind-grid { grid-template-columns: 1fr; } .cru-ind-cta-btns { flex-direction: column; align-items: center; } }
+</style>
+
+<section class="cru-ind-section cru-ind-hero">
+  <div class="cru-ind-hero-inner">
+    <span class="cru-ind-eyebrow">Industry Solutions</span>
+    <h1>Hotel Ceiling Cleaning</h1>
+    <p>Restore guest-facing ceilings and improve air quality to protect your hotel's reputation and guest reviews.</p>
+    <a href="tel:+19544520004" class="cru-ind-hero-btn">Call (954) 452-0004</a>
+  </div>
+</section>
+
+<section class="cru-ind-section cru-ind-intro">
+  <div class="cru-ind-intro-inner">
+    <h2>First Impressions Matter — So Do Your Ceilings</h2>
+    <p>Stained, discolored hotel ceilings don't just look bad — they affect guest perception, online reviews, and air quality. Guests notice water stains in lobby ceilings, dusty vents in hallways, and dirty tiles above their beds. These details hurt your reputation and can trigger complaints.</p>
+    <p>Our hotel ceiling cleaning service restores lobbies, corridors, guest rooms, restaurants, and back-of-house areas to pristine condition. We work with hotels, resorts, and hospitality properties throughout South Florida to maintain the clean, professional appearance guests expect.</p>
+  </div>
+</section>
+
+<section class="cru-ind-section cru-ind-areas">
+  <div class="cru-ind-areas-inner">
+    <div class="cru-ind-areas-header">
+      <h2>Areas We Clean</h2>
+      <p>Comprehensive ceiling cleaning for every hotel space</p>
+    </div>
+    <div class="cru-ind-grid">
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img"></div>
+        <div class="cru-ind-card-body">
+          <h3>Lobby & Reception</h3>
+          <p>First impressions start here. We restore decorative and acoustic ceilings.</p>
+        </div>
+      </div>
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img"></div>
+        <div class="cru-ind-card-body">
+          <h3>Corridors & Hallways</h3>
+          <p>High-traffic areas accumulate dust quickly. We keep them clean and fresh.</p>
+        </div>
+      </div>
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img"></div>
+        <div class="cru-ind-card-body">
+          <h3>Guest Rooms</h3>
+          <p>Stained ceiling tiles and dusty vents affect guest comfort and reviews.</p>
+        </div>
+      </div>
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img"></div>
+        <div class="cru-ind-card-body">
+          <h3>Restaurants & Bars</h3>
+          <p>Food service areas need spotless ceilings for health compliance.</p>
+        </div>
+      </div>
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img"></div>
+        <div class="cru-ind-card-body">
+          <h3>Pool & Spa Areas</h3>
+          <p>High humidity causes mold and mildew. We remove and prevent buildup.</p>
+        </div>
+      </div>
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img"></div>
+        <div class="cru-ind-card-body">
+          <h3>Conference Rooms</h3>
+          <p>Business travelers notice details. Clean ceilings project professionalism.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-ind-section cru-ind-benefits">
+  <div class="cru-ind-benefits-inner">
+    <h2>Why Hotels Choose Us</h2>
+    <div class="cru-ind-benefit-list">
+      <div class="cru-ind-benefit-item">
+        <span class="cru-ind-benefit-check">✓</span>
+        <span class="cru-ind-benefit-text"><strong>Flexible scheduling</strong> — We work during low-occupancy periods to minimize guest disruption</span>
+      </div>
+      <div class="cru-ind-benefit-item">
+        <span class="cru-ind-benefit-check">✓</span>
+        <span class="cru-ind-benefit-text"><strong>Quiet operations</strong> — Our equipment and methods are designed for hospitality environments</span>
+      </div>
+      <div class="cru-ind-benefit-item">
+        <span class="cru-ind-benefit-check">✓</span>
+        <span class="cru-ind-benefit-text"><strong>Section-by-section cleaning</strong> — We can clean in phases to keep your hotel operational</span>
+      </div>
+      <div class="cru-ind-benefit-item">
+        <span class="cru-ind-benefit-check">✓</span>
+        <span class="cru-ind-benefit-text"><strong>25+ years experience</strong> — We understand hospitality industry standards and expectations</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-ind-section cru-ind-cta">
+  <div class="cru-ind-cta-inner">
+    <h2>Improve Your Guest Experience</h2>
+    <p>Contact us today for a free assessment. We'll develop a cleaning plan that works with your operations.</p>
+    <div class="cru-ind-cta-btns">
+      <a href="tel:+19544520004" class="cru-ind-cta-btn-primary">Call (954) 452-0004</a>
+      <a href="/contact/" class="cru-ind-cta-btn-secondary">Request a Quote</a>
+    </div>
+  </div>
+</section>

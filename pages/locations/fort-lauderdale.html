@@ -1,0 +1,464 @@
+<!--
+  FORT LAUDERDALE LOCATION PAGE
+  URL: /fort-lauderdale/
+  Page ID: 1329
+-->
+
+<style>
+/* ===== LOCATION PAGE STYLES ===== */
+.cru-loc-section {
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+/* Hero Section */
+.cru-loc-hero {
+  position: relative;
+  min-height: 420px;
+  background: linear-gradient(180deg, rgba(6,17,22,0.75) 0%, rgba(6,17,22,0.85) 100%),
+              url('https://ceilingsrus.net/wp-content/uploads/2024/fort-lauderdale.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+}
+.cru-loc-hero-inner {
+  max-width: 800px;
+}
+.cru-loc-eyebrow {
+  display: inline-block;
+  background: #116782;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 50px;
+  margin-bottom: 18px;
+}
+.cru-loc-hero h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 24px;
+  line-height: 1.15;
+  position: relative;
+  padding-bottom: 16px;
+}
+.cru-loc-hero h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%);
+  border-radius: 2px;
+}
+.cru-loc-hero p {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  margin: 0 0 28px;
+}
+.cru-loc-hero-btn {
+  display: inline-block;
+  background: #5eff00;
+  color: #0f2d36;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.cru-loc-hero-btn:hover {
+  background: #fff;
+  color: #0f2d36;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+}
+
+/* Intro Section */
+.cru-loc-intro {
+  background: #f4f8f9;
+  padding: 64px 20px;
+}
+.cru-loc-intro-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.cru-loc-intro h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0 0 28px;
+  position: relative;
+  display: inline-block;
+}
+.cru-loc-intro h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+  border-radius: 2px;
+}
+.cru-loc-intro p {
+  font-size: 1.05rem;
+  color: #374151;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Services Grid */
+.cru-loc-services {
+  background: #fff;
+  padding: 72px 20px;
+}
+.cru-loc-services-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.cru-loc-services-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.cru-loc-services-header h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0 0 8px;
+  position: relative;
+  display: inline-block;
+}
+.cru-loc-services-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+  border-radius: 2px;
+}
+.cru-loc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.cru-loc-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(17,103,130,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.cru-loc-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.cru-loc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(17,103,130,0.14);
+}
+.cru-loc-card-img {
+  height: 140px;
+  background: linear-gradient(135deg, #116782 0%, #0f2d36 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.cru-loc-card-img::before {
+  content: 'PHOTO';
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 3px;
+}
+.cru-loc-card-img.has-image::before {
+  display: none;
+}
+.cru-loc-card-body {
+  padding: 24px 24px 28px;
+}
+.cru-loc-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f2d36;
+  margin: 0 0 10px;
+}
+.cru-loc-card p {
+  font-size: 0.9rem;
+  color: #5a7580;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Trust Strip */
+.cru-loc-trust {
+  background: #0f2d36;
+  padding: 28px 20px;
+}
+.cru-loc-trust-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 32px;
+}
+.cru-loc-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.cru-loc-trust-check {
+  width: 22px;
+  height: 22px;
+  background: #5eff00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #0f2d36;
+  font-weight: 800;
+}
+
+/* CTA Section */
+.cru-loc-cta {
+  background: linear-gradient(135deg, #116782 0%, #0f2d36 100%);
+  padding: 72px 20px;
+  text-align: center;
+}
+.cru-loc-cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.cru-loc-cta h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 24px;
+  position: relative;
+  display: inline-block;
+}
+.cru-loc-cta h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%);
+  border-radius: 2px;
+}
+.cru-loc-cta p {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.9);
+  margin: 0 0 32px;
+  line-height: 1.6;
+}
+.cru-loc-cta-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.cru-loc-cta-btn-primary {
+  display: inline-block;
+  background: #5eff00;
+  color: #0f2d36;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.cru-loc-cta-btn-primary:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+}
+.cru-loc-cta-btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 34px;
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.cru-loc-cta-btn-secondary:hover {
+  background: #fff;
+  color: #0f2d36;
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cru-loc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .cru-loc-hero {
+    min-height: 360px;
+    padding: 60px 20px;
+  }
+  .cru-loc-hero h1 {
+    font-size: 2rem;
+  }
+  .cru-loc-grid {
+    grid-template-columns: 1fr;
+  }
+  .cru-loc-trust-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .cru-loc-cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+
+<!-- Hero Section -->
+<section class="cru-loc-section cru-loc-hero">
+  <div class="cru-loc-hero-inner">
+    <span class="cru-loc-eyebrow">Broward County</span>
+    <h1>Ceiling Cleaning in Fort Lauderdale</h1>
+    <p>Professional commercial ceiling cleaning, restoration, and duct cleaning for restaurants, hotels, and facilities in Fort Lauderdale.</p>
+    <a href="tel:+19544520004" class="cru-loc-hero-btn">Call (954) 452-0004</a>
+  </div>
+</section>
+
+<!-- Intro Section -->
+<section class="cru-loc-section cru-loc-intro">
+  <div class="cru-loc-intro-inner">
+    <h2>Commercial Ceiling Experts Serving Fort Lauderdale</h2>
+    <p>For over 25 years, Ceilings R Us has helped businesses in Fort Lauderdale maintain clean, inspection-ready ceilings. Based right here in Fort Lauderdale, we're your local experts for removing dust, grease, mold, and contaminants that compromise air quality and trigger DBPR violations. Our team serves Downtown Fort Lauderdale, Las Olas, Fort Lauderdale Beach, Wilton Manors, Oakland Park, and all surrounding Broward County communities.</p>
+  </div>
+</section>
+
+<!-- Services Grid -->
+<section class="cru-loc-section cru-loc-services">
+  <div class="cru-loc-services-inner">
+    <div class="cru-loc-services-header">
+      <h2>Our Services in Fort Lauderdale</h2>
+    </div>
+    <div class="cru-loc-grid">
+      <div class="cru-loc-card">
+        <div class="cru-loc-card-img"></div>
+        <div class="cru-loc-card-body">
+          <h3>Commercial Ceiling Cleaning</h3>
+          <p>Deep cleaning for acoustic tiles, open ceilings, and exposed structures. Remove years of dust, grease, and grime.</p>
+        </div>
+      </div>
+      <div class="cru-loc-card">
+        <div class="cru-loc-card-img"></div>
+        <div class="cru-loc-card-body">
+          <h3>Ceiling Restoration</h3>
+          <p>Restore stained, discolored ceilings to like-new condition without costly replacement.</p>
+        </div>
+      </div>
+      <div class="cru-loc-card">
+        <div class="cru-loc-card-img"></div>
+        <div class="cru-loc-card-body">
+          <h3>Duct & Vent Cleaning</h3>
+          <p>Improve air quality and HVAC efficiency by removing dust, allergens, and contaminants from vents and ducts.</p>
+        </div>
+      </div>
+      <div class="cru-loc-card">
+        <div class="cru-loc-card-img"></div>
+        <div class="cru-loc-card-body">
+          <h3>Inspection Preparation</h3>
+          <p>Clear common DBPR violations before the inspector arrives. We know exactly what they look for.</p>
+        </div>
+      </div>
+      <div class="cru-loc-card">
+        <div class="cru-loc-card-img"></div>
+        <div class="cru-loc-card-body">
+          <h3>Post-Construction Cleaning</h3>
+          <p>Remove construction dust and debris so your new space is spotless and ready to occupy.</p>
+        </div>
+      </div>
+      <div class="cru-loc-card">
+        <div class="cru-loc-card-img"></div>
+        <div class="cru-loc-card-body">
+          <h3>Specialized Cleaning</h3>
+          <p>Stain removal, odor elimination, and advanced techniques for challenging commercial environments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Strip -->
+<section class="cru-loc-section cru-loc-trust">
+  <div class="cru-loc-trust-inner">
+    <div class="cru-loc-trust-item">
+      <span class="cru-loc-trust-check">✓</span>
+      <span>25+ Years Experience</span>
+    </div>
+    <div class="cru-loc-trust-item">
+      <span class="cru-loc-trust-check">✓</span>
+      <span>Licensed & Insured</span>
+    </div>
+    <div class="cru-loc-trust-item">
+      <span class="cru-loc-trust-check">✓</span>
+      <span>Inspection-Ready Results</span>
+    </div>
+    <div class="cru-loc-trust-item">
+      <span class="cru-loc-trust-check">✓</span>
+      <span>Free Assessments</span>
+    </div>
+    <div class="cru-loc-trust-item">
+      <span class="cru-loc-trust-check">✓</span>
+      <span>Satisfaction Guaranteed</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cru-loc-section cru-loc-cta">
+  <div class="cru-loc-cta-inner">
+    <h2>Ready to Clean Your Fort Lauderdale Facility?</h2>
+    <p>Get a free assessment and quote. We'll evaluate your ceilings, vents, and ducts — and provide a clear plan to get you inspection-ready.</p>
+    <div class="cru-loc-cta-btns">
+      <a href="tel:+19544520004" class="cru-loc-cta-btn-primary">Call (954) 452-0004</a>
+      <a href="/contact/" class="cru-loc-cta-btn-secondary">Request a Quote</a>
+    </div>
+  </div>
+</section>

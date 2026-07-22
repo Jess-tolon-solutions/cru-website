@@ -1,0 +1,128 @@
+<!--
+  ABOUT PAGE
+  URL: /about/
+  Page ID: 86
+-->
+
+<style>
+.cru-abt-section { font-family: 'Open Sans', Arial, sans-serif; }
+.cru-abt-hero {
+  position: relative;
+  min-height: 380px;
+  background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%),
+              url('https://ceilingsrus.net/wp-content/uploads/2024/about-hero.jpg') center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px;
+}
+.cru-abt-hero-inner { max-width: 800px; }
+.cru-abt-eyebrow { display: inline-block; background: #116782; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 18px; }
+.cru-abt-hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; margin: 0 0 24px; line-height: 1.15; position: relative; padding-bottom: 16px; }
+.cru-abt-hero h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-abt-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0; }
+
+.cru-abt-intro { background: #fff; padding: 72px 20px; }
+.cru-abt-intro-inner { max-width: 900px; margin: 0 auto; }
+.cru-abt-intro h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 28px; text-align: center; position: relative; display: inline-block; }
+.cru-abt-intro h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-abt-intro p { font-size: 1.05rem; color: #374151; line-height: 1.8; margin: 0 0 20px; }
+
+.cru-abt-stats { background: #0f2d36; padding: 48px 20px; }
+.cru-abt-stats-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 32px; }
+.cru-abt-stat { text-align: center; }
+.cru-abt-stat-num { font-size: 3rem; font-weight: 800; color: #5eff00; margin: 0 0 8px; line-height: 1; }
+.cru-abt-stat-label { font-size: 0.95rem; font-weight: 600; color: #fff; }
+
+.cru-abt-links { background: #f4f8f9; padding: 72px 20px; }
+.cru-abt-links-inner { max-width: 900px; margin: 0 auto; }
+.cru-abt-links-header { text-align: center; margin-bottom: 48px; }
+.cru-abt-links-header h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 8px; position: relative; display: inline-block; }
+.cru-abt-links-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-abt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cru-abt-card { background: #fff; border-radius: 12px; padding: 32px 28px; box-shadow: 0 4px 20px rgba(17,103,130,0.08); text-decoration: none; display: block; transition: transform 0.2s ease; position: relative; }
+.cru-abt-card::after { content: ''; position: absolute; inset: 0; border-radius: 12px; padding: 2px; background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.cru-abt-card:hover { transform: translateY(-4px); }
+.cru-abt-card h3 { font-size: 1.2rem; font-weight: 800; color: #0f2d36; margin: 0 0 10px; }
+.cru-abt-card p { font-size: 0.95rem; color: #5a7580; line-height: 1.6; margin: 0 0 16px; }
+.cru-abt-card-link { font-size: 0.9rem; font-weight: 700; color: #116782; }
+.cru-abt-card:hover .cru-abt-card-link { color: #5eff00; }
+
+.cru-abt-cta { background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); padding: 72px 20px; text-align: center; }
+.cru-abt-cta-inner { max-width: 700px; margin: 0 auto; }
+.cru-abt-cta h2 { font-size: 2rem; font-weight: 800; color: #fff; margin: 0 0 24px; position: relative; display: inline-block; }
+.cru-abt-cta h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-abt-cta p { font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0 0 32px; line-height: 1.6; }
+.cru-abt-cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.cru-abt-cta-btn-primary { display: inline-block; background: #5eff00; color: #0f2d36; font-size: 1rem; font-weight: 700; padding: 16px 36px; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+.cru-abt-cta-btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+
+@media (max-width: 800px) { .cru-abt-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .cru-abt-hero { min-height: 320px; padding: 60px 20px; } .cru-abt-hero h1 { font-size: 2rem; } .cru-abt-stats-inner { flex-direction: column; gap: 24px; } }
+</style>
+
+<section class="cru-abt-section cru-abt-hero">
+  <div class="cru-abt-hero-inner">
+    <span class="cru-abt-eyebrow">About Us</span>
+    <h1>About Ceilings R Us</h1>
+    <p>25+ years of expert commercial ceiling cleaning and restoration across South Florida. Restaurant and facility compliance is our specialty.</p>
+  </div>
+</section>
+
+<section class="cru-abt-section cru-abt-intro">
+  <div class="cru-abt-intro-inner">
+    <h2>South Florida's Trusted Ceiling Cleaning Experts</h2>
+    <p>Since 1999, Ceilings R Us has helped commercial facilities throughout South Florida maintain clean, inspection-ready ceilings. What started as a small family business has grown into the region's most trusted name in commercial ceiling cleaning, restoration, and maintenance.</p>
+    <p>We specialize in restaurants, hotels, grocery stores, healthcare facilities, and commercial buildings across Miami-Dade, Broward, and Palm Beach counties. Our team understands what health inspectors look for, and we deliver the results you need to pass inspections with confidence.</p>
+    <p>Based in Fort Lauderdale, we're your local experts — responsive, reliable, and committed to doing the job right the first time.</p>
+  </div>
+</section>
+
+<section class="cru-abt-section cru-abt-stats">
+  <div class="cru-abt-stats-inner">
+    <div class="cru-abt-stat">
+      <div class="cru-abt-stat-num">25+</div>
+      <div class="cru-abt-stat-label">Years in Business</div>
+    </div>
+    <div class="cru-abt-stat">
+      <div class="cru-abt-stat-num">3</div>
+      <div class="cru-abt-stat-label">Counties Served</div>
+    </div>
+    <div class="cru-abt-stat">
+      <div class="cru-abt-stat-num">1000s</div>
+      <div class="cru-abt-stat-label">Facilities Cleaned</div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-abt-section cru-abt-links">
+  <div class="cru-abt-links-inner">
+    <div class="cru-abt-links-header">
+      <h2>Learn More About Us</h2>
+    </div>
+    <div class="cru-abt-grid">
+      <a href="/why/" class="cru-abt-card">
+        <h3>Why Choose Us</h3>
+        <p>What sets Ceilings R Us apart from other cleaning companies.</p>
+        <span class="cru-abt-card-link">Learn More →</span>
+      </a>
+      <a href="/our-story/" class="cru-abt-card">
+        <h3>Our Story</h3>
+        <p>How we became South Florida's trusted ceiling cleaning team.</p>
+        <span class="cru-abt-card-link">Learn More →</span>
+      </a>
+      <a href="/mission-values/" class="cru-abt-card">
+        <h3>Mission & Values</h3>
+        <p>The principles that guide our work every day.</p>
+        <span class="cru-abt-card-link">Learn More →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cru-abt-section cru-abt-cta">
+  <div class="cru-abt-cta-inner">
+    <h2>Ready to Work With Us?</h2>
+    <p>Contact us today for a free assessment. We'll show you what 25+ years of experience can do for your facility.</p>
+    <div class="cru-abt-cta-btns">
+      <a href="tel:+19544520004" class="cru-abt-cta-btn-primary">Call (954) 452-0004</a>
+    </div>
+  </div>
+</section>

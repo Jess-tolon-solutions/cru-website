@@ -1,0 +1,126 @@
+<!--
+  GROCERY STORE CEILING CLEANING PAGE
+  URL: /grocery-ceiling-cleaning/
+  Page ID: 1650
+-->
+
+<style>
+.cru-ind-section { font-family: 'Open Sans', Arial, sans-serif; }
+.cru-ind-hero {
+  position: relative;
+  min-height: 420px;
+  background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%),
+              url('https://ceilingsrus.net/wp-content/uploads/2024/grocery-ceiling.jpg') center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px;
+}
+.cru-ind-hero-inner { max-width: 800px; }
+.cru-ind-eyebrow { display: inline-block; background: #116782; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 18px; }
+.cru-ind-hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; margin: 0 0 24px; line-height: 1.15; position: relative; padding-bottom: 16px; }
+.cru-ind-hero h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-ind-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0 0 28px; }
+.cru-ind-hero-btn { display: inline-block; background: #5eff00; color: #0f2d36; font-size: 0.95rem; font-weight: 700; padding: 14px 32px; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+.cru-ind-hero-btn:hover { background: #fff; color: #0f2d36; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.18); }
+
+.cru-ind-intro { background: #fff; padding: 72px 20px; }
+.cru-ind-intro-inner { max-width: 900px; margin: 0 auto; }
+.cru-ind-intro h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 28px; text-align: center; position: relative; display: inline-block; }
+.cru-ind-intro h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-ind-intro p { font-size: 1.05rem; color: #374151; line-height: 1.8; margin: 0 0 20px; }
+
+.cru-ind-challenges { background: #f4f8f9; padding: 72px 20px; }
+.cru-ind-challenges-inner { max-width: 1120px; margin: 0 auto; }
+.cru-ind-challenges-header { text-align: center; margin-bottom: 48px; }
+.cru-ind-challenges-header h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 20px; position: relative; display: inline-block; }
+.cru-ind-challenges-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-ind-challenges-header p { font-size: 1rem; color: #5a7580; }
+.cru-ind-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.cru-ind-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(17,103,130,0.08); position: relative; }
+.cru-ind-card::after { content: ''; position: absolute; inset: 0; border-radius: 12px; padding: 2px; background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.cru-ind-card-img { height: 140px; background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
+.cru-ind-card-img::before { content: 'PHOTO'; font-size: 0.85rem; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 3px; }
+.cru-ind-card-img.has-image::before { display: none; }
+.cru-ind-card-body { padding: 28px 28px 32px; }
+.cru-ind-card h3 { font-size: 1.2rem; font-weight: 800; color: #0f2d36; margin: 0 0 10px; }
+.cru-ind-card p { font-size: 0.9rem; color: #5a7580; line-height: 1.65; margin: 0; }
+
+.cru-ind-cta { background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); padding: 72px 20px; text-align: center; }
+.cru-ind-cta-inner { max-width: 700px; margin: 0 auto; }
+.cru-ind-cta h2 { font-size: 2rem; font-weight: 800; color: #fff; margin: 0 0 24px; position: relative; display: inline-block; }
+.cru-ind-cta h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-ind-cta p { font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0 0 32px; line-height: 1.6; }
+.cru-ind-cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.cru-ind-cta-btn-primary { display: inline-block; background: #5eff00; color: #0f2d36; font-size: 1rem; font-weight: 700; padding: 16px 36px; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+.cru-ind-cta-btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+.cru-ind-cta-btn-secondary { display: inline-block; background: transparent; color: #fff; font-size: 1rem; font-weight: 700; padding: 14px 34px; border-radius: 6px; border: 2px solid rgba(255,255,255,0.5); text-decoration: none; transition: all 0.2s ease; }
+.cru-ind-cta-btn-secondary:hover { background: #fff; color: #0f2d36; border-color: #fff; transform: translateY(-2px); }
+
+@media (max-width: 800px) { .cru-ind-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .cru-ind-hero { min-height: 360px; padding: 60px 20px; } .cru-ind-hero h1 { font-size: 2rem; } .cru-ind-cta-btns { flex-direction: column; align-items: center; } }
+</style>
+
+<section class="cru-ind-section cru-ind-hero">
+  <div class="cru-ind-hero-inner">
+    <span class="cru-ind-eyebrow">Industry Solutions</span>
+    <h1>Grocery Store Ceiling Cleaning</h1>
+    <p>Remove dust, grease, and mold to protect food safety and pass health inspections in South Florida grocery stores.</p>
+    <a href="tel:+19544520004" class="cru-ind-hero-btn">Call (954) 452-0004</a>
+  </div>
+</section>
+
+<section class="cru-ind-section cru-ind-intro">
+  <div class="cru-ind-intro-inner">
+    <h2>Keep Your Grocery Store Inspection-Ready</h2>
+    <p>Grocery stores face unique ceiling cleaning challenges. High humidity, refrigeration units, cooking areas, and constant foot traffic create conditions where dust, mold, and contaminants accumulate quickly. Health inspectors scrutinize ceiling cleanliness because contaminants can fall onto food and food preparation surfaces.</p>
+    <p>Our grocery store ceiling cleaning service addresses these specific challenges. We clean acoustic tiles, open ceilings, vent systems, and refrigeration areas — removing buildup that threatens food safety and triggers DBPR violations. We serve supermarkets, specialty grocers, and convenience stores throughout Miami-Dade, Broward, and Palm Beach counties.</p>
+  </div>
+</section>
+
+<section class="cru-ind-section cru-ind-challenges">
+  <div class="cru-ind-challenges-inner">
+    <div class="cru-ind-challenges-header">
+      <h2>Grocery Store Ceiling Challenges We Solve</h2>
+      <p>Common issues that affect food safety and inspection results</p>
+    </div>
+    <div class="cru-ind-grid">
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img"></div>
+        <div class="cru-ind-card-body">
+          <h3>Mold & Mildew Growth</h3>
+          <p>High humidity from refrigeration creates perfect conditions for mold. We remove existing growth and help prevent recurrence.</p>
+        </div>
+      </div>
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img"></div>
+        <div class="cru-ind-card-body">
+          <h3>Deli & Bakery Grease</h3>
+          <p>Cooking areas generate grease that coats ceiling tiles and vents. We remove buildup that creates fire risk and health violations.</p>
+        </div>
+      </div>
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img"></div>
+        <div class="cru-ind-card-body">
+          <h3>Refrigeration Condensation</h3>
+          <p>Moisture from coolers stains ceiling tiles and promotes contamination. We clean and restore affected areas.</p>
+        </div>
+      </div>
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img"></div>
+        <div class="cru-ind-card-body">
+          <h3>Contaminated Vent Systems</h3>
+          <p>Dirty vents spread dust and allergens over food displays. We clean the entire ventilation system for better air quality.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-ind-section cru-ind-cta">
+  <div class="cru-ind-cta-inner">
+    <h2>Protect Your Grocery Store</h2>
+    <p>Contact us today for a free assessment. We'll identify problem areas and get your store inspection-ready.</p>
+    <div class="cru-ind-cta-btns">
+      <a href="tel:+19544520004" class="cru-ind-cta-btn-primary">Call (954) 452-0004</a>
+      <a href="/contact/" class="cru-ind-cta-btn-secondary">Request a Quote</a>
+    </div>
+  </div>
+</section>

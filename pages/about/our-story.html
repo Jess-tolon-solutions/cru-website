@@ -1,0 +1,120 @@
+<!--
+  OUR STORY PAGE
+  URL: /our-story/
+  Page ID: 638
+-->
+
+<style>
+.cru-story-section { font-family: 'Open Sans', Arial, sans-serif; }
+.cru-story-hero {
+  position: relative;
+  min-height: 380px;
+  background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%),
+              url('https://ceilingsrus.net/wp-content/uploads/2024/story-hero.jpg') center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px;
+}
+.cru-story-hero-inner { max-width: 800px; }
+.cru-story-eyebrow { display: inline-block; background: #116782; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 18px; }
+.cru-story-hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; margin: 0 0 24px; line-height: 1.15; position: relative; padding-bottom: 16px; }
+.cru-story-hero h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-story-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0; }
+
+.cru-story-content { background: #fff; padding: 72px 20px; }
+.cru-story-content-inner { max-width: 800px; margin: 0 auto; }
+.cru-story-content h2 { font-size: 1.7rem; font-weight: 800; color: #0f2d36; margin: 48px 0 20px; }
+.cru-story-content h2:first-child { margin-top: 0; }
+.cru-story-content p { font-size: 1.05rem; color: #374151; line-height: 1.8; margin: 0 0 20px; }
+
+.cru-story-timeline { background: #f4f8f9; padding: 72px 20px; }
+.cru-story-timeline-inner { max-width: 800px; margin: 0 auto; }
+.cru-story-timeline-header { text-align: center; margin-bottom: 48px; }
+.cru-story-timeline-header h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 8px; position: relative; display: inline-block; }
+.cru-story-timeline-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-story-events { position: relative; padding-left: 32px; }
+.cru-story-events::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #116782 0%, #5eff00 100%); }
+.cru-story-event { position: relative; margin-bottom: 32px; }
+.cru-story-event:last-child { margin-bottom: 0; }
+.cru-story-event::before { content: ''; position: absolute; left: -28px; top: 4px; width: 14px; height: 14px; background: #5eff00; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 2px #116782; }
+.cru-story-event-year { font-size: 0.85rem; font-weight: 700; color: #116782; margin: 0 0 6px; text-transform: uppercase; letter-spacing: 1px; }
+.cru-story-event-title { font-size: 1.15rem; font-weight: 800; color: #0f2d36; margin: 0 0 8px; }
+.cru-story-event-desc { font-size: 0.95rem; color: #5a7580; line-height: 1.6; margin: 0; }
+
+.cru-story-cta { background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); padding: 72px 20px; text-align: center; }
+.cru-story-cta-inner { max-width: 700px; margin: 0 auto; }
+.cru-story-cta h2 { font-size: 2rem; font-weight: 800; color: #fff; margin: 0 0 24px; position: relative; display: inline-block; }
+.cru-story-cta h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-story-cta p { font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0 0 32px; line-height: 1.6; }
+.cru-story-cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.cru-story-cta-btn-primary { display: inline-block; background: #5eff00; color: #0f2d36; font-size: 1rem; font-weight: 700; padding: 16px 36px; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+.cru-story-cta-btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+
+@media (max-width: 600px) { .cru-story-hero { min-height: 320px; padding: 60px 20px; } .cru-story-hero h1 { font-size: 2rem; } }
+</style>
+
+<section class="cru-story-section cru-story-hero">
+  <div class="cru-story-hero-inner">
+    <span class="cru-story-eyebrow">About Us</span>
+    <h1>Our Story</h1>
+    <p>How Ceilings R Us became South Florida's trusted commercial ceiling cleaning and restoration team — 25+ years of honest, detailed work.</p>
+  </div>
+</section>
+
+<section class="cru-story-section cru-story-content">
+  <div class="cru-story-content-inner">
+    <h2>How It Started</h2>
+    <p>Ceilings R Us began in 1999 with a simple observation: commercial ceilings were being neglected. Restaurant owners focused on their kitchens and dining rooms. Hotel managers prioritized lobbies and guest rooms. But overhead — the ceilings, vents, and ductwork that customers see and breathe through every day — was often forgotten until an inspector pointed it out.</p>
+    <p>We saw an opportunity to help. By specializing exclusively in ceiling cleaning and restoration, we could develop expertise that general cleaning companies couldn't match. We learned exactly what health inspectors look for. We invested in the right equipment and techniques. And we built a reputation for doing the job right.</p>
+
+    <h2>Built on Relationships</h2>
+    <p>From the beginning, we've believed that doing good work creates lasting relationships. Many of our earliest clients still work with us today. Their facilities have grown and changed, but they trust us to maintain their ceilings because we've consistently delivered quality results.</p>
+    <p>That trust is our most valuable asset. It's why we don't cut corners, don't oversell services, and don't make promises we can't keep. When you work with Ceilings R Us, you're working with people who care about getting it right.</p>
+
+    <h2>Looking Forward</h2>
+    <p>After 25+ years, we're still a family business at heart. We've grown, but we haven't lost sight of what made us successful: honest work, fair prices, and results you can count on. We're proud to be South Florida's trusted ceiling cleaning experts, and we look forward to many more years of helping businesses maintain clean, safe, inspection-ready facilities.</p>
+  </div>
+</section>
+
+<section class="cru-story-section cru-story-timeline">
+  <div class="cru-story-timeline-inner">
+    <div class="cru-story-timeline-header">
+      <h2>Our Journey</h2>
+    </div>
+    <div class="cru-story-events">
+      <div class="cru-story-event">
+        <div class="cru-story-event-year">1999</div>
+        <div class="cru-story-event-title">Founded in Fort Lauderdale</div>
+        <div class="cru-story-event-desc">Started as a small family business focused on commercial ceiling cleaning in Broward County.</div>
+      </div>
+      <div class="cru-story-event">
+        <div class="cru-story-event-year">2005</div>
+        <div class="cru-story-event-title">Expanded to Miami-Dade</div>
+        <div class="cru-story-event-desc">Growing reputation led to expansion into Miami-Dade County, serving more restaurants and hotels.</div>
+      </div>
+      <div class="cru-story-event">
+        <div class="cru-story-event-year">2010</div>
+        <div class="cru-story-event-title">Added Restoration Services</div>
+        <div class="cru-story-event-desc">Introduced ceiling restoration as a cost-effective alternative to replacement.</div>
+      </div>
+      <div class="cru-story-event">
+        <div class="cru-story-event-year">2015</div>
+        <div class="cru-story-event-title">Full Tri-County Coverage</div>
+        <div class="cru-story-event-desc">Expanded to Palm Beach County, now serving all of South Florida's commercial facilities.</div>
+      </div>
+      <div class="cru-story-event">
+        <div class="cru-story-event-year">Today</div>
+        <div class="cru-story-event-title">25+ Years of Excellence</div>
+        <div class="cru-story-event-desc">Continuing to serve South Florida businesses with the same commitment to quality we started with.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-story-section cru-story-cta">
+  <div class="cru-story-cta-inner">
+    <h2>Become Part of Our Story</h2>
+    <p>Join the thousands of businesses we've helped maintain clean, inspection-ready facilities. Contact us today.</p>
+    <div class="cru-story-cta-btns">
+      <a href="tel:+19544520004" class="cru-story-cta-btn-primary">Call (954) 452-0004</a>
+    </div>
+  </div>
+</section>

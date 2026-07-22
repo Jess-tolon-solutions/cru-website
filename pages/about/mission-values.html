@@ -1,0 +1,172 @@
+<!--
+  MISSION & VALUES PAGE
+  URL: /mission-values/
+  Page ID: 640
+-->
+
+<style>
+.cru-mv-section { font-family: 'Open Sans', Arial, sans-serif; }
+.cru-mv-hero {
+  position: relative;
+  min-height: 380px;
+  background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%),
+              url('https://ceilingsrus.net/wp-content/uploads/2024/mission-hero.jpg') center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px;
+}
+.cru-mv-hero-inner { max-width: 800px; }
+.cru-mv-eyebrow { display: inline-block; background: #116782; color: #fff; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 50px; margin-bottom: 18px; }
+.cru-mv-hero h1 { font-size: 2.5rem; font-weight: 800; color: #fff; margin: 0 0 24px; line-height: 1.15; position: relative; padding-bottom: 16px; }
+.cru-mv-hero h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-mv-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.6; margin: 0; }
+
+.cru-mv-mission { background: #fff; padding: 72px 20px; }
+.cru-mv-mission-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.cru-mv-mission h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 28px; position: relative; display: inline-block; }
+.cru-mv-mission h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-mv-mission-statement { font-size: 1.3rem; color: #116782; line-height: 1.7; font-weight: 600; font-style: italic; margin: 0 0 24px; padding: 0 20px; border-left: 4px solid #5eff00; text-align: left; }
+.cru-mv-mission p { font-size: 1.05rem; color: #374151; line-height: 1.8; margin: 0; text-align: left; }
+
+.cru-mv-values { background: #f4f8f9; padding: 72px 20px; }
+.cru-mv-values-inner { max-width: 1120px; margin: 0 auto; }
+.cru-mv-values-header { text-align: center; margin-bottom: 48px; }
+.cru-mv-values-header h2 { font-size: 1.9rem; font-weight: 800; color: #0f2d36; margin: 0 0 20px; position: relative; display: inline-block; }
+.cru-mv-values-header h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); border-radius: 2px; }
+.cru-mv-values-header p { font-size: 1rem; color: #5a7580; }
+.cru-mv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.cru-mv-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(17,103,130,0.08); position: relative; text-align: center; }
+.cru-mv-card::after { content: ''; position: absolute; inset: 0; border-radius: 12px; padding: 2px; background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.cru-mv-card-img { height: 120px; background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; }
+.cru-mv-card-img::before { content: 'PHOTO'; font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.4); letter-spacing: 3px; }
+.cru-mv-card-img.has-image::before { display: none; }
+.cru-mv-card-body { padding: 24px 24px 28px; }
+.cru-mv-card h3 { font-size: 1.1rem; font-weight: 800; color: #0f2d36; margin: 0 0 10px; }
+.cru-mv-card p { font-size: 0.9rem; color: #5a7580; line-height: 1.65; margin: 0; }
+
+.cru-mv-promise { background: #0f2d36; padding: 72px 20px; }
+.cru-mv-promise-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.cru-mv-promise h2 { font-size: 1.9rem; font-weight: 800; color: #fff; margin: 0 0 36px; position: relative; display: inline-block; }
+.cru-mv-promise h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-mv-promise-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px 40px; }
+.cru-mv-promise-item { display: flex; align-items: center; gap: 12px; }
+.cru-mv-promise-check { width: 28px; height: 28px; background: #5eff00; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; color: #0f2d36; font-weight: 800; }
+.cru-mv-promise-text { font-size: 1rem; font-weight: 600; color: #fff; }
+
+.cru-mv-cta { background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); padding: 72px 20px; text-align: center; }
+.cru-mv-cta-inner { max-width: 700px; margin: 0 auto; }
+.cru-mv-cta h2 { font-size: 2rem; font-weight: 800; color: #fff; margin: 0 0 24px; position: relative; display: inline-block; }
+.cru-mv-cta h2::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: linear-gradient(90deg, #5eff00 0%, #35d1e8 100%); border-radius: 2px; }
+.cru-mv-cta p { font-size: 1.1rem; color: rgba(255,255,255,0.9); margin: 0 0 32px; line-height: 1.6; }
+.cru-mv-cta-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.cru-mv-cta-btn-primary { display: inline-block; background: #5eff00; color: #0f2d36; font-size: 1rem; font-weight: 700; padding: 16px 36px; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; }
+.cru-mv-cta-btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,0.2); }
+
+@media (max-width: 900px) { .cru-mv-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .cru-mv-hero { min-height: 320px; padding: 60px 20px; } .cru-mv-hero h1 { font-size: 2rem; } .cru-mv-grid { grid-template-columns: 1fr; } .cru-mv-promise-list { flex-direction: column; align-items: center; } }
+</style>
+
+<section class="cru-mv-section cru-mv-hero">
+  <div class="cru-mv-hero-inner">
+    <span class="cru-mv-eyebrow">About Us</span>
+    <h1>Our Mission & Values</h1>
+    <p>Quality, safety, and honest service on every commercial ceiling cleaning job in South Florida.</p>
+  </div>
+</section>
+
+<section class="cru-mv-section cru-mv-mission">
+  <div class="cru-mv-mission-inner">
+    <h2>Our Mission</h2>
+    <p class="cru-mv-mission-statement">"To help South Florida businesses maintain clean, safe, and inspection-ready facilities through expert ceiling cleaning, restoration, and maintenance services delivered with integrity and professionalism."</p>
+    <p>Every day, we help business owners protect their investments, pass health inspections, and create healthier environments for their employees and customers. We take pride in the work we do because we know it makes a real difference.</p>
+  </div>
+</section>
+
+<section class="cru-mv-section cru-mv-values">
+  <div class="cru-mv-values-inner">
+    <div class="cru-mv-values-header">
+      <h2>Our Core Values</h2>
+      <p>The principles that guide everything we do</p>
+    </div>
+    <div class="cru-mv-grid">
+      <div class="cru-mv-card">
+        <div class="cru-mv-card-img"></div>
+        <div class="cru-mv-card-body">
+          <h3>Quality</h3>
+          <p>We don't cut corners. Every job receives the same attention to detail and commitment to excellence.</p>
+        </div>
+      </div>
+      <div class="cru-mv-card">
+        <div class="cru-mv-card-img"></div>
+        <div class="cru-mv-card-body">
+          <h3>Safety</h3>
+          <p>We prioritize safety — for our team, your employees, and your customers — in everything we do.</p>
+        </div>
+      </div>
+      <div class="cru-mv-card">
+        <div class="cru-mv-card-img"></div>
+        <div class="cru-mv-card-body">
+          <h3>Integrity</h3>
+          <p>Honest assessments, fair pricing, and no surprises. We build trust through transparency.</p>
+        </div>
+      </div>
+      <div class="cru-mv-card">
+        <div class="cru-mv-card-img"></div>
+        <div class="cru-mv-card-body">
+          <h3>Reliability</h3>
+          <p>When we say we'll be there, we're there. You can count on us to deliver consistent results.</p>
+        </div>
+      </div>
+      <div class="cru-mv-card">
+        <div class="cru-mv-card-img"></div>
+        <div class="cru-mv-card-body">
+          <h3>Accountability</h3>
+          <p>We stand behind our work. If something isn't right, we make it right — no excuses.</p>
+        </div>
+      </div>
+      <div class="cru-mv-card">
+        <div class="cru-mv-card-img"></div>
+        <div class="cru-mv-card-body">
+          <h3>Continuous Improvement</h3>
+          <p>We're always learning, improving techniques, and finding better ways to serve our clients.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-mv-section cru-mv-promise">
+  <div class="cru-mv-promise-inner">
+    <h2>Our Promise to You</h2>
+    <div class="cru-mv-promise-list">
+      <div class="cru-mv-promise-item">
+        <span class="cru-mv-promise-check">✓</span>
+        <span class="cru-mv-promise-text">Honest assessments</span>
+      </div>
+      <div class="cru-mv-promise-item">
+        <span class="cru-mv-promise-check">✓</span>
+        <span class="cru-mv-promise-text">Fair, transparent pricing</span>
+      </div>
+      <div class="cru-mv-promise-item">
+        <span class="cru-mv-promise-check">✓</span>
+        <span class="cru-mv-promise-text">Quality workmanship</span>
+      </div>
+      <div class="cru-mv-promise-item">
+        <span class="cru-mv-promise-check">✓</span>
+        <span class="cru-mv-promise-text">Reliable service</span>
+      </div>
+      <div class="cru-mv-promise-item">
+        <span class="cru-mv-promise-check">✓</span>
+        <span class="cru-mv-promise-text">Satisfaction guaranteed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-mv-section cru-mv-cta">
+  <div class="cru-mv-cta-inner">
+    <h2>Experience Our Values in Action</h2>
+    <p>Contact us today for a free assessment. We'll show you what quality, integrity, and reliability look like.</p>
+    <div class="cru-mv-cta-btns">
+      <a href="tel:+19544520004" class="cru-mv-cta-btn-primary">Call (954) 452-0004</a>
+    </div>
+  </div>
+</section>

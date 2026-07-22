@@ -1,0 +1,256 @@
+<!--
+  ============================================================
+  CEILINGS R US — REUSABLE COMPONENT REFERENCE
+  ============================================================
+
+  This file contains copy-paste reference snippets for common
+  patterns used across the website. These patterns are defined
+  in site-styles.css and can be used in any page.
+
+  For WordPress: paste these into UX Builder HTML elements.
+-->
+
+<!-- ============================================================
+     1. PAGE HERO
+     ============================================================
+     Standard hero section for service, location, and about pages.
+     Apply the background image as an inline style.
+-->
+<section class="cru-page-hero" style="background-image: url('YOUR_IMAGE_URL');">
+  <div style="max-width: 800px;">
+    <span class="cru-eyebrow">SECTION NAME</span>
+    <h1>Page Title Here</h1>
+    <p>Brief description of the page content goes here.</p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     2. H1 HEADER BLOCK
+     ============================================================
+     Simple H1 header for pages missing the H1 tag.
+     Use on pages built in WordPress that don't have a custom hero.
+-->
+<div class="cru-page-h1" style="text-align:center; padding:48px 20px 32px; background:#f4f8f9;">
+  <h1 style="font-size:2.2rem; font-weight:800; color:#0f2d36; margin:0; line-height:1.2; font-family:'Open Sans', Arial, sans-serif;">
+    Page Title Here
+  </h1>
+  <p style="font-size:1.05rem; color:#5a7580; margin:16px auto 0; max-width:680px; line-height:1.6; font-family:'Open Sans', Arial, sans-serif;">
+    Optional subtitle or description text.
+  </p>
+</div>
+
+
+<!-- ============================================================
+     3. EYEBROW BADGE
+     ============================================================
+     Small pill-shaped badge used above section headers.
+     Can be used inline or with .cru-eyebrow class from site-styles.css.
+-->
+<span class="cru-eyebrow">CATEGORY NAME</span>
+
+<!-- Or inline version: -->
+<span style="display:inline-block; background:#116782; color:#fff; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:14px;">
+  CATEGORY NAME
+</span>
+
+
+<!-- ============================================================
+     4. SERVICE/LOCATION CARD
+     ============================================================
+     Card with gradient border for grids. Uses .cru-service-card
+     or .cru-location-card classes from site-styles.css.
+-->
+<div class="cru-service-card">
+  <div style="font-size:2.2rem; margin-bottom:16px;">EMOJI</div>
+  <h3 style="font-size:1.2rem; font-weight:800; color:#0f2d36; margin:0 0 12px;">
+    Card Title
+  </h3>
+  <p style="font-size:0.95rem; color:#5a7580; line-height:1.6; margin:0;">
+    Card description text goes here.
+  </p>
+</div>
+
+
+<!-- ============================================================
+     5. TRUST STRIP
+     ============================================================
+     Dark band with green checkmark items. Uses site-styles.css classes.
+-->
+<section class="cru-trust-strip">
+  <div class="cru-trust-strip-inner">
+    <div class="cru-trust-item">
+      <span class="cru-trust-check">✓</span>
+      <span>25+ Years Experience</span>
+    </div>
+    <div class="cru-trust-item">
+      <span class="cru-trust-check">✓</span>
+      <span>Licensed & Insured</span>
+    </div>
+    <div class="cru-trust-item">
+      <span class="cru-trust-check">✓</span>
+      <span>Inspection-Ready Results</span>
+    </div>
+    <div class="cru-trust-item">
+      <span class="cru-trust-check">✓</span>
+      <span>Free Assessments</span>
+    </div>
+    <div class="cru-trust-item">
+      <span class="cru-trust-check">✓</span>
+      <span>Satisfaction Guaranteed</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     6. CTA SECTION
+     ============================================================
+     Gradient background call-to-action with buttons.
+     Uses site-styles.css classes.
+-->
+<section class="cru-cta-section">
+  <div style="max-width:700px; margin:0 auto;">
+    <h2>Ready to Get Started?</h2>
+    <p>Contact us today for a free assessment. We serve businesses throughout South Florida.</p>
+    <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+      <a href="tel:+19544520004" class="cru-cta-btn-primary">Call (954) 452-0004</a>
+      <a href="/contact/" class="cru-cta-btn-secondary">Request a Quote</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     7. CARD GRID (2 COLUMNS)
+     ============================================================
+     Responsive 2-column grid for cards.
+-->
+<div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:28px;">
+  <div class="cru-service-card">
+    <!-- Card content -->
+  </div>
+  <div class="cru-service-card">
+    <!-- Card content -->
+  </div>
+</div>
+
+<!-- Add this media query in the page's <style> block: -->
+<style>
+  @media (max-width: 800px) {
+    /* Selector for your grid */
+    .your-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+
+<!-- ============================================================
+     8. CARD GRID (3 COLUMNS)
+     ============================================================
+     Responsive 3-column grid for cards.
+-->
+<div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;">
+  <div class="cru-location-card">
+    <!-- Card content -->
+  </div>
+  <div class="cru-location-card">
+    <!-- Card content -->
+  </div>
+  <div class="cru-location-card">
+    <!-- Card content -->
+  </div>
+</div>
+
+<!-- Add this media query in the page's <style> block: -->
+<style>
+  @media (max-width: 950px) {
+    .your-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .your-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+
+<!-- ============================================================
+     9. SECTION HEADER
+     ============================================================
+     Centered header for content sections.
+-->
+<div style="text-align:center; margin-bottom:48px;">
+  <span class="cru-eyebrow">SECTION CATEGORY</span>
+  <h2 style="font-size:1.9rem; font-weight:800; color:#0f2d36; margin:12px 0 0;">
+    Section Title Here
+  </h2>
+  <p style="font-size:1rem; color:#5a7580; margin:12px 0 0;">
+    Optional section description text.
+  </p>
+</div>
+
+
+<!-- ============================================================
+     10. PRIMARY BUTTON
+     ============================================================
+     Green button with white hover state.
+-->
+<a href="tel:+19544520004" class="cru-cta-btn-primary">
+  Call (954) 452-0004
+</a>
+
+<!-- Or inline version: -->
+<a href="tel:+19544520004" style="display:inline-block; background:#5eff00; color:#0f2d36; font-size:1rem; font-weight:700; padding:16px 36px; border-radius:6px; text-decoration:none; transition:all 0.2s ease;">
+  Call (954) 452-0004
+</a>
+
+
+<!-- ============================================================
+     11. SECONDARY BUTTON (OUTLINE)
+     ============================================================
+     Transparent button with border.
+-->
+<a href="/contact/" class="cru-cta-btn-secondary">
+  Request a Quote
+</a>
+
+
+<!-- ============================================================
+     COLOR REFERENCE
+     ============================================================
+     --cru-teal: #116782       (Primary brand color)
+     --cru-teal-dark: #0f2d36  (Darkest, headings)
+     --cru-teal-mid: #108483   (Header bar)
+     --cru-green: #5eff00      (CTA, accents)
+     --cru-green-hover: #4acc00
+     --cru-ink: #374151        (Body text)
+     --cru-muted: #5a7580      (Secondary text)
+     --cru-bg-light: #f4f8f9   (Light backgrounds)
+     --cru-danger: #dc2626     (Violations, errors)
+     --cru-warning: #d97706    (Warnings)
+-->
+
+
+<!-- ============================================================
+     FONT REFERENCE
+     ============================================================
+     Primary: 'Open Sans', Arial, sans-serif
+     Weights: 400 (normal), 600 (semibold), 700 (bold), 800 (extra-bold)
+
+     H1: 2.5rem (40px), weight 800
+     H2: 1.9rem (30px), weight 800
+     H3: 1.2rem (19px), weight 800
+     Body: 1rem (16px), weight 400
+     Small: 0.9rem (14px)
+-->
+
+
+<!-- ============================================================
+     SPACING REFERENCE
+     ============================================================
+     Section padding: 72px 20px (or 64px 20px)
+     Card padding: 32px 28px (or 36px 32px)
+     Grid gap: 28px
+     Max-width containers:
+       - Full sections: 1180px or 1120px
+       - Text content: 900px or 800px
+       - CTA sections: 700px
+-->
