@@ -1,0 +1,92 @@
+<!--
+  CEILINGS R US — "Our Advanced Cleaning Services" Homepage Section
+  Replaces the OLD native Flatsome 3-column block (lime "MORE INFO" buttons).
+  Rebuilt to match the design system: white image-top cards, gradient-outline
+  border (blue->green), teal buttons with white-fill hover. Self-contained.
+  Prefix "cru-svc-" so it never clashes with the tools cards (cru-tool-*).
+  Paste as ONE HTML element where the old Advanced Services columns are, then
+  delete the old columns.
+-->
+
+<style>
+.cru-svc-section { background:#fff; padding:72px 20px; font-family:'Open Sans',Arial,sans-serif; }
+.cru-svc-inner { max-width:1180px; margin:0 auto; }
+.cru-svc-header { text-align:center; margin-bottom:48px; }
+.cru-svc-eyebrow { display:inline-block; background:#116782; color:#fff; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:14px; }
+.cru-svc-header h2 { font-size:2rem; font-weight:800; color:#0f2d36; margin:0 0 12px; line-height:1.2; }
+.cru-svc-header p { font-size:1rem; color:#5a7580; max-width:640px; margin:0 auto; line-height:1.6; }
+
+.cru-svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+@media (max-width:950px){ .cru-svc-grid{ grid-template-columns:1fr; max-width:460px; margin:0 auto; } .cru-svc-header h2{ font-size:1.5rem; } }
+
+.cru-svc-card { position:relative; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(17,103,130,0.10); transition:transform .25s ease, box-shadow .25s ease; display:flex; flex-direction:column; }
+.cru-svc-card:hover { transform:translateY(-5px); box-shadow:0 12px 40px rgba(17,103,130,0.18); }
+/* gradient outline (radius-safe, masked ::after) */
+.cru-svc-card::after { content:''; position:absolute; inset:0; border-radius:inherit; padding:2px; background:linear-gradient(130deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; z-index:4; }
+
+.cru-svc-img { position:relative; height:210px; overflow:hidden; }
+.cru-svc-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+.cru-svc-card:hover .cru-svc-img img { transform:scale(1.04); }
+.cru-svc-img-overlay { position:absolute; bottom:0; left:0; right:0; height:80px; background:linear-gradient(to top, rgba(13,82,105,0.7), transparent); }
+
+.cru-svc-body { padding:26px 26px 28px; flex:1; display:flex; flex-direction:column; }
+.cru-svc-body h3 { font-size:1.2rem; font-weight:800; color:#0f2d36; margin:0 0 10px; line-height:1.3; }
+.cru-svc-body p { font-size:0.9rem; color:#5a7580; line-height:1.6; margin:0 0 22px; flex:1; }
+
+.cru-svc-btn { display:block; text-align:center; padding:13px 20px; border-radius:8px; font-size:0.9rem; font-weight:800; text-decoration:none; text-transform:uppercase; letter-spacing:0.5px; background:#116782; color:#fff; transition:background .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.cru-svc-btn:hover { background:#fff !important; color:#0f2d36 !important; box-shadow:0 8px 22px rgba(0,0,0,0.18); transform:translateY(-2px); text-decoration:none; }
+</style>
+
+<section class="cru-svc-section">
+  <div class="cru-svc-inner">
+
+    <div class="cru-svc-header">
+      <div class="cru-svc-eyebrow">Our Services</div>
+      <h2>Our Advanced Cleaning Services</h2>
+      <p>Environment-friendly ceiling cleaning services — overhead &amp; acoustical ceiling, and duct cleaning specialists.</p>
+    </div>
+
+    <div class="cru-svc-grid">
+
+      <!-- 1. Ceiling Restoration Cleaning -->
+      <div class="cru-svc-card">
+        <div class="cru-svc-img">
+          <img src="https://ceilingsrus.net/wp-content/uploads/2025/06/IMG_7425.jpeg" alt="Technician restoring commercial ceiling tiles and fixtures" onerror="this.style.background='#116782';this.style.minHeight='210px'">
+          <div class="cru-svc-img-overlay"></div>
+        </div>
+        <div class="cru-svc-body">
+          <h3>Ceiling Restoration Cleaning</h3>
+          <p>Deep cleaning of ceiling tiles, ducts, air vents, open concept and all ceiling fixtures to restore their original appearance.</p>
+          <a href="https://ceilingsrus.net/ceiling-restoration/" class="cru-svc-btn">More Info</a>
+        </div>
+      </div>
+
+      <!-- 2. General Cleaning -->
+      <div class="cru-svc-card">
+        <div class="cru-svc-img">
+          <img src="https://ceilingsrus.net/wp-content/uploads/2025/06/IMG_7434.jpeg" alt="Technician wiping down stainless steel in a commercial kitchen" onerror="this.style.background='#118484';this.style.minHeight='210px'">
+          <div class="cru-svc-img-overlay"></div>
+        </div>
+        <div class="cru-svc-body">
+          <h3>General Cleaning</h3>
+          <p>All types of cleaning: windows, doors, kickplates, walls, stainless steel, escalators, elevators, cobweb removal, stairs, and exterior awnings.</p>
+          <a href="https://ceilingsrus.net/general-cleaning/" class="cru-svc-btn">More Info</a>
+        </div>
+      </div>
+
+      <!-- 3. Inspection Preparation -->
+      <div class="cru-svc-card">
+        <div class="cru-svc-img">
+          <img src="https://ceilingsrus.net/wp-content/uploads/2025/07/IMG_7463.jpeg" alt="Ceiling and vent cleaning to prepare a facility for inspection" onerror="this.style.background='#0d5269';this.style.minHeight='210px'">
+          <div class="cru-svc-img-overlay"></div>
+        </div>
+        <div class="cru-svc-body">
+          <h3>Inspection Preparation</h3>
+          <p>Cleaning services designed to meet the high standards required for inspections, particularly for clients like restaurants and healthcare facilities.</p>
+          <a href="https://ceilingsrus.net/inspection-preparation/" class="cru-svc-btn">More Info</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

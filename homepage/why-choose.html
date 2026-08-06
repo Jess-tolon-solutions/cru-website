@@ -1,0 +1,47 @@
+<!--
+  CEILINGS R US — "Choose Ceilings-R-Us!" Homepage Section
+  Replaces the OLD native Flatsome block that dropped in a raw 690px GIF.
+  Rebuilt to match the design system: clean 2-column layout, the GIF kept
+  but capped (~440px), rounded, and wrapped in the gradient-outline frame.
+  Teal "Why Choose Us" button with white-fill hover. Self-contained.
+  Prefix "cru-why-". Paste as ONE HTML element where the old block is, then
+  delete the old Flatsome columns (heading, intro, GIF, second image, button).
+-->
+
+<style>
+.cru-why-section { background:#f4f8f9; padding:72px 20px; font-family:'Open Sans',Arial,sans-serif; }
+.cru-why-inner { max-width:1120px; margin:0 auto; display:grid; grid-template-columns:1fr 440px; gap:56px; align-items:center; }
+@media (max-width:900px){ .cru-why-inner{ grid-template-columns:1fr; gap:36px; max-width:520px; } }
+
+.cru-why-eyebrow { display:inline-block; background:#116782; color:#fff; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:16px; }
+.cru-why-text h2 { font-size:2rem; font-weight:800; color:#0f2d36; margin:0 0 16px; line-height:1.2; }
+.cru-why-lead { font-size:1.1rem; font-weight:700; color:#116782; line-height:1.5; margin:0 0 16px; }
+.cru-why-text p { font-size:0.98rem; color:#5a7580; line-height:1.7; margin:0 0 28px; }
+
+.cru-why-btn { display:inline-block; padding:15px 34px; border-radius:8px; font-size:0.92rem; font-weight:800; text-decoration:none; text-transform:uppercase; letter-spacing:0.5px; background:#116782; color:#fff; transition:background .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.cru-why-btn:hover { background:#fff !important; color:#0f2d36 !important; box-shadow:0 8px 22px rgba(0,0,0,0.18); transform:translateY(-2px); text-decoration:none; }
+
+/* framed media (GIF) — capped, rounded, gradient outline */
+.cru-why-media { position:relative; border-radius:16px; overflow:hidden; box-shadow:0 10px 34px rgba(17,103,130,0.18); }
+.cru-why-media::after { content:''; position:absolute; inset:0; border-radius:inherit; padding:2px; background:linear-gradient(130deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; z-index:2; }
+.cru-why-media img { display:block; width:100%; height:100%; object-fit:cover; }
+@media (max-width:900px){ .cru-why-media{ max-width:440px; margin:0 auto; } }
+</style>
+
+<section class="cru-why-section">
+  <div class="cru-why-inner">
+
+    <div class="cru-why-text">
+      <div class="cru-why-eyebrow">Why Ceilings R Us</div>
+      <h2>Choose Ceilings-R-Us!</h2>
+      <p class="cru-why-lead">With a commitment to building lasting relationships with our clients, we go above and beyond to ensure their satisfaction.</p>
+      <p>We understand that cleanliness plays a crucial role in creating a welcoming and professional environment, and that&rsquo;s why we pour our heart and soul into every cleaning project we undertake. When you choose our company, you can trust that we will treat your business as if it were our own &mdash; providing meticulous, personalized cleaning solutions that exceed your expectations.</p>
+      <a href="https://ceilingsrus.net/why/" class="cru-why-btn">Why Choose Us</a>
+    </div>
+
+    <div class="cru-why-media">
+      <img src="https://ceilingsrus.net/wp-content/uploads/2025/07/IMG_7467-ezgif.com-optimize-1.gif" alt="Ceilings R Us technician steam-cleaning a commercial ceiling" onerror="this.style.background='#0f2d36';this.style.minHeight='360px'">
+    </div>
+
+  </div>
+</section>

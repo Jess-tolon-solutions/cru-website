@@ -101,6 +101,8 @@ cru-website/
 | `homepage/before-after.html` | Home (below logo scroll) | "Violation to Inspection-Ready" — mold → cleaned |
 | `homepage/tools-3card.html` | Home (Free Compliance Tools) | Assessment · Violation Map · What an Inspector Sees |
 | `homepage/trust-strip.html` | Home (below tools) | Condensed 5-point trust bar |
+| `homepage/advanced-services.html` | Home ("Our Advanced Cleaning Services") | Rebuilt from old Flatsome cols → 3 white image-top cards (Restoration · General · Inspection Prep), gradient outline + teal buttons |
+| `homepage/why-choose.html` | Home ("Choose Ceilings-R-Us!") | Rebuilt from old Flatsome block → 2-col; GIF kept but capped 440px + gradient-outline frame |
 
 ### Page Templates & Content
 
