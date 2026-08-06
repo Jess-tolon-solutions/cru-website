@@ -84,10 +84,24 @@
     document.body.style.overflow = '';
   }
 
-  // Open: any link to #quote, or any element opting in with class/attr.
+  // Legacy CTA bridge: a Flatsome *button* linking to /contact whose label says
+  // "quote"/"estimate" (e.g. "free estimate", "Schedule a free estimate!") should
+  // open the popup too — so we don't have to hand-edit each one in the builders.
+  // Progressive enhancement: left-click opens the popup; new-tab / no-JS still
+  // falls back to /contact. The plain "Contact" nav link never matches.
+  function isLegacyQuoteCta(target) {
+    var a = target.closest('a.button, a[class*="button"]');
+    if (!a) return false;
+    var href = a.getAttribute('href') || '';
+    var toContact = /\/contact\/?(?:$|[?#])/i.test(href);
+    return toContact && /\b(quote|estimate)\b/i.test(a.textContent || '');
+  }
+
+  // Open: any link to #quote, opt-in class/attr, or a legacy quote/estimate CTA.
   document.addEventListener('click', function (e) {
-    var trigger = e.target.closest('a[href="#quote"], a[href$="#quote"], .cru-quote-btn, [data-cru-quote]');
-    if (trigger) { e.preventDefault(); openQuote(); return; }
+    if (e.target.closest('a[href="#quote"], a[href$="#quote"], .cru-quote-btn, [data-cru-quote]') || isLegacyQuoteCta(e.target)) {
+      e.preventDefault(); openQuote(); return;
+    }
     // Close: X button, or click on the dark backdrop itself.
     if (e.target.closest('[data-cru-quote-close]') || e.target.id === 'cru-quote-modal') { closeQuote(); }
   });

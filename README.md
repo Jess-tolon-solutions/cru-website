@@ -177,6 +177,13 @@ header "free estimate", hero "Schedule a free estimate", the estimate band,
 and the footer "Free Estimate". The nav **Contact** menu item still goes to
 `/contact/` (it's navigation, not a quote CTA).
 
+**Legacy CTA auto-bridge:** the popup snippet also intercepts any Flatsome
+*button* linking to `/contact` whose label says "quote"/"estimate" and opens the
+popup instead — so the old buttons buried in the Flatsome header builder / UX
+Builder work without hand-editing each one. Progressive enhancement: left-click
+opens the popup; new-tab / no-JS still falls back to `/contact`. Plain "Contact"
+nav links never match. New CTAs should still use `#quote` directly.
+
 ---
 
 ## Brand Quick-Reference
