@@ -128,6 +128,11 @@ cru-website/
 
 ### Service Pages
 
+All service pages now: (1) wire every "Get a Free Quote" CTA to `#quote` (the
+site-wide popup — no more `tel:`/`/contact` CTAs, no inline modal), and (2) end
+with the reusable CTA banner (`shared/cta-banner.html`) for one consistent
+bottom CTA everywhere. The old per-page CTA CSS is left in place (unused, harmless).
+
 | File | URL |
 |---|---|
 | `pages/services/services-hub.html` | `/services/` |
