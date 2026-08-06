@@ -165,6 +165,7 @@ cru-website/
 | `shared/site-styles.css` | Site-wide CSS (load via WPCode) |
 | `shared/components.html` | Reusable component reference |
 | `shared/quote-modal.html` | **Site-wide quote popup** (load once via WPCode → Site Wide Footer). Any link to `#quote` or element with class `cru-quote-btn` opens the Jobber form in a modal. Lazy-loads; defers to the Contact page's own modal. |
+| `shared/cta-banner.html` | **Main reusable CTA banner** — dark rounded banner, gradient outline, teal "Get a Free Quote" heading; primary button opens the `#quote` popup. Paste near the bottom of any page (services, locations, about, home under Advanced Services). Nothing page-specific — safe to reuse everywhere. |
 
 ### Site-wide quote popup — the `#quote` convention
 
