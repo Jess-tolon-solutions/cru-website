@@ -1,0 +1,44 @@
+<!--
+  CEILINGS R US — "Get a Free Estimate" CTA Banner (Homepage)
+  Replaces the OLD native Flatsome "Call us for a free estimates" band
+  (gray overlay, lime "Contact Us" button that navigated to /contact).
+  Rebuilt on-brand: ceiling photo + dark teal overlay (hero pattern), green
+  CTA that opens the SITE-WIDE QUOTE POPUP (see shared/quote-modal.html), plus
+  a click-to-call. Self-contained. Prefix "cru-est-".
+
+  REQUIRES the global popup snippet (shared/quote-modal.html) to be installed
+  once via WPCode. The button opens it by linking to #quote.
+
+  Paste as ONE HTML element where the old band is, then delete the old block.
+-->
+
+<style>
+.cru-est-band { position:relative; overflow:hidden; padding:88px 20px; text-align:center; font-family:'Open Sans',Arial,sans-serif;
+  background-image:url('https://ceilingsrus.net/wp-content/uploads/2025/03/cassette-suspended-ceiling-with-square-halogen-spo-2025-03-09-15-03-58-utc-scaled.jpg');
+  background-size:cover; background-position:center;
+  margin-left:calc(-50vw + 50%); margin-right:calc(-50vw + 50%); }
+.cru-est-band::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(6,17,22,0.80) 0%, rgba(15,45,54,0.86) 100%); z-index:1; }
+.cru-est-inner { position:relative; z-index:2; max-width:720px; margin:0 auto; }
+.cru-est-eyebrow { display:inline-block; background:#116782; color:#fff; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:16px; }
+.cru-est-inner h2 { font-size:2.3rem; font-weight:800; color:#fff; margin:0 0 14px; line-height:1.15; }
+.cru-est-inner p { font-size:1.08rem; color:rgba(255,255,255,0.9); line-height:1.6; margin:0 0 32px; }
+.cru-est-actions { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; }
+.cru-est-btn { display:inline-block; padding:16px 34px; border-radius:8px; font-size:0.95rem; font-weight:800; text-decoration:none; text-transform:uppercase; letter-spacing:0.5px; cursor:pointer; border:none; transition:background .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.cru-est-btn-primary { background:#5eff00; color:#0f2d36; }
+.cru-est-btn-primary:hover { background:#fff !important; color:#0f2d36 !important; transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,0.28); }
+.cru-est-btn-secondary { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.55); }
+.cru-est-btn-secondary:hover { background:#fff !important; color:#0f2d36 !important; border-color:#fff !important; transform:translateY(-2px); }
+@media (max-width:600px){ .cru-est-inner h2{ font-size:1.7rem; } .cru-est-btn{ display:block; } }
+</style>
+
+<section class="cru-est-band">
+  <div class="cru-est-inner">
+    <div class="cru-est-eyebrow">Free &middot; No Obligation</div>
+    <h2>Get a Free Estimate Today</h2>
+    <p>Tell us about your space and we&rsquo;ll send a tailored quote &mdash; no pressure, no sales pitch. It only takes about a minute.</p>
+    <div class="cru-est-actions">
+      <a href="#quote" class="cru-est-btn cru-est-btn-primary cru-quote-btn">Get My Free Quote</a>
+      <a href="tel:+19544520004" class="cru-est-btn cru-est-btn-secondary">Call (954) 452-0004</a>
+    </div>
+  </div>
+</section>

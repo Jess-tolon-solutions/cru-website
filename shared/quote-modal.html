@@ -1,0 +1,98 @@
+<!--
+  CEILINGS R US — SITE-WIDE QUOTE POPUP  (global "Request a Quote" modal)
+  ============================================================================
+  WHAT IT DOES
+    Makes the Jobber quote form available as a popup on EVERY page. Any CTA
+    that should open it just links to  #quote  (or gets class "cru-quote-btn").
+    No per-button HTML editing — change a button's Link to #quote and it opens
+    the popup instead of navigating away.
+
+  HOW TO INSTALL (once)
+    WPCode → Add Snippet → Add Your Custom Code → HTML Snippet.
+    Paste this whole file. Insertion: Auto Insert → Site Wide Footer. Active.
+    (Footer so the Jobber script + DOM are ready before it runs.)
+
+  NICE-TO-HAVES
+    • Lazy-loads the Jobber embed only on first open (keeps every page light).
+    • Leaves the Contact page's own modal (#crucp-modal) alone — on that page,
+      #quote links open the existing modal, so Contact needs NO changes.
+    • Closes on X, on backdrop click, and on Esc.
+-->
+
+<style>
+.cru-quote-modal { display:none; position:fixed; inset:0; z-index:100000; background:rgba(8,18,23,0.82); padding:20px; }
+.cru-quote-modal.cru-quote-open { display:flex; align-items:flex-start; justify-content:center; }
+.cru-quote-box { background:#fff; border-radius:14px; max-width:720px; width:100%; max-height:92vh; overflow-y:auto; margin:24px auto; position:relative; -webkit-overflow-scrolling:touch; font-family:'Open Sans',Arial,sans-serif; }
+.cru-quote-head { position:sticky; top:0; background:#fff; display:flex; align-items:center; justify-content:space-between; padding:16px 22px; border-bottom:1px solid #e5e7eb; z-index:2; }
+.cru-quote-head h3 { font-size:1.15rem; font-weight:800; color:#0f2d36 !important; margin:0; }
+.cru-quote-close { background:none; border:none; font-size:28px; line-height:1; color:#5a7580; cursor:pointer; padding:0 4px; }
+.cru-quote-close:hover { color:#0f2d36; }
+.cru-quote-body { padding:18px 22px 26px; min-height:120px; }
+.cru-quote-loading { text-align:center; color:#5a7580; font-size:0.9rem; padding:30px 0; }
+</style>
+
+<div class="cru-quote-modal" id="cru-quote-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Request a free quote">
+  <div class="cru-quote-box">
+    <div class="cru-quote-head">
+      <h3>Request Your Free Quote</h3>
+      <button type="button" class="cru-quote-close" aria-label="Close" data-cru-quote-close>&times;</button>
+    </div>
+    <div class="cru-quote-body" id="cru-quote-form">
+      <div class="cru-quote-loading">Loading form&hellip;</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var JOBBER_ID  = 'a022635a-e1bc-43e3-bbac-6e97a2584f23-4837330';
+  var JOBBER_CSS = 'https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css';
+  var JOBBER_JS  = 'https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js';
+  var JOBBER_URL = 'https://clienthub.getjobber.com/client_hubs/a022635a-e1bc-43e3-bbac-6e97a2584f23/public/work_request/embedded_work_request_form?form_id=4837330';
+
+  var formLoaded = false;
+
+  function ensureForm() {
+    if (formLoaded) return;
+    formLoaded = true;
+    var host = document.getElementById('cru-quote-form');
+    if (!host) return;
+    host.innerHTML = '';                       // clear "Loading form…"
+    var link = document.createElement('link');
+    link.rel = 'stylesheet'; link.href = JOBBER_CSS; link.media = 'screen';
+    host.appendChild(link);
+    var mount = document.createElement('div'); mount.id = JOBBER_ID;
+    host.appendChild(mount);
+    var s = document.createElement('script');
+    s.src = JOBBER_JS;
+    s.setAttribute('clienthub_id', JOBBER_ID);
+    s.setAttribute('form_url', JOBBER_URL);
+    host.appendChild(s);
+  }
+
+  function openQuote() {
+    // Prefer the global modal; if we're on the Contact page, use its modal instead.
+    var g = document.getElementById('cru-quote-modal');
+    if (g) { ensureForm(); g.classList.add('cru-quote-open'); g.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; return; }
+    var c = document.getElementById('crucp-modal');
+    if (c) { c.classList.add('crucp-open'); }
+  }
+
+  function closeQuote() {
+    var g = document.getElementById('cru-quote-modal');
+    if (g) { g.classList.remove('cru-quote-open'); g.setAttribute('aria-hidden', 'true'); }
+    document.body.style.overflow = '';
+  }
+
+  // Open: any link to #quote, or any element opting in with class/attr.
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('a[href="#quote"], a[href$="#quote"], .cru-quote-btn, [data-cru-quote]');
+    if (trigger) { e.preventDefault(); openQuote(); return; }
+    // Close: X button, or click on the dark backdrop itself.
+    if (e.target.closest('[data-cru-quote-close]') || e.target.id === 'cru-quote-modal') { closeQuote(); }
+  });
+
+  // Close on Esc.
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeQuote(); });
+})();
+</script>

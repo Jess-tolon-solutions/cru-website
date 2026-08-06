@@ -103,6 +103,7 @@ cru-website/
 | `homepage/trust-strip.html` | Home (below tools) | Condensed 5-point trust bar |
 | `homepage/advanced-services.html` | Home ("Our Advanced Cleaning Services") | Rebuilt from old Flatsome cols → 3 white image-top cards (Restoration · General · Inspection Prep), gradient outline + teal buttons |
 | `homepage/why-choose.html` | Home ("Choose Ceilings-R-Us!") | Rebuilt from old Flatsome block → 2-col; GIF kept but capped 440px + gradient-outline frame |
+| `homepage/cta-estimate.html` | Home ("Call us for a free estimate" band) | Rebuilt on-brand: ceiling photo + dark teal overlay; green **Get My Free Quote** opens the site-wide popup (`#quote`) + click-to-call |
 
 ### Page Templates & Content
 
@@ -163,6 +164,17 @@ cru-website/
 | `shared/styles.css` | Brand palette & canonical facts |
 | `shared/site-styles.css` | Site-wide CSS (load via WPCode) |
 | `shared/components.html` | Reusable component reference |
+| `shared/quote-modal.html` | **Site-wide quote popup** (load once via WPCode → Site Wide Footer). Any link to `#quote` or element with class `cru-quote-btn` opens the Jobber form in a modal. Lazy-loads; defers to the Contact page's own modal. |
+
+### Site-wide quote popup — the `#quote` convention
+
+Install `shared/quote-modal.html` **once** (WPCode HTML snippet → Auto Insert →
+Site Wide Footer). After that, **any CTA can open the quote form** instead of
+navigating away — just set its link to `#quote` (Flatsome button → Link field),
+or add class `cru-quote-btn` to a pasted button. Homepage CTAs converted:
+header "free estimate", hero "Schedule a free estimate", the estimate band,
+and the footer "Free Estimate". The nav **Contact** menu item still goes to
+`/contact/` (it's navigation, not a quote CTA).
 
 ---
 
