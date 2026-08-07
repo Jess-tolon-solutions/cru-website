@@ -14,7 +14,7 @@
   position: relative;
   min-height: 400px;
   background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%),
-              url('https://ceilingsrus.net/wp-content/uploads/2024/commercial-ceiling-cleaning.jpg') center/cover no-repeat;
+              url('https://ceilingsrus.net/wp-content/uploads/2026/03/IMG_0468-1.jpeg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -376,28 +376,28 @@
     </div>
     <div class="cru-svc-grid">
       <div class="cru-svc-card">
-        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2026/03/IMG_0490.jpeg');"></div>
         <div class="cru-svc-card-body">
           <h3>Inspection-Ready Results</h3>
           <p>We know exactly what DBPR inspectors look for. Our cleaning eliminates common violations related to ceiling and vent cleanliness.</p>
         </div>
       </div>
       <div class="cru-svc-card">
-        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2026/06/IMG_0547.jpeg');"></div>
         <div class="cru-svc-card-body">
           <h3>Improved Air Quality</h3>
           <p>Remove dust, allergens, mold spores, and contaminants that circulate through your HVAC system and affect employee and customer health.</p>
         </div>
       </div>
       <div class="cru-svc-card">
-        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2026/06/IMG_3717-scaled.jpeg');"></div>
         <div class="cru-svc-card-body">
           <h3>Reduced Fire Risk</h3>
           <p>Grease buildup on ceilings near cooking areas creates fire hazards. Our thorough cleaning reduces risk and improves safety.</p>
         </div>
       </div>
       <div class="cru-svc-card">
-        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg');"></div>
+        <div class="cru-svc-card-img" style="background-image: url('https://ceilingsrus.net/wp-content/uploads/2026/03/IMG_0463.jpeg');"></div>
         <div class="cru-svc-card-body">
           <h3>Cost-Effective Alternative</h3>
           <p>Professional cleaning restores ceiling appearance at a fraction of the cost of replacement. Extend the life of your ceiling investment.</p>
@@ -407,41 +407,67 @@
   </div>
 </section>
 
-<!-- Process Section -->
-<section class="cru-svc-section cru-svc-process">
-  <div class="cru-svc-process-inner">
-    <div class="cru-svc-process-header">
-      <h2>Our Process</h2>
+<!-- Process Section (horizontal 3-step stepper) -->
+<style>
+.cru-proc { background:#f4f8f9; padding:72px 20px; font-family:'Open Sans',Arial,sans-serif; }
+.cru-proc-inner { max-width:960px; margin:0 auto; }
+.cru-proc-header { text-align:center; margin-bottom:52px; }
+.cru-proc-header h2 { font-size:1.9rem; font-weight:800; color:#0f2d36; margin:0; position:relative; display:inline-block; padding-bottom:14px; }
+.cru-proc-header h2::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:80px; height:3px; background:linear-gradient(90deg,#116782,#1a8fa8 50%,#5eff00); border-radius:2px; }
+.cru-proc-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:0; }
+.cru-proc-step { text-align:center; padding:0 26px; position:relative; }
+.cru-proc-step:not(:last-child)::after { content:''; position:absolute; top:34px; left:50%; width:100%; height:3px; background:linear-gradient(90deg,#116782,#5eff00); z-index:0; }
+.cru-proc-num { position:relative; z-index:1; width:68px; height:68px; margin:0 auto 22px; border-radius:50%; background:#0f2d36; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:800; box-shadow:0 6px 20px rgba(17,103,130,0.25); }
+.cru-proc-num::after { content:''; position:absolute; inset:0; border-radius:50%; padding:2px; background:linear-gradient(130deg,#116782,#1a8fa8 50%,#5eff00); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; }
+.cru-proc-step h3 { font-size:1.2rem; font-weight:800; color:#0f2d36; margin:0 0 10px; }
+.cru-proc-step p { font-size:0.92rem; color:#5a7580; line-height:1.6; margin:0; }
+@media (max-width:720px){ .cru-proc-steps{ grid-template-columns:1fr; gap:36px; } .cru-proc-step:not(:last-child)::after{ display:none; } }
+</style>
+<section class="cru-proc">
+  <div class="cru-proc-inner">
+    <div class="cru-proc-header"><h2>Our Process</h2></div>
+    <div class="cru-proc-steps">
+      <div class="cru-proc-step"><div class="cru-proc-num">1</div><h3>Assessment</h3><p>We visit your facility, evaluate your ceilings and vents, and document current conditions &mdash; free, with no obligation.</p></div>
+      <div class="cru-proc-step"><div class="cru-proc-num">2</div><h3>Quote</h3><p>You get a transparent, itemized quote with clear scope and timeline. No hidden fees, no surprises.</p></div>
+      <div class="cru-proc-step"><div class="cru-proc-num">3</div><h3>Schedule a Cleaning</h3><p>Pick a time that works &mdash; including overnights and weekends &mdash; and we get your space inspection-ready.</p></div>
     </div>
-    <div class="cru-svc-steps">
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">1</div>
-        <div class="cru-svc-step-content">
-          <h3>Free Assessment</h3>
-          <p>We evaluate your ceilings, identify problem areas, and document current conditions with photos.</p>
-        </div>
-      </div>
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">2</div>
-        <div class="cru-svc-step-content">
-          <h3>Detailed Quote</h3>
-          <p>You receive a transparent quote with no hidden fees, including scope of work and timeline.</p>
-        </div>
-      </div>
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">3</div>
-        <div class="cru-svc-step-content">
-          <h3>Professional Cleaning</h3>
-          <p>Our experienced team deep-cleans every surface — tiles, grids, exposed beams, and fixtures — with minimal disruption.</p>
-        </div>
-      </div>
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">4</div>
-        <div class="cru-svc-step-content">
-          <h3>Final Walkthrough</h3>
-          <p>We walk through the completed work with you to ensure everything meets our standards and yours.</p>
-        </div>
-      </div>
+  </div>
+</section>
+
+<!-- Recurring Maintenance / Multi-Location Section -->
+<style>
+.cru-maint { background:#fff; padding:76px 20px; font-family:'Open Sans',Arial,sans-serif; }
+.cru-maint-inner { max-width:1080px; margin:0 auto; display:grid; grid-template-columns:1.05fr 0.95fr; gap:52px; align-items:center; }
+.cru-maint-eyebrow { display:inline-block; background:#116782; color:#fff; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:16px; }
+.cru-maint-text h2 { font-size:2rem; font-weight:800; color:#0f2d36; margin:0 0 14px; line-height:1.2; }
+.cru-maint-lead { font-size:1.1rem; font-weight:700; color:#116782; margin:0 0 22px; line-height:1.5; }
+.cru-maint-list { list-style:none; padding:0; margin:0 0 30px; display:flex; flex-direction:column; gap:14px; }
+.cru-maint-list li { position:relative; padding-left:34px; font-size:0.98rem; color:#374151; line-height:1.55; }
+.cru-maint-list li::before { content:'✓'; position:absolute; left:0; top:-1px; width:22px; height:22px; background:#5eff00; color:#0f2d36; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:800; }
+.cru-maint-list strong { color:#0f2d36; }
+.cru-maint-btn { display:inline-block; background:#5eff00; color:#0f2d36; font-size:0.95rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; padding:15px 32px; border-radius:8px; text-decoration:none; transition:background .2s, color .2s, box-shadow .2s, transform .2s; }
+.cru-maint-btn:hover { background:#fff !important; color:#0f2d36 !important; box-shadow:0 8px 22px rgba(0,0,0,0.18); transform:translateY(-2px); }
+.cru-maint-media { position:relative; border-radius:16px; overflow:hidden; box-shadow:0 12px 38px rgba(17,103,130,0.18); }
+.cru-maint-media::after { content:''; position:absolute; inset:0; border-radius:inherit; padding:2px; background:linear-gradient(130deg,#116782,#1a8fa8 50%,#5eff00); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; }
+.cru-maint-media img { display:block; width:100%; height:100%; object-fit:cover; }
+@media (max-width:820px){ .cru-maint-inner{ grid-template-columns:1fr; gap:36px; } .cru-maint-media{ max-width:520px; margin:0 auto; } }
+</style>
+<section class="cru-maint">
+  <div class="cru-maint-inner">
+    <div class="cru-maint-text">
+      <div class="cru-maint-eyebrow">For Multi-Location Operators</div>
+      <h2>Stay Inspection-Ready All Year</h2>
+      <p class="cru-maint-lead">One cleaning solves today&rsquo;s problem. A recurring plan keeps it solved.</p>
+      <ul class="cru-maint-list">
+        <li>Quarterly or bi-annual scheduled cleanings, set to your calendar</li>
+        <li><strong>Multi-location discounts</strong> &mdash; the more sites you have, the better your rate</li>
+        <li>We track your schedule and remind you before each cleaning is due</li>
+        <li>Priority booking and consistent, vetted crews at every location</li>
+      </ul>
+      <a href="#quote" class="cru-maint-btn cru-quote-btn">Ask About a Maintenance Plan</a>
+    </div>
+    <div class="cru-maint-media">
+      <img src="https://ceilingsrus.net/wp-content/uploads/2026/03/maintence.jpeg" alt="Ceilings R Us recurring maintenance log for a scheduled facility" onerror="this.parentElement.style.background='#0f2d36';this.style.minHeight='320px'">
     </div>
   </div>
 </section>
