@@ -101,6 +101,7 @@ cru-website/
 | `homepage/before-after.html` | Home (below logo scroll) | "Violation to Inspection-Ready" — mold → cleaned |
 | `homepage/tools-3card.html` | Home (Free Compliance Tools) | Assessment · Violation Map · What an Inspector Sees |
 | `homepage/trust-strip.html` | Home (below tools) | Condensed 5-point trust bar |
+| `homepage/faq.html` | Home (FAQ) | Polished accordion (rounded items, teal left-border, rotating + icon) replacing the plain Flatsome accordion; 10 Qs |
 | `homepage/advanced-services.html` | Home ("Our Advanced Cleaning Services") | Rebuilt from old Flatsome cols → 3 white image-top cards (Restoration · General · Inspection Prep), gradient outline + teal buttons |
 | `homepage/why-choose.html` | Home ("Choose Ceilings-R-Us!") | Rebuilt from old Flatsome block → 2-col; GIF kept but capped 440px + gradient-outline frame |
 | `homepage/cta-estimate.html` | Home ("Call us for a free estimate" band) | Rebuilt on-brand: ceiling photo + dark teal overlay; green **Get My Free Quote** opens the site-wide popup (`#quote`) + click-to-call |
@@ -170,6 +171,7 @@ bottom CTA everywhere. The old per-page CTA CSS is left in place (unused, harmle
 | `shared/site-styles.css` | Site-wide CSS (load via WPCode) |
 | `shared/components.html` | Reusable component reference |
 | `shared/quote-modal.html` | **Site-wide quote popup** (load once via WPCode → Site Wide Footer). Any link to `#quote` or element with class `cru-quote-btn` opens the Jobber form in a modal. Lazy-loads; defers to the Contact page's own modal. |
+| `shared/free-tools.html` | **Reusable lead-magnet section** — 3 free tools (Assessment · Violation Map · What an Inspector Sees) as gradient-outline cards. Now embedded in the services hub (between grid and FAQ); paste on any page needing a soft CTA. |
 | `shared/cta-banner.html` | **Main reusable CTA banner** — dark rounded banner, gradient outline, teal "Get a Free Quote" heading; primary button opens the `#quote` popup. Paste near the bottom of any page (services, locations, about, home under Advanced Services). Nothing page-specific — safe to reuse everywhere. |
 
 ### Site-wide quote popup — the `#quote` convention
