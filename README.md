@@ -126,6 +126,14 @@ cru-website/
 | `pages/locations/broward-county.html` | `/broward-county/` |
 | `pages/locations/west-palm-beach.html` | `/west-palm-beach/` |
 | `pages/locations/boca-raton.html` | `/boca-raton/` |
+| `pages/locations/monroe-county.html` | `/monroe-county/` |
+| `pages/locations/collier-county.html` | `/collier-county/` |
+| `pages/locations/palm-beach-county.html` | `/palm-beach-county/` |
+| `pages/locations/hollywood.html` | `/hollywood/` |
+| `pages/locations/pembroke-pines.html` | `/pembroke-pines/` |
+| `pages/locations/hialeah.html` | `/hialeah/` |
+| `pages/locations/homestead.html` | `/homestead/` |
+| `pages/locations/naples.html` | `/naples/` |
 
 ### Service Pages
 
@@ -144,6 +152,7 @@ bottom CTA everywhere. The old per-page CTA CSS is left in place (unused, harmle
 | `pages/services/general-cleaning.html` | `/general-cleaning/` |
 | `pages/services/specialized-cleaning.html` | `/specialized-cleaning-solutions/` |
 | `pages/services/post-construction-cleaning.html` | `/post-construction-cleaning/` |
+| `pages/services/kitchen-cleaning-and-maintenance.html` | `/kitchen-cleaning-and-maintenance/` |
 
 ### Industry Pages
 
@@ -151,6 +160,11 @@ bottom CTA everywhere. The old per-page CTA CSS is left in place (unused, harmle
 |---|---|
 | `pages/industries/grocery-ceiling-cleaning.html` | `/grocery-ceiling-cleaning/` |
 | `pages/industries/hotel-ceiling-cleaning.html` | `/hotel-ceiling-cleaning/` |
+| `pages/industries/restaurant-cleaning.html` | `/restaurant-cleaning/` |
+| `pages/industries/hospital-cleaning.html` | `/hospital-cleaning/` |
+| `pages/industries/clinic-cleaning.html` | `/clinic-cleaning/` |
+| `pages/industries/office-cleaning.html` | `/office-cleaning/` |
+| `pages/industries/warehouse-cleaning-and-dusting.html` | `/warehouse-cleaning-and-dusting/` |
 
 ### About Pages
 
@@ -250,5 +264,7 @@ nav links never match. New CTAs should still use `#quote` directly.
 ---
 
 ## Last Updated
+
+2026-08-06 — Consistency pass + expansion: site-wide #quote popup, reusable CTA banner, homepage FAQ accordion, services-page free-tools lead magnets, and 14 new client pages (1 service, 5 industries, 8 locations) generated from golden templates. Kitchen service added to the services-hub grid.
 
 2026-07-21 — Major update: Added location pages (6), service pages (8), industry pages (2), about pages (4), H1 headers (15), SEO copy document, and design system enhancements.
