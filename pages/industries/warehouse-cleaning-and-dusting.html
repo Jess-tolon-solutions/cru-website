@@ -1,0 +1,127 @@
+<!--
+  INDUSTRY PAGE TEMPLATE  (golden — new standard)
+  =====================
+  Placeholders (substitute per industry):
+  - Warehouse Cleaning &amp; Dusting    hero H1, e.g. "Restaurant Cleaning"
+  - warehouse  short noun for body copy, e.g. "restaurant", "hospital"
+  - High-ceiling dusting, rafter cleaning, and dust control for South Florida warehouses and distribution centers.  hero subhead
+  - Control the Dust in Your Warehouse  intro heading
+  - Warehouses accumulate dust where no one can easily reach &mdash; on high ceilings, rafters, ductwork, sprinkler lines, and light fixtures. That buildup isn&rsquo;t just unsightly; it&rsquo;s a fire-load, an air-quality problem, and a contamination risk for stored product. / Ceilings R Us specializes in high-access cleaning and dusting for warehouses and distribution centers. Using the right equipment and lifts, we clear dust from rafters, beams, ceilings, ducts, and fixtures &mdash; improving air quality, reducing fire load, and protecting inventory across Miami-Dade, Broward, and Palm Beach counties.  two intro paragraphs
+  - Warehouse Cleaning Challenges We Solve / High-access dust and buildup most crews cannot reach  challenges heading + subhead
+  - High-Ceiling &amp; Rafter Dust..Air Quality &amp; Inventory Protection / Dust on beams, rafters, and joists is a fire-load and contamination risk. We reach it with the right equipment...Airborne dust settles on product. We reduce it to protect inventory and give workers cleaner air.  four challenge cards
+
+  Standard: hero CTA -> #quote, bottom CTA = reusable banner. Card photos are
+  fixed (generic ceiling/cleaning shots, varied). Paste as one HTML element.
+-->
+
+<style>
+.cru-ind-section { font-family:'Open Sans',Arial,sans-serif; }
+.cru-ind-hero { position:relative; min-height:420px; background:linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%), url('https://ceilingsrus.net/wp-content/uploads/2025/11/9D859434-FCD6-4291-AEC4-5D8CCF017A45_1_105_c.jpeg') center/cover no-repeat; display:flex; align-items:center; justify-content:center; text-align:center; padding:80px 20px; }
+.cru-ind-hero-inner { max-width:800px; }
+.cru-ind-eyebrow { display:inline-block; background:#116782; color:#fff; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:18px; }
+.cru-ind-hero h1 { font-size:2.5rem; font-weight:800; color:#fff; margin:0 0 24px; line-height:1.15; position:relative; padding-bottom:16px; }
+.cru-ind-hero h1::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:100px; height:3px; background:linear-gradient(90deg,#5eff00 0%,#35d1e8 100%); border-radius:2px; }
+.cru-ind-hero p { font-size:1.15rem; color:rgba(255,255,255,0.9); line-height:1.6; margin:0 0 28px; }
+.cru-ind-hero-btn { display:inline-block; background:#5eff00; color:#0f2d36; font-size:0.95rem; font-weight:700; padding:14px 32px; border-radius:6px; text-decoration:none; transition:all 0.2s ease; }
+.cru-ind-hero-btn:hover { background:#fff; color:#0f2d36; transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,0.18); }
+
+.cru-ind-intro { background:#fff; padding:72px 20px; }
+.cru-ind-intro-inner { max-width:900px; margin:0 auto; text-align:center; }
+.cru-ind-intro h2 { font-size:1.9rem; font-weight:800; color:#0f2d36; margin:0 0 28px; position:relative; display:inline-block; }
+.cru-ind-intro h2::after { content:''; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); width:80px; height:3px; background:linear-gradient(90deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); border-radius:2px; }
+.cru-ind-intro p { font-size:1.05rem; color:#374151; line-height:1.8; margin:0 0 20px; text-align:left; }
+
+.cru-ind-challenges { background:#f4f8f9; padding:72px 20px; }
+.cru-ind-challenges-inner { max-width:1120px; margin:0 auto; }
+.cru-ind-challenges-header { text-align:center; margin-bottom:48px; }
+.cru-ind-challenges-header h2 { font-size:1.9rem; font-weight:800; color:#0f2d36; margin:0 0 20px; position:relative; display:inline-block; }
+.cru-ind-challenges-header h2::after { content:''; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); width:80px; height:3px; background:linear-gradient(90deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); border-radius:2px; }
+.cru-ind-challenges-header p { font-size:1rem; color:#5a7580; }
+.cru-ind-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+.cru-ind-card { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(17,103,130,0.08); position:relative; }
+.cru-ind-card::after { content:''; position:absolute; inset:0; border-radius:12px; padding:2px; background:linear-gradient(130deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; }
+.cru-ind-card-img { height:150px; background-size:cover; background-position:center; }
+.cru-ind-card-body { padding:28px 28px 32px; }
+.cru-ind-card h3 { font-size:1.2rem; font-weight:800; color:#0f2d36; margin:0 0 10px; }
+.cru-ind-card p { font-size:0.9rem; color:#5a7580; line-height:1.65; margin:0; }
+
+@media (max-width:800px){ .cru-ind-grid{ grid-template-columns:1fr; } }
+@media (max-width:600px){ .cru-ind-hero{ min-height:360px; padding:60px 20px; } .cru-ind-hero h1{ font-size:2rem; } }
+</style>
+
+<section class="cru-ind-section cru-ind-hero">
+  <div class="cru-ind-hero-inner">
+    <span class="cru-ind-eyebrow">Industry Solutions</span>
+    <h1>Warehouse Cleaning &amp; Dusting</h1>
+    <p>High-ceiling dusting, rafter cleaning, and dust control for South Florida warehouses and distribution centers.</p>
+    <a href="#quote" class="cru-ind-hero-btn cru-quote-btn">Get a Free Quote</a>
+  </div>
+</section>
+
+<section class="cru-ind-section cru-ind-intro">
+  <div class="cru-ind-intro-inner">
+    <h2>Control the Dust in Your Warehouse</h2>
+    <p>Warehouses accumulate dust where no one can easily reach &mdash; on high ceilings, rafters, ductwork, sprinkler lines, and light fixtures. That buildup isn&rsquo;t just unsightly; it&rsquo;s a fire-load, an air-quality problem, and a contamination risk for stored product.</p>
+    <p>Ceilings R Us specializes in high-access cleaning and dusting for warehouses and distribution centers. Using the right equipment and lifts, we clear dust from rafters, beams, ceilings, ducts, and fixtures &mdash; improving air quality, reducing fire load, and protecting inventory across Miami-Dade, Broward, and Palm Beach counties.</p>
+  </div>
+</section>
+
+<section class="cru-ind-section cru-ind-challenges">
+  <div class="cru-ind-challenges-inner">
+    <div class="cru-ind-challenges-header">
+      <h2>Warehouse Cleaning Challenges We Solve</h2>
+      <p>High-access dust and buildup most crews cannot reach</p>
+    </div>
+    <div class="cru-ind-grid">
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img" style="background-image:url('https://ceilingsrus.net/wp-content/uploads/2025/06/IMG_7425.jpeg');"></div>
+        <div class="cru-ind-card-body"><h3>High-Ceiling &amp; Rafter Dust</h3><p>Dust on beams, rafters, and joists is a fire-load and contamination risk. We reach it with the right equipment.</p></div>
+      </div>
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img" style="background-image:url('https://ceilingsrus.net/wp-content/uploads/2025/06/IMG_7437.jpeg');"></div>
+        <div class="cru-ind-card-body"><h3>Ductwork &amp; Sprinkler Lines</h3><p>Overhead ducts and sprinkler lines collect heavy dust. We clean them without disrupting operations.</p></div>
+      </div>
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img" style="background-image:url('https://ceilingsrus.net/wp-content/uploads/2025/11/IMG_0031-2-1.jpeg');"></div>
+        <div class="cru-ind-card-body"><h3>Light Fixtures &amp; Fans</h3><p>Dust-caked fixtures cut light and airflow. We clean them to restore brightness and circulation.</p></div>
+      </div>
+      <div class="cru-ind-card">
+        <div class="cru-ind-card-img" style="background-image:url('https://ceilingsrus.net/wp-content/uploads/2025/07/IMG_7463.jpeg');"></div>
+        <div class="cru-ind-card-body"><h3>Air Quality &amp; Inventory Protection</h3><p>Airborne dust settles on product. We reduce it to protect inventory and give workers cleaner air.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOTTOM CTA: reusable banner (shared/cta-banner.html) ===== -->
+<section class="cru-ctab-wrap">
+  <div class="cru-ctab">
+    <div class="cru-ctab-inner">
+      <div class="cru-ctab-eyebrow">Free &middot; No Obligation</div>
+      <h2>Get a Free Quote</h2>
+      <p>Tell us about your warehouse and we&rsquo;ll send a tailored quote &mdash; no pressure, no sales pitch. It only takes about a minute.</p>
+      <div class="cru-ctab-actions">
+        <a href="#quote" class="cru-ctab-btn cru-ctab-btn-primary cru-quote-btn">Get a Free Quote</a>
+        <a href="tel:+19544520004" class="cru-ctab-btn cru-ctab-btn-secondary">Call (954) 452-0004</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.cru-ctab-wrap { padding:60px 20px; font-family:'Open Sans',Arial,sans-serif; }
+.cru-ctab { position:relative; max-width:1080px; margin:0 auto; background:#0f2d36; border-radius:18px; padding:52px 40px; overflow:hidden; text-align:center; }
+.cru-ctab::before { content:''; position:absolute; inset:0; background:radial-gradient(120% 150% at 100% 0%, rgba(53,209,232,0.14), transparent 55%); pointer-events:none; z-index:0; }
+.cru-ctab::after { content:''; position:absolute; inset:0; border-radius:inherit; padding:2px; background:linear-gradient(130deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; z-index:1; }
+.cru-ctab-inner { position:relative; z-index:2; max-width:640px; margin:0 auto; }
+.cru-ctab-eyebrow { display:inline-block; background:rgba(53,209,232,0.14); border:1px solid rgba(53,209,232,0.45); color:#35d1e8; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:18px; }
+.cru-ctab h2 { color:#35d1e8 !important; font-size:2.2rem; font-weight:800; line-height:1.15; margin:0 0 14px; }
+.cru-ctab p { color:rgba(255,255,255,0.88); font-size:1.05rem; line-height:1.6; margin:0 0 30px; }
+.cru-ctab-actions { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.cru-ctab-btn { display:inline-block; padding:16px 34px; border-radius:8px; font-size:0.95rem; font-weight:800; text-decoration:none; text-transform:uppercase; letter-spacing:0.5px; cursor:pointer; border:none; transition:background .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.cru-ctab-btn-primary { background:#5eff00; color:#0f2d36; }
+.cru-ctab-btn-primary:hover { background:#fff !important; color:#0f2d36 !important; transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,0.3); }
+.cru-ctab-btn-secondary { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.5); }
+.cru-ctab-btn-secondary:hover { background:#fff !important; color:#0f2d36 !important; border-color:#fff !important; transform:translateY(-2px); }
+@media (max-width:600px){ .cru-ctab{ padding:44px 24px; } .cru-ctab h2{ font-size:1.7rem; } .cru-ctab-btn{ display:block; } }
+</style>
