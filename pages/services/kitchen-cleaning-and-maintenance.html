@@ -1,0 +1,133 @@
+<!--
+  KITCHEN CLEANING & MAINTENANCE SERVICE PAGE
+  URL: /kitchen-cleaning-and-maintenance/
+  Standard: hero -> #quote, image cards, reusable CTA banner. Paste as one HTML element.
+-->
+
+<style>
+.cru-svc-section { font-family:'Open Sans',Arial,sans-serif; }
+.cru-svc-hero { position:relative; min-height:400px; background:linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%), url('https://ceilingsrus.net/wp-content/uploads/2025/11/IMG_0031-2-1.jpeg') center/cover no-repeat; display:flex; align-items:center; justify-content:center; text-align:center; padding:80px 20px; }
+.cru-svc-hero-inner { max-width:800px; }
+.cru-svc-eyebrow { display:inline-block; background:#116782; color:#fff; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:18px; }
+.cru-svc-hero h1 { font-size:2.5rem; font-weight:800; color:#fff; margin:0 0 24px; line-height:1.15; position:relative; padding-bottom:16px; }
+.cru-svc-hero h1::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:100px; height:3px; background:linear-gradient(90deg,#5eff00 0%,#35d1e8 100%); border-radius:2px; }
+.cru-svc-hero p { font-size:1.15rem; color:rgba(255,255,255,0.9); line-height:1.6; margin:0 0 28px; }
+.cru-svc-hero-btn { display:inline-block; background:#5eff00; color:#0f2d36; font-size:0.95rem; font-weight:700; padding:14px 32px; border-radius:6px; text-decoration:none; transition:all 0.2s ease; }
+.cru-svc-hero-btn:hover { background:#fff; color:#0f2d36; transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,0.18); }
+.cru-svc-desc { background:#fff; padding:72px 20px; }
+.cru-svc-desc-inner { max-width:900px; margin:0 auto; text-align:center; }
+.cru-svc-desc h2 { font-size:1.9rem; font-weight:800; color:#0f2d36; margin:0 0 28px; position:relative; display:inline-block; }
+.cru-svc-desc h2::after { content:''; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); width:80px; height:3px; background:linear-gradient(90deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); border-radius:2px; }
+.cru-svc-desc p { font-size:1.05rem; color:#374151; line-height:1.8; margin:0 0 20px; text-align:left; }
+.cru-svc-benefits { background:#f4f8f9; padding:72px 20px; }
+.cru-svc-benefits-inner { max-width:1120px; margin:0 auto; }
+.cru-svc-benefits-header { text-align:center; margin-bottom:48px; }
+.cru-svc-benefits-header h2 { font-size:1.9rem; font-weight:800; color:#0f2d36; margin:0; position:relative; display:inline-block; padding-bottom:14px; }
+.cru-svc-benefits-header h2::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:80px; height:3px; background:linear-gradient(90deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); border-radius:2px; }
+.cru-svc-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:28px; }
+.cru-svc-card { background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(17,103,130,0.08); transition:transform 0.2s ease, box-shadow 0.2s ease; position:relative; }
+.cru-svc-card::after { content:''; position:absolute; inset:0; border-radius:12px; padding:2px; background:linear-gradient(130deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; }
+.cru-svc-card:hover { transform:translateY(-4px); box-shadow:0 12px 32px rgba(17,103,130,0.14); }
+.cru-svc-card-img { height:150px; background-size:cover; background-position:center; }
+.cru-svc-card-body { padding:24px 28px 28px; }
+.cru-svc-card h3 { font-size:1.15rem; font-weight:800; color:#0f2d36; margin:0 0 10px; }
+.cru-svc-card p { font-size:0.9rem; color:#5a7580; line-height:1.65; margin:0; }
+.cru-svc-process { background:#fff; padding:72px 20px; }
+.cru-svc-process-inner { max-width:900px; margin:0 auto; }
+.cru-svc-process-header { text-align:center; margin-bottom:48px; }
+.cru-svc-process-header h2 { font-size:1.9rem; font-weight:800; color:#0f2d36; margin:0; position:relative; display:inline-block; padding-bottom:14px; }
+.cru-svc-process-header h2::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:80px; height:3px; background:linear-gradient(90deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); border-radius:2px; }
+.cru-svc-steps { display:flex; flex-direction:column; gap:24px; }
+.cru-svc-step { display:flex; gap:24px; align-items:flex-start; }
+.cru-svc-step-num { width:48px; height:48px; min-width:48px; background:#116782; color:#fff; font-size:1.2rem; font-weight:800; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.cru-svc-step-content h3 { font-size:1.15rem; font-weight:700; color:#0f2d36; margin:0 0 8px; }
+.cru-svc-step-content p { font-size:0.95rem; color:#5a7580; line-height:1.6; margin:0; }
+@media (max-width:800px){ .cru-svc-grid{ grid-template-columns:1fr; } }
+@media (max-width:600px){ .cru-svc-hero{ min-height:340px; padding:60px 20px; } .cru-svc-hero h1{ font-size:2rem; } .cru-svc-step{ flex-direction:column; gap:12px; } }
+</style>
+
+<section class="cru-svc-section cru-svc-hero">
+  <div class="cru-svc-hero-inner">
+    <span class="cru-svc-eyebrow">Our Services</span>
+    <h1>Kitchen Cleaning &amp; Maintenance</h1>
+    <p>Deep cleaning and ongoing maintenance for commercial kitchens &mdash; ceilings, hoods, exhaust, walls, and equipment kept grease-free and inspection-ready.</p>
+    <a href="#quote" class="cru-svc-hero-btn cru-quote-btn">Get a Free Quote</a>
+  </div>
+</section>
+
+<section class="cru-svc-section cru-svc-desc">
+  <div class="cru-svc-desc-inner">
+    <h2>Commercial Kitchen Cleaning in South Florida</h2>
+    <p>Commercial kitchens are the hardest-working &mdash; and most heavily inspected &mdash; rooms in any food business. Airborne grease settles on ceilings, hoods, and exhaust systems, creating fire risk, foul odors, and the exact conditions health inspectors flag. Left unchecked, that buildup can slow service, fail an inspection, or shut you down.</p>
+    <p>Ceilings R Us keeps restaurant, grocery, hospital, and institutional kitchens clean from the ceiling down. We degrease acoustic tiles and open ceilings, clean exhaust hoods and vents, wipe down stainless steel and walls, and set up recurring maintenance so your kitchen stays inspection-ready year-round across Miami-Dade, Broward, and Palm Beach counties.</p>
+  </div>
+</section>
+
+<section class="cru-svc-section cru-svc-benefits">
+  <div class="cru-svc-benefits-inner">
+    <div class="cru-svc-benefits-header"><h2>Why Choose Our Kitchen Cleaning</h2></div>
+    <div class="cru-svc-grid">
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-img" style="background-image:url('https://ceilingsrus.net/wp-content/uploads/2025/06/IMG_7437.jpeg');"></div>
+        <div class="cru-svc-card-body"><h3>Grease &amp; Fire-Risk Removal</h3><p>We remove built-up grease from ceilings, hoods, and exhaust systems &mdash; the leading cause of kitchen fires and failed inspections.</p></div>
+      </div>
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-img" style="background-image:url('https://ceilingsrus.net/wp-content/uploads/2025/06/IMG_4271.jpeg');"></div>
+        <div class="cru-svc-card-body"><h3>Health-Inspection Ready</h3><p>Food-safe, non-toxic products that meet DBPR sanitation standards, so your kitchen is ready the moment the inspector walks in.</p></div>
+      </div>
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-img" style="background-image:url('https://ceilingsrus.net/wp-content/uploads/2025/06/IMG_7434.jpeg');"></div>
+        <div class="cru-svc-card-body"><h3>Ceiling-to-Equipment Detail</h3><p>Ceilings, walls, stainless steel, vents, and fixtures &mdash; the full kitchen envelope cleaned in one coordinated visit.</p></div>
+      </div>
+      <div class="cru-svc-card">
+        <div class="cru-svc-card-img" style="background-image:url('https://ceilingsrus.net/wp-content/uploads/2025/11/IMG_0031-2-1.jpeg');"></div>
+        <div class="cru-svc-card-body"><h3>Ongoing Maintenance Plans</h3><p>Set a recurring schedule &mdash; weekly, monthly, or quarterly &mdash; so buildup never gets ahead of you. Overnight service available.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cru-svc-section cru-svc-process">
+  <div class="cru-svc-process-inner">
+    <div class="cru-svc-process-header"><h2>Our Kitchen Cleaning Process</h2></div>
+    <div class="cru-svc-steps">
+      <div class="cru-svc-step"><div class="cru-svc-step-num">1</div><div class="cru-svc-step-content"><h3>Walk-Through &amp; Assessment</h3><p>We evaluate your ceilings, hoods, exhaust, and equipment, identify problem areas, and build a plan around your service hours.</p></div></div>
+      <div class="cru-svc-step"><div class="cru-svc-step-num">2</div><div class="cru-svc-step-content"><h3>Degrease &amp; Deep Clean</h3><p>We degrease and clean ceilings, hoods, vents, walls, and stainless steel &mdash; removing the buildup that inspectors and fire codes target.</p></div></div>
+      <div class="cru-svc-step"><div class="cru-svc-step-num">3</div><div class="cru-svc-step-content"><h3>Sanitize &amp; Verify</h3><p>Food-safe sanitizing of all cleaned surfaces, then a walk-through with you to confirm every area meets standard.</p></div></div>
+      <div class="cru-svc-step"><div class="cru-svc-step-num">4</div><div class="cru-svc-step-content"><h3>Set a Maintenance Schedule</h3><p>We put your kitchen on a recurring plan so it stays clean, safe, and inspection-ready &mdash; no scrambling before a visit.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOTTOM CTA: reusable banner ===== -->
+<section class="cru-ctab-wrap">
+  <div class="cru-ctab">
+    <div class="cru-ctab-inner">
+      <div class="cru-ctab-eyebrow">Free &middot; No Obligation</div>
+      <h2>Get a Free Quote</h2>
+      <p>Tell us about your kitchen and we&rsquo;ll send a tailored quote &mdash; no pressure, no sales pitch. It only takes about a minute.</p>
+      <div class="cru-ctab-actions">
+        <a href="#quote" class="cru-ctab-btn cru-ctab-btn-primary cru-quote-btn">Get a Free Quote</a>
+        <a href="tel:+19544520004" class="cru-ctab-btn cru-ctab-btn-secondary">Call (954) 452-0004</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.cru-ctab-wrap { padding:60px 20px; font-family:'Open Sans',Arial,sans-serif; }
+.cru-ctab { position:relative; max-width:1080px; margin:0 auto; background:#0f2d36; border-radius:18px; padding:52px 40px; overflow:hidden; text-align:center; }
+.cru-ctab::before { content:''; position:absolute; inset:0; background:radial-gradient(120% 150% at 100% 0%, rgba(53,209,232,0.14), transparent 55%); pointer-events:none; z-index:0; }
+.cru-ctab::after { content:''; position:absolute; inset:0; border-radius:inherit; padding:2px; background:linear-gradient(130deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; z-index:1; }
+.cru-ctab-inner { position:relative; z-index:2; max-width:640px; margin:0 auto; }
+.cru-ctab-eyebrow { display:inline-block; background:rgba(53,209,232,0.14); border:1px solid rgba(53,209,232,0.45); color:#35d1e8; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:18px; }
+.cru-ctab h2 { color:#35d1e8 !important; font-size:2.2rem; font-weight:800; line-height:1.15; margin:0 0 14px; }
+.cru-ctab p { color:rgba(255,255,255,0.88); font-size:1.05rem; line-height:1.6; margin:0 0 30px; }
+.cru-ctab-actions { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.cru-ctab-btn { display:inline-block; padding:16px 34px; border-radius:8px; font-size:0.95rem; font-weight:800; text-decoration:none; text-transform:uppercase; letter-spacing:0.5px; cursor:pointer; border:none; transition:background .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.cru-ctab-btn-primary { background:#5eff00; color:#0f2d36; }
+.cru-ctab-btn-primary:hover { background:#fff !important; color:#0f2d36 !important; transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,0.3); }
+.cru-ctab-btn-secondary { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.5); }
+.cru-ctab-btn-secondary:hover { background:#fff !important; color:#0f2d36 !important; border-color:#fff !important; transform:translateY(-2px); }
+@media (max-width:600px){ .cru-ctab{ padding:44px 24px; } .cru-ctab h2{ font-size:1.7rem; } .cru-ctab-btn{ display:block; } }
+</style>
