@@ -276,3 +276,15 @@
   border-color: #fff !important;
   transform: translateY(-2px);
 }
+
+/* ---- 11. Full-bleed sections ----
+   Flatsome pastes content inside a centered .row-main (max-width ~1470px), which
+   leaves a ~80px gutter on each side of our hero + colored bands. This lets any
+   top-level "cru-" <section> break out to the full viewport width; each section's
+   own .*-inner container keeps the CONTENT centered, so only backgrounds extend.
+   INSTALLED LIVE as WPCode CSS snippet "Full-width sections (cru- blocks)"
+   (ID 1730, Site Wide Header, Active) so it applies to every page automatically. */
+.col-inner > section[class*="cru-"] {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
