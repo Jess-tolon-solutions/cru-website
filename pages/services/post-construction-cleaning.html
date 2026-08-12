@@ -10,7 +10,7 @@
   position: relative;
   min-height: 400px;
   background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%),
-              url('https://ceilingsrus.net/wp-content/uploads/2024/post-construction.jpg') center/cover no-repeat;
+              url('https://ceilingsrus.net/wp-content/uploads/2026/03/IMG_0451-1.jpeg') center/cover no-repeat;
   display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px;
 }
 .cru-svc-hero-inner { max-width: 800px; }
@@ -34,7 +34,7 @@
 .cru-svc-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(17,103,130,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease; position: relative; }
 .cru-svc-card::after { content: ''; position: absolute; inset: 0; border-radius: 12px; padding: 2px; background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
 .cru-svc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(17,103,130,0.14); }
-.cru-svc-card-img { height: 140px; background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); background-size: cover; background-position: center; }
+.cru-svc-card-img { height: 150px; background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); background-size: cover; background-position: center; }
 .cru-svc-card-body { padding: 24px 28px 28px; }
 .cru-svc-card h3 { font-size: 1.15rem; font-weight: 800; color: #0f2d36; margin: 0 0 10px; }
 .cru-svc-card p { font-size: 0.9rem; color: #5a7580; line-height: 1.65; margin: 0; }
@@ -117,39 +117,40 @@
   </div>
 </section>
 
-<section class="cru-svc-section cru-svc-process">
-  <div class="cru-svc-process-inner">
-    <div class="cru-svc-process-header">
-      <h2>Our Process</h2>
-    </div>
-    <div class="cru-svc-steps">
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">1</div>
-        <div class="cru-svc-step-content">
-          <h3>Site Assessment</h3>
-          <p>We evaluate the scope of construction debris and develop a cleaning plan for your space.</p>
-        </div>
+<!-- ===== HORIZONTAL 3-STEP PROCESS ===== -->
+<style>
+.cru-proc { background:#f4f8f9; padding:72px 20px; font-family:'Open Sans',Arial,sans-serif; }
+.cru-proc-inner { max-width:960px; margin:0 auto; }
+.cru-proc-header { text-align:center; margin-bottom:52px; }
+.cru-proc-header h2 { font-size:1.9rem; font-weight:800; color:#0f2d36; margin:0; position:relative; display:inline-block; padding-bottom:14px; }
+.cru-proc-header h2::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:80px; height:3px; background:linear-gradient(90deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); border-radius:2px; }
+.cru-proc-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:0; }
+.cru-proc-step { position:relative; text-align:center; padding:0 18px; }
+.cru-proc-step:not(:last-child)::after { content:''; position:absolute; top:34px; left:50%; width:100%; height:3px; background:linear-gradient(90deg,#116782 0%,#5eff00 100%); z-index:0; }
+.cru-proc-num { position:relative; z-index:1; width:68px; height:68px; margin:0 auto 22px; border-radius:50%; background:#0f2d36; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:800; box-shadow:0 4px 16px rgba(15,45,54,0.18); }
+.cru-proc-step h3 { font-size:1.1rem; font-weight:700; color:#0f2d36; margin:0 0 10px; }
+.cru-proc-step p { font-size:0.92rem; color:#5a7580; line-height:1.55; margin:0; }
+@media (max-width:720px){ .cru-proc-steps{ grid-template-columns:1fr; gap:36px; } .cru-proc-step:not(:last-child)::after{ display:none; } }
+</style>
+
+<section class="cru-proc">
+  <div class="cru-proc-inner">
+    <div class="cru-proc-header"><h2>Our Process</h2></div>
+    <div class="cru-proc-steps">
+      <div class="cru-proc-step">
+        <div class="cru-proc-num">1</div>
+        <h3>Assess</h3>
+        <p>We evaluate the scope of construction debris and develop a cleaning plan for your space.</p>
       </div>
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">2</div>
-        <div class="cru-svc-step-content">
-          <h3>Rough Clean</h3>
-          <p>Remove large debris, heavy dust, and major contamination from all surfaces.</p>
-        </div>
+      <div class="cru-proc-step">
+        <div class="cru-proc-num">2</div>
+        <h3>Clean</h3>
+        <p>Rough clean to remove debris, then detail cleaning of ceilings, vents, fixtures, and all surfaces.</p>
       </div>
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">3</div>
-        <div class="cru-svc-step-content">
-          <h3>Detail Clean</h3>
-          <p>Thorough cleaning of ceilings, vents, fixtures, and surfaces to remove all remaining residue.</p>
-        </div>
-      </div>
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">4</div>
-        <div class="cru-svc-step-content">
-          <h3>Final Inspection</h3>
-          <p>We walk through the space with you to ensure it's move-in ready and meets your standards.</p>
-        </div>
+      <div class="cru-proc-step">
+        <div class="cru-proc-num">3</div>
+        <h3>Verify</h3>
+        <p>We walk through the space with you to ensure it's move-in ready and meets your standards.</p>
       </div>
     </div>
   </div>

@@ -87,14 +87,113 @@
   </div>
 </section>
 
-<section class="cru-svc-section cru-svc-process">
-  <div class="cru-svc-process-inner">
-    <div class="cru-svc-process-header"><h2>Our Kitchen Cleaning Process</h2></div>
-    <div class="cru-svc-steps">
-      <div class="cru-svc-step"><div class="cru-svc-step-num">1</div><div class="cru-svc-step-content"><h3>Walk-Through &amp; Assessment</h3><p>We evaluate your ceilings, hoods, exhaust, and equipment, identify problem areas, and build a plan around your service hours.</p></div></div>
-      <div class="cru-svc-step"><div class="cru-svc-step-num">2</div><div class="cru-svc-step-content"><h3>Degrease &amp; Deep Clean</h3><p>We degrease and clean ceilings, hoods, vents, walls, and stainless steel &mdash; removing the buildup that inspectors and fire codes target.</p></div></div>
-      <div class="cru-svc-step"><div class="cru-svc-step-num">3</div><div class="cru-svc-step-content"><h3>Sanitize &amp; Verify</h3><p>Food-safe sanitizing of all cleaned surfaces, then a walk-through with you to confirm every area meets standard.</p></div></div>
-      <div class="cru-svc-step"><div class="cru-svc-step-num">4</div><div class="cru-svc-step-content"><h3>Set a Maintenance Schedule</h3><p>We put your kitchen on a recurring plan so it stays clean, safe, and inspection-ready &mdash; no scrambling before a visit.</p></div></div>
+<!-- ===== HORIZONTAL 3-STEP PROCESS ===== -->
+<style>
+.cru-proc { background:#f4f8f9; padding:72px 20px; font-family:'Open Sans',Arial,sans-serif; }
+.cru-proc-inner { max-width:960px; margin:0 auto; }
+.cru-proc-header { text-align:center; margin-bottom:52px; }
+.cru-proc-header h2 { font-size:1.9rem; font-weight:800; color:#0f2d36; margin:0; position:relative; display:inline-block; padding-bottom:14px; }
+.cru-proc-header h2::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:80px; height:3px; background:linear-gradient(90deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); border-radius:2px; }
+.cru-proc-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:0; }
+.cru-proc-step { position:relative; text-align:center; padding:0 18px; }
+.cru-proc-step:not(:last-child)::after { content:''; position:absolute; top:34px; left:50%; width:100%; height:3px; background:linear-gradient(90deg,#116782 0%,#5eff00 100%); z-index:0; }
+.cru-proc-num { position:relative; z-index:1; width:68px; height:68px; margin:0 auto 22px; border-radius:50%; background:#0f2d36; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:800; box-shadow:0 4px 16px rgba(15,45,54,0.18); }
+.cru-proc-step h3 { font-size:1.1rem; font-weight:700; color:#0f2d36; margin:0 0 10px; }
+.cru-proc-step p { font-size:0.92rem; color:#5a7580; line-height:1.55; margin:0; }
+@media (max-width:720px){ .cru-proc-steps{ grid-template-columns:1fr; gap:36px; } .cru-proc-step:not(:last-child)::after{ display:none; } }
+</style>
+
+<section class="cru-proc">
+  <div class="cru-proc-inner">
+    <div class="cru-proc-header"><h2>Our Kitchen Cleaning Process</h2></div>
+    <div class="cru-proc-steps">
+      <div class="cru-proc-step">
+        <div class="cru-proc-num">1</div>
+        <h3>Assess</h3>
+        <p>We evaluate your ceilings, hoods, exhaust, and equipment, identify problem areas, and build a plan around your service hours.</p>
+      </div>
+      <div class="cru-proc-step">
+        <div class="cru-proc-num">2</div>
+        <h3>Clean</h3>
+        <p>We degrease ceilings, hoods, vents, walls, and stainless steel, then sanitize with food-safe products.</p>
+      </div>
+      <div class="cru-proc-step">
+        <div class="cru-proc-num">3</div>
+        <h3>Maintain</h3>
+        <p>Walk-through to confirm every area meets standard, then set a recurring plan to stay inspection-ready.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FREE COMPLIANCE TOOLS (Lead Magnets) ===== -->
+<style>
+.cru-ftool { background:#fff; padding:80px 20px; font-family:'Open Sans',Arial,sans-serif; }
+.cru-ftool-inner { max-width:1180px; margin:0 auto; }
+.cru-ftool-header { text-align:center; margin-bottom:48px; }
+.cru-ftool-eyebrow { display:inline-block; background:#116782; color:#fff; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:14px; }
+.cru-ftool-header h2 { font-size:2rem; font-weight:800; color:#0f2d36; margin:0 0 12px; line-height:1.2; position:relative; display:block; }
+.cru-ftool-header h2::after { content:''; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); width:80px; height:3px; background:linear-gradient(90deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); border-radius:2px; }
+.cru-ftool-header p { font-size:1.05rem; color:#5a7580; max-width:600px; margin:18px auto 0; line-height:1.6; }
+.cru-ftool-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+@media (max-width:950px){ .cru-ftool-grid{ grid-template-columns:1fr; max-width:440px; margin:0 auto; } .cru-ftool-header h2{ font-size:1.5rem; } }
+.cru-ftool-card { position:relative; background:#f4f8f9; border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(17,103,130,0.10); transition:transform .25s ease, box-shadow .25s ease; display:flex; flex-direction:column; text-decoration:none; }
+.cru-ftool-card:hover { transform:translateY(-6px); box-shadow:0 16px 46px rgba(17,103,130,0.18); }
+.cru-ftool-card::after { content:''; position:absolute; inset:0; border-radius:inherit; padding:2px; background:linear-gradient(130deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; opacity:0; transition:opacity .25s; z-index:3; }
+.cru-ftool-card:hover::after { opacity:1; }
+.cru-ftool-img { position:relative; height:170px; overflow:hidden; }
+.cru-ftool-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease; }
+.cru-ftool-card:hover .cru-ftool-img img { transform:scale(1.05); }
+.cru-ftool-img::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, transparent 45%, rgba(6,17,22,0.55) 100%); }
+.cru-ftool-badge { position:absolute; top:14px; left:14px; z-index:2; background:#5eff00; color:#0f2d36; font-size:0.68rem; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; padding:4px 12px; border-radius:50px; }
+.cru-ftool-body { padding:24px 26px 28px; flex:1; display:flex; flex-direction:column; }
+.cru-ftool-body h3 { font-size:1.15rem; font-weight:800; color:#0f2d36; margin:0 0 10px; line-height:1.3; }
+.cru-ftool-body p { font-size:0.9rem; color:#5a7580; line-height:1.6; margin:0 0 20px; flex:1; }
+.cru-ftool-link { font-size:0.85rem; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; color:#116782; display:inline-flex; align-items:center; gap:6px; }
+.cru-ftool-card:hover .cru-ftool-link { color:#0f8a3c; }
+</style>
+
+<section class="cru-ftool">
+  <div class="cru-ftool-inner">
+    <div class="cru-ftool-header">
+      <div class="cru-ftool-eyebrow">Free Compliance Tools</div>
+      <h2>Not Sure Where You Stand? Check for Free.</h2>
+      <p>Before you book, use these free tools to see exactly what inspectors flag in South Florida &mdash; and how your facility compares.</p>
+    </div>
+    <div class="cru-ftool-grid">
+      <a href="https://ceilingsrus.net/facility-assessment/" class="cru-ftool-card">
+        <div class="cru-ftool-img">
+          <span class="cru-ftool-badge">3-Min Assessment</span>
+          <img src="https://ceilingsrus.net/wp-content/uploads/2025/12/Whisk_ccedf41d53195e4b5634758c9e87b128dr.jpeg" alt="Commercial kitchen ceiling with vent and tile" onerror="this.style.background='#116782';this.style.minHeight='170px'">
+        </div>
+        <div class="cru-ftool-body">
+          <h3>Facility Compliance Self-Assessment</h3>
+          <p>Answer 15 questions and get an instant compliance risk score with a personalized action plan &mdash; before your next DBPR visit.</p>
+          <span class="cru-ftool-link">Take the Assessment &rarr;</span>
+        </div>
+      </a>
+      <a href="https://ceilingsrus.net/violation-map/" class="cru-ftool-card">
+        <div class="cru-ftool-img">
+          <span class="cru-ftool-badge">Live Data</span>
+          <img src="https://ceilingsrus.net/wp-content/uploads/2026/03/Screenshot-2026-03-19-at-12.11.19-PM.png" alt="South Florida map with inspection violation pins" onerror="this.style.background='#118484';this.style.minHeight='170px'">
+        </div>
+        <div class="cru-ftool-body">
+          <h3>South Florida DBPR Violation Map</h3>
+          <p>See ceiling and vent violations flagged by health inspectors in your zip code &mdash; real data from four counties, refreshed weekly.</p>
+          <span class="cru-ftool-link">View the Map &rarr;</span>
+        </div>
+      </a>
+      <a href="https://ceilingsrus.net/real-violations/" class="cru-ftool-card">
+        <div class="cru-ftool-img">
+          <span class="cru-ftool-badge">Real Photos</span>
+          <img src="https://ceilingsrus.net/wp-content/uploads/2026/05/66CDC4A7-761E-4273-8ABE-80958596B18F_1_105_c.jpeg" alt="Grimy ducts and vents on a commercial kitchen ceiling" onerror="this.style.background='#0d5269';this.style.minHeight='170px'">
+        </div>
+        <div class="cru-ftool-body">
+          <h3>What an Inspector Sees</h3>
+          <p>Real photos of ceiling and vent problems. Flip each one to see how inspectors score it, the code cited, and how fast it shuts you down.</p>
+          <span class="cru-ftool-link">See Real Violations &rarr;</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>

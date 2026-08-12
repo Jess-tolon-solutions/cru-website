@@ -368,40 +368,40 @@
   </div>
 </section>
 
-<!-- Process Section -->
-<section class="cru-svc-section cru-svc-process">
-  <div class="cru-svc-process-inner">
-    <div class="cru-svc-process-header">
-      <h2>Our Process</h2>
-    </div>
-    <div class="cru-svc-steps">
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">1</div>
-        <div class="cru-svc-step-content">
-          <h3>Free Assessment</h3>
-          <p>We evaluate your facility, identify problem areas, and provide a clear scope of work with no obligation.</p>
-        </div>
+<!-- Process Section (horizontal 3-step) -->
+<style>
+.cru-proc { background:#f4f8f9; padding:72px 20px; font-family:'Open Sans',Arial,sans-serif; }
+.cru-proc-inner { max-width:960px; margin:0 auto; }
+.cru-proc-header { text-align:center; margin-bottom:52px; }
+.cru-proc-header h2 { font-size:1.9rem; font-weight:800; color:#0f2d36; margin:0; position:relative; display:inline-block; padding-bottom:14px; }
+.cru-proc-header h2::after { content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:80px; height:3px; background:linear-gradient(90deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); border-radius:2px; }
+.cru-proc-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:0; }
+.cru-proc-step { position:relative; text-align:center; padding:0 18px; }
+.cru-proc-step:not(:last-child)::after { content:''; position:absolute; top:34px; left:50%; width:100%; height:3px; background:linear-gradient(90deg,#116782 0%,#5eff00 100%); z-index:0; }
+.cru-proc-num { position:relative; z-index:1; width:68px; height:68px; margin:0 auto 22px; border-radius:50%; background:#0f2d36; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:800; box-shadow:0 4px 16px rgba(15,45,54,0.18); }
+.cru-proc-step h3 { font-size:1.1rem; font-weight:700; color:#0f2d36; margin:0 0 10px; }
+.cru-proc-step p { font-size:0.92rem; color:#5a7580; line-height:1.55; margin:0; }
+@media (max-width:720px){ .cru-proc-steps{ grid-template-columns:1fr; gap:36px; } .cru-proc-step:not(:last-child)::after{ display:none; } }
+</style>
+
+<section class="cru-proc">
+  <div class="cru-proc-inner">
+    <div class="cru-proc-header"><h2>Our Process</h2></div>
+    <div class="cru-proc-steps">
+      <div class="cru-proc-step">
+        <div class="cru-proc-num">1</div>
+        <h3>Assess</h3>
+        <p>We evaluate your facility, identify problem areas, and provide a clear scope of work &mdash; free, no obligation.</p>
       </div>
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">2</div>
-        <div class="cru-svc-step-content">
-          <h3>Detailed Quote</h3>
-          <p>You receive a transparent quote with no hidden fees. We explain exactly what's included and answer any questions.</p>
-        </div>
+      <div class="cru-proc-step">
+        <div class="cru-proc-num">2</div>
+        <h3>Quote</h3>
+        <p>You receive a transparent quote with no hidden fees. We explain exactly what's included and answer any questions.</p>
       </div>
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">3</div>
-        <div class="cru-svc-step-content">
-          <h3>Professional Service</h3>
-          <p>Our experienced team completes the work efficiently, minimizing disruption to your operations.</p>
-        </div>
-      </div>
-      <div class="cru-svc-step">
-        <div class="cru-svc-step-num">4</div>
-        <div class="cru-svc-step-content">
-          <h3>Final Walkthrough</h3>
-          <p>We walk through the completed work with you to ensure everything meets our high standards and your expectations.</p>
-        </div>
+      <div class="cru-proc-step">
+        <div class="cru-proc-num">3</div>
+        <h3>Complete</h3>
+        <p>Our experienced team completes the work, then walks through with you to verify quality.</p>
       </div>
     </div>
   </div>

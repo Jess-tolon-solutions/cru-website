@@ -10,7 +10,7 @@
   position: relative;
   min-height: 380px;
   background: linear-gradient(180deg, rgba(6,17,22,0.72) 0%, rgba(6,17,22,0.85) 100%),
-              url('https://ceilingsrus.net/wp-content/uploads/2024/mission-hero.jpg') center/cover no-repeat;
+              url('https://ceilingsrus.net/wp-content/uploads/2025/11/Whisk_56e0ee18a18df4686c24910702eabb60eg.png') center/cover no-repeat;
   display: flex; align-items: center; justify-content: center; text-align: center; padding: 80px 20px;
 }
 .cru-mv-hero-inner { max-width: 800px; }
@@ -161,12 +161,35 @@
   </div>
 </section>
 
-<section class="cru-mv-section cru-mv-cta">
-  <div class="cru-mv-cta-inner">
-    <h2>Experience Our Values in Action</h2>
-    <p>Contact us today for a free assessment. We'll show you what quality, integrity, and reliability look like.</p>
-    <div class="cru-mv-cta-btns">
-      <a href="tel:+19544520004" class="cru-mv-cta-btn-primary">Call (954) 452-0004</a>
+<!-- ===== BOTTOM CTA: reusable banner ===== -->
+<style>
+.cru-ctab-wrap { padding:60px 20px; font-family:'Open Sans',Arial,sans-serif; }
+.cru-ctab { position:relative; max-width:1080px; margin:0 auto; background:#0f2d36; border-radius:18px; padding:52px 40px; overflow:hidden; text-align:center; }
+.cru-ctab::before { content:''; position:absolute; inset:0; background:radial-gradient(120% 150% at 100% 0%, rgba(53,209,232,0.14), transparent 55%); pointer-events:none; z-index:0; }
+.cru-ctab::after { content:''; position:absolute; inset:0; border-radius:inherit; padding:2px; background:linear-gradient(130deg,#116782 0%,#1a8fa8 50%,#5eff00 100%); -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; z-index:1; }
+.cru-ctab-inner { position:relative; z-index:2; max-width:640px; margin:0 auto; }
+.cru-ctab-eyebrow { display:inline-block; background:rgba(53,209,232,0.14); border:1px solid rgba(53,209,232,0.45); color:#35d1e8; font-size:0.72rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:5px 14px; border-radius:50px; margin-bottom:18px; }
+.cru-ctab h2 { color:#35d1e8 !important; font-size:2.2rem; font-weight:800; line-height:1.15; margin:0 0 14px; }
+.cru-ctab p { color:rgba(255,255,255,0.88); font-size:1.05rem; line-height:1.6; margin:0 0 30px; }
+.cru-ctab-actions { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.cru-ctab-btn { display:inline-block; padding:16px 34px; border-radius:8px; font-size:0.95rem; font-weight:800; text-decoration:none; text-transform:uppercase; letter-spacing:0.5px; cursor:pointer; border:none; transition:background .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease; }
+.cru-ctab-btn-primary { background:#5eff00; color:#0f2d36; }
+.cru-ctab-btn-primary:hover { background:#fff !important; color:#0f2d36 !important; transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,0.3); }
+.cru-ctab-btn-secondary { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.5); }
+.cru-ctab-btn-secondary:hover { background:#fff !important; color:#0f2d36 !important; border-color:#fff !important; transform:translateY(-2px); }
+@media (max-width:600px){ .cru-ctab{ padding:44px 24px; } .cru-ctab h2{ font-size:1.7rem; } .cru-ctab-btn{ display:block; } }
+</style>
+
+<section class="cru-ctab-wrap">
+  <div class="cru-ctab">
+    <div class="cru-ctab-inner">
+      <div class="cru-ctab-eyebrow">Free &middot; No Obligation</div>
+      <h2>Get a Free Quote</h2>
+      <p>Experience our values in action. Tell us about your space and we&rsquo;ll show you what quality, integrity, and reliability look like.</p>
+      <div class="cru-ctab-actions">
+        <a href="#quote" class="cru-ctab-btn cru-ctab-btn-primary cru-quote-btn">Get a Free Quote</a>
+        <a href="tel:+19544520004" class="cru-ctab-btn cru-ctab-btn-secondary">Call (954) 452-0004</a>
+      </div>
     </div>
   </div>
 </section>
