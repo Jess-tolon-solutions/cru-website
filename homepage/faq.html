@@ -1,9 +1,9 @@
 <!--
   CEILINGS R US — Homepage FAQ (polished accordion)
   Replaces the plain native Flatsome accordion (gray chevrons + divider lines)
-  with the design-system accordion used on the services hub: rounded #f4f8f9
-  items, teal left-border that turns green when open, circular + icon that
-  rotates to a green ×. Self-contained, prefix "cru-faq-".
+  with the design-system accordion: rounded #f4f8f9 items, teal left-border
+  that turns green when open, circular + icon that rotates to a green x.
+  Self-contained, prefix "cru-faq-".
   Paste as ONE HTML element where the old FAQ accordion is, then delete the old
   Flatsome accordion + heading.
 -->
@@ -20,7 +20,7 @@
 .cru-faq-item { background:#f4f8f9; border-radius:10px; overflow:hidden; border-left:4px solid #116782; transition:border-color .2s; }
 .cru-faq-item.active { border-left-color:#5eff00; }
 .cru-faq-btn { width:100%; background:none; border:none; padding:20px 24px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; text-align:left; font-family:inherit; }
-.cru-faq-btn h3 { font-size:1.05rem; font-weight:700; color:#0f2d36; margin:0; padding-right:16px; }
+.cru-faq-btn h3 { font-size:1.05rem; font-weight:700; color:#0f2d36; margin:0; padding-right:16px; text-transform:uppercase; letter-spacing:0.5px; }
 .cru-faq-icon { width:28px; height:28px; min-width:28px; border-radius:50%; background:#116782; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.1rem; font-weight:600; transition:transform .3s, background .2s; }
 .cru-faq-item.active .cru-faq-icon { background:#5eff00; color:#0f2d36; transform:rotate(45deg); }
 .cru-faq-content { max-height:0; overflow:hidden; transition:max-height .35s ease, padding .35s ease; }
@@ -32,79 +32,58 @@
   <div class="cru-faq-inner">
     <div class="cru-faq-header">
       <h2>Frequently Asked Questions</h2>
-      <p>Answers to the questions we hear most from South Florida facilities</p>
+      <p>Quick answers to common questions about our services</p>
     </div>
 
     <div class="cru-faq-accordion">
 
       <div class="cru-faq-item">
         <button class="cru-faq-btn" onclick="this.parentElement.classList.toggle('active')">
-          <h3>How much does ceiling restoration cost?</h3><span class="cru-faq-icon">+</span>
+          <h3>How much does ceiling cleaning cost?</h3><span class="cru-faq-icon">+</span>
         </button>
-        <div class="cru-faq-content"><p>Pricing depends on square footage, the level of dirtiness, and access height. On average, restoration costs 60&ndash;70% less than replacing ceiling tiles. Contact us for a free estimate.</p></div>
+        <div class="cru-faq-content"><p>Pricing depends on square footage, ceiling type, and level of buildup. We provide free on-site assessments and quotes with no obligation. Most clients find our services significantly more affordable than replacement.</p></div>
       </div>
 
       <div class="cru-faq-item">
         <button class="cru-faq-btn" onclick="this.parentElement.classList.toggle('active')">
-          <h3>How long does a typical cleaning job take?</h3><span class="cru-faq-icon">+</span>
+          <h3>Is cleaning cheaper than replacing ceiling tiles?</h3><span class="cru-faq-icon">+</span>
         </button>
-        <div class="cru-faq-content"><p>Most jobs are completed in one overnight session to avoid disrupting your business hours. Larger facilities may take multiple nights based on scope.</p></div>
+        <div class="cru-faq-content"><p>Yes. Ceiling cleaning and restoration typically costs 60&ndash;70% less than full tile replacement. It&rsquo;s also faster and less disruptive to your operations.</p></div>
       </div>
 
       <div class="cru-faq-item">
         <button class="cru-faq-btn" onclick="this.parentElement.classList.toggle('active')">
-          <h3>Do you clean more than just ceilings?</h3><span class="cru-faq-icon">+</span>
+          <h3>How long does the cleaning process take?</h3><span class="cru-faq-icon">+</span>
         </button>
-        <div class="cru-faq-content"><p>Yes. In addition to ceilings, we clean vents, AC ducts, walls, stainless steel surfaces, light fixtures, signs, and more. We also offer tile replacement services if needed.</p></div>
+        <div class="cru-faq-content"><p>Most jobs are completed in a single overnight session so your business can operate normally. Larger facilities may require multiple sessions, which we&rsquo;ll coordinate around your schedule.</p></div>
       </div>
 
       <div class="cru-faq-item">
         <button class="cru-faq-btn" onclick="this.parentElement.classList.toggle('active')">
-          <h3>Are your cleaning products safe for food environments?</h3><span class="cru-faq-icon">+</span>
+          <h3>Are your cleaning products food-safe?</h3><span class="cru-faq-icon">+</span>
         </button>
-        <div class="cru-faq-content"><p>Absolutely. We use non-toxic, food-safe solutions that meet sanitation requirements for restaurants, grocery stores, and medical facilities.</p></div>
+        <div class="cru-faq-content"><p>Absolutely. We use non-toxic, food-safe cleaning solutions that meet health department requirements for restaurants, grocery stores, hospitals, and other sensitive environments.</p></div>
       </div>
 
       <div class="cru-faq-item">
         <button class="cru-faq-btn" onclick="this.parentElement.classList.toggle('active')">
-          <h3>Can you clean during closed hours or overnight?</h3><span class="cru-faq-icon">+</span>
+          <h3>Do you work after hours?</h3><span class="cru-faq-icon">+</span>
         </button>
-        <div class="cru-faq-content"><p>Yes. We specialize in after-hours and overnight cleanings to avoid interrupting your operations. We&rsquo;ll coordinate directly with your manager for scheduling.</p></div>
+        <div class="cru-faq-content"><p>Yes. We specialize in after-hours and overnight cleaning to avoid disrupting your business operations. We&rsquo;ll work directly with your team to schedule around your needs.</p></div>
       </div>
 
       <div class="cru-faq-item">
         <button class="cru-faq-btn" onclick="this.parentElement.classList.toggle('active')">
           <h3>What areas do you serve?</h3><span class="cru-faq-icon">+</span>
         </button>
-        <div class="cru-faq-content"><p>We service all of Florida, including Miami, Fort Lauderdale, West Palm Beach, Orlando, Tampa, Naples, Daytona, and surrounding areas.</p></div>
+        <div class="cru-faq-content"><p>We serve all of South Florida including Miami-Dade, Broward, and Palm Beach counties. We also travel throughout the state for larger projects.</p></div>
       </div>
 
       <div class="cru-faq-item">
         <button class="cru-faq-btn" onclick="this.parentElement.classList.toggle('active')">
-          <h3>What if my ceiling tiles are too damaged to clean?</h3><span class="cru-faq-icon">+</span>
+          <h3>Can you handle damaged or missing tiles?</h3><span class="cru-faq-icon">+</span>
         </button>
-        <div class="cru-faq-content"><p>No problem &mdash; we offer tile replacement services for damaged, stained, or missing tiles. We&rsquo;ll help match your existing ceiling style as closely as possible.</p></div>
-      </div>
-
-      <div class="cru-faq-item">
-        <button class="cru-faq-btn" onclick="this.parentElement.classList.toggle('active')">
-          <h3>Do you provide service for just one location or multiple?</h3><span class="cru-faq-icon">+</span>
-        </button>
-        <div class="cru-faq-content"><p>Both! We service single-location businesses and large chains. We currently work with multiple grocery stores, hospitals, and franchises across the state.</p></div>
-      </div>
-
-      <div class="cru-faq-item">
-        <button class="cru-faq-btn" onclick="this.parentElement.classList.toggle('active')">
-          <h3>Are you licensed and insured?</h3><span class="cru-faq-icon">+</span>
-        </button>
-        <div class="cru-faq-content"><p>Yes. Ceilings R Us Inc. is fully licensed and insured in the state of Florida. Documentation available upon request.</p></div>
-      </div>
-
-      <div class="cru-faq-item">
-        <button class="cru-faq-btn" onclick="this.parentElement.classList.toggle('active')">
-          <h3>What&rsquo;s the difference between restoration and replacement?</h3><span class="cru-faq-icon">+</span>
-        </button>
-        <div class="cru-faq-content"><p>Restoration is a deep-cleaning process that removes dirt, grease, mold, and stains &mdash; making ceiling tiles look new again. It&rsquo;s much faster, cheaper, and less disruptive than full replacement.</p></div>
+        <div class="cru-faq-content"><p>Yes. In addition to cleaning and restoration, we offer tile replacement services for damaged, stained, or missing tiles. We&rsquo;ll match your existing ceiling style as closely as possible.</p></div>
       </div>
 
     </div>
