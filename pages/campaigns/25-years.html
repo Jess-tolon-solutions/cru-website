@@ -2,15 +2,10 @@
   CEILINGS R US — 25-YEAR ANNIVERSARY REACTIVATION LANDING PAGE
   URL: /25-years/   ·   Single-column, mobile-first (opened from an email blast).
   ============================================================================
-  DEPLOY: this block includes a <script>. Paste into the /25-years page as a
-  Code/HTML element (admins keep <script>). If the theme strips scripts, move the
-  <script> block into a WPCode HTML snippet targeted to this page instead.
-
-  EDIT THESE (top of the <script>):
-    DEADLINE         — offer end date (shown everywhere via [data-deadline])
-    REFERRAL_REWARD  — referral incentive (TBD)
-  Webhook posts to Zapier with source="25yr-landing" + UTM params. GA4 events:
-  "anniversary_claim" (with location_tier) on submit, "phone_click" on phone tap.
+  CONVERSION: every CTA button (class "cru-anniv-book") opens the Jobber booking
+  popup (form_id 5094807) — the Jobber form captures the location tier and books
+  straight into Jobber. DEPLOY into a Code/HTML element so the <script> runs.
+  EDIT the offer deadline in one place: the DEADLINE variable in the first script.
 -->
 
 <style>
@@ -55,28 +50,12 @@
 
 .cru-anniv-fine { font-size:0.9rem; color:var(--muted); }
 
-/* FORM */
-.cru-anniv-formcard { background:#fff; border-radius:18px; padding:36px 28px; box-shadow:0 12px 40px rgba(17,103,130,0.14); position:relative; }
-.cru-anniv-formcard::after { content:''; position:absolute; inset:0; border-radius:18px; padding:2px; background:linear-gradient(130deg,var(--teal),#1a8fa8 50%,var(--green)); -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; }
-.cru-anniv-field { margin-bottom:16px; }
-.cru-anniv-field label { display:block; font-size:0.85rem; font-weight:700; color:var(--dark); margin-bottom:6px; }
-.cru-anniv-field label .req { color:#e23b3b; }
-.cru-anniv-field input, .cru-anniv-field select { width:100%; padding:13px 14px; font-size:1rem; line-height:1.4; font-family:inherit; color:var(--body); border:1.5px solid #d5e0e4; border-radius:9px; background:#fff; -webkit-appearance:none; appearance:none; }
-.cru-anniv-field select { height:48px; }
-.cru-anniv-field select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235a7580' d='M6 8 0 0h12z'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center; padding-right:36px; }
-.cru-anniv-field input:focus, .cru-anniv-field select:focus { outline:none; border-color:var(--teal); box-shadow:0 0 0 3px rgba(17,103,130,0.12); }
-.cru-anniv-submit { width:100%; margin-top:6px; }
-.cru-anniv-callnote { text-align:center; font-size:0.9rem; color:var(--muted); margin:18px 0 0; }
-.cru-anniv-callnote a { color:var(--teal); font-weight:700; text-decoration:none; }
-
-/* CONFIRMATION */
-.cru-anniv-confirm { background:#fff; border-radius:18px; padding:40px 30px; text-align:center; box-shadow:0 12px 40px rgba(17,103,130,0.14); }
-.cru-anniv-confirm-check { width:66px; height:66px; margin:0 auto 20px; border-radius:50%; background:var(--green); color:var(--dark); display:flex; align-items:center; justify-content:center; font-size:2rem; font-weight:800; }
-.cru-anniv-confirm h2 { margin-bottom:12px; }
-.cru-anniv-refer { margin-top:32px; padding-top:30px; border-top:2px dashed #d5e0e4; }
-.cru-anniv-refer h3 { font-size:1.25rem; font-weight:800; color:var(--dark); margin-bottom:10px; }
-.cru-anniv-refer-form { display:none; margin-top:18px; text-align:left; }
-.cru-anniv-refer-form.open { display:block; }
+/* CLOSING CTA */
+.cru-anniv-close { background:linear-gradient(135deg,var(--teal) 0%, var(--dark) 100%); text-align:center; padding:64px 22px; }
+.cru-anniv-close h2 { color:#fff; margin:0 0 12px; }
+.cru-anniv-close p { color:rgba(255,255,255,0.9); margin:0 0 26px; }
+.cru-anniv-callnote { text-align:center; font-size:0.9rem; color:rgba(255,255,255,0.85); margin:20px 0 0; }
+.cru-anniv-callnote a { color:#fff; font-weight:800; text-decoration:underline; }
 
 @media (min-width:560px){
   .cru-anniv-tiers { grid-template-columns:repeat(3,1fr); }
@@ -84,7 +63,7 @@
 }
 @media (max-width:600px){
   .cru-anniv-hero h1 { font-size:2.1rem; }
-  .cru-anniv-sec h2 { font-size:1.45rem; }
+  .cru-anniv-sec h2, .cru-anniv-close h2 { font-size:1.45rem; }
 }
 </style>
 
@@ -96,7 +75,7 @@
       <span class="cru-anniv-badge">Est. 2001 &middot; 25 Years</span>
       <h1>25 Years. Thank You.</h1>
       <p>A quarter century of ceilings, HVAC systems, and kitchen exhaust work across Miami-Dade, Broward, and Palm Beach &mdash; built on clients like you.</p>
-      <a href="#claim" class="cru-anniv-btn cru-anniv-btn-primary">Claim Your 15% Discount</a>
+      <a href="#book" class="cru-anniv-btn cru-anniv-btn-primary cru-anniv-book">Claim Your 15% Discount</a>
       <div class="cru-anniv-deadline">Offer ends <span data-deadline></span></div>
     </div>
   </section>
@@ -131,7 +110,7 @@
           <span class="cru-anniv-tier-pct">25% off</span>
         </div>
       </div>
-      <a href="#claim" class="cru-anniv-btn cru-anniv-btn-secondary">See What Your Portfolio Qualifies For</a>
+      <a href="#book" class="cru-anniv-btn cru-anniv-btn-secondary cru-anniv-book">See What Your Portfolio Qualifies For</a>
     </div>
   </section>
 
@@ -141,169 +120,90 @@
       <span class="cru-anniv-eyebrow">Why It Matters</span>
       <h2>Twenty-Five Years of Documentation</h2>
       <p>Every job we complete comes with a Certificate of Service &mdash; the paperwork that matters when an inspector walks in. NFPA-96 compliance, DBPR standards, and 25 years of knowing what South Florida humidity does to a duct system.</p>
-      <p class="cru-anniv-fine">Jonathan Gallego has been in the field for over 25 years and still runs every job personally.</p>
+      <p class="cru-anniv-fine">A family business, 25 years in the making &mdash; now led day to day by Director of Operations Jonathan Gallego, who holds every job to the standard the company was built on.</p>
     </div>
   </section>
 
-  <!-- SECTION 5 / 6 — FORM + CONFIRMATION -->
-  <section class="cru-anniv-sec alt" id="claim">
+  <!-- SECTION 5 — CLOSING CTA (opens the Jobber booking popup) -->
+  <section class="cru-anniv-close" id="book">
     <div class="cru-anniv-wrap">
-
-      <!-- FORM -->
-      <div id="cru-anniv-formwrap">
-        <span class="cru-anniv-eyebrow" style="display:block;text-align:center;margin:0 auto 14px;width:fit-content;">Anniversary Offer</span>
-        <h2 style="text-align:center;margin-bottom:24px;">Claim Your Anniversary Discount</h2>
-        <div class="cru-anniv-formcard">
-          <form id="cru-anniv-form" novalidate>
-            <div class="cru-anniv-field">
-              <label for="cru-a-name">Name <span class="req">*</span></label>
-              <input type="text" id="cru-a-name" name="name" required autocomplete="name">
-            </div>
-            <div class="cru-anniv-field">
-              <label for="cru-a-biz">Business name <span class="req">*</span></label>
-              <input type="text" id="cru-a-biz" name="business_name" required autocomplete="organization">
-            </div>
-            <div class="cru-anniv-field">
-              <label for="cru-a-phone">Phone <span class="req">*</span></label>
-              <input type="tel" id="cru-a-phone" name="phone" required autocomplete="tel">
-            </div>
-            <div class="cru-anniv-field">
-              <label for="cru-a-email">Email <span class="req">*</span></label>
-              <input type="email" id="cru-a-email" name="email" required autocomplete="email">
-            </div>
-            <div class="cru-anniv-field">
-              <label for="cru-a-loc">How many locations do you manage? <span class="req">*</span></label>
-              <select id="cru-a-loc" name="locations" required>
-                <option value="" disabled selected>Select one&hellip;</option>
-                <option value="1">1 location</option>
-                <option value="2-4">2&ndash;4 locations</option>
-                <option value="5+">5+ locations</option>
-              </select>
-            </div>
-            <div class="cru-anniv-field">
-              <label for="cru-a-svc">What service are you interested in? <span style="color:#9aa;font-weight:600;">(optional)</span></label>
-              <input type="text" id="cru-a-svc" name="service" placeholder="e.g. kitchen exhaust, ceiling cleaning" autocomplete="off">
-            </div>
-            <!-- hidden tracking fields -->
-            <input type="hidden" name="source" value="25yr-landing">
-            <input type="hidden" name="utm_source" value="">
-            <input type="hidden" name="utm_medium" value="">
-            <input type="hidden" name="utm_campaign" value="">
-            <button type="submit" class="cru-anniv-btn cru-anniv-btn-primary cru-anniv-submit">Claim My Discount</button>
-          </form>
-        </div>
-        <p class="cru-anniv-callnote">Prefer to talk? Call <a href="tel:+19544520004" data-phone>(954)&nbsp;452-0004</a> and mention <strong>CRU25</strong>.</p>
-      </div>
-
-      <!-- CONFIRMATION (revealed on success) -->
-      <div class="cru-anniv-confirm" id="cru-anniv-confirm" hidden>
-        <div class="cru-anniv-confirm-check">&check;</div>
-        <h2>You&rsquo;re All Set</h2>
-        <p>Your <strong data-tier-pct>15%</strong> anniversary discount is locked in. Jonathan or someone from the team will reach out within one business day to schedule.</p>
-        <div class="cru-anniv-refer">
-          <h3>One More Thing</h3>
-          <p>Know another facility that could use us? Refer them, and when they book their first service, we&rsquo;ll add <strong data-referral></strong> to your account.</p>
-          <a href="#" class="cru-anniv-btn cru-anniv-btn-secondary" id="cru-anniv-refer-toggle" style="max-width:260px;">Refer Someone</a>
-          <form class="cru-anniv-refer-form" id="cru-anniv-refer-form">
-            <div class="cru-anniv-field">
-              <label for="cru-r-name">Their name</label>
-              <input type="text" id="cru-r-name" name="referral_name">
-            </div>
-            <div class="cru-anniv-field">
-              <label for="cru-r-email">Their email</label>
-              <input type="email" id="cru-r-email" name="referral_email">
-            </div>
-            <button type="submit" class="cru-anniv-btn cru-anniv-btn-primary" id="cru-anniv-refer-submit">Send Referral</button>
-          </form>
-        </div>
-      </div>
-
+      <h2>Claim Your Anniversary Discount</h2>
+      <p>Book in under a minute &mdash; tell us how many locations you manage and we&rsquo;ll apply your rate. Offer ends <span data-deadline></span>.</p>
+      <a href="#book" class="cru-anniv-btn cru-anniv-btn-primary cru-anniv-book">Book My Service</a>
+      <p class="cru-anniv-callnote">Prefer to talk? Call <a href="tel:+19544520004" data-phone>(954)&nbsp;452-0004</a> and mention <strong>CRU25</strong>.</p>
     </div>
   </section>
+
 </div>
 
 <script>
 (function () {
-  /* ====== EDIT THESE ====== */
-  var DEADLINE        = 'September 30, 2026';        // offer end date
-  var REFERRAL_REWARD = 'a $100 credit';             // TBD — referral incentive
-  /* ======================== */
-  var WEBHOOK  = 'https://hooks.zapier.com/hooks/catch/24960427/uptkgw2/';
-  var TIER_PCT = { '1': '15%', '2-4': '20%', '5+': '25%' };
+  /* ====== EDIT THE OFFER DEADLINE HERE (one place) ====== */
+  var DEADLINE = 'September 30, 2026';
+  /* ===================================================== */
+  [].forEach.call(document.querySelectorAll('.cru-anniv [data-deadline]'), function (el) { el.textContent = DEADLINE; });
 
-  var root = document.querySelector('.cru-anniv'); if (!root) return;
-  var $  = function (s, c) { return (c || root).querySelector(s); };
-  var $$ = function (s, c) { return [].slice.call((c || root).querySelectorAll(s)); };
-
-  // Fill single-variable text
-  $$('[data-deadline]').forEach(function (el) { el.textContent = DEADLINE; });
-  $$('[data-referral]').forEach(function (el) { el.textContent = REFERRAL_REWARD; });
-
-  // Capture incoming UTM params into hidden fields
-  var qs = new URLSearchParams(location.search);
-  ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) {
-    var inp = $('input[name="' + k + '"]'); if (inp) inp.value = qs.get(k) || '';
-  });
-
-  // GA4 helper (works with gtag or dataLayer)
+  // GA4 helper (gtag or dataLayer)
   function ga4(name, params) {
     try {
       if (typeof window.gtag === 'function') { window.gtag('event', name, params || {}); }
       else if (window.dataLayer) { window.dataLayer.push(Object.assign({ event: name }, params || {})); }
     } catch (e) {}
   }
-
-  // Phone tap -> GA4
-  $$('[data-phone]').forEach(function (a) {
+  // phone tap -> GA4
+  [].forEach.call(document.querySelectorAll('.cru-anniv [data-phone]'), function (a) {
     a.addEventListener('click', function () { ga4('phone_click', { campaign: '25yr-landing' }); });
   });
+})();
+</script>
 
-  function postToZapier(fd) {
-    var body = new URLSearchParams();
-    fd.forEach(function (v, k) { body.append(k, v); });
-    // url-encoded => "simple" request, no CORS preflight
-    return fetch(WEBHOOK, { method: 'POST', body: body });
+<!-- ============================================================================
+  JOBBER BOOKING POPUP  (form_id 5094807)
+  Opens from ANY button with class "cru-anniv-book". Lazy-loads on first open.
+  Fires GA4 "anniversary_claim" when opened. Closes on X / backdrop / Esc.
+============================================================================ -->
+<style>
+.cru-abook-modal { display:none; position:fixed; inset:0; z-index:100000; background:rgba(8,18,23,0.82); padding:20px; }
+.cru-abook-modal.open { display:flex; align-items:flex-start; justify-content:center; }
+.cru-abook-box { background:#fff; border-radius:14px; max-width:720px; width:100%; max-height:92vh; overflow-y:auto; margin:24px auto; position:relative; -webkit-overflow-scrolling:touch; font-family:'Open Sans',Arial,sans-serif; }
+.cru-abook-head { position:sticky; top:0; background:#fff; display:flex; align-items:center; justify-content:space-between; padding:16px 22px; border-bottom:1px solid #e5e7eb; z-index:2; }
+.cru-abook-head h3 { font-size:1.15rem; font-weight:800; color:#0f2d36; margin:0; }
+.cru-abook-close { background:none; border:none; font-size:28px; line-height:1; color:#5a7580; cursor:pointer; padding:0 4px; }
+.cru-abook-close:hover { color:#0f2d36; }
+.cru-abook-body { padding:18px 22px 26px; min-height:120px; }
+.cru-abook-loading { text-align:center; color:#5a7580; font-size:0.9rem; padding:30px 0; }
+</style>
+<div class="cru-abook-modal" id="cru-abook-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Book your service">
+  <div class="cru-abook-box">
+    <div class="cru-abook-head">
+      <h3>Book Your Service</h3>
+      <button type="button" class="cru-abook-close" data-abook-close aria-label="Close">&times;</button>
+    </div>
+    <div class="cru-abook-body" id="cru-abook-form"><div class="cru-abook-loading">Loading form&hellip;</div></div>
+  </div>
+</div>
+<script>
+(function () {
+  var JID  = 'a022635a-e1bc-43e3-bbac-6e97a2584f23-5094807';
+  var JCSS = 'https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css';
+  var JJS  = 'https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js';
+  var JURL = 'https://clienthub.getjobber.com/client_hubs/a022635a-e1bc-43e3-bbac-6e97a2584f23/public/work_request/embedded_work_request_form?form_id=5094807';
+  var loaded = false;
+  function ga4(name, params) { try { if (typeof window.gtag === 'function') { window.gtag('event', name, params || {}); } else if (window.dataLayer) { window.dataLayer.push(Object.assign({ event: name }, params || {})); } } catch (e) {} }
+  function ensureForm() {
+    if (loaded) return; loaded = true;
+    var host = document.getElementById('cru-abook-form'); if (!host) return;
+    host.innerHTML = '';
+    var link = document.createElement('link'); link.rel = 'stylesheet'; link.href = JCSS; link.media = 'screen'; host.appendChild(link);
+    var mount = document.createElement('div'); mount.id = JID; host.appendChild(mount);
+    var s = document.createElement('script'); s.src = JJS; s.setAttribute('clienthub_id', JID); s.setAttribute('form_url', JURL); host.appendChild(s);
   }
-
-  // Main form submit
-  var form = $('#cru-anniv-form');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!form.checkValidity()) { form.reportValidity && form.reportValidity(); return; }
-    var btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true; btn.textContent = 'Submitting…';
-
-    var fd = new FormData(form);
-    var tier = fd.get('locations') || '1';
-    ga4('anniversary_claim', { location_tier: tier });
-
-    postToZapier(fd)
-      .then(function () { showConfirm(tier); })
-      .catch(function () { showConfirm(tier); }); // still confirm — phone fallback exists
+  function openModal() { var m = document.getElementById('cru-abook-modal'); if (!m) return; ensureForm(); m.classList.add('open'); m.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; ga4('anniversary_claim', { campaign: '25yr-landing' }); }
+  function closeModal() { var m = document.getElementById('cru-abook-modal'); if (!m) return; m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('.cru-anniv-book')) { e.preventDefault(); openModal(); return; }
+    if (e.target.closest('[data-abook-close]') || e.target.id === 'cru-abook-modal') { closeModal(); }
   });
-
-  function showConfirm(tier) {
-    var pctEl = $('[data-tier-pct]'); if (pctEl) pctEl.textContent = TIER_PCT[tier] || '15%';
-    $('#cru-anniv-formwrap').hidden = true;
-    var c = $('#cru-anniv-confirm'); c.hidden = false;
-    c.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  // Referral: reveal mini-form, then post it too
-  var refToggle = $('#cru-anniv-refer-toggle');
-  var refForm   = $('#cru-anniv-refer-form');
-  refToggle.addEventListener('click', function (e) { e.preventDefault(); refForm.classList.add('open'); refToggle.style.display = 'none'; });
-  refForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var b = $('#cru-anniv-refer-submit'); b.disabled = true; b.textContent = 'Sending…';
-    var fd = new FormData();
-    fd.append('source', '25yr-referral');
-    fd.append('referral_name',  $('#cru-r-name').value || '');
-    fd.append('referral_email', $('#cru-r-email').value || '');
-    fd.append('referred_by_name',  $('#cru-a-name') ? $('#cru-a-name').value : '');
-    fd.append('referred_by_email', $('#cru-a-email') ? $('#cru-a-email').value : '');
-    postToZapier(fd).then(done).catch(done);
-    function done() { refForm.innerHTML = '<p style="text-align:center;color:#0f8a3c;font-weight:700;margin:0;">Thanks &mdash; referral sent!</p>'; }
-  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 })();
 </script>
