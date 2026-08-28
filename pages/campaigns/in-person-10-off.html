@@ -1,0 +1,442 @@
+<!--
+  CEILINGS R US — IN-PERSON LEAVE-BEHIND LANDING PAGE
+  URL: /10-off/     ← this slug is encoded in the printed QR code. Do NOT change it
+                       after the brochures go to print.
+  ============================================================================
+  WHAT THIS IS
+  The page a prospect lands on after scanning the QR on the back of the
+  leave-behind brochure. Form captures the lead, then reveals the 10% code
+  inline. Design source (artboards + print files): print/in-person-campaign/.
+
+  DEPLOY
+  Paste into a WordPress **Code/HTML element** (Flatsome UX Builder) so the
+  <script> runs. Mobile-first, single column — nearly every visit is a phone.
+
+  ─────────────────────────────────────────────────────────────────────────────
+  BEFORE THIS GOES LIVE — three edits, all in the CONFIG block below:
+    1. LEAD_ENDPOINT — where the form posts. Default is FormSubmit.co, which
+       needs no account: replace the email in the URL, submit the form once
+       yourself, and click the confirmation email FormSubmit sends. If the site
+       already has WPForms/HubSpot, use that instead and delete the fetch().
+    2. OFFER_DEADLINE — the expiry date shown in the fine print.
+    3. Confirm the phone number is still (954) 452-0004.
+  ─────────────────────────────────────────────────────────────────────────────
+-->
+
+<style>
+.cru-io { --dark:#0f2d36; --darker:#0b2229; --teal:#116782; --teal2:#1a8fa8;
+  --accent:#35d1e8; --green:#5eff00; --body:#374151; --muted:#5a7580; --light:#f4f8f9;
+  font-family:'Open Sans',Arial,sans-serif; color:var(--body); line-height:1.6; }
+.cru-io *, .cru-io *::before, .cru-io *::after { box-sizing:border-box; }
+.cru-io h1,.cru-io h2,.cru-io h3 { line-height:1.12; margin:0; font-weight:800; letter-spacing:-0.5px; }
+.cru-io-wrap { max-width:1140px; margin:0 auto; padding:0 20px; }
+
+/* gradient outline, matching shared/site-styles.css */
+.cru-io-gcard { position:relative; }
+.cru-io-gcard::after { content:''; position:absolute; inset:0; border-radius:inherit; padding:2px;
+  background:linear-gradient(130deg,#116782 0%,#1a8fa8 50%,#5eff00 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+          mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude; pointer-events:none; }
+
+/* HERO */
+.cru-io-hero { position:relative; overflow:hidden; padding:46px 0 40px;
+  background:linear-gradient(180deg,rgba(6,17,22,0.9) 0%,rgba(6,17,22,0.95) 100%),
+             url('https://ceilingsrus.net/wp-content/uploads/2026/03/IMG_0468-1.jpeg') center 45%/cover no-repeat; }
+.cru-io-badge { display:inline-block; background:rgba(94,255,0,0.12); border:1px solid rgba(94,255,0,0.5);
+  color:var(--green); font-size:0.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+  padding:6px 13px; border-radius:4px; margin-bottom:16px; }
+.cru-io-hero h1 { font-size:2.15rem; color:#fff; margin-bottom:14px; }
+.cru-io-hero p { font-size:1rem; color:rgba(255,255,255,0.88); margin:0 0 22px; max-width:520px; }
+.cru-io-points { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.cru-io-points li { display:flex; gap:10px; align-items:flex-start; color:#fff; font-size:0.94rem; font-weight:600; }
+.cru-io-tick { flex-shrink:0; margin-top:3px; }
+
+/* FORM */
+.cru-io-formwrap { background:var(--dark); padding:0 0 36px; }
+.cru-io-form { background:#fff; border-radius:14px; padding:24px 20px; max-width:520px; margin:0 auto;
+  box-shadow:0 20px 50px rgba(0,0,0,0.3); }
+.cru-io-form h2 { font-size:1.35rem; color:var(--dark); margin-bottom:6px; }
+.cru-io-form .cru-io-sub { font-size:0.86rem; color:var(--muted); margin:0 0 16px; }
+.cru-io-field { display:flex; flex-direction:column; gap:6px; margin-bottom:13px; }
+.cru-io-field label { font-size:0.75rem; font-weight:700; color:var(--dark); }
+.cru-io-field input, .cru-io-field select {
+  width:100%; background:#fff; border:1.5px solid #d5e2e6; border-radius:9px; padding:13px 14px;
+  font-family:inherit; font-size:1rem; color:var(--dark); -webkit-appearance:none; appearance:none; }
+.cru-io-field select { background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235a7580' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9.5l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 14px center; padding-right:40px; }
+.cru-io-field input:focus, .cru-io-field select:focus { outline:none; border-color:var(--teal2); box-shadow:0 0 0 3px rgba(26,143,168,0.15); }
+.cru-io-btn { display:block; width:100%; border:none; cursor:pointer; font-family:inherit;
+  background:var(--dark); color:var(--green); border-radius:10px; padding:17px;
+  font-size:1rem; font-weight:800; letter-spacing:0.5px; text-transform:uppercase;
+  transition:background .2s, color .2s, transform .2s, box-shadow .2s; }
+.cru-io-btn:hover { background:var(--teal); color:#fff; transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,0.25); }
+.cru-io-btn[disabled] { opacity:0.6; cursor:wait; transform:none; }
+.cru-io-privacy { text-align:center; font-size:0.72rem; color:var(--muted); margin:11px 0 0; }
+.cru-io-err { display:none; background:#fbe6e6; border:1px solid #f0c4c4; color:#a01c1c;
+  border-radius:8px; padding:11px 13px; font-size:0.84rem; margin-bottom:13px; }
+
+/* SUCCESS STATE */
+.cru-io-success { display:none; text-align:center; }
+.cru-io-success h2 { font-size:1.4rem; color:var(--dark); margin-bottom:8px; }
+.cru-io-success p { font-size:0.94rem; color:var(--muted); margin:0 0 18px; }
+.cru-io-code { border:2px dashed rgba(17,103,130,0.5); border-radius:10px; padding:16px; margin-bottom:18px; }
+.cru-io-code-label { font-size:0.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
+.cru-io-code-val { font-size:1.9rem; font-weight:800; letter-spacing:2.5px; color:var(--teal); margin-top:4px; }
+.cru-io-callbtn { display:block; background:var(--teal); color:#fff !important; border-radius:10px; padding:15px;
+  font-size:1rem; font-weight:700; text-decoration:none; transition:background .2s, transform .2s; }
+.cru-io-callbtn:hover { background:var(--dark); color:#fff !important; transform:translateY(-2px); }
+
+/* TRUST */
+.cru-io-trust { background:var(--light); border-bottom:1px solid #e2ecef; padding:20px 0; }
+.cru-io-trust ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.cru-io-trust li { display:flex; gap:9px; align-items:center; font-size:0.88rem; font-weight:700; color:var(--dark); }
+
+/* SECTIONS */
+.cru-io-sec { padding:40px 0; }
+.cru-io-sec.dark { background:var(--dark); }
+.cru-io-sec h2 { font-size:1.55rem; color:var(--dark); margin-bottom:10px; }
+.cru-io-sec.dark h2 { color:#fff; }
+.cru-io-sec .cru-io-lede { font-size:0.98rem; color:var(--muted); margin:0 0 22px; }
+.cru-io-sec.dark .cru-io-lede { color:rgba(255,255,255,0.8); }
+
+.cru-io-grid { display:grid; grid-template-columns:1fr; gap:13px; }
+.cru-io-card { background:var(--light); border-radius:12px; padding:18px; display:flex; gap:14px; align-items:flex-start; }
+.cru-io-card h3 { font-size:1rem; font-weight:700; color:var(--dark); margin-bottom:5px; }
+.cru-io-card p { font-size:0.86rem; color:var(--muted); margin:0; line-height:1.55; }
+.cru-io-card svg { flex-shrink:0; }
+
+/* BEFORE / AFTER */
+.cru-io-ba { display:grid; grid-template-columns:1fr; gap:13px; }
+.cru-io-ba figure { position:relative; margin:0; border-radius:10px; overflow:hidden; height:210px; }
+.cru-io-ba img { width:100%; height:100%; object-fit:cover; object-position:center 55%; display:block; }
+.cru-io-ba figcaption { position:absolute; left:12px; top:12px; font-size:0.68rem; font-weight:700;
+  letter-spacing:1.6px; text-transform:uppercase; padding:6px 12px; border-radius:4px; }
+.cru-io-ba .is-before figcaption { background:#b3261e; color:#fff; }
+.cru-io-ba .is-after figcaption { background:var(--green); color:var(--dark); }
+
+/* STEPS */
+.cru-io-steps { display:grid; grid-template-columns:1fr; gap:20px; }
+.cru-io-step { border-top:3px solid var(--teal); padding-top:15px; }
+.cru-io-step:nth-child(2) { border-top-color:var(--teal2); }
+.cru-io-step:nth-child(3) { border-top-color:var(--green); }
+.cru-io-step-n { font-size:0.72rem; font-weight:800; letter-spacing:2px; color:var(--teal); }
+.cru-io-step:nth-child(2) .cru-io-step-n { color:var(--teal2); }
+.cru-io-step:nth-child(3) .cru-io-step-n { color:#0f8a3c; }
+.cru-io-step h3 { font-size:1.05rem; font-weight:700; color:var(--dark); margin:6px 0 6px; }
+.cru-io-step p { font-size:0.88rem; color:var(--muted); margin:0; }
+
+/* CLOSING */
+.cru-io-close { background:linear-gradient(160deg,var(--teal) 0%,var(--dark) 100%); padding:40px 0; }
+.cru-io-close h2 { font-size:1.55rem; color:#fff; margin-bottom:10px; }
+.cru-io-close p { font-size:0.98rem; color:rgba(255,255,255,0.85); margin:0 0 20px; }
+.cru-io-close-btns { display:flex; flex-direction:column; gap:11px; }
+.cru-io-close-primary { display:block; background:var(--green); color:var(--dark) !important; border-radius:10px;
+  padding:17px; text-align:center; font-size:1rem; font-weight:800; text-decoration:none; transition:background .2s, transform .2s; }
+.cru-io-close-primary:hover { background:#fff; color:var(--dark) !important; transform:translateY(-2px); }
+.cru-io-close-secondary { display:block; border:1.5px solid rgba(255,255,255,0.5); color:#fff !important;
+  border-radius:10px; padding:15px; text-align:center; font-size:1rem; font-weight:700; text-decoration:none;
+  transition:background .2s, transform .2s; }
+.cru-io-close-secondary:hover { background:rgba(255,255,255,0.12); color:#fff !important; transform:translateY(-2px); }
+
+/* FOOTER */
+.cru-io-foot { background:var(--darker); padding:26px 0; }
+.cru-io-foot p { font-size:0.72rem; line-height:1.65; color:rgba(255,255,255,0.55); margin:0; }
+
+/* DESKTOP */
+@media (min-width:820px){
+  .cru-io-hero { padding:70px 0; }
+  .cru-io-hero .cru-io-wrap { display:grid; grid-template-columns:1.05fr 0.95fr; gap:48px; align-items:center; }
+  .cru-io-hero h1 { font-size:3.1rem; }
+  .cru-io-hero p { font-size:1.06rem; }
+  .cru-io-formwrap { background:transparent; padding:0; }
+  .cru-io-form { margin:0; max-width:none; padding:30px; }
+  .cru-io-trust ul { flex-direction:row; justify-content:space-between; gap:16px; }
+  .cru-io-sec { padding:60px 0; }
+  .cru-io-sec h2 { font-size:2rem; }
+  .cru-io-grid { grid-template-columns:repeat(3,1fr); }
+  .cru-io-card { flex-direction:column; gap:11px; }
+  .cru-io-ba { grid-template-columns:1fr 1fr; }
+  .cru-io-ba figure { height:330px; }
+  .cru-io-steps { grid-template-columns:repeat(3,1fr); }
+  .cru-io-close .cru-io-wrap { display:flex; align-items:center; justify-content:space-between; gap:40px; }
+  .cru-io-close-btns { min-width:280px; }
+}
+</style>
+
+<div class="cru-io">
+
+  <!-- ══════════ HERO + FORM ══════════ -->
+  <section class="cru-io-hero">
+    <div class="cru-io-wrap">
+      <div>
+        <span class="cru-io-badge">In-person offer &middot; Code INPERSON10</span>
+        <h1>You met our crew. Here&rsquo;s 10% off your first service.</h1>
+        <p>Tell us where you are and what needs attention. We&rsquo;ll call within one business day to book a free walk-through &mdash; and your 10% comes straight off the first invoice.</p>
+        <ul class="cru-io-points">
+          <li><svg class="cru-io-tick" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5eff00" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Free, no-obligation walk-through and written estimate</span></li>
+          <li><svg class="cru-io-tick" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5eff00" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Cleaning and restoration in place &mdash; 60&ndash;70% less than replacement</span></li>
+          <li><svg class="cru-io-tick" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5eff00" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Night and weekend crews so you never close</span></li>
+        </ul>
+      </div>
+
+      <div class="cru-io-formwrap">
+        <div class="cru-io-form cru-io-gcard" id="cru-io-card">
+
+          <div id="cru-io-formstate">
+            <h2>Claim your 10% off</h2>
+            <p class="cru-io-sub">Takes about 30 seconds. We&rsquo;ll send your code and call to schedule.</p>
+            <div class="cru-io-err" id="cru-io-err"></div>
+            <form id="cru-io-form" novalidate>
+              <div class="cru-io-field">
+                <label for="cru-io-name">Your name</label>
+                <input type="text" id="cru-io-name" name="name" autocomplete="name" required>
+              </div>
+              <div class="cru-io-field">
+                <label for="cru-io-biz">Business name</label>
+                <input type="text" id="cru-io-biz" name="business" autocomplete="organization" required>
+              </div>
+              <div class="cru-io-field">
+                <label for="cru-io-phone">Phone</label>
+                <input type="tel" id="cru-io-phone" name="phone" autocomplete="tel" required>
+              </div>
+              <div class="cru-io-field">
+                <label for="cru-io-email">Email</label>
+                <input type="email" id="cru-io-email" name="email" autocomplete="email" required>
+              </div>
+              <div class="cru-io-field">
+                <label for="cru-io-need">What needs attention?</label>
+                <select id="cru-io-need" name="service" required>
+                  <option value="">Choose one&hellip;</option>
+                  <option>Kitchen / hood-area ceiling</option>
+                  <option>Dining room or front of house</option>
+                  <option>Common areas, lobby or corridors</option>
+                  <option>Post-construction or tenant turnover</option>
+                  <option>Ventilation &amp; duct cleaning</option>
+                  <option>Health inspection prep</option>
+                  <option>Not sure &mdash; need a walk-through</option>
+                </select>
+              </div>
+              <button type="submit" class="cru-io-btn" id="cru-io-submit">Claim my 10% off</button>
+              <p class="cru-io-privacy">We never share your details. No spam, one call.</p>
+            </form>
+          </div>
+
+          <div class="cru-io-success" id="cru-io-success">
+            <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="#0f8a3c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 12px; display:block;"><circle cx="12" cy="12" r="9.2"/><path d="M8 12.4l2.7 2.7L16.2 9.6"/></svg>
+            <h2>You&rsquo;re all set.</h2>
+            <p>Your discount is locked in. We&rsquo;ll call within one business day to book your free walk-through &mdash; a copy of this code is on its way to your inbox.</p>
+            <div class="cru-io-code">
+              <div class="cru-io-code-label">Your offer code</div>
+              <div class="cru-io-code-val">INPERSON10</div>
+            </div>
+            <a href="tel:+19544520004" class="cru-io-callbtn">Or call us now &mdash; (954) 452-0004</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ TRUST ══════════ -->
+  <section class="cru-io-trust">
+    <div class="cru-io-wrap">
+      <ul>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Family-run in South Florida since 2001</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Licensed, bonded &amp; insured</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Non-toxic &amp; food-safe products</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>Miami-Dade &middot; Broward &middot; Palm Beach</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════ WHAT THE 10% APPLIES TO ══════════ -->
+  <section class="cru-io-sec">
+    <div class="cru-io-wrap">
+      <h2>What the 10% applies to</h2>
+      <p class="cru-io-lede">Any first service on this list. If you are not sure which one you need, the walk-through will tell you.</p>
+      <div class="cru-io-grid">
+
+        <div class="cru-io-card cru-io-gcard">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="1"/><path d="M2.5 8.3h19M2.5 12.7h19M8.8 4v13M15.2 4v13"/><path d="M6 20.5h12"/></svg>
+          <div><h3>Ceiling &amp; grid restoration</h3><p>Acoustic tile, exposed grid and open-structure decks cleaned and brightened in place &mdash; no tear-out, no landfill.</p></div>
+        </div>
+
+        <div class="cru-io-card cru-io-gcard">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5h18l-1.6-4.2a1.6 1.6 0 0 0-1.5-1H6.1a1.6 1.6 0 0 0-1.5 1L3 10.5Z"/><path d="M5.2 10.5v3.1a1.6 1.6 0 0 0 1.6 1.6h10.4a1.6 1.6 0 0 0 1.6-1.6v-3.1"/><path d="M9 19v2M12 18.2V21M15 19v2"/></svg>
+          <div><h3>Kitchen &amp; hood-area cleaning</h3><p>Grease-laden ceilings, walls, vents, fixtures and exhaust housings above the cook line. Food-safe, done overnight.</p></div>
+        </div>
+
+        <div class="cru-io-card cru-io-gcard">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3.5" width="18" height="17" rx="1.6"/><path d="M7 8h10M7 12h10M7 16h10"/></svg>
+          <div><h3>Ventilation &amp; duct cleaning</h3><p>Supply and return registers, diffusers and duct interiors &mdash; handled on the same visit as the ceiling.</p></div>
+        </div>
+
+        <div class="cru-io-card cru-io-gcard">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6.6A1.6 1.6 0 0 0 5 4.6v14.8A1.6 1.6 0 0 0 6.6 21h10.8a1.6 1.6 0 0 0 1.6-1.6V8l-5-5Z"/><path d="M13.8 3v4.6h4.9"/><path d="M8.6 13.4l2 2 4.2-4.3"/></svg>
+          <div><h3>Health inspection prep</h3><p>We walk the space before the inspector does and clear anything above eye level that would get written up.</p></div>
+        </div>
+
+        <div class="cru-io-card cru-io-gcard">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V6.4a1 1 0 0 1 .7-1l6-1.9a1 1 0 0 1 1.3 1V21"/><path d="M13 21V9.6l5 1.6a1 1 0 0 1 .7 1V21"/><path d="M8 9h2M8 13h2M8 17h2"/></svg>
+          <div><h3>Common areas &amp; lobbies</h3><p>Lobbies, corridors, stairwells and parking structures &mdash; cleaned on nights and weekends so the floor stays open.</p></div>
+        </div>
+
+        <div class="cru-io-card cru-io-gcard">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11.2 12 4l8.5 7.2"/><path d="M5.6 12.9V20h12.8v-7.1"/><path d="M9.7 20v-4.6h4.6V20"/></svg>
+          <div><h3>Post-construction &amp; turnover</h3><p>Drywall haze and build-out dust cleared out of the ceiling plane before the new tenant walks the suite.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ BEFORE / AFTER ══════════ -->
+  <section class="cru-io-sec dark">
+    <div class="cru-io-wrap">
+      <h2>One overnight visit. Same ceiling.</h2>
+      <p class="cru-io-lede">A South Florida commercial kitchen, photographed before we started and after we finished. Nothing was replaced.</p>
+      <div class="cru-io-ba">
+        <figure class="is-before">
+          <img src="https://ceilingsrus.net/wp-content/uploads/2026/06/IMG_3717-scaled.jpeg" alt="Commercial kitchen ceiling with mold and grease staining before cleaning" loading="lazy">
+          <figcaption>Before</figcaption>
+        </figure>
+        <figure class="is-after">
+          <img src="https://ceilingsrus.net/wp-content/uploads/2026/06/IMG_3851-scaled.jpeg" alt="The same commercial kitchen ceiling after restoration cleaning" loading="lazy">
+          <figcaption>After</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ WHAT HAPPENS NEXT ══════════ -->
+  <section class="cru-io-sec">
+    <div class="cru-io-wrap">
+      <h2>What happens after you submit</h2>
+      <div class="cru-io-steps" style="margin-top:22px;">
+        <div class="cru-io-step">
+          <div class="cru-io-step-n">STEP 01</div>
+          <h3>Your code is locked in</h3>
+          <p>Code INPERSON10 is attached to your business on the spot, and emailed to you for your records.</p>
+        </div>
+        <div class="cru-io-step">
+          <div class="cru-io-step-n">STEP 02</div>
+          <h3>We call within one business day</h3>
+          <p>A short call to understand the space, then a free walk-through booked around your hours &mdash; including nights.</p>
+        </div>
+        <div class="cru-io-step">
+          <div class="cru-io-step-n">STEP 03</div>
+          <h3>Written estimate, 10% already off</h3>
+          <p>You get a fixed written price with the discount applied. No obligation to book, and no pressure if the timing is wrong.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CLOSING CTA ══════════ -->
+  <section class="cru-io-close">
+    <div class="cru-io-wrap">
+      <div>
+        <h2>Rather just talk to someone?</h2>
+        <p>Call and mention code INPERSON10 &mdash; same discount, same free walk-through.</p>
+      </div>
+      <div class="cru-io-close-btns">
+        <a href="#cru-io-card" class="cru-io-close-primary">Claim my 10% off</a>
+        <a href="tel:+19544520004" class="cru-io-close-secondary">(954) 452-0004</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ FOOTER / FINE PRINT ══════════ -->
+  <section class="cru-io-foot">
+    <div class="cru-io-wrap">
+      <p>
+        New customers only. One offer per business location, applied to your first scheduled service. Cannot be combined with other discounts or promotions. Offer expires <span data-cru-io-deadline></span>.<br><br>
+        &copy; Ceilings R Us &middot; Commercial ceiling cleaning &amp; restoration across South Florida since 2001 &middot; Licensed, bonded &amp; insured.
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  /* ═══════════════════ CONFIG — edit these three ═══════════════════ */
+
+  // 1. Where the form posts. FormSubmit needs no account: swap the email,
+  //    submit once yourself, then click FormSubmit's confirmation email.
+  //    Using WPForms/HubSpot instead? Point this at that endpoint, or delete
+  //    the fetch() below and let their shortcode handle it.
+  var LEAD_ENDPOINT = 'https://formsubmit.co/ajax/[ADD RECIPIENT EMAIL]';
+
+  // 2. Shown in the fine print at the bottom of the page.
+  var OFFER_DEADLINE = '[ADD END DATE]';
+
+  // 3. Campaign code — must match what is printed on the brochure back.
+  var OFFER_CODE = 'INPERSON10';
+
+  /* ═════════════════════════════════════════════════════════════════ */
+
+  var d = document.querySelector('[data-cru-io-deadline]');
+  if (d) { d.textContent = OFFER_DEADLINE; }
+
+  var form    = document.getElementById('cru-io-form');
+  var formSt  = document.getElementById('cru-io-formstate');
+  var success = document.getElementById('cru-io-success');
+  var errBox  = document.getElementById('cru-io-err');
+  var submit  = document.getElementById('cru-io-submit');
+  if (!form) { return; }
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.style.display = 'block';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errBox.style.display = 'none';
+
+    var data = {
+      _subject: 'In-person 10% off lead — ' + OFFER_CODE,
+      offer_code: OFFER_CODE,
+      name:     form.name.value.trim(),
+      business: form.business.value.trim(),
+      phone:    form.phone.value.trim(),
+      email:    form.email.value.trim(),
+      service:  form.service.value,
+      page:     window.location.href
+    };
+
+    if (!data.name || !data.business || !data.phone || !data.email || !data.service) {
+      showError('Please fill in every field so we know who to call.');
+      return;
+    }
+    if (data.email.indexOf('@') < 1 || data.email.indexOf('.') < 0) {
+      showError('That email address does not look right — mind checking it?');
+      return;
+    }
+
+    submit.disabled = true;
+    submit.textContent = 'Sending…';
+
+    fetch(LEAD_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(function (r) {
+        if (!r.ok) { throw new Error('bad status ' + r.status); }
+        formSt.style.display = 'none';
+        success.style.display = 'block';
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'generate_lead', { campaign: OFFER_CODE });
+        }
+      })
+      .catch(function () {
+        submit.disabled = false;
+        submit.textContent = 'Claim my 10% off';
+        showError('Something went wrong on our end. Please call (954) 452-0004 and mention code ' + OFFER_CODE + ' — the discount still stands.');
+      });
+  });
+})();
+</script>

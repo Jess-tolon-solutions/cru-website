@@ -1,2 +1,5 @@
 .DS_Store
 **/.DS_Store
+
+# Seeded design-canvas build output (regenerate — see print/*/README.md)
+print/*/ceilings-r-us-in-person-kit.html

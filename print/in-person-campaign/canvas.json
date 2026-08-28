@@ -1,0 +1,40 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "Leave-Behinds" },
+    { "id": "page-2", "name": "Landing Page" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html", "page": "page-1", "title": "Option A — Restaurants (front)", "x": 0, "y": 0, "w": 816, "h": 1056, "print": "fixed" },
+    { "file": "PropertyFront.dc.html", "page": "page-1", "title": "Option B — Property Management (front)", "x": 916, "y": 0, "w": 816, "h": 1056, "print": "fixed" },
+    { "file": "OfferBack.dc.html", "page": "page-1", "title": "Shared back — QR / 10% off", "x": 1832, "y": 0, "w": 816, "h": 1056, "print": "fixed" },
+    { "file": "LandingPage.dc.html", "page": "page-2", "title": "ceilingsrus.net/10-off — desktop", "x": 0, "y": 0, "w": 1200, "h": 2720, "print": "flow" },
+    { "file": "LandingMobile.dc.html", "page": "page-2", "title": "ceilingsrus.net/10-off — mobile", "x": 1320, "y": 0, "w": 390, "h": 3400, "print": "flow" }
+  ],
+  "annotations": [
+    {
+      "id": "print-specs",
+      "page": "page-1",
+      "x": 0,
+      "y": -186,
+      "w": 560,
+      "text": "8.5 x 11, double-sided. Both fronts share the same back, so you only ever print one back.\n\nSend to the printer: 100lb gloss text (flexible, cheap) or 14pt cover (feels like a real leave-behind). Ask for 0.125\" bleed — the dark header, hero and footer all run to the edge."
+    },
+    {
+      "id": "qr-target",
+      "page": "page-1",
+      "x": 1832,
+      "y": -186,
+      "w": 560,
+      "text": "The QR points to ceilingsrus.net/10-off — that page has to exist before anything goes to print.\n\nFine print still needs an end date. Everything else on this side is final."
+    },
+    {
+      "id": "landing-note",
+      "page": "page-2",
+      "x": 0,
+      "y": -186,
+      "w": 640,
+      "text": "This is the page the QR opens. Nearly every scan will be the phone version on the right, so that one is the real design — the desktop layout is for anyone who types the URL.\n\nForm fields here are drawn, not working. The live WordPress version is a separate file in the repo."
+    }
+  ],
+  "launch": { "view": "canvas", "page": "page-1" }
+}

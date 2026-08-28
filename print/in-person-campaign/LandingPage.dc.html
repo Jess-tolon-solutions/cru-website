@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #116782; text-decoration: none; }
+    a:hover { color: #0f2d36; }
+    .gcard { position: relative; }
+    .gcard::after {
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(130deg, #116782 0%, #1a8fa8 50%, #5eff00 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+              mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events: none;
+    }
+    .fieldbox {
+      background: #ffffff; border: 1.5px solid #d5e2e6; border-radius: 9px;
+      padding: 13px 15px; font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 14.5px; color: #9bb0b8;
+    }
+  </style>
+</helmet>
+
+<div style="width: 1200px; background: #ffffff; font-family: 'Open Sans', Arial, sans-serif; color: #374151;">
+
+  <!-- ============ NAV ============ -->
+  <div style="height: 76px; background: #0f2d36; display: flex; align-items: center; justify-content: space-between; padding: 0 56px;">
+    <img src="logo.png" alt="Ceilings R Us" style="height: 48px; width: auto; display: block;">
+    <div style="display: flex; align-items: center; gap: 26px;">
+      <span style="font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.75);">Licensed, bonded &amp; insured &middot; Since 2001</span>
+      <a href="tel:+19544520004" style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; font-weight: 800; color: #ffffff;">(954) 452-0004</a>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <div style="position: relative; background: #0f2d36; overflow: hidden; padding: 62px 56px 68px;">
+    <img src="hero-a.jpg" alt="Ceilings R Us crew cleaning a commercial ceiling" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(6,17,22,0.96) 0%, rgba(6,17,22,0.9) 52%, rgba(15,45,54,0.78) 100%);"></div>
+
+    <div style="position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 52px; align-items: center;">
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="align-self: flex-start; background: rgba(94,255,0,0.12); border: 1px solid rgba(94,255,0,0.5); color: #5eff00; font-size: 11.5px; font-weight: 700; letter-spacing: 2.4px; text-transform: uppercase; padding: 7px 15px; border-radius: 4px;">In-person offer &middot; Code INPERSON10</div>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 54px; font-weight: 800; line-height: 1.05; color: #ffffff; letter-spacing: -1px; text-wrap: balance;">You met our crew. Here&rsquo;s 10% off your first service.</div>
+        <div style="font-size: 17px; line-height: 1.6; color: rgba(255,255,255,0.88); max-width: 480px;">Tell us where you are and what needs attention. We&rsquo;ll call within one business day to book a free walk-through &mdash; and your 10% comes straight off the first invoice.</div>
+        <div style="display: flex; flex-direction: column; gap: 11px; margin-top: 4px;">
+          <div style="display: flex; align-items: center; gap: 10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5eff00" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M4 12.5l5 5L20 6.5"></path></svg><span style="font-size: 15px; font-weight: 600; color: #ffffff;">Free, no-obligation walk-through and written estimate</span></div>
+          <div style="display: flex; align-items: center; gap: 10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5eff00" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M4 12.5l5 5L20 6.5"></path></svg><span style="font-size: 15px; font-weight: 600; color: #ffffff;">Cleaning and restoration in place &mdash; 60&ndash;70% less than replacement</span></div>
+          <div style="display: flex; align-items: center; gap: 10px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5eff00" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M4 12.5l5 5L20 6.5"></path></svg><span style="font-size: 15px; font-weight: 600; color: #ffffff;">Night and weekend crews so you never close</span></div>
+        </div>
+      </div>
+
+      <!-- FORM CARD -->
+      <div class="gcard" style="background: #ffffff; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 15px; box-shadow: 0 24px 60px rgba(0,0,0,0.35);">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 24px; font-weight: 800; color: #0f2d36; letter-spacing: -0.3px;">Claim your 10% off</div>
+          <div style="font-size: 13.5px; line-height: 1.5; color: #5a7580;">Takes about 30 seconds. We&rsquo;ll send your code and call to schedule.</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 12px; font-weight: 700; color: #0f2d36; letter-spacing: 0.2px;">Your name</label>
+            <div class="fieldbox">Jordan Rivera</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 12px; font-weight: 700; color: #0f2d36; letter-spacing: 0.2px;">Business name</label>
+            <div class="fieldbox">Your business</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 12px; font-weight: 700; color: #0f2d36; letter-spacing: 0.2px;">Phone</label>
+            <div class="fieldbox">(305) 555-0142</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="font-size: 12px; font-weight: 700; color: #0f2d36; letter-spacing: 0.2px;">Email</label>
+            <div class="fieldbox">you@business.com</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label style="font-size: 12px; font-weight: 700; color: #0f2d36; letter-spacing: 0.2px;">What needs attention?</label>
+          <div class="fieldbox" style="display: flex; align-items: center; justify-content: space-between;">
+            <span>Kitchen / hood-area ceiling</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5a7580" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5l6 6 6-6"></path></svg>
+          </div>
+        </div>
+
+        <div style="background: #0f2d36; color: #5eff00; border-radius: 10px; padding: 17px; text-align: center; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 17px; font-weight: 800; letter-spacing: 0.4px; text-transform: uppercase;">Claim my 10% off</div>
+
+        <div style="display: flex; align-items: center; justify-content: center; gap: 7px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5a7580" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10" rx="1.6"></rect><path d="M8 10.5V7.4a4 4 0 0 1 8 0v3.1"></path></svg>
+          <span style="font-size: 11.5px; color: #5a7580;">We never share your details. No spam, one call.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ TRUST BAR ============ -->
+  <div style="background: #f4f8f9; border-bottom: 1px solid #e2ecef; padding: 24px 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+    <div style="display: flex; align-items: center; gap: 9px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></svg><span style="font-size: 13.5px; font-weight: 700; color: #0f2d36;">Family-run since 2001</span></div>
+    <div style="display: flex; align-items: center; gap: 9px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></svg><span style="font-size: 13.5px; font-weight: 700; color: #0f2d36;">Licensed, bonded &amp; insured</span></div>
+    <div style="display: flex; align-items: center; gap: 9px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></svg><span style="font-size: 13.5px; font-weight: 700; color: #0f2d36;">Non-toxic &amp; food-safe products</span></div>
+    <div style="display: flex; align-items: center; gap: 9px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"></path></svg><span style="font-size: 13.5px; font-weight: 700; color: #0f2d36;">Miami-Dade &middot; Broward &middot; Palm Beach</span></div>
+  </div>
+
+  <!-- ============ WHAT WE CLEAN ============ -->
+  <div style="padding: 62px 56px; display: flex; flex-direction: column; gap: 30px;">
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px;">
+      <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 34px; font-weight: 800; color: #0f2d36; letter-spacing: -0.6px;">What the 10% applies to</div>
+      <div style="font-size: 16px; line-height: 1.6; color: #5a7580;">Any first service on this list. If you are not sure which one you need, the walk-through will tell you.</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px;">
+
+      <div class="gcard" style="background: #f4f8f9; border-radius: 14px; padding: 26px 24px; display: flex; flex-direction: column; gap: 11px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="13" rx="1"></rect><path d="M2.5 8.3h19M2.5 12.7h19M8.8 4v13M15.2 4v13"></path><path d="M6 20.5h12"></path></svg>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #0f2d36;">Ceiling &amp; grid restoration</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5a7580;">Acoustic tile, exposed grid and open-structure decks cleaned and brightened in place &mdash; no tear-out, no landfill.</div>
+      </div>
+
+      <div class="gcard" style="background: #f4f8f9; border-radius: 14px; padding: 26px 24px; display: flex; flex-direction: column; gap: 11px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5h18l-1.6-4.2a1.6 1.6 0 0 0-1.5-1H6.1a1.6 1.6 0 0 0-1.5 1L3 10.5Z"></path><path d="M5.2 10.5v3.1a1.6 1.6 0 0 0 1.6 1.6h10.4a1.6 1.6 0 0 0 1.6-1.6v-3.1"></path><path d="M9 19v2M12 18.2V21M15 19v2"></path></svg>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #0f2d36;">Kitchen &amp; hood-area cleaning</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5a7580;">Grease-laden ceilings, walls, vents, fixtures and exhaust housings above the cook line. Food-safe, done overnight.</div>
+      </div>
+
+      <div class="gcard" style="background: #f4f8f9; border-radius: 14px; padding: 26px 24px; display: flex; flex-direction: column; gap: 11px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3.5" width="18" height="17" rx="1.6"></rect><path d="M7 8h10M7 12h10M7 16h10"></path></svg>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #0f2d36;">Ventilation &amp; duct cleaning</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5a7580;">Supply and return registers, diffusers and duct interiors &mdash; handled on the same visit as the ceiling.</div>
+      </div>
+
+      <div class="gcard" style="background: #f4f8f9; border-radius: 14px; padding: 26px 24px; display: flex; flex-direction: column; gap: 11px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6.6A1.6 1.6 0 0 0 5 4.6v14.8A1.6 1.6 0 0 0 6.6 21h10.8a1.6 1.6 0 0 0 1.6-1.6V8l-5-5Z"></path><path d="M13.8 3v4.6h4.9"></path><path d="M8.6 13.4l2 2 4.2-4.3"></path></svg>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #0f2d36;">Health inspection prep</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5a7580;">We walk the space before the inspector does and clear anything above eye level that would get written up.</div>
+      </div>
+
+      <div class="gcard" style="background: #f4f8f9; border-radius: 14px; padding: 26px 24px; display: flex; flex-direction: column; gap: 11px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V6.4a1 1 0 0 1 .7-1l6-1.9a1 1 0 0 1 1.3 1V21"></path><path d="M13 21V9.6l5 1.6a1 1 0 0 1 .7 1V21"></path><path d="M8 9h2M8 13h2M8 17h2"></path></svg>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #0f2d36;">Common areas &amp; lobbies</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5a7580;">Lobbies, corridors, stairwells and parking structures &mdash; cleaned on nights and weekends so the floor stays open.</div>
+      </div>
+
+      <div class="gcard" style="background: #f4f8f9; border-radius: 14px; padding: 26px 24px; display: flex; flex-direction: column; gap: 11px;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#116782" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11.2 12 4l8.5 7.2"></path><path d="M5.6 12.9V20h12.8v-7.1"></path><path d="M9.7 20v-4.6h4.6V20"></path></svg>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 19px; font-weight: 700; color: #0f2d36;">Post-construction &amp; turnover</div>
+        <div style="font-size: 14px; line-height: 1.6; color: #5a7580;">Drywall haze and build-out dust cleared out of the ceiling plane before the new tenant walks the suite.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ BEFORE / AFTER ============ -->
+  <div style="background: #0f2d36; padding: 62px 56px; display: flex; flex-direction: column; gap: 28px;">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 10px; max-width: 600px;">
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 34px; font-weight: 800; color: #ffffff; letter-spacing: -0.6px;">One overnight visit. Same ceiling.</div>
+        <div style="font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.8);">A South Florida commercial kitchen, photographed before we started and after we finished. Nothing was replaced.</div>
+      </div>
+      <div style="background: rgba(94,255,0,0.12); border: 1px solid rgba(94,255,0,0.45); color: #5eff00; font-size: 12px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; padding: 9px 16px; border-radius: 4px; white-space: nowrap;">Real job, real photos</div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;">
+      <div style="position: relative; border-radius: 12px; overflow: hidden; height: 330px;">
+        <img src="before.jpg" alt="Ceiling with mold and grease staining before cleaning" style="width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block;">
+        <div style="position: absolute; left: 16px; top: 16px; background: #b3261e; color: #ffffff; font-size: 12px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; padding: 7px 14px; border-radius: 4px;">Before</div>
+      </div>
+      <div style="position: relative; border-radius: 12px; overflow: hidden; height: 330px;">
+        <img src="after.jpg" alt="The same ceiling after restoration cleaning" style="width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block;">
+        <div style="position: absolute; left: 16px; top: 16px; background: #5eff00; color: #0f2d36; font-size: 12px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; padding: 7px 14px; border-radius: 4px;">After</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ WHAT HAPPENS NEXT ============ -->
+  <div style="padding: 62px 56px; display: flex; flex-direction: column; gap: 30px;">
+    <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 34px; font-weight: 800; color: #0f2d36; letter-spacing: -0.6px;">What happens after you submit</div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px;">
+
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 3px solid #116782; padding-top: 20px;">
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 800; color: #116782; letter-spacing: 2px;">STEP 01</div>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #0f2d36;">Your code is locked in</div>
+        <div style="font-size: 14.5px; line-height: 1.6; color: #5a7580;">Code INPERSON10 is attached to your business on the spot, and emailed to you for your records.</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 3px solid #1a8fa8; padding-top: 20px;">
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 800; color: #1a8fa8; letter-spacing: 2px;">STEP 02</div>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #0f2d36;">We call within one business day</div>
+        <div style="font-size: 14.5px; line-height: 1.6; color: #5a7580;">A short call to understand the space, then a free walk-through booked around your hours &mdash; including nights.</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; border-top: 3px solid #5eff00; padding-top: 20px;">
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 800; color: #0f8a3c; letter-spacing: 2px;">STEP 03</div>
+        <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #0f2d36;">Written estimate, 10% already off</div>
+        <div style="font-size: 14.5px; line-height: 1.6; color: #5a7580;">You get a fixed written price with the discount applied. No obligation to book, and no pressure if the timing is wrong.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ FINAL CTA ============ -->
+  <div style="background: linear-gradient(135deg, #116782 0%, #0f2d36 100%); padding: 58px 56px; display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 10px; max-width: 560px;">
+      <div style="font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">Rather just talk to someone?</div>
+      <div style="font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.85);">Call and mention code INPERSON10 &mdash; same discount, same free walk-through.</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; align-items: stretch;">
+      <div style="background: #5eff00; color: #0f2d36; border-radius: 10px; padding: 17px 34px; text-align: center; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 19px; font-weight: 800; letter-spacing: 0.3px;">Claim my 10% off</div>
+      <a href="tel:+19544520004" style="border: 1.5px solid rgba(255,255,255,0.5); color: #ffffff; border-radius: 10px; padding: 15px 34px; text-align: center; font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif; font-size: 17px; font-weight: 700;">(954) 452-0004</a>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div style="background: #0b2229; padding: 30px 56px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+    <div style="font-size: 12px; line-height: 1.6; color: rgba(255,255,255,0.55); max-width: 720px;">
+      New customers only. One offer per business location, applied to your first scheduled service. Cannot be combined with other discounts or promotions. Offer expires [ADD END DATE].<br>
+      &copy; Ceilings R Us &middot; Commercial ceiling cleaning &amp; restoration across South Florida since 2001 &middot; Licensed, bonded &amp; insured.
+    </div>
+    <img src="logo.png" alt="Ceilings R Us" style="height: 44px; width: auto; display: block; opacity: 0.9;">
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":1200,"height":2500}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>
