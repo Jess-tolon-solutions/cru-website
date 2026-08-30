@@ -3,3 +3,8 @@
 
 # Seeded design-canvas build output (regenerate — see print/*/README.md)
 print/*/ceilings-r-us-in-person-kit.html
+
+# Print build outputs and render proofs (regenerate with build-print-pdfs.mjs)
+print/*/pdf/
+print/*/.proof/
+print/*/.print-tmp/

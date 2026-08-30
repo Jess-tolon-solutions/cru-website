@@ -48,6 +48,25 @@ and stops there.
       brochure leads apart from every other website inquiry.
 - [ ] Scan the printed proof with a real phone before approving the full run
 
+## Print-ready PDFs
+
+`node build-print-pdfs.mjs` renders the artboards through Chrome's print-to-PDF into `pdf/`
+(gitignored — regenerate rather than commit). **Send these to the printer, not the canvas's
+own PDF export** — that export rasterises at 96 px/inch, which is fine on screen and soft on
+paper. These keep type as vector and pull photos from `print-assets/` at full resolution.
+
+Effective photo resolution across the 8.5" width:
+
+| Photo | Source px | Approx. dpi in print |
+|---|---|---|
+| `hero-b` (property front) | 1920 | ~225 |
+| `hero-a` (restaurant front) | 1536 | ~180 |
+| `before` / `after` | 1050 across a 3.8" box | ~280 |
+| `prep` | 900 across a 2.8" box | ~320 |
+
+300 dpi is the print standard. Everything clears it except the two hero shots, which are
+capped by what is on the website — the originals off Jonathan's phone would fix that.
+
 ## Rebuilding the canvas
 
 The seeded `.html` is a build output and is gitignored — regenerate it from these files:
