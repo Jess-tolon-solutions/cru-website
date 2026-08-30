@@ -45,6 +45,18 @@
 .cru-io h1,.cru-io h2,.cru-io h3 { line-height:1.12; margin:0; font-weight:800; letter-spacing:-0.5px; }
 .cru-io-wrap { max-width:1140px; margin:0 auto; padding:0 20px; }
 
+/* GO FULL-BLEED INSIDE FLATSOME'S DEFAULT PAGE TEMPLATE.
+   A pasted block lands in .page-wrapper > .row-main > .col > .col-inner, which
+   adds vertical padding and caps the row width — that shows up as a white band
+   above the hero and white rails down the sides. These rules only fire on a page
+   that actually contains this block, so nothing else on the site is affected.
+   (If the theme is ever restructured, the alternative is a UX Builder Section
+   set to full width with padding 0.) */
+.page-wrapper:has(.cru-io) { padding-top:0 !important; padding-bottom:0 !important; }
+.row-main:has(.cru-io) { max-width:100% !important; width:100% !important; padding:0 !important; margin:0 !important; }
+.row-main:has(.cru-io) > .col,
+.row-main:has(.cru-io) > .col > .col-inner { padding:0 !important; margin:0 !important; }
+
 /* gradient outline, matching shared/site-styles.css */
 .cru-io-gcard { position:relative; }
 .cru-io-gcard::after { content:''; position:absolute; inset:0; border-radius:inherit; padding:2px;
