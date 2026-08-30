@@ -43,9 +43,7 @@ and stops there.
 ## Before printing — open items
 
 - [ ] Build `/10-off/` in WordPress from `pages/campaigns/in-person-10-off.html`
-- [ ] Create a Work Request form in Jobber for this campaign and put its `form_id` in
-      `JOBBER_FORM_ID` (see the file header). A dedicated form is what lets you tell
-      brochure leads apart from every other website inquiry.
+- [x] Jobber form for this campaign — `form_id 5133982`, wired in
 - [ ] Scan the printed proof with a real phone before approving the full run
 
 ## Print-ready PDFs

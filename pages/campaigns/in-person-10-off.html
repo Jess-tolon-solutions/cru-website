@@ -14,21 +14,10 @@
   <script> runs. Mobile-first, single column — nearly every visit is a phone.
 
   ─────────────────────────────────────────────────────────────────────────────
-  BEFORE THIS GOES LIVE — one required edit:
-
-    JOBBER_FORM_ID in the CONFIG block at the bottom of this file.
-
-    Create a Work Request form in Jobber DEDICATED to this campaign, then put
-    its form_id here. A dedicated form is what lets you tell brochure leads
-    apart from every other website inquiry — reusing the contact form
-    (4837330) works, but mixes them in with everything else.
-
-    Until a real id is set, the form area renders a call/email fallback
-    instead of a broken embed, and logs a warning to the console.
-
   NOTES
-  - Same Jobber client hub as the rest of the site; only the form_id differs.
-    Contact page uses 4837330, the 25-years campaign uses 5094807.
+  - Jobber form_id 5133982, created for THIS campaign so brochure leads can be
+    told apart from other website inquiries. Same client hub as the rest of the
+    site — the contact page uses 4837330, the 25-years campaign uses 5094807.
   - No expiry date on this campaign — deliberate, so printed brochures never
     go stale. Fine print lives in the footer section here and on the brochure
     back (print/in-person-campaign/OfferBack.dc.html).
@@ -340,7 +329,7 @@
   // The ONLY edit needed before launch. Create a Work Request form in Jobber
   // for this campaign and paste its form_id here (digits only, as a string).
   // Contact page = '4837330', 25-years campaign = '5094807'.
-  var JOBBER_FORM_ID = '[ADD JOBBER FORM ID]';
+  var JOBBER_FORM_ID = '5133982';
 
   // Same client hub as every other Jobber form on the site.
   var JOBBER_HUB_ID  = 'a022635a-e1bc-43e3-bbac-6e97a2584f23';
