@@ -17,8 +17,10 @@ https://claude.ai/code/artifact/4e4674d7-846d-4fc9-9574-d8f5a8d018c7
 | `canvas.json` | Canvas layout: page 1 = leave-behinds, page 2 = landing page |
 | `*.jpg`, `logo.png` | Images, pulled from the live site and compressed for embedding |
 
-The production landing page (real form, real code reveal) is **not** here — it lives at
-`pages/campaigns/in-person-10-off.html` with the rest of the site blocks.
+The production landing page is **not** here — it lives at
+`pages/campaigns/in-person-10-off.html` with the rest of the site blocks. It shows the offer
+code up front and embeds a **Jobber Work Request form**, so leads land in Jobber alongside
+every other job rather than in an email inbox.
 
 ## Print specs
 
@@ -41,8 +43,9 @@ and stops there.
 ## Before printing — open items
 
 - [ ] Build `/10-off/` in WordPress from `pages/campaigns/in-person-10-off.html`
-- [ ] Activate the form endpoint — leads go to info@ceilingsrus.net, but FormSubmit needs a
-      one-time confirmation click before it will deliver anything (see the file header)
+- [ ] Create a Work Request form in Jobber for this campaign and put its `form_id` in
+      `JOBBER_FORM_ID` (see the file header). A dedicated form is what lets you tell
+      brochure leads apart from every other website inquiry.
 - [ ] Scan the printed proof with a real phone before approving the full run
 
 ## Rebuilding the canvas
