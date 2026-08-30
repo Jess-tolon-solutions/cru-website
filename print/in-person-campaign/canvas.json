@@ -7,8 +7,8 @@
     { "file": "Main.dc.html", "page": "page-1", "title": "Option A — Restaurants (front)", "x": 0, "y": 0, "w": 816, "h": 1056, "print": "fixed" },
     { "file": "PropertyFront.dc.html", "page": "page-1", "title": "Option B — Property Management (front)", "x": 916, "y": 0, "w": 816, "h": 1056, "print": "fixed" },
     { "file": "OfferBack.dc.html", "page": "page-1", "title": "Shared back — QR / 10% off", "x": 1832, "y": 0, "w": 816, "h": 1056, "print": "fixed" },
-    { "file": "LandingPage.dc.html", "page": "page-2", "title": "ceilingsrus.net/10-off — desktop", "x": 0, "y": 0, "w": 1200, "h": 2720, "print": "flow" },
-    { "file": "LandingMobile.dc.html", "page": "page-2", "title": "ceilingsrus.net/10-off — mobile", "x": 1320, "y": 0, "w": 390, "h": 3400, "print": "flow" }
+    { "file": "LandingPage.dc.html", "page": "page-2", "title": "ceilingsrus.net/10-off — desktop", "x": 0, "y": 0, "w": 1200, "h": 2900, "print": "flow" },
+    { "file": "LandingMobile.dc.html", "page": "page-2", "title": "ceilingsrus.net/10-off — mobile", "x": 1320, "y": 0, "w": 390, "h": 3600, "print": "flow" }
   ],
   "annotations": [
     {

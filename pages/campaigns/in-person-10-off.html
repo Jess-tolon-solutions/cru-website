@@ -396,14 +396,17 @@
     e.preventDefault();
     errBox.style.display = 'none';
 
+    // NB: read via .elements — form.name is the form's own name attribute,
+    // not the input named "name".
+    var f = form.elements;
     var data = {
       _subject: 'In-person 10% off lead — ' + OFFER_CODE,
       offer_code: OFFER_CODE,
-      name:     form.name.value.trim(),
-      business: form.business.value.trim(),
-      phone:    form.phone.value.trim(),
-      email:    form.email.value.trim(),
-      service:  form.service.value,
+      name:     f['name'].value.trim(),
+      business: f['business'].value.trim(),
+      phone:    f['phone'].value.trim(),
+      email:    f['email'].value.trim(),
+      service:  f['service'].value,
       page:     window.location.href
     };
 
