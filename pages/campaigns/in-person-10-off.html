@@ -13,13 +13,18 @@
   <script> runs. Mobile-first, single column — nearly every visit is a phone.
 
   ─────────────────────────────────────────────────────────────────────────────
-  BEFORE THIS GOES LIVE — three edits, all in the CONFIG block below:
-    1. LEAD_ENDPOINT — where the form posts. Default is FormSubmit.co, which
-       needs no account: replace the email in the URL, submit the form once
-       yourself, and click the confirmation email FormSubmit sends. If the site
-       already has WPForms/HubSpot, use that instead and delete the fetch().
-    2. OFFER_DEADLINE — the expiry date shown in the fine print.
-    3. Confirm the phone number is still (954) 452-0004.
+  BEFORE THIS GOES LIVE
+    1. Activate the form endpoint. Leads post to info@ceilingsrus.net via
+       FormSubmit, which needs no account but DOES need a one-time
+       confirmation: submit the form once yourself, then click the link
+       FormSubmit emails to info@. Until then, submissions fail silently.
+       Already have WPForms/HubSpot? Point LEAD_ENDPOINT there instead, or
+       delete the fetch() below and let their shortcode handle it.
+    2. Confirm the phone number is still (954) 452-0004.
+
+  NOTE: this campaign has no expiry date — deliberate, so printed brochures
+  never go stale. If that changes, the fine print lives in the footer section
+  and on the brochure back (print/in-person-campaign/OfferBack.dc.html).
   ─────────────────────────────────────────────────────────────────────────────
 -->
 
@@ -356,7 +361,7 @@
   <section class="cru-io-foot">
     <div class="cru-io-wrap">
       <p>
-        New customers only. One offer per business location, applied to your first scheduled service. Cannot be combined with other discounts or promotions. Offer expires <span data-cru-io-deadline></span>.<br><br>
+        New customers only. One offer per business location, applied to your first scheduled service. Cannot be combined with other discounts or promotions.<br><br>
         &copy; Ceilings R Us &middot; Commercial ceiling cleaning &amp; restoration across South Florida since 2001 &middot; Licensed, bonded &amp; insured.
       </p>
     </div>
@@ -376,16 +381,13 @@
   //    the fetch() below and let their shortcode handle it.
   var LEAD_ENDPOINT = 'https://formsubmit.co/ajax/info@ceilingsrus.net';
 
-  // 2. Shown in the fine print at the bottom of the page.
-  var OFFER_DEADLINE = '[ADD END DATE]';
-
-  // 3. Campaign code — must match what is printed on the brochure back.
+  // 2. Campaign code — must match what is printed on the brochure back.
   var OFFER_CODE = 'INPERSON10';
 
-  /* ═════════════════════════════════════════════════════════════════ */
+  //    No expiry on this campaign — the offer is open-ended by design, so
+  //    there is no deadline to render anywhere on the page.
 
-  var d = document.querySelector('[data-cru-io-deadline]');
-  if (d) { d.textContent = OFFER_DEADLINE; }
+  /* ═════════════════════════════════════════════════════════════════ */
 
   var form    = document.getElementById('cru-io-form');
   var formSt  = document.getElementById('cru-io-formstate');

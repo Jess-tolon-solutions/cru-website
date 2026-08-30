@@ -34,9 +34,12 @@ Encodes **`https://ceilingsrus.net/10-off/`** at error-correction level H.
 That page has to exist before anything goes to print. Changing the slug means
 reprinting, so the slug is frozen once the first batch is ordered.
 
+**No expiry date on this campaign** — deliberate (2026-08-30), so printed brochures never
+go stale sitting in a drawer. The fine print says "new customers only, one per location"
+and stops there.
+
 ## Before printing — open items
 
-- [ ] Offer end date — `[ADD END DATE]` appears in the back's fine print and on the landing page
 - [ ] Build `/10-off/` in WordPress from `pages/campaigns/in-person-10-off.html`
 - [ ] Activate the form endpoint — leads go to info@ceilingsrus.net, but FormSubmit needs a
       one-time confirmation click before it will deliver anything (see the file header)
