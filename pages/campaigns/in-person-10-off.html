@@ -5,9 +5,13 @@
   ============================================================================
   WHAT THIS IS
   The page a prospect lands on after scanning the QR on the back of the
-  leave-behind brochure. The offer code is shown up front; the Jobber Work
-  Request embed below it captures the lead straight into Jobber.
+  leave-behind brochure. The offer code is shown up front; the button opens
+  the Jobber Work Request form in a popup, so leads land straight in Jobber.
   Design source (artboards + print files): print/in-person-campaign/.
+
+  The popup follows the same pattern as pages/campaigns/25-years.html — any
+  element with class "cru-io-book" opens it, and the embed is lazy-loaded on
+  first open so Jobber's script stays off the critical path.
 
   DEPLOY
   Paste into a WordPress **Code/HTML element** (Flatsome UX Builder) so the
@@ -49,7 +53,9 @@
   color:var(--green); font-size:0.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase;
   padding:6px 13px; border-radius:4px; margin-bottom:16px; }
 .cru-io-hero h1 { font-size:2.15rem; color:#fff; margin-bottom:14px; }
-.cru-io-hero p { font-size:1rem; color:rgba(255,255,255,0.88); margin:0 0 22px; max-width:520px; }
+/* scoped to its own class, NOT ".cru-io-hero p" — the white form card lives
+   inside the hero, so a bare element selector paints its copy white-on-white */
+.cru-io-hero-lede { font-size:1rem; color:rgba(255,255,255,0.88); margin:0 0 22px; max-width:520px; }
 .cru-io-points { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
 .cru-io-points li { display:flex; gap:10px; align-items:flex-start; color:#fff; font-size:0.94rem; font-weight:600; }
 .cru-io-tick { flex-shrink:0; margin-top:3px; }
@@ -70,11 +76,36 @@
 .cru-io-code-note { font-size:0.84rem; color:var(--muted); text-align:center; margin:0 0 18px; }
 .cru-io-code-note strong { color:var(--dark); }
 
-.cru-io-rule { border:0; border-top:1px solid #e2ecef; margin:0 0 18px; }
+/* primary button — opens the Jobber popup */
+.cru-io-btn { display:block; width:100%; border:none; cursor:pointer; font-family:inherit;
+  background:var(--dark); color:var(--green); border-radius:10px; padding:17px;
+  font-size:1rem; font-weight:800; letter-spacing:0.5px; text-transform:uppercase;
+  transition:background .2s, color .2s, transform .2s, box-shadow .2s; }
+.cru-io-btn:hover { background:var(--teal); color:#fff; transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,0.25); }
+.cru-io-privacy { text-align:center; font-size:0.76rem; color:var(--muted); margin:11px 0 0; }
+.cru-io-alt { text-align:center; font-size:0.86rem; color:var(--muted); margin:8px 0 0; }
+.cru-io-alt a { font-weight:700; color:var(--teal); text-decoration:none; }
+.cru-io-alt a:hover { text-decoration:underline; }
 
-/* Jobber embed host */
-.cru-io-jobber { min-height:150px; }
-.cru-io-jobber-loading { text-align:center; color:var(--muted); font-size:0.88rem; padding:34px 0; }
+/* JOBBER POPUP — same behaviour as the 25-years campaign page */
+.cru-io-modal { display:none; position:fixed; inset:0; z-index:100000; background:rgba(8,18,23,0.82); padding:20px; }
+.cru-io-modal.open { display:flex; align-items:flex-start; justify-content:center; }
+.cru-io-modal-box { background:#fff; border-radius:14px; max-width:720px; width:100%; max-height:92vh;
+  overflow-y:auto; margin:24px auto; position:relative; -webkit-overflow-scrolling:touch;
+  font-family:'Open Sans',Arial,sans-serif; }
+.cru-io-modal-head { position:sticky; top:0; background:#fff; display:flex; align-items:center;
+  justify-content:space-between; padding:16px 22px; border-bottom:1px solid #e5e7eb; z-index:2; }
+.cru-io-modal-head h3 { font-size:1.15rem; font-weight:800; color:var(--dark); margin:0; }
+.cru-io-modal-close { background:none; border:none; font-size:28px; line-height:1; color:var(--muted);
+  cursor:pointer; padding:0 4px; }
+.cru-io-modal-close:hover { color:var(--dark); }
+.cru-io-modal-body { padding:18px 22px 26px; min-height:120px; }
+.cru-io-modal-loading { text-align:center; color:var(--muted); font-size:0.9rem; padding:30px 0; }
+/* reminder of the code, pinned above the form inside the popup */
+.cru-io-modal-code { border:2px dashed rgba(17,103,130,0.5); background:var(--light); border-radius:9px;
+  padding:11px 14px; margin-bottom:16px; text-align:center; font-size:0.86rem; color:var(--muted); }
+.cru-io-modal-code strong { color:var(--teal); font-size:1.05rem; letter-spacing:1.5px; }
+
 .cru-io-fallback { border:1px solid #f0c4c4; background:#fbe6e6; border-radius:10px; padding:16px; text-align:center; }
 .cru-io-fallback p { margin:0 0 12px; font-size:0.9rem; color:var(--body); }
 .cru-io-fallback a { display:block; background:var(--teal); color:#fff !important; border-radius:9px;
@@ -146,7 +177,7 @@
   .cru-io-hero { padding:70px 0; }
   .cru-io-hero .cru-io-wrap { display:grid; grid-template-columns:1.05fr 0.95fr; gap:48px; align-items:center; }
   .cru-io-hero h1 { font-size:3.1rem; }
-  .cru-io-hero p { font-size:1.06rem; }
+  .cru-io-hero-lede { font-size:1.06rem; }
   .cru-io-formwrap { background:transparent; padding:0; }
   .cru-io-form { margin:0; max-width:none; padding:30px; }
   .cru-io-trust ul { flex-direction:row; justify-content:space-between; gap:16px; }
@@ -170,7 +201,7 @@
       <div>
         <span class="cru-io-badge">In-person offer &middot; Code INPERSON10</span>
         <h1>You met our crew. Here&rsquo;s 10% off your first service.</h1>
-        <p>Tell us where you are and what needs attention. We&rsquo;ll call within one business day to book a free walk-through &mdash; and your 10% comes straight off the first invoice.</p>
+        <p class="cru-io-hero-lede">Tell us where you are and what needs attention. We&rsquo;ll call within one business day to book a free walk-through &mdash; and your 10% comes straight off the first invoice.</p>
         <ul class="cru-io-points">
           <li><svg class="cru-io-tick" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5eff00" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Free, no-obligation walk-through and written estimate</span></li>
           <li><svg class="cru-io-tick" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5eff00" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg><span>Cleaning and restoration in place &mdash; 60&ndash;70% less than replacement</span></li>
@@ -187,14 +218,11 @@
             <div class="cru-io-code-label">Your offer code</div>
             <div class="cru-io-code-val">INPERSON10</div>
           </div>
-          <p class="cru-io-code-note">Add it to the <strong>details</strong> box below and we&rsquo;ll apply it to your first invoice.</p>
+          <p class="cru-io-code-note">Add it to the <strong>details</strong> box on the form and we&rsquo;ll apply it to your first invoice.</p>
 
-          <hr class="cru-io-rule">
-
-          <!-- Jobber Work Request embed mounts here -->
-          <div class="cru-io-jobber" id="cru-io-jobber">
-            <div class="cru-io-jobber-loading">Loading request form&hellip;</div>
-          </div>
+          <button type="button" class="cru-io-btn cru-io-book">Request my free walk-through</button>
+          <p class="cru-io-privacy">Takes about a minute. Goes straight to our scheduling team.</p>
+          <p class="cru-io-alt">Or call <a href="tel:+19544520004">(954) 452-0004</a></p>
         </div>
       </div>
     </div>
@@ -303,7 +331,7 @@
         <p>Call or email and mention code INPERSON10 &mdash; same discount, same free walk-through.</p>
       </div>
       <div class="cru-io-close-btns">
-        <a href="#cru-io-card" class="cru-io-close-primary">Claim my 10% off</a>
+        <a href="#" class="cru-io-close-primary cru-io-book">Claim my 10% off</a>
         <a href="tel:+19544520004" class="cru-io-close-secondary">(954) 452-0004</a>
         <a href="mailto:info@ceilingsrus.net" class="cru-io-close-email">info@ceilingsrus.net</a>
       </div>
@@ -320,6 +348,22 @@
     </div>
   </section>
 
+</div>
+
+<!-- ══════════ JOBBER POPUP (form_id 5133982) ══════════
+  Opens from ANY element with class "cru-io-book". Lazy-loads on first open.
+  Closes on X / backdrop / Esc. -->
+<div class="cru-io-modal" id="cru-io-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Request your free walk-through">
+  <div class="cru-io-modal-box">
+    <div class="cru-io-modal-head">
+      <h3>Request your free walk-through</h3>
+      <button type="button" class="cru-io-modal-close" data-io-close aria-label="Close">&times;</button>
+    </div>
+    <div class="cru-io-modal-body">
+      <div class="cru-io-modal-code">Add code <strong>INPERSON10</strong> to the details box for 10% off</div>
+      <div id="cru-io-jobber"><div class="cru-io-modal-loading">Loading request form&hellip;</div></div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -339,48 +383,81 @@
   var JCSS = 'https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css';
   var JJS  = 'https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js';
 
-  var host = document.getElementById('cru-io-jobber');
-  if (!host) { return; }
-
-  // No real form id yet — show a usable fallback rather than an empty box.
-  if (!/^\d+$/.test(JOBBER_FORM_ID)) {
-    console.warn('[cru-io] JOBBER_FORM_ID is not set — the /10-off/ request form is showing the call/email fallback.');
-    host.innerHTML =
-      '<div class="cru-io-fallback">' +
-        '<p>Our request form is being set up. Reach us directly and mention code <strong>INPERSON10</strong>:</p>' +
-        '<a href="tel:+19544520004">Call (954) 452-0004</a>' +
-        '<a href="mailto:info@ceilingsrus.net">Email info@ceilingsrus.net</a>' +
-      '</div>';
-    return;
-  }
-
   var JID  = JOBBER_HUB_ID + '-' + JOBBER_FORM_ID;
   var JURL = 'https://clienthub.getjobber.com/client_hubs/' + JOBBER_HUB_ID +
              '/public/work_request/embedded_work_request_form?form_id=' + JOBBER_FORM_ID;
 
-  host.innerHTML = '';
+  var loaded = false;
 
-  var link = document.createElement('link');
-  link.rel = 'stylesheet'; link.href = JCSS; link.media = 'screen';
-  host.appendChild(link);
-
-  var mount = document.createElement('div');
-  mount.id = JID;
-  host.appendChild(mount);
-
-  var s = document.createElement('script');
-  s.src = JJS;
-  s.setAttribute('clienthub_id', JID);
-  s.setAttribute('form_url', JURL);
-  host.appendChild(s);
-
-  // Phone taps are trackable; Jobber submits are not (cross-origin embed).
   function ga4(name, params) {
     try {
       if (typeof window.gtag === 'function') { window.gtag('event', name, params || {}); }
       else if (window.dataLayer) { window.dataLayer.push(Object.assign({ event: name }, params || {})); }
     } catch (e) {}
   }
+
+  // Build the embed the first time the popup is opened, not on page load —
+  // keeps Jobber's script off the critical path for people who never open it.
+  function ensureForm() {
+    if (loaded) { return; }
+    loaded = true;
+    var host = document.getElementById('cru-io-jobber');
+    if (!host) { return; }
+
+    if (!/^\d+$/.test(JOBBER_FORM_ID)) {
+      console.warn('[cru-io] JOBBER_FORM_ID is not set — showing the call/email fallback.');
+      host.innerHTML =
+        '<div class="cru-io-fallback">' +
+          '<p>Our request form is being set up. Reach us directly and mention code <strong>INPERSON10</strong>:</p>' +
+          '<a href="tel:+19544520004">Call (954) 452-0004</a>' +
+          '<a href="mailto:info@ceilingsrus.net">Email info@ceilingsrus.net</a>' +
+        '</div>';
+      return;
+    }
+
+    host.innerHTML = '';
+    var link = document.createElement('link');
+    link.rel = 'stylesheet'; link.href = JCSS; link.media = 'screen';
+    host.appendChild(link);
+
+    var mount = document.createElement('div');
+    mount.id = JID;
+    host.appendChild(mount);
+
+    var s = document.createElement('script');
+    s.src = JJS;
+    s.setAttribute('clienthub_id', JID);
+    s.setAttribute('form_url', JURL);
+    host.appendChild(s);
+  }
+
+  function openModal() {
+    var m = document.getElementById('cru-io-modal');
+    if (!m) { return; }
+    ensureForm();
+    m.classList.add('open');
+    m.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    var close = m.querySelector('[data-io-close]');
+    if (close) { close.focus(); }
+    ga4('offer_form_open', { campaign: 'in-person-10-off' });
+  }
+
+  function closeModal() {
+    var m = document.getElementById('cru-io-modal');
+    if (!m) { return; }
+    m.classList.remove('open');
+    m.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('.cru-io-book')) { e.preventDefault(); openModal(); return; }
+    if (e.target.closest('[data-io-close]') || e.target.id === 'cru-io-modal') { closeModal(); }
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeModal(); } });
+
+  // Phone taps are trackable; Jobber submits are not (cross-origin embed).
   document.querySelectorAll('.cru-io a[href^="tel:"]').forEach(function (a) {
     a.addEventListener('click', function () { ga4('phone_click', { campaign: 'in-person-10-off' }); });
   });
