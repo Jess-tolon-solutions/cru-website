@@ -138,6 +138,9 @@
   border-radius:10px; padding:15px; text-align:center; font-size:1rem; font-weight:700; text-decoration:none;
   transition:background .2s, transform .2s; }
 .cru-io-close-secondary:hover { background:rgba(255,255,255,0.12); color:#fff !important; transform:translateY(-2px); }
+.cru-io-close-email { display:block; text-align:center; padding:8px; font-size:0.86rem; font-weight:600;
+  color:rgba(255,255,255,0.78) !important; text-decoration:none; }
+.cru-io-close-email:hover { color:#fff !important; text-decoration:underline; }
 
 /* FOOTER */
 .cru-io-foot { background:var(--darker); padding:26px 0; }
@@ -231,6 +234,7 @@
               <div class="cru-io-code-val">INPERSON10</div>
             </div>
             <a href="tel:+19544520004" class="cru-io-callbtn">Or call us now &mdash; (954) 452-0004</a>
+            <p class="cru-io-privacy" style="margin-top:11px;">Questions? <a href="mailto:info@ceilingsrus.net">info@ceilingsrus.net</a></p>
           </div>
 
         </div>
@@ -338,11 +342,12 @@
     <div class="cru-io-wrap">
       <div>
         <h2>Rather just talk to someone?</h2>
-        <p>Call and mention code INPERSON10 &mdash; same discount, same free walk-through.</p>
+        <p>Call or email and mention code INPERSON10 &mdash; same discount, same free walk-through.</p>
       </div>
       <div class="cru-io-close-btns">
         <a href="#cru-io-card" class="cru-io-close-primary">Claim my 10% off</a>
         <a href="tel:+19544520004" class="cru-io-close-secondary">(954) 452-0004</a>
+        <a href="mailto:info@ceilingsrus.net" class="cru-io-close-email">info@ceilingsrus.net</a>
       </div>
     </div>
   </section>
@@ -363,11 +368,13 @@
 (function () {
   /* ═══════════════════ CONFIG — edit these three ═══════════════════ */
 
-  // 1. Where the form posts. FormSubmit needs no account: swap the email,
-  //    submit once yourself, then click FormSubmit's confirmation email.
+  // 1. Where the form posts — leads land in info@ceilingsrus.net.
+  //    FormSubmit needs no account, but it DOES need one-time activation:
+  //    submit the form once yourself, then click the confirmation link
+  //    FormSubmit emails to info@. Until that's done, submissions fail.
   //    Using WPForms/HubSpot instead? Point this at that endpoint, or delete
   //    the fetch() below and let their shortcode handle it.
-  var LEAD_ENDPOINT = 'https://formsubmit.co/ajax/[ADD RECIPIENT EMAIL]';
+  var LEAD_ENDPOINT = 'https://formsubmit.co/ajax/info@ceilingsrus.net';
 
   // 2. Shown in the fine print at the bottom of the page.
   var OFFER_DEADLINE = '[ADD END DATE]';

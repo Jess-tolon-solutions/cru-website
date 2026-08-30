@@ -38,7 +38,8 @@ reprinting, so the slug is frozen once the first batch is ordered.
 
 - [ ] Offer end date — `[ADD END DATE]` appears in the back's fine print and on the landing page
 - [ ] Build `/10-off/` in WordPress from `pages/campaigns/in-person-10-off.html`
-- [ ] Set `LEAD_ENDPOINT` in that file (see its header comment)
+- [ ] Activate the form endpoint — leads go to info@ceilingsrus.net, but FormSubmit needs a
+      one-time confirmation click before it will deliver anything (see the file header)
 - [ ] Scan the printed proof with a real phone before approving the full run
 
 ## Rebuilding the canvas
