@@ -35,10 +35,19 @@ const TMP = resolve(HERE, '.print-tmp');
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
 const PAGES = [
-  { file: 'Main.dc.html',          out: 'ceilings-r-us-flyer-A-restaurants.pdf' },
-  { file: 'PropertyFront.dc.html', out: 'ceilings-r-us-flyer-B-property-mgmt.pdf' },
-  { file: 'OfferBack.dc.html',     out: 'ceilings-r-us-flyer-BACK-shared.pdf' },
+  { file: 'Main.dc.html',          out: 'ceilings-r-us-flyer-A-restaurants' },
+  { file: 'PropertyFront.dc.html', out: 'ceilings-r-us-flyer-B-property-mgmt' },
+  { file: 'OfferBack.dc.html',     out: 'ceilings-r-us-flyer-BACK-shared' },
 ];
+
+// The artboards are authored at trim size with art running to the edge. A
+// commercial printer needs that art carried 0.125" PAST the trim so a slight
+// drift on the guillotine doesn't leave white slivers. Since the art isn't
+// authored with a bleed margin, we scale it up just enough to cover the larger
+// sheet and let the overflow be the bleed — a hair over 1.02x, invisible.
+const TRIM = { w: 816, h: 1056, css: '8.5in 11in' };                  // 8.5 x 11
+const BLEED = { w: 840, h: 1080, css: '8.75in 11.25in' };             // + 0.125" all round
+const BLEED_SCALE = Math.max(BLEED.w / TRIM.w, BLEED.h / TRIM.h);
 
 if (!existsSync(CHROME)) {
   console.error(`Chrome not found at:\n  ${CHROME}\nInstall Chrome or edit CHROME in this file.`);
@@ -59,21 +68,29 @@ function extractArtboard(src) {
   return { head: styles.trim(), markup: body[1].trim() };
 }
 
-function buildPrintHtml({ head, markup }) {
+function buildPrintHtml({ head, markup }, bleed) {
+  const page = bleed ? BLEED : TRIM;
+  const wrapOpen = bleed ? '<div class="bleed-page"><div class="bleed-inner">' : '';
+  const wrapClose = bleed ? '</div></div>' : '';
+  const bleedCss = bleed ? `
+  .bleed-page { width: ${BLEED.w}px; height: ${BLEED.h}px; overflow: hidden; position: relative; }
+  .bleed-inner { position: absolute; top: 50%; left: 50%;
+                 transform: translate(-50%, -50%) scale(${BLEED_SCALE.toFixed(5)});
+                 transform-origin: center center; }` : '';
   return `<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 ${head}
 <style>
-  @page { size: 8.5in 11in; margin: 0; }
+  @page { size: ${page.css}; margin: 0; }
   html, body { margin: 0; padding: 0; background: #ffffff; }
   /* keep flood fills and dark panels — browsers drop backgrounds when printing */
-  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }${bleedCss}
 </style>
 </head>
 <body>
-${markup}
+${wrapOpen}${markup}${wrapClose}
 </body>
 </html>`;
 }
@@ -90,27 +107,41 @@ for (const name of ['hero-a.jpg', 'hero-b.jpg', 'before.jpg', 'after.jpg', 'prep
   writeFileSync(join(TMP, name), readFileSync(from));
 }
 
-for (const page of PAGES) {
-  const src = readFileSync(resolve(HERE, page.file), 'utf8');
-  const htmlPath = join(TMP, page.file.replace('.dc.html', '.print.html'));
-  writeFileSync(htmlPath, buildPrintHtml(extractArtboard(src)));
+const VARIANTS = [
+  { bleed: true,  dir: 'for-printer-with-bleed', suffix: '-bleed' },
+  { bleed: false, dir: 'no-bleed-office-printing', suffix: '' },
+];
 
-  const pdfPath = join(OUT, page.out);
-  execFileSync(CHROME, [
-    '--headless=new',
-    '--disable-gpu',
-    '--no-sandbox',
-    '--no-pdf-header-footer',
-    // give the webfonts time to arrive before the snapshot
-    '--virtual-time-budget=15000',
-    `--print-to-pdf=${pdfPath}`,
-    `file://${htmlPath}`,
-  ], { stdio: ['ignore', 'ignore', 'pipe'] });
+for (const v of VARIANTS) {
+  const outDir = join(OUT, v.dir);
+  mkdirSync(outDir, { recursive: true });
+  console.log(`\n${v.dir}/`);
 
-  const kb = Math.round(readFileSync(pdfPath).length / 1024);
-  console.log(`  ${page.out}  (${kb} KB)`);
+  for (const page of PAGES) {
+    const src = readFileSync(resolve(HERE, page.file), 'utf8');
+    const htmlPath = join(TMP, page.file.replace('.dc.html', v.suffix + '.print.html'));
+    writeFileSync(htmlPath, buildPrintHtml(extractArtboard(src), v.bleed));
+
+    const name = page.out + v.suffix + '.pdf';
+    const pdfPath = join(outDir, name);
+    execFileSync(CHROME, [
+      '--headless=new',
+      '--disable-gpu',
+      '--no-sandbox',
+      '--no-pdf-header-footer',
+      // give the webfonts time to arrive before the snapshot
+      '--virtual-time-budget=15000',
+      `--print-to-pdf=${pdfPath}`,
+      `file://${htmlPath}`,
+    ], { stdio: ['ignore', 'ignore', 'pipe'] });
+
+    const kb = Math.round(readFileSync(pdfPath).length / 1024);
+    console.log(`  ${name}  (${kb} KB)`);
+  }
 }
 
 rmSync(TMP, { recursive: true, force: true });
-console.log(`\nWrote ${PAGES.length} PDFs to ${OUT}`);
-console.log('Each is a single 8.5 x 11 page, full bleed. Text is vector; photos are embedded.');
+console.log(`\nWrote ${PAGES.length * VARIANTS.length} PDFs to ${OUT}`);
+console.log('  for-printer-with-bleed/    8.75 x 11.25in — trims to 8.5 x 11. Send these to a commercial printer.');
+console.log('  no-bleed-office-printing/  8.5 x 11in exactly. For proofing or printing in-house.');
+console.log('Text is vector in both; photos are embedded at print-assets/ resolution.');

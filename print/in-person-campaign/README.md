@@ -26,8 +26,13 @@ every other job rather than in an email inbox.
 
 - **8.5 × 11, double-sided.** Both fronts share one back, so only one back ever goes to print.
 - 100lb gloss text (cheap, flexible) or 14pt cover (feels like a real leave-behind).
-- Ask for **0.125" bleed** — the header, hero and footer all run to the edge.
 - Authored at 96 px/inch (816 × 1056 px = 8.5 × 11 in).
+- `build-print-pdfs.mjs` emits two sets:
+  - **`pdf/for-printer-with-bleed/`** — 8.75 × 11.25 in, trims to 8.5 × 11. Send these to a
+    commercial printer and tell them the trim size. The art is scaled ~2.9% so it carries
+    past the trim; without that, a drift on the guillotine leaves white slivers on a design
+    where the header, hero and footer all run to the edge.
+  - **`pdf/no-bleed-office-printing/`** — 8.5 × 11 exactly. Proofs and in-house printing.
 
 ## The QR code
 
