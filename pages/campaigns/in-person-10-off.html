@@ -18,6 +18,14 @@
   <script> runs. Mobile-first, single column — nearly every visit is a phone.
 
   ─────────────────────────────────────────────────────────────────────────────
+  ⚠ NEVER PUT A BACKSLASH IN THIS BLOCK.
+  WordPress strips backslashes out of pasted HTML/JS. A digit-class regex
+  arrives on the live page with its escape gone and quietly changes meaning:
+  it then matches literal letters instead of digits. That bit us once already
+  — the form-id guard rejected a perfectly good id and showed the call/email
+  fallback instead of the Jobber form. Write conditions without regex escapes,
+  and in CSS use characters directly rather than escape sequences.
+
   NOTES
   - Jobber form_id 5133982, created for THIS campaign so brochure leads can be
     told apart from other website inquiries. Same client hub as the rest of the
@@ -404,7 +412,11 @@
     var host = document.getElementById('cru-io-jobber');
     if (!host) { return; }
 
-    if (!/^\d+$/.test(JOBBER_FORM_ID)) {
+    // Digits-only check written WITHOUT a regex on purpose: WordPress strips
+    // backslashes out of pasted blocks, so a digit-class escape loses its
+    // meaning and rejects every real form id. Keep this block backslash-free.
+    var idOk = JOBBER_FORM_ID.length > 0 && String(Number(JOBBER_FORM_ID)) === JOBBER_FORM_ID;
+    if (!idOk) {
       console.warn('[cru-io] JOBBER_FORM_ID is not set — showing the call/email fallback.');
       host.innerHTML =
         '<div class="cru-io-fallback">' +
