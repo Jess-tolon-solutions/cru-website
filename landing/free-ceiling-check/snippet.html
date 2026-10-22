@@ -1,0 +1,1399 @@
+<!--
+  Ceilings R Us — Direct Mail Landing Page (V36 Pilot)
+  Insert via WPCode as HTML snippet on a blank-template page at /free-ceiling-check/
+  All CSS classes prefixed cru-dm- to avoid Flatsome collisions
+-->
+
+<style>
+/* ============================================================
+   CRU DIRECT MAIL LANDING PAGE — STYLES
+   Mobile-first, 390px base width
+   ============================================================ */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap');
+
+/* CSS Variables */
+.cru-dm-page {
+  --cru-teal: #116782;
+  --cru-teal-dark: #0B4A5E;
+  --cru-teal-secondary: #118484;
+  --cru-cyan: #1EC8F5;
+  --cru-lime: #5EF000;
+  --cru-white: #ffffff;
+  --cru-ink: #2b3036;
+  --cru-muted: #525961;
+  --cru-light-bg: #f4f8f9;
+  --cru-border: #e0e5e8;
+  --cru-shadow: rgba(0, 0, 0, 0.18);
+  --cru-font: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Reset for this section */
+.cru-dm-page {
+  font-family: var(--cru-font);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--cru-ink);
+  background: var(--cru-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cru-dm-page *,
+.cru-dm-page *::before,
+.cru-dm-page *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cru-dm-page img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cru-dm-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Container */
+.cru-dm-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================================
+   TOP BAR WITH ICON LOGO
+   ============================================================ */
+.cru-dm-topbar {
+  background: var(--cru-teal);
+  padding: 10px 0;
+}
+
+.cru-dm-topbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cru-dm-topbar-logo img {
+  height: 56px;
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .cru-dm-topbar-logo img {
+    height: 72px;
+  }
+}
+
+/* ============================================================
+   HERO WITH FULL-BLEED BACKGROUND IMAGE
+   ============================================================ */
+.cru-dm-hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Hero background image */
+.cru-dm-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.cru-dm-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Mobile crop: keep main tech (right side of frame) visible */
+  object-position: 70% center;
+}
+
+@media (min-width: 768px) {
+  .cru-dm-hero-bg img {
+    object-position: center center;
+  }
+}
+
+/* Teal gradient overlay for readability */
+.cru-dm-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(17, 103, 130, 0.92) 0%,
+    rgba(17, 103, 130, 0.75) 50%,
+    rgba(17, 103, 130, 0.55) 100%
+  );
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .cru-dm-hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(17, 103, 130, 0.92) 0%,
+      rgba(17, 103, 130, 0.75) 40%,
+      rgba(17, 103, 130, 0.35) 100%
+    );
+  }
+}
+
+.cru-dm-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 40px 0 48px;
+}
+
+.cru-dm-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 12px;
+}
+
+.cru-dm-headline {
+  font-size: clamp(48px, 12vw, 72px);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -1px;
+  color: var(--cru-white);
+  text-transform: uppercase;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  margin-bottom: 16px;
+}
+
+.cru-dm-subhead {
+  font-size: 17px;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 320px;
+  margin-bottom: 24px;
+}
+
+/* Offer Card */
+.cru-dm-offer-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 20px 24px;
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.cru-dm-offer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--cru-lime), transparent);
+}
+
+.cru-dm-offer-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--cru-white);
+  margin-bottom: 4px;
+}
+
+.cru-dm-offer-subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--cru-white);
+  margin-bottom: 12px;
+}
+
+.cru-dm-offer-divider {
+  width: 48px;
+  height: 3px;
+  background: var(--cru-white);
+  margin-bottom: 12px;
+}
+
+.cru-dm-offer-code {
+  display: inline-block;
+  background: var(--cru-white);
+  color: var(--cru-teal);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+}
+
+/* CTA Buttons */
+.cru-dm-cta-group {
+  margin-bottom: 20px;
+}
+
+.cru-dm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  font-family: var(--cru-font);
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+/* Primary button - teal */
+.cru-dm-btn-primary {
+  background: var(--cru-teal);
+  color: var(--cru-white);
+  box-shadow: 0 6px 18px rgba(17, 103, 130, 0.35);
+  font-weight: 800;
+  border-left: 4px solid var(--cru-lime);
+}
+
+.cru-dm-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(17, 103, 130, 0.45);
+  background: var(--cru-teal-dark);
+}
+
+/* Hero button override - white on dark */
+.cru-dm-hero .cru-dm-btn-primary {
+  background: var(--cru-white);
+  color: var(--cru-teal);
+  border-left: 4px solid var(--cru-lime);
+}
+
+.cru-dm-hero .cru-dm-btn-primary:hover {
+  background: var(--cru-light-bg);
+}
+
+.cru-dm-btn-secondary {
+  background: transparent;
+  color: var(--cru-teal);
+  border: 2px solid var(--cru-teal);
+}
+
+.cru-dm-btn-secondary:hover {
+  background: var(--cru-teal);
+  color: var(--cru-white);
+}
+
+/* Hero Trust Line */
+.cru-dm-trust-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cru-dm-trust-line span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cru-dm-trust-line span::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--cru-lime);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(94, 240, 0, 0.5);
+}
+
+/* Gradient rule */
+.cru-dm-rule {
+  height: 2px;
+  background: linear-gradient(to right, var(--cru-teal), transparent);
+  margin: 32px 0;
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.cru-dm-section {
+  padding: 48px 0;
+}
+
+.cru-dm-section-alt {
+  background: var(--cru-light-bg);
+}
+
+.cru-dm-section-teal {
+  background: linear-gradient(135deg, var(--cru-teal), var(--cru-teal-dark));
+  color: var(--cru-white);
+}
+
+.cru-dm-section-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cru-teal);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.cru-dm-section-teal .cru-dm-section-heading {
+  color: var(--cru-white);
+}
+
+.cru-dm-section-body {
+  font-size: 16px;
+  color: var(--cru-muted);
+  margin-bottom: 24px;
+}
+
+.cru-dm-section-subline {
+  font-size: 16px;
+  color: var(--cru-muted);
+  margin-bottom: 24px;
+  margin-top: -8px;
+}
+
+/* ============================================================
+   WHAT THE FREE CEILING CHECK IS
+   ============================================================ */
+.cru-dm-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.cru-dm-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.cru-dm-step-num {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--cru-teal);
+  color: var(--cru-white);
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid var(--cru-lime);
+  box-shadow: 0 4px 12px rgba(17, 103, 130, 0.3);
+}
+
+.cru-dm-step-text {
+  padding-top: 6px;
+}
+
+.cru-dm-step-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cru-ink);
+  margin-bottom: 4px;
+}
+
+.cru-dm-step-desc {
+  font-size: 14px;
+  color: var(--cru-muted);
+}
+
+/* ============================================================
+   WHAT WE CLEAN — CARDS
+   ============================================================ */
+.cru-dm-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 480px) {
+  .cru-dm-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cru-dm-card {
+  background: var(--cru-white);
+  border: 1px solid var(--cru-border);
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.cru-dm-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--cru-teal), var(--cru-teal-secondary));
+}
+
+.cru-dm-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--cru-ink);
+  margin-bottom: 8px;
+}
+
+.cru-dm-card-body {
+  font-size: 14px;
+  color: var(--cru-muted);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   BEFORE/AFTER PHOTO SECTION
+   ============================================================ */
+.cru-dm-photo-section {
+  padding: 48px 0;
+  background: var(--cru-white);
+}
+
+.cru-dm-before-after-single {
+  margin-top: 24px;
+  border: 1px solid var(--cru-border);
+  overflow: hidden;
+}
+
+.cru-dm-before-after-single img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .cru-dm-before-after-single {
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ============================================================
+   WHY RESTAURANTS CALL US — BULLETS
+   ============================================================ */
+.cru-dm-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cru-dm-bullet {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.cru-dm-bullet-icon {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  background: var(--cru-lime);
+  margin-top: 7px;
+  box-shadow: 0 0 8px rgba(94, 240, 0, 0.5);
+}
+
+.cru-dm-bullet-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cru-ink);
+  margin-bottom: 4px;
+}
+
+.cru-dm-bullet-desc {
+  font-size: 14px;
+  color: var(--cru-muted);
+}
+
+/* ============================================================
+   MULTIPLE LOCATIONS
+   ============================================================ */
+.cru-dm-multi {
+  background: rgba(17, 103, 130, 0.08);
+  padding: 24px;
+  border-left: 4px solid var(--cru-teal);
+}
+
+.cru-dm-multi-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cru-teal);
+  margin-bottom: 8px;
+}
+
+.cru-dm-multi-body {
+  font-size: 15px;
+  color: var(--cru-muted);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   FORM
+   ============================================================ */
+.cru-dm-form-section {
+  padding: 48px 0;
+  background: var(--cru-light-bg);
+}
+
+/* Promo code reminder */
+.cru-dm-promo-reminder {
+  background: linear-gradient(135deg, rgba(94, 240, 0, 0.15), rgba(94, 240, 0, 0.05));
+  border: 2px solid var(--cru-lime);
+  padding: 14px 20px;
+  margin-bottom: 24px;
+  font-size: 16px;
+  color: var(--cru-ink);
+  text-align: center;
+}
+
+.cru-dm-promo-reminder strong {
+  color: var(--cru-teal);
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* Jobber form wrapper */
+.cru-dm-jobber-wrap {
+  background: var(--cru-white);
+  border: 1px solid var(--cru-border);
+  padding: 24px;
+  min-height: 400px;
+}
+
+.cru-dm-jobber-loading {
+  text-align: center;
+  color: var(--cru-muted);
+  padding: 60px 20px;
+}
+
+.cru-dm-form-note {
+  text-align: center;
+  font-size: 14px;
+  color: var(--cru-muted);
+  margin-top: 16px;
+}
+
+.cru-dm-form-note a {
+  color: var(--cru-teal);
+  font-weight: 600;
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.cru-dm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.cru-dm-modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cru-dm-modal {
+  background: var(--cru-white);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s;
+}
+
+.cru-dm-modal-overlay.open .cru-dm-modal {
+  transform: translateY(0);
+}
+
+.cru-dm-modal-header {
+  background: var(--cru-teal);
+  color: var(--cru-white);
+  padding: 20px 50px 20px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.cru-dm-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cru-dm-modal-subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+.cru-dm-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.cru-dm-modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.cru-dm-modal-close svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--cru-white);
+  stroke-width: 2;
+}
+
+.cru-dm-modal-body {
+  padding: 24px;
+}
+
+.cru-dm-modal-promo {
+  background: linear-gradient(135deg, rgba(94, 240, 0, 0.15), rgba(94, 240, 0, 0.05));
+  border: 2px solid var(--cru-lime);
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: var(--cru-ink);
+  text-align: center;
+}
+
+.cru-dm-modal-promo strong {
+  color: var(--cru-teal);
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.cru-dm-modal-form {
+  min-height: 350px;
+}
+
+.cru-dm-modal-footer {
+  text-align: center;
+  font-size: 14px;
+  color: var(--cru-muted);
+  padding-top: 16px;
+  border-top: 1px solid var(--cru-border);
+}
+
+.cru-dm-modal-footer a {
+  color: var(--cru-teal);
+  font-weight: 600;
+}
+
+/* Prevent body scroll when modal is open */
+body.cru-dm-modal-open {
+  overflow: hidden;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.cru-dm-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--cru-border);
+}
+
+.cru-dm-faq-item {
+  border-bottom: 1px solid var(--cru-border);
+}
+
+.cru-dm-faq-item:last-child {
+  border-bottom: none;
+}
+
+.cru-dm-faq-q {
+  width: 100%;
+  padding: 20px;
+  background: var(--cru-white);
+  border: none;
+  text-align: left;
+  font-family: var(--cru-font);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cru-ink);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.cru-dm-faq-q::after {
+  content: '+';
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--cru-teal);
+  transition: transform 0.2s;
+}
+
+.cru-dm-faq-item.open .cru-dm-faq-q::after {
+  content: '-';
+}
+
+.cru-dm-faq-a {
+  display: none;
+  padding: 0 20px 20px;
+  font-size: 15px;
+  color: var(--cru-muted);
+  line-height: 1.6;
+}
+
+.cru-dm-faq-item.open .cru-dm-faq-a {
+  display: block;
+}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.cru-dm-final-cta {
+  padding: 48px 0;
+  text-align: center;
+}
+
+.cru-dm-final-cta .cru-dm-section-heading {
+  color: var(--cru-white);
+  margin-bottom: 24px;
+}
+
+.cru-dm-final-cta .cru-dm-btn-primary {
+  background: var(--cru-white);
+  color: var(--cru-teal);
+  border-left: 4px solid var(--cru-lime);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.cru-dm-final-cta .cru-dm-btn-primary:hover {
+  background: var(--cru-light-bg);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   STICKY MOBILE CTA
+   ============================================================ */
+.cru-dm-sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--cru-teal);
+  padding: 14px 20px;
+  z-index: 9999;
+  box-shadow: 0 -4px 20px rgba(17, 103, 130, 0.4);
+  border-top: 3px solid var(--cru-lime);
+}
+
+.cru-dm-sticky a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--cru-white);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.cru-dm-sticky svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--cru-white);
+}
+
+/* Hide sticky on larger screens */
+@media (min-width: 768px) {
+  .cru-dm-sticky {
+    display: none;
+  }
+}
+
+/* Add bottom padding on mobile for sticky bar */
+@media (max-width: 767px) {
+  .cru-dm-page {
+    padding-bottom: 70px;
+  }
+}
+
+/* ============================================================
+   DESKTOP ENHANCEMENTS
+   ============================================================ */
+@media (min-width: 768px) {
+  .cru-dm-page {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .cru-dm-container {
+    max-width: 960px !important;
+    width: 100% !important;
+  }
+
+  .cru-dm-hero {
+    min-height: 600px;
+    width: 100% !important;
+  }
+
+  .cru-dm-hero .cru-dm-container {
+    max-width: 100% !important;
+    padding: 0 48px;
+  }
+
+  .cru-dm-headline {
+    font-size: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cru-dm-container {
+    max-width: 1100px !important;
+  }
+
+  .cru-dm-hero .cru-dm-container {
+    max-width: 100% !important;
+    padding: 0 64px;
+  }
+
+  .cru-dm-hero-content {
+    max-width: 50%;
+  }
+
+  .cru-dm-headline {
+    font-size: 88px;
+  }
+
+  .cru-dm-cta-group {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .cru-dm-cta-group .cru-dm-btn {
+    flex: 1;
+  }
+
+  .cru-dm-section {
+    padding: 64px 0;
+  }
+
+  .cru-dm-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cru-dm-container {
+    max-width: 1200px !important;
+  }
+
+  .cru-dm-hero .cru-dm-container {
+    padding: 0 80px;
+  }
+
+  .cru-dm-hero-content {
+    max-width: 45%;
+  }
+
+  .cru-dm-headline {
+    font-size: 96px;
+  }
+}
+</style>
+
+<div class="cru-dm-page" id="cru-dm-page">
+
+  <!-- Top Bar with Icon Logo -->
+  <header class="cru-dm-topbar">
+    <div class="cru-dm-container">
+      <div class="cru-dm-topbar-logo">
+        <!-- Icon-only mark: figure + ceiling, no wordmark -->
+        <img src="https://ceilingsrus.net/wp-content/uploads/2026/10/ceilingsrus-icon.svg" alt="Ceilings R Us" loading="eager" style="height: 56px; width: auto;">
+      </div>
+    </div>
+  </header>
+
+  <!-- Form Modal -->
+  <div class="cru-dm-modal-overlay" id="cru-dm-modal" role="dialog" aria-modal="true" aria-labelledby="cru-modal-title">
+    <div class="cru-dm-modal">
+      <div class="cru-dm-modal-header">
+        <h2 class="cru-dm-modal-title" id="cru-modal-title">Book your free ceiling check</h2>
+        <p class="cru-dm-modal-subtitle">We'll call within one business day</p>
+        <button class="cru-dm-modal-close" type="button" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="cru-dm-modal-body">
+        <div class="cru-dm-modal-promo">
+          Your code: <strong id="cru-modal-code">MAIL10</strong> — mention it when we call!
+        </div>
+        <div class="cru-dm-modal-form" id="cru-modal-jobber">
+          <div class="cru-dm-jobber-loading">Loading form...</div>
+        </div>
+        <div class="cru-dm-modal-footer">
+          Prefer to talk? <a href="tel:+19544520004" class="cru-dm-track-call" data-location="modal">Call (954) 452-0004</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+  <!-- Hero with full-bleed background -->
+  <section class="cru-dm-hero">
+    <!-- Background image - crew photo -->
+    <div class="cru-dm-hero-bg" id="cru-hero-bg">
+      <img id="cru-hero-img" src="https://ceilingsrus.net/wp-content/uploads/2026/10/hero_2_bw-blue-uniforms-scaled.jpg" alt="Ceilings R Us crew cleaning a restaurant ceiling" loading="eager" width="1200" height="800">
+    </div>
+    <!-- Teal gradient overlay -->
+    <div class="cru-dm-hero-overlay"></div>
+    <div class="cru-dm-container">
+      <div class="cru-dm-hero-content">
+        <span class="cru-dm-eyebrow">Commercial Ceiling Cleaning for Restaurants</span>
+        <h1 class="cru-dm-headline">Your<br>Guests<br>Look<br>Up.</h1>
+        <p class="cru-dm-subhead">Before they read the menu, they read the room. We make sure what they see overhead matches what's on the plate.</p>
+
+        <div class="cru-dm-offer-card">
+          <div class="cru-dm-offer-title">FREE CEILING CHECK</div>
+          <div class="cru-dm-offer-subtitle">+ 10% off your first service</div>
+          <div class="cru-dm-offer-divider"></div>
+          <div class="cru-dm-offer-code">Code: <span id="cru-promo-display">MAIL10</span></div>
+        </div>
+
+        <div class="cru-dm-cta-group">
+          <button type="button" class="cru-dm-btn cru-dm-btn-primary cru-dm-open-modal">Book my free ceiling check</button>
+        </div>
+
+        <div class="cru-dm-trust-line">
+          <span>Overnight service</span>
+          <span>Certificate of Service</span>
+          <span>25+ years in South Florida</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cru-dm-container"><div class="cru-dm-rule"></div></div>
+
+  <!-- What the free ceiling check is -->
+  <section class="cru-dm-section">
+    <div class="cru-dm-container">
+      <h2 class="cru-dm-section-heading">A 20-minute look up.</h2>
+      <p class="cru-dm-section-body">We look at your ceilings, walls and vents, then give you a straight price.</p>
+
+      <div class="cru-dm-steps">
+        <div class="cru-dm-step">
+          <div class="cru-dm-step-num">1</div>
+          <div class="cru-dm-step-text">
+            <div class="cru-dm-step-title">Call or book</div>
+            <div class="cru-dm-step-desc">Pick a time that works around your service.</div>
+          </div>
+        </div>
+        <div class="cru-dm-step">
+          <div class="cru-dm-step-num">2</div>
+          <div class="cru-dm-step-text">
+            <div class="cru-dm-step-title">We take a look</div>
+            <div class="cru-dm-step-desc">Ceilings, walls and vents, front and back of house.</div>
+          </div>
+        </div>
+        <div class="cru-dm-step">
+          <div class="cru-dm-step-num">3</div>
+          <div class="cru-dm-step-text">
+            <div class="cru-dm-step-title">You get a price</div>
+            <div class="cru-dm-step-desc">With 10% off your first service if you book.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we clean -->
+  <section class="cru-dm-section cru-dm-section-alt">
+    <div class="cru-dm-container">
+      <h2 class="cru-dm-section-heading">What we clean</h2>
+
+      <div class="cru-dm-cards">
+        <div class="cru-dm-card">
+          <div class="cru-dm-card-title">Dining room ceilings</div>
+          <div class="cru-dm-card-body">Acoustic tile, drop ceilings, exposed and painted surfaces. Bright, clean, and photo-ready.</div>
+        </div>
+        <div class="cru-dm-card">
+          <div class="cru-dm-card-title">Kitchen ceilings & walls</div>
+          <div class="cru-dm-card-body">The surfaces your team stops seeing. Cleaned and documented.</div>
+        </div>
+        <div class="cru-dm-card">
+          <div class="cru-dm-card-title">Vents & grilles</div>
+          <div class="cru-dm-card-body">Dust and buildup cleared from supply and return vents.</div>
+        </div>
+        <div class="cru-dm-card">
+          <div class="cru-dm-card-title">Certificate of Service</div>
+          <div class="cru-dm-card-body">Written documentation after every job, ready when you need to show it.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Section: Before/After Annotated -->
+  <section class="cru-dm-photo-section">
+    <div class="cru-dm-container">
+      <h2 class="cru-dm-section-heading">See the difference</h2>
+      <p class="cru-dm-section-subline">Same ceiling. Cleaned tiles up front, untouched tiles in the back.</p>
+
+      <!-- Single annotated before/after image -->
+      <div class="cru-dm-before-after-single">
+        <img src="https://ceilingsrus.net/wp-content/uploads/2026/10/PHOTO-2026-07-20-21-25-49-1.jpeg" alt="Restaurant ceiling mid-cleaning: cleaned tiles in front, dirty tiles in back" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Why restaurants call us -->
+  <section class="cru-dm-section cru-dm-section-alt">
+    <div class="cru-dm-container">
+      <h2 class="cru-dm-section-heading">Overnight. Hands-off. Done before you open.</h2>
+
+      <div class="cru-dm-bullets">
+        <div class="cru-dm-bullet">
+          <div class="cru-dm-bullet-icon"></div>
+          <div>
+            <div class="cru-dm-bullet-title">Zero downtime</div>
+            <div class="cru-dm-bullet-desc">We work overnight, so you never close a section or move a reservation.</div>
+          </div>
+        </div>
+        <div class="cru-dm-bullet">
+          <div class="cru-dm-bullet-icon"></div>
+          <div>
+            <div class="cru-dm-bullet-title">Hands-off for your team</div>
+            <div class="cru-dm-bullet-desc">Your staff doesn't move a thing. We set up, clean, and leave it ready for service.</div>
+          </div>
+        </div>
+        <div class="cru-dm-bullet">
+          <div class="cru-dm-bullet-icon"></div>
+          <div>
+            <div class="cru-dm-bullet-title">Documented</div>
+            <div class="cru-dm-bullet-desc">Every job ends with a Certificate of Service.</div>
+          </div>
+        </div>
+        <div class="cru-dm-bullet">
+          <div class="cru-dm-bullet-icon"></div>
+          <div>
+            <div class="cru-dm-bullet-title">Local for 25+ years</div>
+            <div class="cru-dm-bullet-desc">A South Florida family company, not a call center.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Multiple locations -->
+  <section class="cru-dm-section">
+    <div class="cru-dm-container">
+      <div class="cru-dm-multi">
+        <h2 class="cru-dm-multi-heading">Running more than one location?</h2>
+        <p class="cru-dm-multi-body">Ask about group pricing. One call, one schedule, every location on the same standard.</p>
+        <a href="tel:+19544520004" class="cru-dm-btn cru-dm-btn-secondary cru-dm-track-call" data-location="group">Call about group pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="cru-dm-form-section" id="cru-dm-form">
+    <div class="cru-dm-container">
+      <h2 class="cru-dm-section-heading">Book your free ceiling check</h2>
+
+      <!-- Promo code reminder -->
+      <div class="cru-dm-promo-reminder">
+        Your code: <strong id="cru-form-code">MAIL10</strong> — mention it when we call!
+      </div>
+
+      <!-- Jobber Embedded Form -->
+      <div class="cru-dm-jobber-wrap" id="cru-jobber-form">
+        <div class="cru-dm-jobber-loading">Loading form...</div>
+      </div>
+
+      <p class="cru-dm-form-note">
+        Prefer to talk? <a href="tel:+19544520004" class="cru-dm-track-call" data-location="form">Call (954) 452-0004</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="cru-dm-section">
+    <div class="cru-dm-container">
+      <h2 class="cru-dm-section-heading">Questions?</h2>
+
+      <div class="cru-dm-faq" role="list">
+        <div class="cru-dm-faq-item" role="listitem">
+          <button class="cru-dm-faq-q" type="button" aria-expanded="false">Why clean ceilings instead of replacing them?</button>
+          <div class="cru-dm-faq-a">Replacing tiles means materials, labor, and closing part of your restaurant. Cleaning restores most ceilings for a fraction of the cost, overnight, with nothing to close.</div>
+        </div>
+        <div class="cru-dm-faq-item" role="listitem">
+          <button class="cru-dm-faq-q" type="button" aria-expanded="false">Why does ceiling cleaning matter?</button>
+          <div class="cru-dm-faq-a">Ceilings collect dust, grease and stains over time. Guests notice a tired-looking room, even if they can't say why. Regular cleaning keeps the space bright and makes your ceilings last longer.</div>
+        </div>
+        <div class="cru-dm-faq-item" role="listitem">
+          <!-- CONFIRM WITH JONATHAN: frequency -->
+          <button class="cru-dm-faq-q" type="button" aria-expanded="false">How often should restaurant ceilings be cleaned?</button>
+          <div class="cru-dm-faq-a">Most restaurants benefit from a cleaning every 6–12 months, more often for kitchens. We'll recommend a schedule after your free ceiling check.</div>
+        </div>
+        <div class="cru-dm-faq-item" role="listitem">
+          <button class="cru-dm-faq-q" type="button" aria-expanded="false">Do we have to close?</button>
+          <div class="cru-dm-faq-a">No. We work overnight, after your last table, and we're gone before opening.</div>
+        </div>
+        <div class="cru-dm-faq-item" role="listitem">
+          <button class="cru-dm-faq-q" type="button" aria-expanded="false">What does the ceiling check cost?</button>
+          <div class="cru-dm-faq-a">Nothing. The ceiling check is free.</div>
+        </div>
+        <div class="cru-dm-faq-item" role="listitem">
+          <button class="cru-dm-faq-q" type="button" aria-expanded="false">What's the 10% off?</button>
+          <div class="cru-dm-faq-a">10% off your first service for new customers. Valid through December 31, 2026, one offer per location.</div>
+        </div>
+        <div class="cru-dm-faq-item" role="listitem">
+          <button class="cru-dm-faq-q" type="button" aria-expanded="false">Do you service my area?</button>
+          <div class="cru-dm-faq-a">We cover Broward, Palm Beach and Miami-Dade counties.</div>
+        </div>
+        <div class="cru-dm-faq-item" role="listitem">
+          <button class="cru-dm-faq-q" type="button" aria-expanded="false">I have several locations. Can you help?</button>
+          <div class="cru-dm-faq-a">Yes. Ask about group pricing when you call.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cru-dm-section cru-dm-section-teal cru-dm-final-cta">
+    <div class="cru-dm-container">
+      <h2 class="cru-dm-section-heading">Your guests are already looking up.</h2>
+      <a href="tel:+19544520004" class="cru-dm-btn cru-dm-btn-primary cru-dm-track-call" data-location="final">Call (954) 452-0004</a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Sticky Mobile CTA -->
+  <div class="cru-dm-sticky">
+    <a href="tel:+19544520004" class="cru-dm-track-call" data-location="sticky">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      Call (954) 452-0004
+    </a>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // Hero image is set directly in HTML for now
+  // Can add variant switching later when client confirms
+
+  // ============================================================
+  // JOBBER FORM CONFIG
+  // ============================================================
+  var JOBBER_ID  = 'a022635a-e1bc-43e3-bbac-6e97a2584f23-4837330';
+  var JOBBER_CSS = 'https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css';
+  var JOBBER_JS  = 'https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js';
+  var JOBBER_URL = 'https://clienthub.getjobber.com/client_hubs/a022635a-e1bc-43e3-bbac-6e97a2584f23/public/work_request/embedded_work_request_form?form_id=4837330';
+
+  // ============================================================
+  // URL PARAMETER HANDLING
+  // ============================================================
+  var urlParams = new URLSearchParams(window.location.search);
+
+  // Promo code
+  var promoCode = urlParams.get('code') || 'MAIL10';
+  var promoCodeValue = urlParams.get('code') || 'none';
+
+  // Display promo code in hero, form section, and modal
+  var promoDisplay = document.getElementById('cru-promo-display');
+  var formCode = document.getElementById('cru-form-code');
+  var modalCode = document.getElementById('cru-modal-code');
+  if (promoDisplay) promoDisplay.textContent = promoCode;
+  if (formCode) formCode.textContent = promoCode;
+  if (modalCode) modalCode.textContent = promoCode;
+
+  // ============================================================
+  // MODAL
+  // ============================================================
+  var modal = document.getElementById('cru-dm-modal');
+  var modalFormLoaded = false;
+
+  function openModal() {
+    modal.classList.add('open');
+    document.body.classList.add('cru-dm-modal-open');
+    // Load form on first open
+    if (!modalFormLoaded) {
+      loadJobberForm('cru-modal-jobber');
+      modalFormLoaded = true;
+    }
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.classList.remove('cru-dm-modal-open');
+  }
+
+  // Open modal buttons
+  document.querySelectorAll('.cru-dm-open-modal').forEach(function(btn) {
+    btn.addEventListener('click', openModal);
+  });
+
+  // Close button
+  var closeBtn = modal.querySelector('.cru-dm-modal-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  // Click outside to close
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Escape key to close
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeModal();
+    }
+  });
+
+  // ============================================================
+  // LOAD JOBBER FORM
+  // ============================================================
+  function loadJobberForm(hostId) {
+    var host = document.getElementById(hostId || 'cru-jobber-form');
+    if (!host) return;
+
+    host.innerHTML = '';
+
+    // Add Jobber CSS
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = JOBBER_CSS;
+    link.media = 'screen';
+    host.appendChild(link);
+
+    // Add mount point - use unique ID for modal
+    var mount = document.createElement('div');
+    mount.id = hostId === 'cru-modal-jobber' ? 'jobber-modal-mount' : JOBBER_ID;
+    host.appendChild(mount);
+
+    // Add Jobber script
+    var s = document.createElement('script');
+    s.src = JOBBER_JS;
+    s.setAttribute('clienthub_id', mount.id);
+    s.setAttribute('form_url', JOBBER_URL);
+    host.appendChild(s);
+  }
+
+  // Load inline form on page ready (optional fallback)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { loadJobberForm(); });
+  } else {
+    loadJobberForm();
+  }
+
+  // ============================================================
+  // GA4 TRACKING
+  // ============================================================
+  function pushToDataLayer(eventName, params) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: eventName,
+      ...params
+    });
+  }
+
+  // Track click-to-call
+  document.querySelectorAll('.cru-dm-track-call').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var location = this.getAttribute('data-location') || 'unknown';
+      pushToDataLayer('click_to_call', {
+        promo_code: promoCodeValue,
+        link_location: location
+      });
+    });
+  });
+
+  // ============================================================
+  // FAQ ACCORDION
+  // ============================================================
+  document.querySelectorAll('.cru-dm-faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.parentElement;
+      var isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.cru-dm-faq-item').forEach(function(el) {
+        el.classList.remove('open');
+        el.querySelector('.cru-dm-faq-q').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        item.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // ============================================================
+  // SMOOTH SCROLL
+  // ============================================================
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+})();
+</script>
